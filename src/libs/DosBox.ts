@@ -9,7 +9,8 @@ import version from '../conf/version'
 
 export default class DosBox {
   private emitter: EventEmitter = new EventEmitter()
-  private options: HostOptions = { wasmUrl: './wdosbox.wasm.js' }
+  private options: DosBoxOptions = { wasmUrl: './wdosbox.wasm.js' }
+  private database: string = 'gdcenter_game'
   private canvas: HTMLCanvasElement = null
   private wdosboxModule: WdosboxModule = null
   private wasmModule: WebAssembly.Module = null
@@ -20,21 +21,25 @@ export default class DosBox {
   private isReady: boolean = false
   private fetchTasks: Array<FetchTask> = []
 
-  constructor (canvas: HTMLCanvasElement, options: HostOptions = {}) {
+  constructor (canvas: HTMLCanvasElement, options: DosBoxOptions = {}) {
     this.options = defaultsDeep(this.options, options)
+    this.database = options.database || this.database
     this.canvas = canvas
   }
 
   public async play (game: GameInfo) {
-    const { ID, URL, COMMAND } = game
+    const { ID, NAME, URL, COMMAND } = game
     const { mainFn } = await this.compile()
 
     await this.extract(URL)
     await mainFn(COMMAND)
 
+    this.wdosboxModule.setWindowTitle(NAME)
+    this.setSize(window.innerWidth, window.innerHeight)
+
     const { FS } = this.wdosboxModule
     let indexedDB = <IDBFactory>FS.indexedDB()
-    let openRequest = indexedDB.open(FS.DB_NAME(), FS.DB_VERSION)
+    let openRequest = indexedDB.open(this.database, FS.DB_VERSION)
 
     openRequest.onupgradeneeded = () => {
       let db = openRequest.result
@@ -42,7 +47,7 @@ export default class DosBox {
     }
   }
 
-  public compile (wasmUrl?: string, options: HostOptions = {}): Promise<any> {
+  public compile (wasmUrl?: string, options: DosBoxOptions = {}): Promise<any> {
     options = defaultsDeep({ wasmUrl }, options, this.options)
 
     const instantiateWasm = (info, receiveInstance) => {
@@ -228,7 +233,7 @@ export default class DosBox {
     return new Promise((resolve, reject) => {
       let { FS } = this.wdosboxModule
       let indexedDB = <IDBFactory>FS.indexedDB()
-      let openRequest = indexedDB.open(FS.DB_NAME(), FS.DB_VERSION)
+      let openRequest = indexedDB.open(this.database, FS.DB_VERSION)
 
       openRequest.onupgradeneeded = () => {
         let db = openRequest.result
@@ -267,7 +272,7 @@ export default class DosBox {
     return new Promise((resolve, reject) => {
       const { FS } = this.wdosboxModule
       const indexedDB = <IDBFactory>FS.indexedDB()
-      const openRequest = indexedDB.open(FS.DB_NAME(), FS.DB_VERSION)
+      const openRequest = indexedDB.open(this.database, FS.DB_VERSION)
 
       openRequest.onupgradeneeded = () => reject(new Error(`Table ${table} is not exists`))
       openRequest.onerror = (error) => reject(error)
@@ -354,12 +359,12 @@ export default class DosBox {
   }
 
   public setSize (width: number, height: number): void {
-    if (this.isInitialized === true) {
-      this.wdosboxModule.setCanvasSize(width, height)
-    } else {
-      this.canvas.style.width = `${width}px`
-      this.canvas.style.height = `${height}px`
-    }
+    this.canvas.style.width = `${width}px`
+    this.canvas.style.height = `${height}px`
+  }
+
+  public requestFullScreen () {
+    this.wdosboxModule.requestFullScreen()
   }
 
   public destroy (force: boolean = true): Promise<void> {
@@ -402,8 +407,9 @@ export default class DosBox {
   }
 }
 
-interface HostOptions {
+interface DosBoxOptions {
   wasmUrl?: string
+  database?: string
 }
 
 interface WdosboxModule {
