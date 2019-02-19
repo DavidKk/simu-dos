@@ -180,7 +180,7 @@ export default class DosBox {
       if (code === 0) {
         return
       }
-      
+
       return Promise.reject(new Error(`Can't extract zip, retcode ${code}, see more info in logs`))
     })
   }
@@ -207,7 +207,7 @@ export default class DosBox {
     }
   }
 
-  public requestShellInput () {
+  public requestShellInput (): void {
     this.sendKeyPress(13)
   }
 
@@ -241,6 +241,24 @@ export default class DosBox {
     return true
   }
 
+  public save (dir: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+      let files = this.wdosboxModule.FS.readdir(dir)
+      files = files.splice(2).map((file) => dir + '/' + file)
+
+      this.wdosboxModule.FS.saveFilesToDB(files, resolve, reject)
+    })
+  }
+
+  public load (dir: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+      let files = this.wdosboxModule.FS.readdir(dir)
+      files = files.splice(2).map((file) => dir + '/' + file)
+
+      this.wdosboxModule.FS.loadFilesFromDB(files, resolve, reject)
+    })
+  }
+
   public destroy (force: boolean = true): Promise<void> {
     return new Promise((resolve) => {
       const handleDestroyDosBox = () => {
@@ -252,7 +270,7 @@ export default class DosBox {
         this.shellInputQueue.splice(0)
         this.shellInputClients.splice(0)
         this.fetchTasks.splice(0)
-  
+
         this.options = undefined
         this.emitter = undefined
         this.canvas = undefined
