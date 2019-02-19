@@ -1,0 +1,37 @@
+{
+  "name": "dgcenter",
+  "version": "1.0.0",
+  "description": "DOS 游戏集合",
+  "author": "DavidJones <qowera@qq.com>",
+  "private": true,
+  "lint-staged": {
+    "*.js": [
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "tslint": "tslint --config ./tslint.json --fix './src/**/*.ts'",
+    "lint": "npm run tslint",
+    "develop": "rimraf ./dist ./.cache && parcel ./src/index.html --no-hmr",
+    "start": "npm run develop"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.2",
+    "parcel-bundler": "^1.11.0",
+    "parcel-plugin-static-files-copy": "^2.0.0",
+    "postcss-pxtorem": "^4.0.1",
+    "rimraf": "^2.6.3",
+    "sass": "^1.16.0",
+    "tslint": "^5.12.1",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.3.3"
+  },
+  "staticFiles": {
+    "staticPath": "src/vendors"
+  }
+}
