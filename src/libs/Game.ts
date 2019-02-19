@@ -9,21 +9,35 @@ export default class Game {
     this.choose('XJQXZ')
   }
 
-  async choose (name: keyof typeof GAME_LIST): Promise<void> {
+  public async choose (name: keyof typeof GAME_LIST): Promise<void> {
     this.syncIntervalId && clearInterval(this.syncIntervalId)
     this.stage && await this.stage.destory()
 
     this.stage = new Stage()
 
-    const { URL, COMMAND, SAVE } = GAME_LIST[name]
+    const game = GAME_LIST[name]
     const { dosbox } = this.stage
-    const { mainFn } = await dosbox.compile()
+    await dosbox.play(game)
 
-    await dosbox.extract(URL)
-    await mainFn(COMMAND)
-    // await dosbox.load(SAVE)
+    const { ID, SAVE } = game
+    await this.loadArchiveFromDB({ dbTable: ID })
 
-    // const interval = async () => dosbox.save(SAVE)
-    // this.syncIntervalId = setInterval(interval, 10e3)
+    const interval = async () => {
+      let options = { dbTable: ID, pattern: SAVE.REGEXP }
+      await this.saveArchiveFromDB(SAVE.PATH, options)
+    }
+
+    this.syncIntervalId = setInterval(interval, 10e3)
+  }
+
+  public async saveArchiveFromDB (dir: string, options?: { dbTable: string, pattern: RegExp }) {
+    const { dosbox } = this.stage
+    const files = await dosbox.searchFiles(dir, options.pattern || /.*/)
+    files.length > 0 && await dosbox.saveFilesToDB(files, options.dbTable)
+  }
+
+  public async loadArchiveFromDB (options: { dbTable: string }) {
+    const { dosbox } = this.stage
+    await dosbox.loadFilesFromDB(null, options.dbTable)
   }
 }

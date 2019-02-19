@@ -1,3 +1,4 @@
+import * as path from 'path'
 import { EventEmitter } from 'events'
 import defaultsDeep from 'lodash/defaultsDeep'
 import { AxiosRequestConfig } from 'axios'
@@ -12,7 +13,6 @@ export default class DosBox {
   private canvas: HTMLCanvasElement = null
   private wdosboxModule: WdosboxModule = null
   private wasmModule: WebAssembly.Module = null
-  private wasmInfo: any = null
   private shellInputQueue: string[] = []
   private shellInputClients: Array<() => void> = []
   private isAlive: boolean = true
@@ -25,12 +25,27 @@ export default class DosBox {
     this.canvas = canvas
   }
 
+  public async play (game: GameInfo) {
+    const { ID, URL, COMMAND } = game
+    const { mainFn } = await this.compile()
+
+    await this.extract(URL)
+    await mainFn(COMMAND)
+
+    const { FS } = this.wdosboxModule
+    let indexedDB = <IDBFactory>FS.indexedDB()
+    let openRequest = indexedDB.open(FS.DB_NAME(), FS.DB_VERSION)
+
+    openRequest.onupgradeneeded = () => {
+      let db = openRequest.result
+      db.createObjectStore(ID)
+    }
+  }
+
   public compile (wasmUrl?: string, options: HostOptions = {}): Promise<any> {
     options = defaultsDeep({ wasmUrl }, options, this.options)
 
     const instantiateWasm = (info, receiveInstance) => {
-      this.wasmInfo = info
-
       return WebAssembly.instantiate(this.wasmModule, info).then((instance) => {
         return receiveInstance(instance, this.wasmModule)
       })
@@ -123,13 +138,46 @@ export default class DosBox {
     })
   }
 
-  public setSize (width: number, height: number): void {
-    if (this.wasmInfo) {
-      this.wdosboxModule.setCanvasSize(width, height)
-    } else {
-      this.canvas.style.width = `${width}px`
-      this.canvas.style.height = `${height}px`
+  public fetchArrayBuffer (url: string, options?: AxiosRequestConfig): Promise<ArrayBuffer> {
+    const source = CancelToken.source()
+    const token = source.token
+
+    options = defaultsDeep({ responseType: 'arraybuffer', cancelToken: token }, options)
+
+    const cancel = (message?: string) => source.cancel(message || 'Extract canceled.')
+    const promise = request.get(url, options).then((response) => {
+      const { data } = response
+      if (!(data instanceof ArrayBuffer)) {
+        return Promise.reject(new Error('Data is invalid'))
+      }
+
+      return Promise.resolve(data)
+    })
+
+    this.fetchTasks.push({ promise, cancel })
+    return promise
+  }
+
+  public extract (url: string, type: string = 'zip'): Promise<void> {
+    if (type !== 'zip') {
+      Promise.reject(new Error('Only ZIP archive is supported'))
+      return
     }
+
+    return this.fetchArrayBuffer(url).then((data) => {
+      const bytes = new Uint8Array(data)
+      const buffer = this.wdosboxModule._malloc(bytes.length)
+      this.wdosboxModule.HEAPU8.set(bytes, buffer)
+
+      const code = this.wdosboxModule._extract_zip(buffer, bytes.length)
+      this.wdosboxModule._free(buffer)
+
+      if (code === 0) {
+        return
+      }
+
+      return Promise.reject(new Error(`Can't extract zip, retcode ${code}, see more info in logs`))
+    })
   }
 
   public createFile (file: string, body: ArrayBuffer | Uint8Array | string): void {
@@ -163,26 +211,120 @@ export default class DosBox {
     this.wdosboxModule.FS_createDataFile(path, filename, body, true, true, true)
   }
 
-  public extract (url: string, type: string = 'zip'): Promise<void> {
-    if (type !== 'zip') {
-      Promise.reject(new Error('Only ZIP archive is supported'))
-      return
+  public searchFiles (dir: string, pattern: RegExp): Promise<Array<string>> {
+    return new Promise((resolve) => {
+      let { FS } = this.wdosboxModule
+      let files = FS.readdir(dir)
+      files = files.filter((file) => pattern.test(file))
+      resolve(files)
+    })
+  }
+
+  public saveFilesToDB (files: string[], table: string = this.wdosboxModule.FS.DB_STORE_NAME): Promise<void> {
+    if (files.length === 0) {
+      return Promise.resolve()
     }
 
-    return this.fetchArrayBuffer(url).then((data) => {
-      const bytes = new Uint8Array(data)
-      const buffer = this.wdosboxModule._malloc(bytes.length)
-      this.wdosboxModule.HEAPU8.set(bytes, buffer)
+    return new Promise((resolve, reject) => {
+      let { FS } = this.wdosboxModule
+      let indexedDB = <IDBFactory>FS.indexedDB()
+      let openRequest = indexedDB.open(FS.DB_NAME(), FS.DB_VERSION)
 
-      const code = this.wdosboxModule._extract_zip(buffer, bytes.length)
-      this.wdosboxModule._free(buffer)
-
-      if (code === 0) {
-        return
+      openRequest.onupgradeneeded = () => {
+        let db = openRequest.result
+        db.createObjectStore(table)
       }
 
-      return Promise.reject(new Error(`Can't extract zip, retcode ${code}, see more info in logs`))
+      openRequest.onerror = (error) => reject(error)
+
+      openRequest.onsuccess = () => {
+        const db = openRequest.result
+        const transaction = db.transaction([table], 'readwrite')
+        const store = transaction.objectStore(table)
+
+        transaction.onerror = (error) => reject(error)
+
+        let promises = files.map((file) => new Promise((resolve, reject) => {
+          let stats = FS.analyzePath(file)
+          if (stats.exists !== true) {
+            reject(new Error(`File ${file} is not exists`))
+            return
+          }
+
+          let content = FS.analyzePath(file).object.contents
+          let putRequest = store.put(content, file)
+
+          putRequest.onsuccess = () => resolve()
+          putRequest.onerror = (error) => reject(error)
+        }))
+
+        return Promise.all(promises).then(() => resolve()).catch(reject)
+      }
     })
+  }
+
+  public loadFilesFromDB (files: string[] | null, table: string = this.wdosboxModule.FS.DB_STORE_NAME): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const { FS } = this.wdosboxModule
+      const indexedDB = <IDBFactory>FS.indexedDB()
+      const openRequest = indexedDB.open(FS.DB_NAME(), FS.DB_VERSION)
+
+      openRequest.onupgradeneeded = () => reject(new Error(`Table ${table} is not exists`))
+      openRequest.onerror = (error) => reject(error)
+
+      openRequest.onsuccess = () => {
+        const db = openRequest.result
+        const transaction = db.transaction([table], 'readonly')
+        const store = transaction.objectStore(table)
+        
+        const _putfiles = (files) => {
+          const promises = files.map((file) => new Promise((resolve, reject) => {
+            const getRequest = store.get(file)
+  
+            getRequest.onerror = (error) => reject(error)
+            getRequest.onsuccess = () => {
+              try {
+                FS.analyzePath(file).exists && FS.unlink(file)
+  
+                let dir = path.dirname(file)
+                let name = path.basename(file)
+                let content = getRequest.result
+    
+                FS.createDataFile(dir, name, content, true, true, true)
+                resolve()
+              } catch (error) {
+                reject(error)
+              }
+            }
+          }))
+  
+          return Promise.all(promises)
+        }
+
+        if (Array.isArray(files)) {
+          _putfiles(files).then(() => resolve()).catch(reject)
+          return
+        }
+
+        const getRequest = store.getAllKeys()
+        getRequest.onerror = (error) => reject(error)
+
+        getRequest.onsuccess = () => {
+          const files = getRequest.result
+          _putfiles(files).then(() => resolve()).catch(reject)
+        }
+      }
+    })
+  }
+
+  private sendKeyPress (code: number): void {
+    if (this.isInitialized === true) {
+      this.wdosboxModule.send('sdl_key_event', code + '')
+    }
+  }
+
+  public requestShellInput (): void {
+    this.sendKeyPress(13)
   }
 
   public shell (...cmd: string[]): Promise<void> {
@@ -201,36 +343,6 @@ export default class DosBox {
     })
   }
 
-  private sendKeyPress (code: number): void {
-    if (this.wasmInfo) {
-      this.wdosboxModule.send('sdl_key_event', code + '')
-    }
-  }
-
-  public requestShellInput (): void {
-    this.sendKeyPress(13)
-  }
-
-  public fetchArrayBuffer (url: string, options?: AxiosRequestConfig): Promise<ArrayBuffer> {
-    const source = CancelToken.source()
-    const token = source.token
-
-    options = defaultsDeep({ responseType: 'arraybuffer', cancelToken: token }, options)
-
-    const cancel = (message?: string) => source.cancel(message || 'Extract canceled.')
-    const promise = request.get(url, options).then((response) => {
-      const { data } = response
-      if (!(data instanceof ArrayBuffer)) {
-        return Promise.reject(new Error('Data is invalid'))
-      }
-
-      return Promise.resolve(data)
-    })
-
-    this.fetchTasks.push({ promise, cancel })
-    return promise
-  }
-
   public exit (): boolean {
     try {
       this.wdosboxModule.send('exit')
@@ -241,22 +353,13 @@ export default class DosBox {
     return true
   }
 
-  public save (dir: string): Promise<void> {
-    return new Promise((resolve, reject) => {
-      let files = this.wdosboxModule.FS.readdir(dir)
-      files = files.splice(2).map((file) => dir + '/' + file)
-
-      this.wdosboxModule.FS.saveFilesToDB(files, resolve, reject)
-    })
-  }
-
-  public load (dir: string): Promise<void> {
-    return new Promise((resolve, reject) => {
-      let files = this.wdosboxModule.FS.readdir(dir)
-      files = files.splice(2).map((file) => dir + '/' + file)
-
-      this.wdosboxModule.FS.loadFilesFromDB(files, resolve, reject)
-    })
+  public setSize (width: number, height: number): void {
+    if (this.isInitialized === true) {
+      this.wdosboxModule.setCanvasSize(width, height)
+    } else {
+      this.canvas.style.width = `${width}px`
+      this.canvas.style.height = `${height}px`
+    }
   }
 
   public destroy (force: boolean = true): Promise<void> {
@@ -276,7 +379,6 @@ export default class DosBox {
         this.canvas = undefined
         this.wdosboxModule = undefined
         this.wasmModule = undefined
-        this.wasmInfo = undefined
         this.shellInputQueue = undefined
         this.shellInputClients = undefined
         this.isAlive = undefined
@@ -316,4 +418,15 @@ interface WdosboxModule {
 interface FetchTask {
   promise: Promise<any>
   cancel: (message?: string) => void
+}
+
+interface GameInfo {
+  ID: string
+  NAME: string
+  URL: string
+  COMMAND: Array<string>
+  SAVE: {
+    PATH: string
+    REGEXP: RegExp
+  }
 }
