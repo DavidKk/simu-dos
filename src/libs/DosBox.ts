@@ -60,7 +60,10 @@ export default class DosBox {
       let mainFn = (args: string[] = []): Promise<void> => {
         return new Promise((resolve) => {
           this.createFile('/home/web_user/.dosbox/dosbox-jsdos.conf', dosConf)
+
           args.unshift('-userconf', '-c', 'mount c .', '-c', 'c:')
+          args.indexOf('-exit') === -1 && args.push('-exit')
+
           this.wdosboxModule.callMain(args)
 
           this.emitter.once('ready', resolve)
@@ -113,12 +116,19 @@ export default class DosBox {
       }
     }
 
+    const print = (message) => {
+      if (message === 'SDL_Quit called (and ignored)') {
+        this.emitter.emit('exit')
+      }
+    }
+
     this.wdosboxModule = {
       canvas: this.canvas,
       version,
       instantiateWasm,
       onRuntimeInitialized,
-      ping
+      ping,
+      print
     } as WdosboxModule
 
     const onDownloadProgress = () => {
@@ -365,6 +375,11 @@ export default class DosBox {
 
   public requestFullScreen () {
     this.wdosboxModule.requestFullScreen()
+  }
+
+  public onExit (callback): this {
+    this.emitter.addListener('exit', callback)
+    return this
   }
 
   public destroy (force: boolean = true): Promise<void> {

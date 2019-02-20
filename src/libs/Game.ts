@@ -21,8 +21,9 @@ export default class Game {
 
     const game = GAME_LIST[name]
     const { dosbox } = this.stage
-    await dosbox.play(game)
+    dosbox.onExit(() => this.stop())
 
+    await dosbox.play(game)
     this.disableContextMenu()
 
     const { ID, SAVE } = game
@@ -56,6 +57,6 @@ export default class Game {
   }
 
   public disableContextMenu (disable: boolean = true): void {
-    this.disabledContextMenu = disable
+    this.disabledContextMenu = process.env.NODE_ENV === 'development' ? false : disable
   }
 }
