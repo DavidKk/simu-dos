@@ -2,7 +2,6 @@ import * as path from 'path'
 import { EventEmitter } from 'events'
 import defaultsDeep from 'lodash/defaultsDeep'
 import { AxiosRequestConfig } from 'axios'
-import WDOSBOX from '../vendors/wdosbox'
 import request, { CancelToken } from '../services/request'
 import dosConf from '../conf/dos'
 import version from '../conf/version'
@@ -145,8 +144,10 @@ export default class DosBox {
 
       this.fetchArrayBuffer(options.wasmUrl, requestOptions)
       .then((data) => WebAssembly.compile(data))
-      .then((module) => {
+      .then(async (module) => {
         this.wasmModule = module
+
+        const { default: WDOSBOX } = await import('../vendors/wdosbox')
         WDOSBOX(this.wdosboxModule)
       })
       .catch(reject)
@@ -369,6 +370,25 @@ export default class DosBox {
   }
 
   public setSize (width: number, height: number): void {
+    let { innerWidth: maxWidth, innerHeight: maxHeight } = window
+    let originWidth = parseFloat(this.canvas.getAttribute('width')) || 640
+    let originHeight = parseFloat(this.canvas.getAttribute('height')) || 400
+    let originRatio = originWidth / originHeight
+
+    if (width > maxWidth) {
+      width = maxWidth
+    }
+
+    if (height > maxHeight) {
+      height = maxHeight
+    }
+
+    if (width > height) {
+      width = height * originRatio
+    } else {
+      height = width / originRatio
+    }
+
     this.canvas.style.width = `${width}px`
     this.canvas.style.height = `${height}px`
   }

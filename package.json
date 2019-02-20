@@ -17,7 +17,8 @@
     "start": "npm run develop"
   },
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "nipplejs": "^0.8.1"
   },
   "devDependencies": {
     "husky": "^0.14.3",

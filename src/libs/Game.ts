@@ -1,8 +1,10 @@
 import Stage from './Stage'
+import Controller from './Controller'
 import * as GAME_LIST from '../conf/games'
 
 export default class Game {
   private stage: Stage = null
+  private controller: Controller = null
   private syncIntervalId: NodeJS.Timeout = null
   private disabledContextMenu: boolean = false
   private isPlaying: boolean = false

@@ -2,13 +2,18 @@ import DOSBox from './DosBox'
 
 export default class Stage {
   private spinner: HTMLElement = null
+  private container: HTMLDivElement = null
   private stage: HTMLCanvasElement = null
   public dosbox: DOSBox = null
 
   constructor () {
     this.spinner = document.getElementById('spinner')
+    this.container = document.createElement('div')
     this.stage = document.createElement('canvas')
-    document.body.appendChild(this.stage)
+
+    this.container.classList.add('stage')
+    this.container.appendChild(this.stage)
+    document.body.appendChild(this.container)
 
     this.dosbox = new DOSBox(this.stage)
 

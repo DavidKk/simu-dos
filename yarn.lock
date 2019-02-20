@@ -3418,6 +3418,11 @@ nice-try@^1.0.4:
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
 
+nipplejs@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/nipplejs/-/nipplejs-0.8.1.tgz#c9564021de42a3820cc79522a64826c0800daef4"
+  integrity sha512-IdsyaLjfIz+9vEhW9PzxMPsO8wV5vBeSDPivedoQgln72WzuX8jB2405JRnQ6kTG4w3U5HBb9p1SZ5LZueHGLw==
+
 node-addon-api@^1.6.0:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-1.6.2.tgz#d8aad9781a5cfc4132cc2fecdbdd982534265217"
