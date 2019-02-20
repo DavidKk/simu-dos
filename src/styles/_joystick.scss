@@ -1,0 +1,27 @@
+.joystick-stand {
+  display: flex;
+  position: absolute;
+  bottom: 25%;
+  left: 30%;
+  z-index: 4;
+  display: block;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(255,255,255,.4);
+  transform: translate(-50%, 50%);
+}
+
+.joystick-stick {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  margin: auto;
+  border-radius: 100%;
+  width: 50%;
+  height: 50%;
+  background-color: rgba(255,255,255,.4);
+}

@@ -6,15 +6,12 @@ export default class Stage {
   private stage: HTMLCanvasElement = null
   public dosbox: DOSBox = null
 
-  constructor () {
+  constructor (container: HTMLDivElement) {
+    this.container = container
     this.spinner = document.getElementById('spinner')
-    this.container = document.createElement('div')
     this.stage = document.createElement('canvas')
 
-    this.container.classList.add('stage')
     this.container.appendChild(this.stage)
-    document.body.appendChild(this.container)
-
     this.dosbox = new DOSBox(this.stage)
 
     window.addEventListener('resize', this.resize.bind(this))

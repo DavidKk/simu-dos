@@ -3,6 +3,7 @@ import Controller from './Controller'
 import * as GAME_LIST from '../conf/games'
 
 export default class Game {
+  private container: HTMLDivElement = null
   private stage: Stage = null
   private controller: Controller = null
   private syncIntervalId: NodeJS.Timeout = null
@@ -12,14 +13,20 @@ export default class Game {
   constructor () {
     document.oncontextmenu = () => !this.disabledContextMenu
 
-    this.play('XJQXZ')
+    this.container = document.createElement('div')
+    this.container.classList.add('container')
+    document.body.appendChild(this.container)
+    
+    this.controller = new Controller(this.container)
+
+    // this.play('XJQXZ')
   }
 
   public async play (name: keyof typeof GAME_LIST): Promise<void> {
     this.isPlaying && this.stop()
 
     this.isPlaying = true
-    this.stage = new Stage()
+    this.stage = new Stage(this.container)
 
     const game = GAME_LIST[name]
     const { dosbox } = this.stage

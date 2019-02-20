@@ -1,25 +1,24 @@
-import defaultsDeep from 'lodash/defaultsDeep'
-import { EventEmitter } from 'events'
-import * as nipplejs from 'nipplejs'
+import Joystick from './Joystick'
 
 export default class Controller {
-  private emitter: EventEmitter = new EventEmitter()
-  private options: object = {
-    mode: 'static',
-    position: {
-      top: 10,
-      left: 10
-    }
-  }
+  private touchpad: HTMLDivElement = null
+  private leftpad: HTMLDivElement = null
+  private rightpad: HTMLDivElement = null
+  private joystick: Joystick = null
 
-  private manager: nipplejs.JoystickManager
+  constructor (element: HTMLDivElement) {
+    this.touchpad = document.createElement('div')
+    this.leftpad = document.createElement('div')
+    this.rightpad = document.createElement('div')
 
-  constructor (container: HTMLDivElement, options?: object) {
-    this.options = defaultsDeep({ zone: container }, options, this.options)
-    this.manager = nipplejs.create(this.options)
-  }
+    this.touchpad.className = 'touchpad'
+    this.leftpad.className = 'leftpad'
+    this.rightpad.className = 'rightpad'
 
-  onActions (callback) {
-    this.emitter.addListener('actions', callback)
+    this.touchpad.appendChild(this.leftpad)
+    this.touchpad.appendChild(this.rightpad)
+    element.appendChild(this.touchpad)
+
+    this.joystick = new Joystick(this.leftpad)
   }
 }

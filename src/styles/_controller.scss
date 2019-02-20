@@ -1,0 +1,18 @@
+.touchpad {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 444;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.leftpad,
+.rightpad {
+  position: relative;
+  display: block;
+  width: 50%;
+  height: 100%;
+}
