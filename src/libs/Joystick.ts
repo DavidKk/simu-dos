@@ -1,3 +1,5 @@
+import { EventEmitter } from 'events'
+
 const touch = (() => {
   const Pointer = {
     start: 'pointerdown',
@@ -39,6 +41,7 @@ const touch = (() => {
 })()
 
 export default class Joystick {
+  private emitter: EventEmitter = new EventEmitter
   private zone: HTMLDivElement = null
   private stand: HTMLDivElement = null
   private stick: HTMLDivElement = null
@@ -73,40 +76,48 @@ export default class Joystick {
     this.bindings()
   }
 
+  private _onTouchStart (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): void {
+    event.preventDefault()
+
+    let point = this.getTouchPosition(event)
+    this.fixedPoint = point
+
+    this.stand.classList.add('active')
+
+    this.bind(this.zone, touch.move, this.handleZoneTouchMove)
+    this.bind(this.zone, touch.end, this.handleZoneTouchEnd)
+  }
+
+  private _onTouchMove (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): void {
+    event.preventDefault()
+
+    let { x, y, degree } = this.computes(event)
+    x -= this.fixedPoint.x
+    y -= this.fixedPoint.y
+
+    this.setStickPosition({ x, y })
+    this.emitter.emit('action', { x, y, degree })
+  }
+
+  private _onTouchEnd (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): void {
+    event.preventDefault()
+
+    this.setStickPosition({ x: 0, y: 0 })
+    this.stand.classList.remove('active')
+
+    this.unbind(this.zone, touch.move, this.handleZoneTouchMove)
+    this.unbind(this.zone, touch.end, this.handleZoneTouchEnd)
+  }
+
   private bindings () {
-    this.handleZoneTouchStart = (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => {
-      event.preventDefault()
-
-      let point = this.getTouchPosition(event)
-      this.fixedPoint = point
-
-      this.bind(this.zone, touch.move, this.handleZoneTouchMove)
-      this.bind(this.zone, touch.end, this.handleZoneTouchEnd)
-    }
-
-    this.handleZoneTouchMove = (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => {
-      event.preventDefault()
-
-      let { x, y } = this.getTouchPosition(event)
-      x -= this.fixedPoint.x
-      y -= this.fixedPoint.y
-
-      this.setStickPosition({ x, y })
-    }
-
-    this.handleZoneTouchEnd = (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => {
-      event.preventDefault()
-
-      this.unbind(this.zone, touch.move, this.handleZoneTouchMove)
-      this.unbind(this.zone, touch.end, this.handleZoneTouchEnd)
-    }
-
-    this.bind(this.stand, touch.start, this.handleZoneTouchStart)
-
     /**
      * Docs: https://stackoverflow.com/questions/48124372/pointermove-event-not-working-with-touch-why-not
      */
     this.zone.style.touchAction = 'none'
+    this.handleZoneTouchStart = this._onTouchStart.bind(this)
+    this.handleZoneTouchMove = this._onTouchMove.bind(this)
+    this.handleZoneTouchEnd = this._onTouchEnd.bind(this)
+    this.bind(this.stand, touch.start, this.handleZoneTouchStart)
   }
 
   private unbindings () {
@@ -133,19 +144,33 @@ export default class Joystick {
     element.removeEventListener(events, handle)
   }
 
-  private getTouchPosition (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) {
-    if (event instanceof TouchEvent) {
-      let { pageX, pageY } = event.touches[0]
-      return { x: pageX, y: pageY }
-    }
+  private computes (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): JoystickTouchInfo {
+    let { x, y } = this.getTouchPosition(event)
+    let degree = Math.atan(y / x) / (Math.PI / 180)
 
-    let { pageX, pageY } = event
-    return { x: pageX, y: pageY }
+    return { x, y, degree }
   }
 
   private preparePosition (position: JoystickPoint, range: JoystickPointRange): JoystickPoint {
     let { x, y } = position
     let { minX, minY, maxX, maxY } = range
+    let degree = Math.atan(y / x) / (Math.PI / 180)
+
+    if (Math.abs(x) > Math.abs(y)) {
+      if (y > 0) {
+        maxY = Math.tan(degree * Math.PI / 180) * x
+      } else {
+        minY = Math.tan(degree * Math.PI / 180) * x
+      }
+    } else {
+      // if (x > 0) {
+      //   maxX = y / Math.tan(degree * Math.PI / 180)
+      // } else {
+      //   minX = y / Math.tan(degree * Math.PI / 180)
+      // }
+    }
+
+    console.log(degree)
 
     if (x < minX) {
       x = minX
@@ -166,6 +191,16 @@ export default class Joystick {
     return { x, y }
   }
 
+  private getTouchPosition (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): JoystickPoint {
+    if (event instanceof TouchEvent) {
+      let { pageX, pageY } = event.touches[0]
+      return { x: pageX, y: pageY }
+    }
+
+    let { pageX, pageY } = event
+    return { x: pageX, y: pageY }
+  }
+
   public setPosition (position: JoystickPoint): void {
     this.position = this.preparePosition(position, this.positionRange)
   }
@@ -182,6 +217,21 @@ export default class Joystick {
     this.stand.style.width = typeof size === 'string' ? size : size + 'px'
     this.stand.style.height = typeof size === 'string' ? size : size + 'px'
   }
+
+  public onActions (handle: (info: JoystickTouchInfo) => void) {
+    this.emitter.addListener('action', handle)
+  }
+
+  public destory () {
+    this.unbindings()
+
+    this.stick.parentElement.removeChild(this.stick)
+    this.stand.parentElement.removeChild(this.stand)
+
+    this.stick = undefined
+    this.stand = undefined
+    this.zone = undefined
+  }
 }
 
 interface JoystickPoint {
@@ -194,4 +244,10 @@ interface JoystickPointRange {
   maxX: number
   minY: number
   maxY: number
+}
+
+interface JoystickTouchInfo {
+  x: number
+  y: number
+  degree: number
 }
