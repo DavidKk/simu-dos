@@ -19,7 +19,7 @@ export default class Game {
     
     this.controller = new Controller(this.container)
 
-    // this.play('XJQXZ')
+    this.play('XJQXZ')
   }
 
   public async play (name: keyof typeof GAME_LIST): Promise<void> {
