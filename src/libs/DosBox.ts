@@ -363,7 +363,7 @@ export default class DosBox {
     })
   }
 
-  private sendKeyPress (code: number): void {
+  public sendKeyPress (code: number): void {
     if (this.isInitialized === true) {
       this.wdosboxModule.send('sdl_key_event', code + '')
     }

@@ -194,7 +194,7 @@ export default class Joystick {
     this.stand.style.height = typeof size === 'string' ? size : size + 'px'
   }
 
-  public onActions (handle: (data: any) => void): void {
+  public onActions (handle: (event: any) => void): void {
     this.emitter.addListener('actions', handle)
   }
 

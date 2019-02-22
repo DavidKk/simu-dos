@@ -1,8 +1,13 @@
 import { EventEmitter } from 'events'
 import { Game, EventHandle } from '../types'
-import Joystick from './Joystick'
+import Joystick, { DirectionType } from './Joystick'
 import Keyboard, { Button } from './Keyboard'
 import TouchEvents from '../share/event'
+
+export enum ActionTypes {
+  JOYSTICK = 'joystick',
+  KEYDOWN = 'keydown'
+}
 
 export default class Controller {
   private emitter: EventEmitter = new EventEmitter()
@@ -20,7 +25,10 @@ export default class Controller {
   public mapGame (game: Game): void {
     if (game.JOYSTICK) {
       this.joystick = new Joystick(this.touchpad)
-      this.joystick.onActions((data) => this.emitter.emit('actions', { type: 'joystick', data }))
+      this.joystick.onActions((data) => {
+        let datas = { type: ActionTypes.JOYSTICK, data }
+        this.emitter.emit('actions', datas)
+      })
     }
 
     if (Array.isArray(game.KEYBOARDS)) {
@@ -59,7 +67,7 @@ export default class Controller {
     }
   }
 
-  public onActions (handle: () => void): void {
+  public onActions (handle: (event: any) => void): void {
     this.emitter.addListener('actions', handle)
   }
 

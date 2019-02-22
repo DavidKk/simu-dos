@@ -1,6 +1,6 @@
 import { Game as iGame } from '../types'
 import Stage from './Stage'
-import Controller from './Controller'
+import Controller, { ActionTypes } from './Controller'
 import * as GAME_LIST from '../conf/games'
 
 export default class Game {
@@ -32,9 +32,33 @@ export default class Game {
     const { dosbox } = this.stage
     dosbox.onExit(() => this.stop())
 
+    this.disableContextMenu()
+
     await dosbox.play(game)
     this.controller.mapGame(game)
-    this.disableContextMenu()
+    this.controller.onActions((event) => {
+      if (event.type === ActionTypes.JOYSTICK) {
+        let { direction } = event.data
+        switch (direction) {
+          case 'left':
+            dosbox.sendKeyPress(37)
+            break
+          case 'up':
+            dosbox.sendKeyPress(38)
+            break
+          case 'right':
+            dosbox.sendKeyPress(39)
+            break
+          case 'down':
+            dosbox.sendKeyPress(40)
+            break
+        }
+      }
+
+      if (event.type === ActionTypes.KEYDOWN) {
+        dosbox.sendKeyPress(event.keyCode)
+      }
+    })
 
     const { ID, SAVE } = game
     await this.loadArchiveFromDB({ dbTable: ID })
