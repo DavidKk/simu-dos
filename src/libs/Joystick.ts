@@ -1,4 +1,5 @@
 import { EventEmitter } from 'events'
+import { Point, Pos } from '../types'
 import TouchEvents from '../share/event'
 import * as MathUtil from '../share/math'
 
@@ -43,20 +44,20 @@ export default class Joystick {
 
     let point = this.getTouchPosition(event)
     let datas = this.computes(this.fixedPoint, point)
-    let { position } = datas
-    let { x, y } = position
+    let { coord } = datas
+    let { x, y } = coord
 
     x -= this.fixedPoint.x
     y -= this.fixedPoint.y
 
-    this.setStickPosition({ x, y })
+    this.setStickCoord({ x, y })
     this.emitter.emit('action', datas)
   }
 
   private _onTouchEnd (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): void {
     event.preventDefault()
 
-    this.setStickPosition({ x: 0, y: 0 })
+    this.setStickCoord({ x: 0, y: 0 })
     this.stand.classList.remove('active')
 
     this.unbind(this.zone, TouchEvents.move, this.handleZoneTouchMove)
@@ -78,6 +79,12 @@ export default class Joystick {
     this.unbind(this.stand, TouchEvents.start, this.handleZoneTouchStart)
     this.unbind(this.zone, TouchEvents.move, this.handleZoneTouchMove)
     this.unbind(this.zone, TouchEvents.end, this.handleZoneTouchEnd)
+  }
+
+  private setStickCoord (coord: Point): void {
+    const { x, y } = coord
+    this.stick.style.marginLeft = x + 'px'
+    this.stick.style.marginTop = y + 'px'
   }
 
   private bind (element: HTMLElement, events: string | Array<string>, handle: (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => void): void {
@@ -105,12 +112,12 @@ export default class Joystick {
     let distance = MathUtil.distance(pointB, pointA)
     let angle = MathUtil.angle(pointB, pointA)
     let radian = MathUtil.radian(angle)
-    let position = { x, y }
+    let coord = { x, y }
     let size = sizeA - sizeB
 
     if (distance > size) {
       distance = size
-      position = MathUtil.coord(pointA, distance, angle)
+      coord = MathUtil.coord(pointA, distance, angle)
     }
 
     let angle45 = Math.PI / 4
@@ -139,7 +146,7 @@ export default class Joystick {
       direction.y = DirectionType.Down
     }
 
-    return { position, size, distance, angle, radian, direction }
+    return { coord, size, distance, angle, radian, direction }
   }
 
   private getTouchPosition (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): Point {
@@ -152,24 +159,20 @@ export default class Joystick {
     return { x: pageX, y: pageY }
   }
 
-  public setPosition (position: JoystickPoint): void {
-    const { x, y } = position
-    this.stand.style.marginLeft = typeof x === 'string' ? x : x + 'px'
-    this.stand.style.marginTop = typeof y === 'string' ? y : y + 'px'
+  public setPosition (position: Pos): void {
+    const { top, right, bottom, left } = position
+    this.stand.style.top = typeof top === 'string' ? top : top + 'px'
+    this.stand.style.right = typeof right === 'string' ? right : right + 'px'
+    this.stand.style.bottom = typeof bottom === 'string' ? bottom : bottom + 'px'
+    this.stand.style.left = typeof left === 'string' ? left : left + 'px'
   }
 
-  public setStickPosition (position: JoystickPoint): void {
-    const { x, y } = position
-    this.stick.style.marginLeft = typeof x === 'string' ? x : x + 'px'
-    this.stick.style.marginTop = typeof y === 'string' ? y : y + 'px'
-  }
-
-  public setSize (size: number | string) {
+  public setSize (size: number | string): void {
     this.stand.style.width = typeof size === 'string' ? size : size + 'px'
     this.stand.style.height = typeof size === 'string' ? size : size + 'px'
   }
 
-  public onActions (handle: (data: any) => void) {
+  public onActions (handle: (data: any) => void): void {
     this.emitter.addListener('action', handle)
   }
 
@@ -183,11 +186,6 @@ export default class Joystick {
     this.stand = undefined
     this.zone = undefined
   }
-}
-
-interface JoystickPoint {
-  x: number | string
-  y: number | string
 }
 
 interface Direction {
