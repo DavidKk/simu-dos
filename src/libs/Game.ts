@@ -36,8 +36,6 @@ export default class Game {
     await dosbox.play(game)
 
     const handleActions = (event) => {
-      console.log(event)
-
       if (event.type === ActionTypes.JOYSTICK) {
         let { direction } = event.data
         switch (direction.angle) {
@@ -61,7 +59,6 @@ export default class Game {
       }
 
       if (event.type === ActionTypes.KEYDOWN) {
-        console.log(event.keyCode)
         dosbox.sendKeyPress(event.keyCode)
       }
     }
