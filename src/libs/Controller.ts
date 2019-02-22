@@ -43,27 +43,15 @@ export default class Controller {
   }
 
   public mapButtonToKeyCode (button: Button, keyCode: number): () => void {
-    let tid
     let handleTouchStart: EventHandle = () => {
-      let trigger = () => this.emitter.emit('actions', { type: 'keydown', keyCode })
-      tid = setInterval(trigger, 0.2e3)
-      button.bind(TouchEvents.end, handleTouchEnd)
-    }
-
-    let handleTouchEnd: EventHandle = () => {
-      tid && clearInterval(tid)
-      button.unbind(TouchEvents.end, handleTouchEnd)
-      tid = undefined
+      this.emitter.emit('actions', { type: 'keydown', keyCode })
     }
 
     button.bind(TouchEvents.start, handleTouchStart)
 
     return function deprecated () {
       button.unbind(TouchEvents.start, handleTouchStart)
-      button.unbind(TouchEvents.end, handleTouchEnd)
-
       handleTouchStart = undefined
-      handleTouchEnd = undefined
     }
   }
 

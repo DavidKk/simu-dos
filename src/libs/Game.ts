@@ -33,32 +33,41 @@ export default class Game {
     dosbox.onExit(() => this.stop())
 
     this.disableContextMenu()
-
     await dosbox.play(game)
-    this.controller.mapGame(game)
-    this.controller.onActions((event) => {
+
+    const handleActions = (event) => {
+      console.log(event)
+
       if (event.type === ActionTypes.JOYSTICK) {
         let { direction } = event.data
-        switch (direction) {
-          case 'left':
+        switch (direction.angle) {
+          case 'left': {
             dosbox.sendKeyPress(37)
             break
-          case 'up':
+          }
+          case 'up': {
             dosbox.sendKeyPress(38)
             break
-          case 'right':
+          }
+          case 'right': {
             dosbox.sendKeyPress(39)
             break
-          case 'down':
+          }
+          case 'down': {
             dosbox.sendKeyPress(40)
             break
+          }
         }
       }
 
       if (event.type === ActionTypes.KEYDOWN) {
+        console.log(event.keyCode)
         dosbox.sendKeyPress(event.keyCode)
       }
-    })
+    }
+
+    this.controller.mapGame(game)
+    this.controller.onActions(handleActions)
 
     const { ID, SAVE } = game
     await this.loadArchiveFromDB({ dbTable: ID })
