@@ -1,4 +1,4 @@
-import { Game as iGame } from '../types'
+import { Game as iGame } from '../share/types'
 import Stage from './Stage'
 import Controller, { ActionTypes } from './Controller'
 import * as GAME_LIST from '../conf/games'
@@ -35,31 +35,66 @@ export default class Game {
     this.disableContextMenu()
     await dosbox.play(game)
 
+    const downkeys: Array<number> = []
     const handleActions = (event) => {
       if (event.type === ActionTypes.JOYSTICK) {
-        let { direction } = event.data
-        switch (direction.angle) {
-          case 'left': {
-            dosbox.sendKeyPress(37)
+        let { type, direction } = event.data
+
+        switch (type) {
+          case 'move': {
+            switch (direction.angle) {
+              case 'left': {
+                let keyCode = 37
+                if (-1 === downkeys.indexOf(keyCode)) {
+                  dosbox.simulateKeyEvent(keyCode, true)
+                  downkeys.push(keyCode)
+                }
+
+                break
+              }
+              case 'up': {
+                let keyCode = 38
+                if (-1 === downkeys.indexOf(keyCode)) {
+                  dosbox.simulateKeyEvent(keyCode, true)
+                  downkeys.push(keyCode)
+                }
+
+                break
+              }
+              case 'right': {
+                let keyCode = 39
+                if (-1 === downkeys.indexOf(keyCode)) {
+                  dosbox.simulateKeyEvent(keyCode, true)
+                  downkeys.push(keyCode)
+                }
+
+                break
+              }
+              case 'down': {
+                let keyCode = 40
+                if (-1 === downkeys.indexOf(keyCode)) {
+                  dosbox.simulateKeyEvent(keyCode, true)
+                  downkeys.push(keyCode)
+                }
+
+                break
+              }
+            }
+
             break
           }
+
           case 'up': {
-            dosbox.sendKeyPress(38)
-            break
-          }
-          case 'right': {
-            dosbox.sendKeyPress(39)
-            break
-          }
-          case 'down': {
-            dosbox.sendKeyPress(40)
+            downkeys.forEach((keyCode) => dosbox.simulateKeyEvent(keyCode, false))
+            downkeys.splice(0)
+
             break
           }
         }
       }
 
       if (event.type === ActionTypes.KEYDOWN) {
-        dosbox.sendKeyPress(event.keyCode)
+        dosbox.simulateKeyPress(event.keyCode)
       }
     }
 

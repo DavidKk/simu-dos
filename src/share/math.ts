@@ -1,3 +1,5 @@
+import { Point } from './types'
+
 export const distance = (pointA: Point, pointB: Point): number => {
   let dx = pointB.x - pointA.x
   let dy = pointB.y - pointA.y
@@ -5,8 +7,8 @@ export const distance = (pointA: Point, pointB: Point): number => {
 }
 
 export const angle = (pointA: Point, pointB: Point): number => {
-  const dx = pointB.x - pointA.x;
-  const dy = pointB.y - pointA.y;
+  const dx = pointB.x - pointA.x
+  const dy = pointB.y - pointA.y
   return degree(Math.atan2(dy, dx))
 }
 
@@ -24,4 +26,8 @@ export const coord = (position: Point, distance: number, angle: number): Point =
   coord.x = position.x - distance * Math.cos(_radian)
   coord.y = position.y - distance * Math.sin(_radian)
   return coord
+}
+
+export const px2rem = (value: number, rootFontSize: number = 16): number => {
+  return value / rootFontSize
 }

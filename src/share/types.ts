@@ -12,6 +12,10 @@ export interface Pos {
   left?: number | string
 }
 
+export enum KeyboardButtonType {
+  round ='round'
+}
+
 export interface Game {
   ID: string,
   NAME: string,
@@ -24,9 +28,11 @@ export interface Game {
   JOYSTICK?: boolean
   KEYBOARDS?: Array<{
     context: string,
-    keycode: number,
+    keyCode?: number,
+    action?: string,
     options?: {
-      size?: number,
+      type?: keyof typeof KeyboardButtonType,
+      size?: number | string,
       position?: Pos
     }
   }>

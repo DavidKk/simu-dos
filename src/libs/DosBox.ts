@@ -67,7 +67,7 @@ export default class DosBox {
     this.setSize(window.innerWidth, window.innerHeight)
 
     const { FS } = this.wdosboxModule
-    let indexedDB = <IDBFactory>FS.indexedDB()
+    let indexedDB = FS.indexedDB() as IDBFactory
     let openRequest = indexedDB.open(this.database, FS.DB_VERSION)
 
     openRequest.onupgradeneeded = () => {
@@ -273,7 +273,7 @@ export default class DosBox {
 
     return new Promise((resolve, reject) => {
       let { FS } = this.wdosboxModule
-      let indexedDB = <IDBFactory>FS.indexedDB()
+      let indexedDB = FS.indexedDB() as IDBFactory
       let openRequest = indexedDB.open(this.database, FS.DB_VERSION)
 
       openRequest.onupgradeneeded = () => {
@@ -312,7 +312,7 @@ export default class DosBox {
   public loadFilesFromDB (files: string[] | null, table: string = this.wdosboxModule.FS.DB_STORE_NAME): Promise<void> {
     return new Promise((resolve, reject) => {
       const { FS } = this.wdosboxModule
-      const indexedDB = <IDBFactory>FS.indexedDB()
+      const indexedDB = FS.indexedDB() as IDBFactory
       const openRequest = indexedDB.open(this.database, FS.DB_VERSION)
 
       openRequest.onupgradeneeded = () => reject(new Error(`Table ${table} is not exists`))
@@ -322,20 +322,20 @@ export default class DosBox {
         const db = openRequest.result
         const transaction = db.transaction([table], 'readonly')
         const store = transaction.objectStore(table)
-        
+
         const _putfiles = (files) => {
           const promises = files.map((file) => new Promise((resolve, reject) => {
             const getRequest = store.get(file)
-  
+
             getRequest.onerror = (error) => reject(error)
             getRequest.onsuccess = () => {
               try {
                 FS.analyzePath(file).exists && FS.unlink(file)
-  
+
                 let dir = path.dirname(file)
                 let name = path.basename(file)
                 let content = getRequest.result
-    
+
                 FS.createDataFile(dir, name, content, true, true, true)
                 resolve()
               } catch (error) {
@@ -343,7 +343,7 @@ export default class DosBox {
               }
             }
           }))
-  
+
           return Promise.all(promises)
         }
 
@@ -361,6 +361,33 @@ export default class DosBox {
         }
       }
     })
+  }
+
+  public simulateKeyEvent (keyCode: number, pressed: boolean): void {
+    let name = pressed ? 'keydown' : 'keyup'
+    let event = document.createEvent('KeyboardEvent') as any
+    let getter = {
+      get: function () {
+        return this.keyCodeVal
+      }
+    }
+
+    // Chromium Hack
+    Object.defineProperty(event, 'keyCode', getter)
+    Object.defineProperty(event, 'which', getter)
+    Object.defineProperty(event, 'charCode', getter)
+
+    event.initKeyboardEvent
+    ? event.initKeyboardEvent(name, true, true, document.defaultView, false, false, false, false, keyCode, keyCode)
+    : event.initKeyEvent(name, true, true, document.defaultView, false, false, false, false, keyCode, 0)
+
+    event.keyCodeVal = keyCode
+    this.canvas.dispatchEvent(event)
+  }
+
+  public simulateKeyPress (keyCode: number): void {
+    this.simulateKeyEvent(keyCode, true)
+    setTimeout(() => this.simulateKeyEvent(keyCode, false), 100)
   }
 
   public sendKeyPress (code: number): void {

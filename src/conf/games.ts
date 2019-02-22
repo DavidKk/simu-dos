@@ -1,4 +1,5 @@
-import { Game } from '../types'
+import { px2rem } from '../share/math'
+import { Game } from '../share/types'
 
 export const XJQXZ: Game = {
   ID: 'xjqxz',
@@ -12,23 +13,35 @@ export const XJQXZ: Game = {
   JOYSTICK: true,
   KEYBOARDS: [
     {
-      context: 'Space',
-      keycode: 27,
+      context: 'Full Screen',
+      action: 'fullscreen',
       options: {
         position: {
-          right: 50,
-          bottom: 50
+          left: '50%',
+          top: px2rem(10) + 'rem'
+        }
+      }
+    },
+    {
+      context: 'Space',
+      keyCode: 32,
+      options: {
+        type: 'round',
+        position: {
+          right: px2rem(50) + 'rem',
+          bottom: px2rem(50) + 'rem'
         }
       }
     },
     {
       context: 'Exc',
-      keycode: 13,
+      keyCode: 27,
       options: {
-        size: 50,
+        type: 'round',
+        size: px2rem(50) + 'rem',
         position: {
-          right: 150,
-          bottom: 50
+          right: px2rem(150) + 'rem',
+          bottom: px2rem(50) + 'rem'
         }
       }
     }

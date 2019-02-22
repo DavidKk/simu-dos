@@ -1,28 +1,41 @@
 import remove from 'lodash/remove'
 import TouchEvents from '../share/event'
-import { Pos, EventHandle } from '../types'
+import { Pos, EventHandle, KeyboardButtonType } from '../share/types'
+
+interface ButtonOptions {
+  type?: keyof typeof KeyboardButtonType,
+  position?: Pos
+  size?: number | string
+}
 
 export class Button {
   private element: HTMLDivElement
   private handleTouchStart: EventHandle
   private handleTouchEnd: EventHandle
 
-  constructor (context: string, options?: { position?: Pos, size?: number | string }) {
+  constructor (context: string, options?: ButtonOptions) {
     this.element = document.createElement('div')
     this.element.className = 'keyboard-btn'
     this.element.innerText = context
 
     options.hasOwnProperty('size') && this.setSize(options.size)
     options.hasOwnProperty('position') && this.setPosition(options.position)
+    options.hasOwnProperty('type') && this.setType(options.type)
 
     this.bindings()
   }
 
-  private _onTouchDown () {
+  private _onTouchDown (event) {
+    event.preventDefault()
+    event.stopPropagation()
+
     this.element.classList.add('active')
   }
 
-  private _onTouchUp () {
+  private _onTouchUp (event) {
+    event.preventDefault()
+    event.stopPropagation()
+
     this.element.classList.remove('active')
   }
 
@@ -31,7 +44,7 @@ export class Button {
     this.handleTouchEnd = this._onTouchUp.bind(this)
 
     this.bind(TouchEvents.start, this.handleTouchStart)
-    this.bind(TouchEvents.start, this.handleTouchEnd)
+    this.bind(TouchEvents.end, this.handleTouchEnd)
   }
 
   private unbindings (): void {
@@ -57,6 +70,10 @@ export class Button {
     this.element.removeEventListener(events, handle)
   }
 
+  public setType (type: keyof typeof KeyboardButtonType): void {
+    this.element.classList.add(type)
+  }
+
   public setSize (size: string | number): void {
     this.element.style.width = typeof size === 'string' ? size : size + 'px'
   }
@@ -73,7 +90,7 @@ export class Button {
     }
 
     if (position.hasOwnProperty('bottom')) {
-      let value = position.right
+      let value = position.bottom
       this.element.style.bottom = typeof value === 'string' ? value : value + 'px'
     }
 
@@ -112,14 +129,6 @@ export default class Keyboard {
 
   public remove (button: Button): void {
     remove(this.buttons, (item) => item === button)
-  }
-
-  public show (): void {
-
-  }
-
-  public hide (): void {
-
   }
 
   public destroy (): void {

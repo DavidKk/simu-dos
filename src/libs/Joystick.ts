@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events'
-import { Point, Pos, EventHandle } from '../types'
+import { Point, Pos, EventHandle } from '../share/types'
 import TouchEvents from '../share/event'
 import * as MathUtil from '../share/math'
 
@@ -26,7 +26,7 @@ export interface JoystickInfo {
 }
 
 export default class Joystick {
-  private emitter: EventEmitter = new EventEmitter
+  private emitter: EventEmitter = new EventEmitter()
   private zone: HTMLDivElement
   private stand: HTMLDivElement
   private stick: HTMLDivElement
@@ -51,11 +51,13 @@ export default class Joystick {
 
   private _onTouchStart (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): void {
     event.preventDefault()
+    event.stopPropagation()
 
     let point = this.getTouchPosition(event)
     this.fixedPoint = point
 
     this.stand.classList.add('active')
+    this.emitter.emit('actions', { type: 'start', coord: point })
 
     this.bind(this.zone, TouchEvents.move, this.handleZoneTouchMove)
     this.bind(this.zone, TouchEvents.end, this.handleZoneTouchEnd)
@@ -63,6 +65,7 @@ export default class Joystick {
 
   private _onTouchMove (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): void {
     event.preventDefault()
+    event.stopPropagation()
 
     let point = this.getTouchPosition(event)
     let datas = this.computes(this.fixedPoint, point)
@@ -73,14 +76,16 @@ export default class Joystick {
     y -= this.fixedPoint.y
 
     this.setStickCoord({ x, y })
-    this.emitter.emit('actions', datas)
+    this.emitter.emit('actions', { type: 'move', ...datas })
   }
 
   private _onTouchEnd (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): void {
     event.preventDefault()
+    event.stopPropagation()
 
     this.setStickCoord({ x: 0, y: 0 })
     this.stand.classList.remove('active')
+    this.emitter.emit('actions', { type: 'up' })
 
     this.unbind(this.zone, TouchEvents.move, this.handleZoneTouchMove)
     this.unbind(this.zone, TouchEvents.end, this.handleZoneTouchEnd)
@@ -144,7 +149,7 @@ export default class Joystick {
 
     let angle45 = Math.PI / 4
     let angle90 = Math.PI / 2
-    let direction: DirectionInfo = { x: null, y: null, angle: null}
+    let direction: DirectionInfo = { x: null, y: null, angle: null }
 
     if (radian > angle45 && radian < (angle45 * 3)) {
       direction.angle = DirectionType.Up

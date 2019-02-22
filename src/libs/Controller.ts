@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events'
-import { Game, EventHandle } from '../types'
+import { Game, EventHandle } from '../share/types'
 import Joystick, { DirectionType } from './Joystick'
 import Keyboard, { Button } from './Keyboard'
 import TouchEvents from '../share/event'
@@ -36,7 +36,7 @@ export default class Controller {
 
       game.KEYBOARDS.forEach((item) => {
         let button: Button = this.keyboard.add(item.context, item.options)
-        let deprecated = this.mapButtonToKeyCode(button, item.keycode)
+        let deprecated = this.mapButtonToKeyCode(button, item.keyCode)
         this.deprecates.push(deprecated)
       })
     }
