@@ -6,6 +6,36 @@ import request, { CancelToken } from '../services/request'
 import dosConf from '../conf/dos'
 import version from '../conf/version'
 
+export interface DosBoxOptions {
+  wasmUrl?: string
+  database?: string
+}
+
+export interface WdosboxModule {
+  version: string
+  canvas: HTMLCanvasElement
+  instantiateWasm: (info: object, receiveInstance: Function) => void
+  onRuntimeInitialized: () => void
+  ping: (message: string) => void
+  [key: string]: any
+}
+
+export interface FetchTask {
+  promise: Promise<any>
+  cancel: (message?: string) => void
+}
+
+export interface GameInfo {
+  ID: string
+  NAME: string
+  URL: string
+  COMMAND: Array<string>
+  SAVE: {
+    PATH: string
+    REGEXP: RegExp
+  }
+}
+
 export default class DosBox {
   private emitter: EventEmitter = new EventEmitter()
   private options: DosBoxOptions = { wasmUrl: './wdosbox.wasm.js' }
@@ -26,7 +56,7 @@ export default class DosBox {
     this.canvas = canvas
   }
 
-  public async play (game: GameInfo) {
+  public async play (game: GameInfo): Promise<void> {
     const { ID, NAME, URL, COMMAND } = game
     const { mainFn } = await this.compile()
 
@@ -393,13 +423,12 @@ export default class DosBox {
     this.canvas.style.height = `${height}px`
   }
 
-  public requestFullScreen () {
+  public requestFullScreen (): void {
     this.wdosboxModule.requestFullScreen()
   }
 
-  public onExit (callback): this {
+  public onExit (callback): void {
     this.emitter.addListener('exit', callback)
-    return this
   }
 
   public destroy (force: boolean = true): Promise<void> {
@@ -439,35 +468,5 @@ export default class DosBox {
         handleDestroyDosBox()
       }
     })
-  }
-}
-
-interface DosBoxOptions {
-  wasmUrl?: string
-  database?: string
-}
-
-interface WdosboxModule {
-  version: string
-  canvas: HTMLCanvasElement
-  instantiateWasm: (info: object, receiveInstance: Function) => void
-  onRuntimeInitialized: () => void
-  ping: (message: string) => void
-  [key: string]: any
-}
-
-interface FetchTask {
-  promise: Promise<any>
-  cancel: (message?: string) => void
-}
-
-interface GameInfo {
-  ID: string
-  NAME: string
-  URL: string
-  COMMAND: Array<string>
-  SAVE: {
-    PATH: string
-    REGEXP: RegExp
   }
 }

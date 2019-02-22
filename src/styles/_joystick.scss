@@ -1,14 +1,15 @@
 .joystick-stand {
   position: absolute;
-  bottom: 80px;
-  left: 100px;
+  bottom: 50px;
+  left: 50px;
   z-index: 4;
   display: block;
   border-radius: 100%;
   width: 100px;
   background-color: rgba(255,255,255,.4);
-  transform: translate(-50%, 50%);
   transition: background-color .16s ease-in;
+  user-select: none;
+  cursor: pointer;
 }
 
 .joystick-stick {

@@ -1,3 +1,4 @@
+import { Game as iGame } from '../types'
 import Stage from './Stage'
 import Controller from './Controller'
 import * as GAME_LIST from '../conf/games'
@@ -16,10 +17,8 @@ export default class Game {
     this.container = document.createElement('div')
     this.container.classList.add('container')
     document.body.appendChild(this.container)
-    
-    this.controller = new Controller(this.container)
 
-    // this.play('XJQXZ')
+    this.play('XJQXZ')
   }
 
   public async play (name: keyof typeof GAME_LIST): Promise<void> {
@@ -27,12 +26,14 @@ export default class Game {
 
     this.isPlaying = true
     this.stage = new Stage(this.container)
+    this.controller = new Controller(this.container)
 
-    const game = GAME_LIST[name]
+    const game: iGame = GAME_LIST[name]
     const { dosbox } = this.stage
     dosbox.onExit(() => this.stop())
 
     await dosbox.play(game)
+    this.controller.mapGame(game)
     this.disableContextMenu()
 
     const { ID, SAVE } = game
@@ -48,19 +49,24 @@ export default class Game {
 
   public async stop (): Promise<void> {
     this.syncIntervalId && clearInterval(this.syncIntervalId)
-    this.stage && await this.stage.destory()
-    this.disableContextMenu(false)
 
+    this.stage && await this.stage.destory()
+    this.controller && this.controller.destory()
+
+    this.stage = undefined
+    this.controller = undefined
+
+    this.disableContextMenu(false)
     this.isPlaying = false
   }
 
-  public async saveArchiveFromDB (dir: string, options?: { dbTable: string, pattern: RegExp }) {
+  public async saveArchiveFromDB (dir: string, options?: { dbTable: string, pattern: RegExp }): Promise<void> {
     const { dosbox } = this.stage
     const files = await dosbox.searchFiles(dir, options.pattern || /.*/)
     files.length > 0 && await dosbox.saveFilesToDB(files, options.dbTable)
   }
 
-  public async loadArchiveFromDB (options: { dbTable: string }) {
+  public async loadArchiveFromDB (options: { dbTable: string }): Promise<void> {
     const { dosbox } = this.stage
     await dosbox.loadFilesFromDB(null, options.dbTable)
   }

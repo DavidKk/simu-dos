@@ -1,17 +1,39 @@
 import { EventEmitter } from 'events'
-import { Point, Pos } from '../types'
+import { Point, Pos, EventHandle } from '../types'
 import TouchEvents from '../share/event'
 import * as MathUtil from '../share/math'
 
+export enum DirectionType {
+  Up = 'up',
+  Down = 'down',
+  Left = 'left',
+  Right = 'right'
+}
+
+export interface DirectionInfo {
+  x: DirectionType
+  y: DirectionType
+  angle: DirectionType
+}
+
+export interface JoystickInfo {
+  coord: Point
+  size: number
+  distance: number
+  angle: number
+  radian: number
+  direction: DirectionInfo
+}
+
 export default class Joystick {
   private emitter: EventEmitter = new EventEmitter
-  private zone: HTMLDivElement = null
-  private stand: HTMLDivElement = null
-  private stick: HTMLDivElement = null
+  private zone: HTMLDivElement
+  private stand: HTMLDivElement
+  private stick: HTMLDivElement
   private fixedPoint: Point = { x: 0, y: 0 }
-  private handleZoneTouchStart: (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => void
-  private handleZoneTouchMove: (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => void
-  private handleZoneTouchEnd: (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => void
+  private handleZoneTouchStart: EventHandle
+  private handleZoneTouchMove: EventHandle
+  private handleZoneTouchEnd: EventHandle
 
   constructor (zone: HTMLDivElement) {
     this.zone = zone
@@ -51,7 +73,7 @@ export default class Joystick {
     y -= this.fixedPoint.y
 
     this.setStickCoord({ x, y })
-    this.emitter.emit('action', datas)
+    this.emitter.emit('actions', datas)
   }
 
   private _onTouchEnd (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): void {
@@ -64,7 +86,7 @@ export default class Joystick {
     this.unbind(this.zone, TouchEvents.end, this.handleZoneTouchEnd)
   }
 
-  private bindings () {
+  private bindings (): void {
     /**
      * Docs: https://stackoverflow.com/questions/48124372/pointermove-event-not-working-with-touch-why-not
      */
@@ -75,7 +97,7 @@ export default class Joystick {
     this.bind(this.stand, TouchEvents.start, this.handleZoneTouchStart)
   }
 
-  private unbindings () {
+  private unbindings (): void {
     this.unbind(this.stand, TouchEvents.start, this.handleZoneTouchStart)
     this.unbind(this.zone, TouchEvents.move, this.handleZoneTouchMove)
     this.unbind(this.zone, TouchEvents.end, this.handleZoneTouchEnd)
@@ -87,7 +109,7 @@ export default class Joystick {
     this.stick.style.marginTop = y + 'px'
   }
 
-  private bind (element: HTMLElement, events: string | Array<string>, handle: (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => void): void {
+  private bind (element: HTMLElement, events: string | Array<string>, handle: EventHandle): void {
     if (Array.isArray(events)) {
       events.forEach((event) => this.bind(element, event, handle))
       return
@@ -96,16 +118,16 @@ export default class Joystick {
     element.addEventListener(events, handle, false)
   }
 
-  private unbind (element: HTMLElement, events: string | Array<string>, handle: (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => void): void {
+  private unbind (element: HTMLElement, events: string | Array<string>, handle: EventHandle): void {
     if (Array.isArray(events)) {
-      events.forEach((event) => this.bind(element, event, handle))
+      events.forEach((event) => this.unbind(element, event, handle))
       return
     }
 
     element.removeEventListener(events, handle)
   }
 
-  private computes (pointA: Point, pointB: Point) {
+  private computes (pointA: Point, pointB: Point): JoystickInfo {
     let { x, y } = pointB
     let { clientWidth: sizeA } = this.stand
     let { clientWidth: sizeB } = this.stick
@@ -122,7 +144,7 @@ export default class Joystick {
 
     let angle45 = Math.PI / 4
     let angle90 = Math.PI / 2
-    let direction: Direction = { x: null, y: null, angle: null}
+    let direction: DirectionInfo = { x: null, y: null, angle: null}
 
     if (radian > angle45 && radian < (angle45 * 3)) {
       direction.angle = DirectionType.Up
@@ -173,10 +195,10 @@ export default class Joystick {
   }
 
   public onActions (handle: (data: any) => void): void {
-    this.emitter.addListener('action', handle)
+    this.emitter.addListener('actions', handle)
   }
 
-  public destory () {
+  public destory (): void {
     this.unbindings()
 
     this.stick.parentElement.removeChild(this.stick)
@@ -186,17 +208,4 @@ export default class Joystick {
     this.stand = undefined
     this.zone = undefined
   }
-}
-
-interface Direction {
-  x: DirectionType
-  y: DirectionType
-  angle: DirectionType
-}
-
-enum DirectionType {
-  Up = 'up',
-  Down = 'down',
-  Left = 'left',
-  Right = 'right'
 }

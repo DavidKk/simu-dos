@@ -9,12 +9,18 @@
   font-size: 20px;
   color: rgba(255,255,255,.4);
   background-color: rgba(255,255,255,.4);
-  transform: translate(-50%, 50%);
   transition: background-color .16s ease-in;
+  user-select: none;
+  cursor: pointer;
 
   &:before {
     content: "";
     display: block;
     padding-top: 100%;
   }
+}
+
+.keyboard-btn.active {
+  color: rgba(255,255,255,.6);
+  background-color: rgba(255,255,255,.6);
 }
