@@ -62,7 +62,6 @@ export default class Game implements DGGame {
     const game: DGGameInfo = games[name]
     this.dosbox = this.stage.launch()
     this.dosbox.onExit(() => this.stop())
-    this.dosbox.onMessage((message) => this.stage.print(message))
 
     this.stage.toggleTerm(true)
     await this.stage.simulateInput(`dosbox start ${game.url}`)
@@ -71,6 +70,7 @@ export default class Game implements DGGame {
     this.dosbox.onProgress((data) => {
       let { loaded, total } = data
       processFn(game.url, loaded, total)
+      loaded === total && this.stage.print(`Game ${game.name} has been initialized, start now and wait please...`)
     })
 
     await this.dosbox.play(game)
