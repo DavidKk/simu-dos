@@ -66,15 +66,25 @@ export default class Game implements DGGame {
     this.stage.toggleTerm(true)
     await this.stage.simulateInput(`dosbox start ${game.url}`)
 
-    let processFn = this.stage.progress()
-    this.dosbox.onProgress((data) => {
+    let wasmProcessFn = this.stage.progress()
+    let roomProcessFn = this.stage.progress()
+
+    const onDwonloadWasmProgress = (data) => {
       let { loaded, total } = data
-      processFn(game.url, loaded, total || game.size)
+      wasmProcessFn('wdosbox.wasm.js', loaded, total || 2167039)
+    }
 
-      loaded === total && this.stage.print(`Game ${game.name} has been initialized, start now and wait please...`)
-    })
+    const onDwonloadRoomProgress = (data) => {
+      let { loaded, total } = data
+      roomProcessFn(game.url, loaded, total || game.size)
+    }
 
-    await this.dosbox.play(game)
+    const onDownloadCompleted = () => {
+      this.stage.print(`Game ${game.name} has been initialized, start now and wait please...`)
+    }
+
+    const playOptions = { onDwonloadWasmProgress, onDwonloadRoomProgress, onDownloadCompleted }
+    await this.dosbox.play(game, playOptions)
 
     this.stage.toggleTerm(false)
     this.stage.toggle(true)

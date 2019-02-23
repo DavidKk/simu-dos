@@ -54,8 +54,8 @@ export default class Term implements DGTerm {
     let units = ['bytes', 'K', 'M', 'G']
     let progress = Math.floor(loaded / total * 100) || 0
     let repeatTimes = progress / size
-    let repeatText = '-'.repeat(repeatTimes === Infinity ? 0 : repeatTimes)
-    let progressText = padEnd(repeatText, size, '　')
+    let repeatText = '#'.repeat(repeatTimes === Infinity ? 0 : repeatTimes)
+    let progressText = padEnd(repeatText, size, '-')
     let loadedText = this.covertUnit(loaded, [].concat(units))
     let totalText = this.covertUnit(total, [].concat(units))
 

@@ -4,6 +4,11 @@ import { AxiosRequestConfig } from 'axios'
 export type DGEvent = TouchEvent | MouseEvent | PointerEvent | MSPointerEvent
 export type DGEventHandle = (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => void
 
+export interface DGDosBoxProgressEvent {
+  loaded: number
+  total: number
+}
+
 // Styles
 export type DGStyleValue = string | number
 export type DGStyleSize = DGStyleValue | {
@@ -131,6 +136,16 @@ export interface DGController {
 export interface DGDosBoxOptions {
   wasmUrl?: string
   database?: string
+}
+
+export interface DGDosBoxPlayOptions extends DGDosBoxOptions {
+  onDwonloadWasmProgress?: (DGDosBoxProgressEvent) => void
+  onDwonloadRoomProgress?: (DGDosBoxProgressEvent) => void
+  onDownloadCompleted?: () => void
+}
+
+export interface DGDosBoxCompileOptions extends DGDosBoxOptions {
+  onProgress?: (DGDosBoxProgressEvent) => void
 }
 
 export interface DGDosBoxWdosboxModule {

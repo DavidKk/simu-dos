@@ -8,6 +8,8 @@ import version from '../conf/version'
 import {
   DGGameInfo,
   DGDosBoxOptions,
+  DGDosBoxPlayOptions,
+  DGDosBoxCompileOptions,
   DGDosBoxWdosboxModule,
   DGDosBoxFetchTask,
   DGDosBox
@@ -33,16 +35,23 @@ export default class DosBox implements DGDosBox {
     this.canvas = canvas
   }
 
-  public async play (game: DGGameInfo): Promise<void> {
+  public async play (game: DGGameInfo, options?: DGDosBoxPlayOptions): Promise<void> {
     const { id, name, url, command } = game
-    const { mainFn } = await this.compile()
 
-    const onDownloadProgress = (event) => {
+    const handleDownloadRoom = (event) => {
       const { loaded, total } = event
       this.emitter.emit('progress', { loaded, total })
+
+      if (typeof options.onDwonloadRoomProgress === 'function') {
+        options.onDwonloadRoomProgress({ loaded, total })
+      }
     }
 
-    await this.extract(url, 'zip', { onDownloadProgress })
+    let tasks = []
+    tasks.push(this.compile(this.options.wasmUrl, { onProgress: options.onDwonloadWasmProgress }))
+    tasks.push(this.extract(url, 'zip', { onDownloadProgress: handleDownloadRoom }))
+
+    const [{ mainFn }] = await Promise.all(tasks)
     await mainFn(command)
 
     this.wdosboxModule.setWindowTitle(name)
@@ -58,7 +67,7 @@ export default class DosBox implements DGDosBox {
     }
   }
 
-  public compile (wasmUrl?: string, options: DGDosBoxOptions = {}): Promise<any> {
+  public compile (wasmUrl?: string, options: DGDosBoxCompileOptions = {}): Promise<any> {
     options = defaultsDeep({ wasmUrl }, options, this.options)
 
     const instantiateWasm = (info, receiveInstance) => {
@@ -144,8 +153,16 @@ export default class DosBox implements DGDosBox {
       print
     } as DGDosBoxWdosboxModule
 
+    const onDownloadProgress = (event) => {
+      const { loaded, total } = event
+      if (typeof options.onProgress === 'function') {
+        options.onProgress({ loaded, total })
+      }
+    }
+
     const requestOptions: AxiosRequestConfig = {
-      responseType: 'arraybuffer'
+      responseType: 'arraybuffer',
+      onDownloadProgress
     }
 
     return new Promise((resolve, reject) => {
