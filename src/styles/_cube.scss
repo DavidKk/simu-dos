@@ -21,7 +21,7 @@
   width: $cubeSize;
   height: $cubeSize;
   opacity: 1;
-  box-shadow: inset 0 0 ($cubeSize * 2 / 5) rgba(0,0,0,.4);
+  box-shadow: inset 0 0 ($cubeSize * 2 / 5) rgba(255,255,255,.4);
   transition: opacity .26s ease-in;
 }
 

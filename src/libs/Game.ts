@@ -60,9 +60,23 @@ export default class Game implements DGGame {
     this.disableContextMenu()
 
     const game: DGGameInfo = games[name]
-    this.dosbox = this.stage.init()
+    this.dosbox = this.stage.launch()
     this.dosbox.onExit(() => this.stop())
+    this.dosbox.onMessage((message) => this.stage.print(message))
+
+    this.stage.toggleTerm(true)
+    await this.stage.simulateInput(`dosbox start ${game.url}`)
+
+    let processFn = this.stage.progress()
+    this.dosbox.onProgress((data) => {
+      let { loaded, total } = data
+      processFn(game.url, loaded, total)
+    })
+
     await this.dosbox.play(game)
+
+    this.stage.toggleTerm(false)
+    this.stage.toggle(true)
 
     const downkeys: Array<number> = []
     const sendKeydown = (keyCode: number) => {

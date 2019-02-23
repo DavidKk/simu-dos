@@ -1,25 +1,31 @@
 import DOSBox from './DosBox'
+import Term from '../ui/Term'
 import { DGStage } from '../types'
 
 export default class Stage implements DGStage {
-  private spinner: HTMLElement = null
-  private container: HTMLDivElement = null
-  private stage: HTMLCanvasElement = null
-  private dosbox: DOSBox = null
+  private container: HTMLDivElement
+  private stage: HTMLCanvasElement
+  public term: Term
+  public dosbox: DOSBox
 
   constructor (container: HTMLDivElement) {
     this.container = container
-    this.spinner = document.getElementById('spinner')
+    this.term = new Term(this.container)
+
     this.stage = document.createElement('canvas')
+
+    this.stage.className = 'stage'
     this.container.appendChild(this.stage)
 
     window.addEventListener('resize', this.resize.bind(this))
     this.resize()
 
-    this.toggleSpinner(false)
+    let spinner = document.getElementById('spinner')
+    this._toggle(spinner, false)
+    setTimeout(() => spinner.parentNode.removeChild(spinner), 3e3)
   }
 
-  public init (): DOSBox {
+  public launch (): DOSBox {
     if (!this.dosbox) {
       this.dosbox = new DOSBox(this.stage)
     }
@@ -27,12 +33,33 @@ export default class Stage implements DGStage {
     return this.dosbox
   }
 
-  private _toggleElement (element: HTMLElement, isOpen: boolean = true): void {
-    isOpen === true ? element.classList.add('in') : element.classList.remove('in')
+  public async simulateInput (context: string): Promise<void> {
+    await this.term.simulateInput(context)
   }
 
-  public toggleSpinner (isOpen: boolean = true): void {
-    return this._toggleElement(this.spinner, isOpen)
+  public print (context: string): void {
+    this.term.print(context)
+    this.term.scrollToButtom()
+  }
+
+  public progress (): (context: string, loaded: number, total: number, size?: number) => void {
+    let line = this.term.newline()
+
+    return (context: string, loaded: number, total: number, size?: number): void => {
+      this.term.progress(context, loaded, total, size, line)
+    }
+  }
+
+  private _toggle (element: HTMLElement, isOpen: Boolean = true) {
+    isOpen ? element.classList.add('in') : element.classList.remove('in')
+  }
+
+  public toggleTerm (isOpen: boolean = true): void {
+    return isOpen ? this.term.show() : this.term.hide()
+  }
+
+  public toggle (isOpen: boolean = true): void {
+    this._toggle(this.stage, isOpen)
   }
 
   public resize (): void {

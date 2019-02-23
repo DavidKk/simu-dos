@@ -1,0 +1,46 @@
+.term {
+  position: absolute;
+  z-index: 100;
+  display: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px 20px;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.term-line {
+  display: block;
+  margin: 0;
+  word-break: break-word;
+  white-space: normal;
+  line-height: 24px;
+  font-size: 14px;
+  font-family: monospace;
+  color: rgba(255,255,255,.8);
+
+  &:last-child:after {
+    content: '_';
+    color: #fff;
+    animation: cursor 1s infinite;
+  }
+}
+
+@keyframes cursor {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

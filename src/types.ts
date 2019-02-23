@@ -169,8 +169,7 @@ export interface DGDosBox {
 
 // Stage
 export interface DGStage {
-  init (): DGDosBox
-  toggleSpinner (isOpen: boolean): void
+  launch (): DGDosBox
   resize (): void
   reset (): Promise<void>
 }

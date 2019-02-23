@@ -123,6 +123,8 @@ export default class DosBox implements DGDosBox {
     }
 
     const print = (message) => {
+      this.emitter.emit('message', message)
+
       if (message === 'SDL_Quit called (and ignored)') {
         this.emitter.emit('exit')
       }
@@ -137,8 +139,9 @@ export default class DosBox implements DGDosBox {
       print
     } as DGDosBoxWdosboxModule
 
-    const onDownloadProgress = () => {
-      // const { loaded, total } = event
+    const onDownloadProgress = (event) => {
+      const { loaded, total } = event
+      this.emitter.emit('progress', { loaded, total })
     }
 
     const requestOptions: AxiosRequestConfig = {
@@ -431,8 +434,16 @@ export default class DosBox implements DGDosBox {
     this.wdosboxModule.requestFullScreen()
   }
 
-  public onExit (callback): void {
-    this.emitter.addListener('exit', callback)
+  public onMessage (handle): void {
+    this.emitter.addListener('message', handle)
+  }
+
+  public onProgress (handle): void {
+    this.emitter.addListener('progress', handle)
+  }
+
+  public onExit (handle): void {
+    this.emitter.addListener('exit', handle)
   }
 
   public destroy (force: boolean = true): Promise<void> {
