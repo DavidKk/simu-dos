@@ -17,11 +17,11 @@
     "start": "npm run develop"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "nipplejs": "^0.8.1",
-    "stats-js": "^1.0.0"
+    "axios": "^0.18.0"
   },
   "devDependencies": {
+    "eruda": "^1.5.4",
+    "stats-js": "^1.0.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.2",
     "parcel-bundler": "^1.11.0",
