@@ -28,7 +28,7 @@ export const DefaultJoystickConfig: DGJoystickConf = [
   {
     keyCode: 40,
     direction: DGJoystickDirectionType.down
-  },
+  }
 ]
 
 export default class Game implements DGGame {

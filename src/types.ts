@@ -116,7 +116,7 @@ export interface DGJoystick {
 // Controller
 export enum DGControllerActionType {
   joystick = 'joystick',
-  keydown = 'keydown',
+  keydown = 'keydown'
 }
 
 export interface DGController {

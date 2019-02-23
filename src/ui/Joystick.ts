@@ -8,7 +8,7 @@ import {
   DGJoystickDirectionType,
   DGJoystickDirection,
   DGJoystickEventDatas,
-  DGJoystick,
+  DGJoystick
 } from '../types'
 
 export default class Joystick implements DGJoystick {

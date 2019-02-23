@@ -14,7 +14,7 @@ enum DSOperation {
   plus = '+',
   minus = '-',
   multi = '*',
-  divide = '/',
+  divide = '/'
 }
 
 export default class Button implements DGButton {
@@ -82,8 +82,8 @@ export default class Button implements DGButton {
 
   private calcSize (size: DGStyleValue, operation: DSOperation, value: number): DGStyleValue {
     if (typeof size === 'string') {
-      let { number, unit } = trimUnit(size)
-      return this.calcSize(number, operation, value) + unit
+      let { num, unit } = trimUnit(size)
+      return this.calcSize(num, operation, value) + unit
     }
 
     switch (operation) {

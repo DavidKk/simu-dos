@@ -42,7 +42,7 @@ export const xjqxz: DGGameInfo = {
           DGJoystickDirectionType.down,
           DGJoystickDirectionType.left
         ]
-      },
+      }
     ],
     keyboard: [
       {

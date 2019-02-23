@@ -18,14 +18,14 @@ export default class Term {
     this.newline().innerText = 'C:> '
   }
 
-  private covertUnit (number: number, units: Array<string>): string {
+  private covertUnit (value: number, units: Array<string>): string {
     let unit = units.shift()
-    if (number > 1024) {
-      number = number / 1024
-      return this.covertUnit(number, units)
+    if (value > 1024) {
+      value = value / 1024
+      return this.covertUnit(value, units)
     }
 
-    return number.toFixed(2) + unit
+    return value.toFixed(2) + unit
   }
 
   public newline (): HTMLDivElement {
