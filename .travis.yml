@@ -1,0 +1,27 @@
+language: node_js
+sudo: false
+node_js:
+  - 6
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install
+
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+before_deploy:
+  - npm run release
+
+deploy:
+  - provider: pages
+    local_dir: dist
+    skip_cleanup: true
+    github_token:
+      secure: Q2Jwu4mA4X5xLkwk8Ojai2+Pn2MZ0ET4bj7E/63hr04Z8JRKZWLNS709vztia4MKUw72fj+NJZhSyemMBkgCxEs3vSH1LA6G85OVApfNb3+XRNrCFCpV8gDvtaozSpgzrCqsmuwFnzTBSBNxL2HhTH3ehJAnpMM470TLTOnm3ay8L37Cb+x6ExcITtenRJBINqUpv5FuAn7Fds7kQrVLzgDgUH1jZYNhGzxAjRWEU/I8pATPN0bAHV0vxdgE7ZM794aMbY3AUgZh6KuiIqu/vgYWDULxMXphaGQ7Xvb8fWuFIopEZ+7NA+K1L8QsfpMTLaU8fsonTpAiDxJsqGCnBMyMtQ1bEpEqOPd6POqxFfY8E5dIaMaV0xaGbtnjnYRkmGbfXSWBQOdWpldyS4WcQyqnVK5FiW54yIgZee9JYZ7zM+feeJu3DH7jwFKD7a/Z9DeffQwcJtq5g2eClmesRev8WD3Z7P1lLRdaEYAF68u2BY3J0iDzg30NMqt65HvCZWiGADBrN/JSpntV+k4KO7xpvaJ5/KqcxhkcB5cjk/uz6IRUb6WvtxAEfkTDq4/VJQr/K7lF7zybtPWzw7ILMYZ91PYSz+WrnzVpfv5k+lKlFdPRfeOC8QcVTHno1DyvnG5sJBRi/+HjPKDUgoPSOqJIxGyadwVpng/FnCmeHOw=
+    on:
+      branch: master
