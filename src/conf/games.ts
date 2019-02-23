@@ -1,4 +1,8 @@
-import { DGGameInfo, DGButtonType } from '../types'
+import {
+  DGGameInfo,
+  DGButtonType,
+  DGJoystickDirectionType
+} from '../types'
 
 export const xjqxz: DGGameInfo = {
   id: 'xjqxz',
@@ -10,7 +14,36 @@ export const xjqxz: DGGameInfo = {
     regexp: /[1-5]\.RPG$/
   },
   play: {
-    joystick: true,
+    joystick: [
+      {
+        keyCode: 37,
+        direction: [
+          DGJoystickDirectionType.left,
+          DGJoystickDirectionType.up
+        ]
+      },
+      {
+        keyCode: 38,
+        direction: [
+          DGJoystickDirectionType.up,
+          DGJoystickDirectionType.right
+        ]
+      },
+      {
+        keyCode: 39,
+        direction: [
+          DGJoystickDirectionType.right,
+          DGJoystickDirectionType.down
+        ]
+      },
+      {
+        keyCode: 40,
+        direction: [
+          DGJoystickDirectionType.down,
+          DGJoystickDirectionType.left
+        ]
+      },
+    ],
     keyboard: [
       {
         context: 'Space',

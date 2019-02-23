@@ -1,11 +1,35 @@
+import xor from 'lodash/xor'
 import Stage from './Stage'
 import DosBox from './DosBox'
-import Controller from '../ui/Controller'
+import Controller from './Controller'
 import * as games from '../conf/games'
 import {
-  DGGameInfo, DGControllerActionType,
-  DGGameDBOptions, DGGame
+  DGJoystickConf,
+  DGJoystickDirectionType,
+  DGGameInfo,
+  DGControllerActionType,
+  DGGameDBOptions,
+  DGGame
 } from '../types'
+
+export const DefaultJoystickConfig: DGJoystickConf = [
+  {
+    keyCode: 37,
+    direction: DGJoystickDirectionType.left
+  },
+  {
+    keyCode: 38,
+    direction: DGJoystickDirectionType.up
+  },
+  {
+    keyCode: 39,
+    direction: DGJoystickDirectionType.right
+  },
+  {
+    keyCode: 40,
+    direction: DGJoystickDirectionType.down
+  },
+]
 
 export default class Game implements DGGame {
   private container: HTMLDivElement
@@ -41,60 +65,44 @@ export default class Game implements DGGame {
     await this.dosbox.play(game)
 
     const downkeys: Array<number> = []
+    const sendKeydown = (keyCode: number) => {
+      if (-1 === downkeys.indexOf(keyCode)) {
+        sendKeyup()
+
+        this.dosbox.simulateKeyEvent(keyCode, true)
+        downkeys.push(keyCode)
+      }
+    }
+
+    const sendKeyup = () => {
+      downkeys.forEach((keyCode) => this.dosbox.simulateKeyEvent(keyCode, false))
+      downkeys.splice(0)
+    }
+
     const handleActions = (event) => {
       if (event.type === DGControllerActionType.joystick) {
         let { type, direction } = event.data
 
-        switch (type) {
-          case 'move': {
-            switch (direction.angle) {
-              case 'left': {
-                let keyCode = 37
-                if (-1 === downkeys.indexOf(keyCode)) {
-                  this.dosbox.simulateKeyEvent(keyCode, true)
-                  downkeys.push(keyCode)
-                }
-
-                break
-              }
-              case 'up': {
-                let keyCode = 38
-                if (-1 === downkeys.indexOf(keyCode)) {
-                  this.dosbox.simulateKeyEvent(keyCode, true)
-                  downkeys.push(keyCode)
-                }
-
-                break
-              }
-              case 'right': {
-                let keyCode = 39
-                if (-1 === downkeys.indexOf(keyCode)) {
-                  this.dosbox.simulateKeyEvent(keyCode, true)
-                  downkeys.push(keyCode)
-                }
-
-                break
-              }
-              case 'down': {
-                let keyCode = 40
-                if (-1 === downkeys.indexOf(keyCode)) {
-                  this.dosbox.simulateKeyEvent(keyCode, true)
-                  downkeys.push(keyCode)
-                }
-
-                break
-              }
-            }
-
-            break
+        if (type === 'move') {
+          let { x, y, angle } = direction
+          if (game.play.joystick === true) {
+            game.play.joystick = DefaultJoystickConfig
           }
 
-          case 'up': {
-            downkeys.forEach((keyCode) => this.dosbox.simulateKeyEvent(keyCode, false))
-            downkeys.splice(0)
+          if (Array.isArray(game.play.joystick)) {
+            let item = game.play.joystick.find((item) => {
+              if (Array.isArray(item.direction)) {
+                return 0 === xor(item.direction, [x, y]).length
+              }
 
-            break
+              return item.direction === angle
+            })
+
+            item && sendKeydown(item.keyCode)
           }
+
+        } else if (type === 'up') {
+          sendKeyup()
         }
       }
 

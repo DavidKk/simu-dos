@@ -7,7 +7,10 @@ import dosConf from '../conf/dos'
 import version from '../conf/version'
 import {
   DGGameInfo,
-  DGDosBoxOptions, DGDosBoxWdosboxModule, DGDosBoxFetchTask, DGDosBox
+  DGDosBoxOptions,
+  DGDosBoxWdosboxModule,
+  DGDosBoxFetchTask,
+  DGDosBox
 } from '../types'
 
 export default class DosBox implements DGDosBox {

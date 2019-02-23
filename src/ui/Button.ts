@@ -1,10 +1,14 @@
 import TouchEvent from '../conf/touch-event'
+import { trimUnit, px2rem } from '../share/style'
 import {
   DGEventHandle,
-  DGStyleValue, DGStyleSize, DGPosition,
-  DGButtonType, DGButtonOptions, DGButton
+  DGStyleValue,
+  DGStyleSize,
+  DGPosition,
+  DGButtonType,
+  DGButtonOptions,
+  DGButton
 } from '../types'
-import { trimUnit, px2rem } from '../share/style'
 
 enum DSOperation {
   plus = '+',

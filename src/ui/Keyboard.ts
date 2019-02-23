@@ -1,6 +1,9 @@
 import remove from 'lodash/remove'
 import Button from './Button'
-import { DGButtonOptions, DGKeyboard } from '../types'
+import {
+  DGButtonOptions,
+  DGKeyboard
+} from '../types'
 
 export default class Keyboard implements DGKeyboard {
   private zone: HTMLDivElement = null

@@ -24,6 +24,18 @@ export interface DGPosition {
 }
 
 // Config
+export type DGJoystickConf = boolean | Array<{
+  keyCode: number,
+  direction: DGJoystickDirectionType | Array<DGJoystickDirectionType>
+}>
+
+export type DGKeyboardConf = Array<{
+  context: string
+  keyCode?: number
+  action?: string
+  options?: DGButtonOptions
+}>
+
 export interface DGGameInfo {
   id: string
   name: string
@@ -34,13 +46,8 @@ export interface DGGameInfo {
     regexp: RegExp
   }
   play: {
-    joystick: boolean
-    keyboard: Array<{
-      context: string
-      keyCode?: number
-      action?: string
-      options?: DGButtonOptions
-    }>
+    joystick: DGJoystickConf
+    keyboard: DGKeyboardConf
   }
 }
 
@@ -74,6 +81,36 @@ export interface DGKeyboard {
   add (context: string, options?: DGButtonOptions): DGButton
   remove (button: DGButton): void
   destroy (): void
+}
+
+// Joystick
+export enum DGJoystickDirectionType {
+  up = 'up',
+  down = 'down',
+  left = 'left',
+  right = 'right'
+}
+
+export interface DGJoystickDirection {
+  x: DGJoystickDirectionType
+  y: DGJoystickDirectionType
+  angle: DGJoystickDirectionType
+}
+
+export interface DGJoystickEventDatas {
+  coord: DGPoint
+  size: number
+  distance: number
+  angle: number
+  radian: number
+  direction: DGJoystickDirection
+}
+
+export interface DGJoystick {
+  setPosition (position: DGPosition): void
+  setSize (size: number | string): void
+  onActions (handle: (event: any) => void): void
+  destory (): void
 }
 
 // Controller

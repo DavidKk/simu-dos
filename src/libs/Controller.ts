@@ -1,11 +1,12 @@
 import { EventEmitter } from 'events'
-import Button from './Button'
-import Keyboard from './Keyboard'
-import Joystick from './Joystick'
+import Button from '../ui/Button'
+import Keyboard from '../ui/Keyboard'
+import Joystick from '../ui/Joystick'
 import TouchEvent from '../conf/touch-event'
 import {
   DGGameInfo,
-  DGControllerActionType, DGController
+  DGControllerActionType,
+  DGController
 } from '../types'
 
 export default class Controller implements DGController {

@@ -1,46 +1,25 @@
 import { EventEmitter } from 'events'
-import { Point, Pos, EventHandle } from '../share/types'
 import TouchEvents from '../share/event'
 import * as MathUtil from '../share/math'
-
-export enum DGJoystickDirectionType {
-  Up = 'up',
-  Down = 'down',
-  Left = 'left',
-  Right = 'right'
-}
-
-export interface DGJoystickDirection {
-  x: DGJoystickDirectionType
-  y: DGJoystickDirectionType
-  angle: DGJoystickDirectionType
-}
-
-export interface DGJoystickEventDatas {
-  coord: Point
-  size: number
-  distance: number
-  angle: number
-  radian: number
-  direction: DGJoystickDirection
-}
-
-export interface DGJoystick {
-  setPosition (position: Pos): void
-  setSize (size: number | string): void
-  onActions (handle: (event: any) => void): void
-  destory (): void
-}
+import {
+  DGPoint,
+  DGPosition,
+  DGEventHandle,
+  DGJoystickDirectionType,
+  DGJoystickDirection,
+  DGJoystickEventDatas,
+  DGJoystick,
+} from '../types'
 
 export default class Joystick implements DGJoystick {
   private emitter: EventEmitter = new EventEmitter()
   private zone: HTMLDivElement
   private stand: HTMLDivElement
   private stick: HTMLDivElement
-  private fixedPoint: Point = { x: 0, y: 0 }
-  private handleZoneTouchStart: EventHandle
-  private handleZoneTouchMove: EventHandle
-  private handleZoneTouchEnd: EventHandle
+  private fixedPoint: DGPoint = { x: 0, y: 0 }
+  private handleZoneTouchStart: DGEventHandle
+  private handleZoneTouchMove: DGEventHandle
+  private handleZoneTouchEnd: DGEventHandle
 
   constructor (zone: HTMLDivElement) {
     this.zone = zone
@@ -115,13 +94,13 @@ export default class Joystick implements DGJoystick {
     this.unbind(this.zone, TouchEvents.end, this.handleZoneTouchEnd)
   }
 
-  private setStickCoord (coord: Point): void {
+  private setStickCoord (coord: DGPoint): void {
     const { x, y } = coord
     this.stick.style.marginLeft = x + 'px'
     this.stick.style.marginTop = y + 'px'
   }
 
-  private bind (element: HTMLElement, events: string | Array<string>, handle: EventHandle): void {
+  private bind (element: HTMLElement, events: string | Array<string>, handle: DGEventHandle): void {
     if (Array.isArray(events)) {
       events.forEach((event) => this.bind(element, event, handle))
       return
@@ -130,7 +109,7 @@ export default class Joystick implements DGJoystick {
     element.addEventListener(events, handle, false)
   }
 
-  private unbind (element: HTMLElement, events: string | Array<string>, handle: EventHandle): void {
+  private unbind (element: HTMLElement, events: string | Array<string>, handle: DGEventHandle): void {
     if (Array.isArray(events)) {
       events.forEach((event) => this.unbind(element, event, handle))
       return
@@ -139,7 +118,7 @@ export default class Joystick implements DGJoystick {
     element.removeEventListener(events, handle)
   }
 
-  private computes (pointA: Point, pointB: Point): DGJoystickEventDatas {
+  private computes (pointA: DGPoint, pointB: DGPoint): DGJoystickEventDatas {
     let { x, y } = pointB
     let { clientWidth: sizeA } = this.stand
     let { clientWidth: sizeB } = this.stick
@@ -159,31 +138,31 @@ export default class Joystick implements DGJoystick {
     let direction: DGJoystickDirection = { x: null, y: null, angle: null }
 
     if (radian > angle45 && radian < (angle45 * 3)) {
-      direction.angle = DGJoystickDirectionType.Up
+      direction.angle = DGJoystickDirectionType.up
     } else if (radian > -angle45 && radian <= angle45) {
-      direction.angle = DGJoystickDirectionType.Left
+      direction.angle = DGJoystickDirectionType.left
     } else if (radian > (-angle45 * 3) && radian <= -angle45) {
-      direction.angle = DGJoystickDirectionType.Down
+      direction.angle = DGJoystickDirectionType.down
     } else {
-      direction.angle = DGJoystickDirectionType.Right
+      direction.angle = DGJoystickDirectionType.right
     }
 
     if (radian > -angle90 && radian < angle90) {
-      direction.x = DGJoystickDirectionType.Left
+      direction.x = DGJoystickDirectionType.left
     } else {
-      direction.x = DGJoystickDirectionType.Right
+      direction.x = DGJoystickDirectionType.right
     }
 
     if (radian > 0) {
-      direction.y = DGJoystickDirectionType.Up
+      direction.y = DGJoystickDirectionType.up
     } else {
-      direction.y = DGJoystickDirectionType.Down
+      direction.y = DGJoystickDirectionType.down
     }
 
     return { coord, size, distance, angle, radian, direction }
   }
 
-  private getTouchPosition (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): Point {
+  private getTouchPosition (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): DGPoint {
     if (event instanceof TouchEvent) {
       let { pageX, pageY } = event.touches[0]
       return { x: pageX, y: pageY }
@@ -193,7 +172,7 @@ export default class Joystick implements DGJoystick {
     return { x: pageX, y: pageY }
   }
 
-  public setPosition (position: Pos): void {
+  public setPosition (position: DGPosition): void {
     const { top, right, bottom, left } = position
     this.stand.style.top = typeof top === 'string' ? top : top + 'px'
     this.stand.style.right = typeof right === 'string' ? right : right + 'px'
