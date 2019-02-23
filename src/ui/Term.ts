@@ -2,15 +2,15 @@ import padEnd from 'lodash/padEnd'
 import { DGTerm } from '../types'
 
 export default class Term implements DGTerm {
-  private container: HTMLDivElement
+  private container: HTMLElement
   private screen: HTMLDivElement
-  private lines: Array<HTMLDivElement> = []
+  private lines: Array<HTMLPreElement> = []
 
-  get currentLine (): HTMLDivElement {
+  get currentLine (): HTMLPreElement {
     return this.lines[this.lines.length - 1]
   }
 
-  constructor (container: HTMLDivElement) {
+  constructor (container: HTMLPreElement) {
     this.container = container
     this.screen = document.createElement('div')
     this.screen.className = 'term'
@@ -29,8 +29,8 @@ export default class Term implements DGTerm {
     return value.toFixed(2) + unit
   }
 
-  public newline (): HTMLDivElement {
-    const line = document.createElement('div')
+  public newline (): HTMLPreElement {
+    const line = document.createElement('pre')
     line.className = 'term-line'
 
     this.screen.appendChild(line)

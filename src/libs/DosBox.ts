@@ -52,6 +52,10 @@ export default class DosBox implements DGDosBox {
     tasks.push(this.extract(url, 'zip', { onDownloadProgress: handleDownloadRoom }))
 
     const [{ mainFn }] = await Promise.all(tasks)
+    if (typeof options.onDownloadCompleted === 'function') {
+      options.onDownloadCompleted()
+    }
+
     await mainFn(command)
 
     this.wdosboxModule.setWindowTitle(name)

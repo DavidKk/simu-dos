@@ -185,7 +185,7 @@ export interface DGDosBox {
 
 // Term
 export interface DGTerm {
-  newline (): HTMLDivElement
+  newline (): HTMLPreElement
   print (context: string): void
   relace (context: string, line: HTMLElement): void
   progress (context: string, loaded: number, total: number, size: number, line: HTMLElement): void
