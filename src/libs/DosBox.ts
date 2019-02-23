@@ -37,7 +37,12 @@ export default class DosBox implements DGDosBox {
     const { id, name, url, command } = game
     const { mainFn } = await this.compile()
 
-    await this.extract(url)
+    const onDownloadProgress = (event) => {
+      const { loaded, total } = event
+      this.emitter.emit('progress', { loaded, total })
+    }
+
+    await this.extract(url, 'zip', { onDownloadProgress })
     await mainFn(command)
 
     this.wdosboxModule.setWindowTitle(name)
@@ -139,14 +144,8 @@ export default class DosBox implements DGDosBox {
       print
     } as DGDosBoxWdosboxModule
 
-    const onDownloadProgress = (event) => {
-      const { loaded, total } = event
-      this.emitter.emit('progress', { loaded, total })
-    }
-
     const requestOptions: AxiosRequestConfig = {
-      responseType: 'arraybuffer',
-      onDownloadProgress
+      responseType: 'arraybuffer'
     }
 
     return new Promise((resolve, reject) => {
@@ -184,13 +183,13 @@ export default class DosBox implements DGDosBox {
     return promise
   }
 
-  public extract (url: string, type: string = 'zip'): Promise<void> {
+  public extract (url: string, type: string = 'zip', options?: AxiosRequestConfig): Promise<void> {
     if (type !== 'zip') {
       Promise.reject(new Error('Only ZIP archive is supported'))
       return
     }
 
-    return this.fetchArrayBuffer(url).then((data) => {
+    return this.fetchArrayBuffer(url, options).then((data) => {
       const bytes = new Uint8Array(data)
       const buffer = this.wdosboxModule._malloc(bytes.length)
       this.wdosboxModule.HEAPU8.set(bytes, buffer)

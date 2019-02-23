@@ -7,7 +7,7 @@ import {
 export const xjqxz: DGGameInfo = {
   id: 'xjqxz',
   name: '仙剑奇侠传',
-  size: 2167039,
+  size: 20272189,
   url: require('../../rooms/xjqxz.zip'),
   command: ['PAL!.EXE'],
   save: {
