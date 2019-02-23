@@ -167,6 +167,20 @@ export interface DGDosBox {
   destroy (force: boolean): Promise<void>
 }
 
+// Term
+export interface DGTerm {
+  newline (): HTMLDivElement
+  print (context: string): void
+  relace (context: string, line: HTMLElement): void
+  progress (context: string, loaded: number, total: number, size: number, line: HTMLElement): void
+  inputChar (char: string): void
+  simulateInput (context: string): Promise<void>
+  clear (): void
+  show (): void
+  hide (): void
+  scrollToButtom (): void
+}
+
 // Stage
 export interface DGStage {
   launch (): DGDosBox

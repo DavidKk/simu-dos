@@ -1,6 +1,7 @@
 import padEnd from 'lodash/padEnd'
+import { DGTerm } from '../types'
 
-export default class Term {
+export default class Term implements DGTerm {
   private container: HTMLDivElement
   private screen: HTMLDivElement
   private lines: Array<HTMLDivElement> = []
