@@ -13,6 +13,7 @@
   "scripts": {
     "tslint": "tslint --config ./tslint.json --fix './src/**/*.ts'",
     "lint": "npm run tslint",
+    "test": "npm run lint",
     "develop": "rimraf ./dist ./.cache && parcel ./src/index.html --no-hmr",
     "release": "rimraf ./dist ./.cache && parcel build ./src/index.html",
     "start": "npm run develop"
