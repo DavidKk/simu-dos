@@ -49,13 +49,16 @@ export default class Term implements DGTerm {
   }
 
   public progress (context: string, loaded: number, total: number, size: number = 10, line: HTMLElement): void {
+    total = total === 0 ? loaded : total
+
     let units = ['bytes', 'K', 'M', 'G']
-    let progress = Math.floor(loaded / total * 100)
+    let progress = Math.floor(loaded / total * 100) || 0
     let repeatTimes = progress / size
     let repeatText = '-'.repeat(repeatTimes === Infinity ? 0 : repeatTimes)
     let progressText = padEnd(repeatText, size, '　')
     let loadedText = this.covertUnit(loaded, [].concat(units))
     let totalText = this.covertUnit(total, [].concat(units))
+
     this.relace(`Download [${progressText}] ${progress}% ${loadedText}/${totalText} ${context}`, line)
   }
 

@@ -40,6 +40,7 @@ export interface DGGameInfo {
   id: string
   name: string
   url: string
+  size: number
   command: Array<string>
   save: {
     path: string
