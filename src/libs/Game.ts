@@ -70,6 +70,7 @@ export default class Game implements DGGame {
     this.dosbox.onProgress((data) => {
       let { loaded, total } = data
       processFn(game.url, loaded, total)
+
       loaded === total && this.stage.print(`Game ${game.name} has been initialized, start now and wait please...`)
     })
 
