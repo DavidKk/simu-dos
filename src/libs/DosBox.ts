@@ -6,7 +6,7 @@ import request, { CancelToken } from '../services/request'
 import dosConf from '../conf/dos'
 import version from '../conf/version'
 import {
-  DGGame,
+  DGGameInfo,
   DGDosBoxOptions, DGDosBoxWdosboxModule, DGDosBoxFetchTask, DGDosBox
 } from '../types'
 
@@ -30,7 +30,7 @@ export default class DosBox implements DGDosBox {
     this.canvas = canvas
   }
 
-  public async play (game: DGGame): Promise<void> {
+  public async play (game: DGGameInfo): Promise<void> {
     const { id, name, url, command } = game
     const { mainFn } = await this.compile()
 

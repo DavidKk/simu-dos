@@ -1,24 +1,30 @@
 import { AxiosRequestConfig } from 'axios'
 
 // Events
-export declare const DGEvent: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent
+export type DGEvent = TouchEvent | MouseEvent | PointerEvent | MSPointerEvent
 export type DGEventHandle = (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => void
 
 // Styles
+export type DGStyleValue = string | number
+export type DGStyleSize = DGStyleValue | {
+  width: DGStyleValue
+  height: DGStyleValue
+}
+
 export interface DGPoint {
   x: number
   y: number
 }
 
 export interface DGPosition {
-  top?: number | string
-  right?: number | string
-  bottom?: number | string
-  left?: number | string
+  top?: DGStyleValue
+  right?: DGStyleValue
+  bottom?: DGStyleValue
+  left?: DGStyleValue
 }
 
-// Games
-export interface DGGame {
+// Config
+export interface DGGameInfo {
   id: string
   name: string
   url: string
@@ -33,30 +39,30 @@ export interface DGGame {
       context: string
       keyCode?: number
       action?: string
-      options?: {
-        type?: DGButtonType
-        size?: number | string
-        position?: DGPosition
-      }
+      options?: DGButtonOptions
     }>
   }
 }
 
 // Buttons
 export enum DGButtonType {
-  round ='round'
+  normal = 'normal',
+  round = 'round'
 }
 
 export interface DGButtonOptions {
   type?: keyof typeof DGButtonType,
   position?: DGPosition
-  size?: number | string
+  size?: DGStyleValue
 }
 
 export interface DGButton {
   bind (events: string | Array<string>, handle: DGEventHandle): void
   unbind (events: string | Array<string>, handle: DGEventHandle): void
   setType (type: keyof typeof DGButtonType): void
+  setWidth (width: DGStyleValue): void
+  setHeight (height: DGStyleValue): void
+  setFontSize (size: DGStyleValue): void
   setSize (size: string | number): void
   setPosition (position: DGPosition): void
   append (element: HTMLElement): void
@@ -77,10 +83,10 @@ export enum DGControllerActionType {
 }
 
 export interface DGController {
-  mapGame (game: DGGame): void
+  mapGame (game: DGGameInfo): void
   mapButtonToKeyCode (button: DGButton, keyCode: number): () => void
   onActions (handle: (event: any) => void): void
-  destory (): void
+  reset (): void
 }
 
 // Dosbox
@@ -104,7 +110,7 @@ export interface DGDosBoxFetchTask {
 }
 
 export interface DGDosBox {
-  play (game: DGGame): Promise<void>
+  play (game: DGGameInfo): Promise<void>
   compile (wasmUrl?: string, options?: DGDosBoxOptions): Promise<any>
   fetchArrayBuffer (url: string, options?: AxiosRequestConfig): Promise<ArrayBuffer>
   extract (url: string, type: string): Promise<void>
@@ -126,9 +132,10 @@ export interface DGDosBox {
 
 // Stage
 export interface DGStage {
+  init (): DGDosBox
   toggleSpinner (isOpen: boolean): void
   resize (): void
-  destory (): Promise<void>
+  reset (): Promise<void>
 }
 
 // DevTool
@@ -136,4 +143,18 @@ export interface DGDevTool {
   resize (): void
   begin (): void
   end (): void
+}
+
+// Game
+export interface DGGameDBOptions {
+  dbTable?: string
+  pattern?: RegExp
+}
+
+export interface DGGame {
+  play (name: string): Promise<void>
+  stop (): Promise<void>
+  saveArchiveFromDB (dir: string, options?: DGGameDBOptions): Promise<void>
+  loadArchiveFromDB (options?: DGGameDBOptions): Promise<void>
+  disableContextMenu (disable: boolean): void
 }

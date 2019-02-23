@@ -4,7 +4,7 @@ import Keyboard from './Keyboard'
 import Joystick from './Joystick'
 import TouchEvent from '../conf/touch-event'
 import {
-  DGGame,
+  DGGameInfo,
   DGControllerActionType, DGController
 } from '../types'
 
@@ -21,7 +21,7 @@ export default class Controller implements DGController {
     element.appendChild(this.touchpad)
   }
 
-  public mapGame (game: DGGame): void {
+  public mapGame (game: DGGameInfo): void {
     if (game.play.joystick) {
       const handleActions = (data) => {
         let datas = { type: DGControllerActionType.joystick, data }
@@ -60,7 +60,7 @@ export default class Controller implements DGController {
     this.emitter.addListener('actions', handle)
   }
 
-  public destory (): void {
+  public reset (): void {
     this.emitter.removeAllListeners()
 
     this.deprecates.forEach((fn) => fn)
@@ -68,13 +68,5 @@ export default class Controller implements DGController {
 
     this.joystick && this.joystick.destory()
     this.keyboard && this.keyboard.destroy()
-
-    this.touchpad.parentNode.removeChild(this.touchpad)
-
-    this.emitter = undefined
-    this.deprecates = undefined
-    this.joystick = undefined
-    this.keyboard = undefined
-    this.touchpad = undefined
   }
 }

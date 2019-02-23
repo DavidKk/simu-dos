@@ -1,7 +1,6 @@
-import { px2rem } from '../share/style'
-import { DGGame, DGButtonType } from '../types'
+import { DGGameInfo, DGButtonType } from '../types'
 
-export const xjqxz: DGGame = {
+export const xjqxz: DGGameInfo = {
   id: 'xjqxz',
   name: '仙剑奇侠传',
   url: require('../../rooms/xjqxz.zip'),
@@ -19,8 +18,8 @@ export const xjqxz: DGGame = {
         options: {
           type: DGButtonType.round,
           position: {
-            right: px2rem(50),
-            bottom: px2rem(50)
+            right: 50,
+            bottom: 50
           }
         }
       },
@@ -29,10 +28,10 @@ export const xjqxz: DGGame = {
         keyCode: 27,
         options: {
           type: DGButtonType.round,
-          size: px2rem(50),
+          size: 50,
           position: {
-            right: px2rem(150),
-            bottom: px2rem(50)
+            right: 150,
+            bottom: 50
           }
         }
       }

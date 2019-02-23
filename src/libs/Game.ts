@@ -1,13 +1,18 @@
 import Stage from './Stage'
+import DosBox from './DosBox'
 import Controller from '../ui/Controller'
 import * as games from '../conf/games'
-import { DGGame, DGControllerActionType } from '../types'
+import {
+  DGGameInfo, DGControllerActionType,
+  DGGameDBOptions, DGGame
+} from '../types'
 
-export default class Game {
-  private container: HTMLDivElement = null
-  private stage: Stage = null
-  private controller: Controller = null
-  private syncIntervalId: NodeJS.Timeout = null
+export default class Game implements DGGame {
+  private container: HTMLDivElement
+  private stage: Stage
+  private dosbox: DosBox
+  private controller: Controller
+  private syncIntervalId: NodeJS.Timeout
   private disabledContextMenu: boolean = false
   private isPlaying: boolean = false
 
@@ -18,22 +23,22 @@ export default class Game {
     this.container.classList.add('container')
     document.body.appendChild(this.container)
 
+    this.stage = new Stage(this.container)
+    this.controller = new Controller(this.container)
+
     this.play('xjqxz')
   }
 
   public async play (name: keyof typeof games): Promise<void> {
-    this.isPlaying && this.stop()
-
+    this.isPlaying && await this.stop()
     this.isPlaying = true
-    this.stage = new Stage(this.container)
-    this.controller = new Controller(this.container)
-
-    const game: DGGame = games[name]
-    const { dosbox } = this.stage
-    dosbox.onExit(() => this.stop())
 
     this.disableContextMenu()
-    await dosbox.play(game)
+
+    const game: DGGameInfo = games[name]
+    this.dosbox = this.stage.init()
+    this.dosbox.onExit(() => this.stop())
+    await this.dosbox.play(game)
 
     const downkeys: Array<number> = []
     const handleActions = (event) => {
@@ -46,7 +51,7 @@ export default class Game {
               case 'left': {
                 let keyCode = 37
                 if (-1 === downkeys.indexOf(keyCode)) {
-                  dosbox.simulateKeyEvent(keyCode, true)
+                  this.dosbox.simulateKeyEvent(keyCode, true)
                   downkeys.push(keyCode)
                 }
 
@@ -55,7 +60,7 @@ export default class Game {
               case 'up': {
                 let keyCode = 38
                 if (-1 === downkeys.indexOf(keyCode)) {
-                  dosbox.simulateKeyEvent(keyCode, true)
+                  this.dosbox.simulateKeyEvent(keyCode, true)
                   downkeys.push(keyCode)
                 }
 
@@ -64,7 +69,7 @@ export default class Game {
               case 'right': {
                 let keyCode = 39
                 if (-1 === downkeys.indexOf(keyCode)) {
-                  dosbox.simulateKeyEvent(keyCode, true)
+                  this.dosbox.simulateKeyEvent(keyCode, true)
                   downkeys.push(keyCode)
                 }
 
@@ -73,7 +78,7 @@ export default class Game {
               case 'down': {
                 let keyCode = 40
                 if (-1 === downkeys.indexOf(keyCode)) {
-                  dosbox.simulateKeyEvent(keyCode, true)
+                  this.dosbox.simulateKeyEvent(keyCode, true)
                   downkeys.push(keyCode)
                 }
 
@@ -85,7 +90,7 @@ export default class Game {
           }
 
           case 'up': {
-            downkeys.forEach((keyCode) => dosbox.simulateKeyEvent(keyCode, false))
+            downkeys.forEach((keyCode) => this.dosbox.simulateKeyEvent(keyCode, false))
             downkeys.splice(0)
 
             break
@@ -94,7 +99,7 @@ export default class Game {
       }
 
       if (event.type === DGControllerActionType.keydown) {
-        dosbox.simulateKeyPress(event.keyCode)
+        this.dosbox.simulateKeyPress(event.keyCode)
       }
     }
 
@@ -115,25 +120,20 @@ export default class Game {
   public async stop (): Promise<void> {
     this.syncIntervalId && clearInterval(this.syncIntervalId)
 
-    this.stage && await this.stage.destory()
-    this.controller && this.controller.destory()
-
-    this.stage = undefined
-    this.controller = undefined
+    await this.stage.reset()
+    this.controller.reset()
 
     this.disableContextMenu(false)
     this.isPlaying = false
   }
 
-  public async saveArchiveFromDB (dir: string, options?: { dbTable: string, pattern: RegExp }): Promise<void> {
-    const { dosbox } = this.stage
-    const files = await dosbox.searchFiles(dir, options.pattern || /.*/)
-    files.length > 0 && await dosbox.saveFilesToDB(files, options.dbTable)
+  public async saveArchiveFromDB (dir: string, options?: DGGameDBOptions): Promise<void> {
+    const files = await this.dosbox.searchFiles(dir, options.pattern || /.*/)
+    files.length > 0 && await this.dosbox.saveFilesToDB(files, options.dbTable)
   }
 
-  public async loadArchiveFromDB (options: { dbTable: string }): Promise<void> {
-    const { dosbox } = this.stage
-    await dosbox.loadFilesFromDB(null, options.dbTable)
+  public async loadArchiveFromDB (options?: DGGameDBOptions): Promise<void> {
+    await this.dosbox.loadFilesFromDB(null, options.dbTable)
   }
 
   public disableContextMenu (disable: boolean = true): void {
