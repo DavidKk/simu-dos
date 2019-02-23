@@ -1,19 +1,16 @@
-import remove from 'lodash/remove'
-import TouchEvents from '../share/event'
-import { Pos, EventHandle, KeyboardButtonType } from '../share/types'
+import TouchEvent from '../conf/touch-event'
+import {
+  DGEventHandle,
+  DGPosition,
+  DGButtonType, DGButtonOptions, DGButton
+} from '../types'
 
-interface ButtonOptions {
-  type?: keyof typeof KeyboardButtonType,
-  position?: Pos
-  size?: number | string
-}
-
-export class Button {
+export default class Button implements DGButton {
   private element: HTMLDivElement
-  private handleTouchStart: EventHandle
-  private handleTouchEnd: EventHandle
+  private handleTouchStart: DGEventHandle
+  private handleTouchEnd: DGEventHandle
 
-  constructor (context: string, options?: ButtonOptions) {
+  constructor (context: string, options?: DGButtonOptions) {
     this.element = document.createElement('div')
     this.element.className = 'keyboard-btn'
     this.element.innerText = context
@@ -43,16 +40,16 @@ export class Button {
     this.handleTouchStart = this._onTouchDown.bind(this)
     this.handleTouchEnd = this._onTouchUp.bind(this)
 
-    this.bind(TouchEvents.start, this.handleTouchStart)
-    this.bind(TouchEvents.end, this.handleTouchEnd)
+    this.bind(TouchEvent.start, this.handleTouchStart)
+    this.bind(TouchEvent.end, this.handleTouchEnd)
   }
 
   private unbindings (): void {
-    this.unbind(TouchEvents.start, this.handleTouchStart)
-    this.unbind(TouchEvents.start, this.handleTouchEnd)
+    this.unbind(TouchEvent.start, this.handleTouchStart)
+    this.unbind(TouchEvent.start, this.handleTouchEnd)
   }
 
-  public bind (events: string | Array<string>, handle: EventHandle): void {
+  public bind (events: string | Array<string>, handle: DGEventHandle): void {
     if (Array.isArray(events)) {
       events.forEach((event) => this.bind(event, handle))
       return
@@ -61,7 +58,7 @@ export class Button {
     this.element.addEventListener(events, handle, false)
   }
 
-  public unbind (events: string | Array<string>, handle: EventHandle): void {
+  public unbind (events: string | Array<string>, handle: DGEventHandle): void {
     if (Array.isArray(events)) {
       events.forEach((event) => this.bind(event, handle))
       return
@@ -70,7 +67,7 @@ export class Button {
     this.element.removeEventListener(events, handle)
   }
 
-  public setType (type: keyof typeof KeyboardButtonType): void {
+  public setType (type: keyof typeof DGButtonType): void {
     this.element.classList.add(type)
   }
 
@@ -78,7 +75,7 @@ export class Button {
     this.element.style.width = typeof size === 'string' ? size : size + 'px'
   }
 
-  public setPosition (position: Pos): void {
+  public setPosition (position: DGPosition): void {
     if (position.hasOwnProperty('top')) {
       let value = position.top
       this.element.style.top = typeof value === 'string' ? value : value + 'px'
@@ -109,33 +106,5 @@ export class Button {
     this.handleTouchStart = undefined
     this.handleTouchEnd = undefined
     this.element.parentNode.removeChild(this.element)
-  }
-}
-
-export default class Keyboard {
-  private zone: HTMLDivElement = null
-  private buttons: Array<Button> = []
-
-  constructor (zone: HTMLDivElement) {
-    this.zone = zone
-  }
-
-  public add (context: string, options?: { position?: Pos, size?: number | string }): Button {
-    let button = new Button(context, options)
-    button.append(this.zone)
-    this.buttons.push(button)
-    return button
-  }
-
-  public remove (button: Button): void {
-    remove(this.buttons, (item) => item === button)
-  }
-
-  public destroy (): void {
-    this.buttons.forEach((button: Button) => button.remove())
-    this.buttons.splice(0)
-
-    this.buttons = undefined
-    this.zone = undefined
   }
 }

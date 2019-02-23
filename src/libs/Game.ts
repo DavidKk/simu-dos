@@ -1,7 +1,7 @@
-import { Game as iGame } from '../share/types'
 import Stage from './Stage'
-import Controller, { ActionTypes } from './Controller'
-import * as GAME_LIST from '../conf/games'
+import Controller from '../ui/Controller'
+import * as games from '../conf/games'
+import { DGGame, DGControllerActionType } from '../types'
 
 export default class Game {
   private container: HTMLDivElement = null
@@ -18,17 +18,17 @@ export default class Game {
     this.container.classList.add('container')
     document.body.appendChild(this.container)
 
-    this.play('XJQXZ')
+    this.play('xjqxz')
   }
 
-  public async play (name: keyof typeof GAME_LIST): Promise<void> {
+  public async play (name: keyof typeof games): Promise<void> {
     this.isPlaying && this.stop()
 
     this.isPlaying = true
     this.stage = new Stage(this.container)
     this.controller = new Controller(this.container)
 
-    const game: iGame = GAME_LIST[name]
+    const game: DGGame = games[name]
     const { dosbox } = this.stage
     dosbox.onExit(() => this.stop())
 
@@ -37,7 +37,7 @@ export default class Game {
 
     const downkeys: Array<number> = []
     const handleActions = (event) => {
-      if (event.type === ActionTypes.JOYSTICK) {
+      if (event.type === DGControllerActionType.joystick) {
         let { type, direction } = event.data
 
         switch (type) {
@@ -93,7 +93,7 @@ export default class Game {
         }
       }
 
-      if (event.type === ActionTypes.KEYDOWN) {
+      if (event.type === DGControllerActionType.keydown) {
         dosbox.simulateKeyPress(event.keyCode)
       }
     }
@@ -101,12 +101,12 @@ export default class Game {
     this.controller.mapGame(game)
     this.controller.onActions(handleActions)
 
-    const { ID, SAVE } = game
-    await this.loadArchiveFromDB({ dbTable: ID })
+    const { id, save } = game
+    await this.loadArchiveFromDB({ dbTable: id })
 
     const interval = async () => {
-      let options = { dbTable: ID, pattern: SAVE.REGEXP }
-      await this.saveArchiveFromDB(SAVE.PATH, options)
+      let options = { dbTable: id, pattern: save.regexp }
+      await this.saveArchiveFromDB(save.path, options)
     }
 
     this.syncIntervalId = setInterval(interval, 3e3)

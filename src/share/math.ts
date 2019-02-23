@@ -27,7 +27,3 @@ export const coord = (position: Point, distance: number, angle: number): Point =
   coord.y = position.y - distance * Math.sin(_radian)
   return coord
 }
-
-export const px2rem = (value: number, rootFontSize: number = 16): number => {
-  return value / rootFontSize
-}

@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "nipplejs": "^0.8.1"
+    "nipplejs": "^0.8.1",
+    "stats-js": "^1.0.0"
   },
   "devDependencies": {
     "husky": "^0.14.3",

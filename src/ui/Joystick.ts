@@ -3,29 +3,36 @@ import { Point, Pos, EventHandle } from '../share/types'
 import TouchEvents from '../share/event'
 import * as MathUtil from '../share/math'
 
-export enum DirectionType {
+export enum DGJoystickDirectionType {
   Up = 'up',
   Down = 'down',
   Left = 'left',
   Right = 'right'
 }
 
-export interface DirectionInfo {
-  x: DirectionType
-  y: DirectionType
-  angle: DirectionType
+export interface DGJoystickDirection {
+  x: DGJoystickDirectionType
+  y: DGJoystickDirectionType
+  angle: DGJoystickDirectionType
 }
 
-export interface JoystickInfo {
+export interface DGJoystickEventDatas {
   coord: Point
   size: number
   distance: number
   angle: number
   radian: number
-  direction: DirectionInfo
+  direction: DGJoystickDirection
 }
 
-export default class Joystick {
+export interface DGJoystick {
+  setPosition (position: Pos): void
+  setSize (size: number | string): void
+  onActions (handle: (event: any) => void): void
+  destory (): void
+}
+
+export default class Joystick implements DGJoystick {
   private emitter: EventEmitter = new EventEmitter()
   private zone: HTMLDivElement
   private stand: HTMLDivElement
@@ -132,7 +139,7 @@ export default class Joystick {
     element.removeEventListener(events, handle)
   }
 
-  private computes (pointA: Point, pointB: Point): JoystickInfo {
+  private computes (pointA: Point, pointB: Point): DGJoystickEventDatas {
     let { x, y } = pointB
     let { clientWidth: sizeA } = this.stand
     let { clientWidth: sizeB } = this.stick
@@ -149,28 +156,28 @@ export default class Joystick {
 
     let angle45 = Math.PI / 4
     let angle90 = Math.PI / 2
-    let direction: DirectionInfo = { x: null, y: null, angle: null }
+    let direction: DGJoystickDirection = { x: null, y: null, angle: null }
 
     if (radian > angle45 && radian < (angle45 * 3)) {
-      direction.angle = DirectionType.Up
+      direction.angle = DGJoystickDirectionType.Up
     } else if (radian > -angle45 && radian <= angle45) {
-      direction.angle = DirectionType.Left
+      direction.angle = DGJoystickDirectionType.Left
     } else if (radian > (-angle45 * 3) && radian <= -angle45) {
-      direction.angle = DirectionType.Down
+      direction.angle = DGJoystickDirectionType.Down
     } else {
-      direction.angle = DirectionType.Right
+      direction.angle = DGJoystickDirectionType.Right
     }
 
     if (radian > -angle90 && radian < angle90) {
-      direction.x = DirectionType.Left
+      direction.x = DGJoystickDirectionType.Left
     } else {
-      direction.x = DirectionType.Right
+      direction.x = DGJoystickDirectionType.Right
     }
 
     if (radian > 0) {
-      direction.y = DirectionType.Up
+      direction.y = DGJoystickDirectionType.Up
     } else {
-      direction.y = DirectionType.Down
+      direction.y = DGJoystickDirectionType.Down
     }
 
     return { coord, size, distance, angle, radian, direction }

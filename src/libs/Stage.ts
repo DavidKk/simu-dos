@@ -1,6 +1,7 @@
 import DOSBox from './DosBox'
+import { DGStage } from '../types'
 
-export default class Stage {
+export default class Stage implements DGStage {
   private spinner: HTMLElement = null
   private container: HTMLDivElement = null
   private stage: HTMLCanvasElement = null

@@ -1,19 +1,18 @@
 import { EventEmitter } from 'events'
-import { Game, EventHandle } from '../share/types'
-import Joystick, { DirectionType } from './Joystick'
-import Keyboard, { Button } from './Keyboard'
-import TouchEvents from '../share/event'
+import Button from './Button'
+import Keyboard from './Keyboard'
+import Joystick from './Joystick'
+import TouchEvent from '../conf/touch-event'
+import {
+  DGGame,
+  DGControllerActionType, DGController
+} from '../types'
 
-export enum ActionTypes {
-  JOYSTICK = 'joystick',
-  KEYDOWN = 'keydown'
-}
-
-export default class Controller {
+export default class Controller implements DGController {
   private emitter: EventEmitter = new EventEmitter()
   private touchpad: HTMLDivElement
-  private joystick: Joystick
   private keyboard: Keyboard
+  private joystick: Joystick
   private deprecates: Array<() => void> = []
 
   constructor (element: HTMLDivElement) {
@@ -22,19 +21,21 @@ export default class Controller {
     element.appendChild(this.touchpad)
   }
 
-  public mapGame (game: Game): void {
-    if (game.JOYSTICK) {
-      this.joystick = new Joystick(this.touchpad)
-      this.joystick.onActions((data) => {
-        let datas = { type: ActionTypes.JOYSTICK, data }
+  public mapGame (game: DGGame): void {
+    if (game.play.joystick) {
+      const handleActions = (data) => {
+        let datas = { type: DGControllerActionType.joystick, data }
         this.emitter.emit('actions', datas)
-      })
+      }
+
+      this.joystick = new Joystick(this.touchpad)
+      this.joystick.onActions(handleActions)
     }
 
-    if (Array.isArray(game.KEYBOARDS)) {
+    if (Array.isArray(game.play.keyboard) && game.play.keyboard.length > 0) {
       this.keyboard = new Keyboard(this.touchpad)
 
-      game.KEYBOARDS.forEach((item) => {
+      game.play.keyboard.forEach((item) => {
         let button: Button = this.keyboard.add(item.context, item.options)
         let deprecated = this.mapButtonToKeyCode(button, item.keyCode)
         this.deprecates.push(deprecated)
@@ -43,14 +44,14 @@ export default class Controller {
   }
 
   public mapButtonToKeyCode (button: Button, keyCode: number): () => void {
-    let handleTouchStart: EventHandle = () => {
+    let handleTouchStart = () => {
       this.emitter.emit('actions', { type: 'keydown', keyCode })
     }
 
-    button.bind(TouchEvents.start, handleTouchStart)
+    button.bind(TouchEvent.start, handleTouchStart)
 
     return function deprecated () {
-      button.unbind(TouchEvents.start, handleTouchStart)
+      button.unbind(TouchEvent.start, handleTouchStart)
       handleTouchStart = undefined
     }
   }

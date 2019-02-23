@@ -5,65 +5,39 @@ import { AxiosRequestConfig } from 'axios'
 import request, { CancelToken } from '../services/request'
 import dosConf from '../conf/dos'
 import version from '../conf/version'
+import {
+  DGGame,
+  DGDosBoxOptions, DGDosBoxWdosboxModule, DGDosBoxFetchTask, DGDosBox
+} from '../types'
 
-export interface DosBoxOptions {
-  wasmUrl?: string
-  database?: string
-}
-
-export interface WdosboxModule {
-  version: string
-  canvas: HTMLCanvasElement
-  instantiateWasm: (info: object, receiveInstance: Function) => void
-  onRuntimeInitialized: () => void
-  ping: (message: string) => void
-  [key: string]: any
-}
-
-export interface FetchTask {
-  promise: Promise<any>
-  cancel: (message?: string) => void
-}
-
-export interface GameInfo {
-  ID: string
-  NAME: string
-  URL: string
-  COMMAND: Array<string>
-  SAVE: {
-    PATH: string
-    REGEXP: RegExp
-  }
-}
-
-export default class DosBox {
+export default class DosBox implements DGDosBox {
   private emitter: EventEmitter = new EventEmitter()
-  private options: DosBoxOptions = { wasmUrl: './wdosbox.wasm.js' }
+  private options: DGDosBoxOptions = { wasmUrl: './wdosbox.wasm.js' }
   private database: string = 'gdcenter_game'
   private canvas: HTMLCanvasElement = null
-  private wdosboxModule: WdosboxModule = null
+  private wdosboxModule: DGDosBoxWdosboxModule = null
   private wasmModule: WebAssembly.Module = null
   private shellInputQueue: string[] = []
   private shellInputClients: Array<() => void> = []
   private isAlive: boolean = true
   private isInitialized: boolean = false
   private isReady: boolean = false
-  private fetchTasks: Array<FetchTask> = []
+  private fetchTasks: Array<DGDosBoxFetchTask> = []
 
-  constructor (canvas: HTMLCanvasElement, options: DosBoxOptions = {}) {
+  constructor (canvas: HTMLCanvasElement, options: DGDosBoxOptions = {}) {
     this.options = defaultsDeep(this.options, options)
     this.database = options.database || this.database
     this.canvas = canvas
   }
 
-  public async play (game: GameInfo): Promise<void> {
-    const { ID, NAME, URL, COMMAND } = game
+  public async play (game: DGGame): Promise<void> {
+    const { id, name, url, command } = game
     const { mainFn } = await this.compile()
 
-    await this.extract(URL)
-    await mainFn(COMMAND)
+    await this.extract(url)
+    await mainFn(command)
 
-    this.wdosboxModule.setWindowTitle(NAME)
+    this.wdosboxModule.setWindowTitle(name)
     this.setSize(window.innerWidth, window.innerHeight)
 
     const { FS } = this.wdosboxModule
@@ -72,11 +46,11 @@ export default class DosBox {
 
     openRequest.onupgradeneeded = () => {
       let db = openRequest.result
-      db.createObjectStore(ID)
+      db.createObjectStore(id)
     }
   }
 
-  public compile (wasmUrl?: string, options: DosBoxOptions = {}): Promise<any> {
+  public compile (wasmUrl?: string, options: DGDosBoxOptions = {}): Promise<any> {
     options = defaultsDeep({ wasmUrl }, options, this.options)
 
     const instantiateWasm = (info, receiveInstance) => {
@@ -158,7 +132,7 @@ export default class DosBox {
       onRuntimeInitialized,
       ping,
       print
-    } as WdosboxModule
+    } as DGDosBoxWdosboxModule
 
     const onDownloadProgress = () => {
       // const { loaded, total } = event
@@ -266,7 +240,7 @@ export default class DosBox {
     })
   }
 
-  public saveFilesToDB (files: string[], table: string = this.wdosboxModule.FS.DB_STORE_NAME): Promise<void> {
+  public saveFilesToDB (files: string[], table = this.wdosboxModule.FS.DB_STORE_NAME): Promise<void> {
     if (files.length === 0) {
       return Promise.resolve()
     }
@@ -309,7 +283,7 @@ export default class DosBox {
     })
   }
 
-  public loadFilesFromDB (files: string[] | null, table: string = this.wdosboxModule.FS.DB_STORE_NAME): Promise<void> {
+  public loadFilesFromDB (files: string[] | null, table = this.wdosboxModule.FS.DB_STORE_NAME): Promise<void> {
     return new Promise((resolve, reject) => {
       const { FS } = this.wdosboxModule
       const indexedDB = FS.indexedDB() as IDBFactory
