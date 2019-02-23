@@ -20,7 +20,7 @@
     "lint": "npm run tslint",
     "test": "npm run lint",
     "develop": "rimraf ./dist ./.cache && parcel ./src/index.html --no-hmr",
-    "release": "rimraf ./dist ./.cache && parcel build ./src/index.html",
+    "release": "rimraf ./dist ./.cache && parcel build ./src/index.html --public-url ./dosgame/",
     "start": "npm run develop"
   },
   "dependencies": {
