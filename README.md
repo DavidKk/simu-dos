@@ -4,5 +4,7 @@
 
 dos game for browser.
 
-[Online](https://davidkk.github.io/dosgame/)
-[国内](https://david.gitee.io/dosgame/)
+## Demo
+
+- [Online](https://davidkk.github.io/dosgame/)
+- [国内](https://david.gitee.io/dosgame/)
