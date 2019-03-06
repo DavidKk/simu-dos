@@ -204,13 +204,6 @@ export interface DGStage {
   reset (): Promise<void>
 }
 
-// DevTool
-export interface DGDevTool {
-  resize (): void
-  begin (): void
-  end (): void
-}
-
 // Game
 export interface DGGameDBOptions {
   dbTable?: string

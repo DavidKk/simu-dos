@@ -10,7 +10,7 @@ export default class Term implements DGTerm {
     return this.lines[this.lines.length - 1]
   }
 
-  constructor (container: HTMLPreElement) {
+  constructor (container: HTMLElement) {
     this.container = container
     this.screen = document.createElement('div')
     this.screen.className = 'term'
