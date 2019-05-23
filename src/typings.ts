@@ -1,5 +1,21 @@
 import { AxiosRequestConfig } from 'axios'
 
+// Misc
+export interface PolyfillHTMLElement {
+  fullscreenEnabled?: boolean
+  mozFullScreenEnabled?: boolean
+  webkitFullscreenEnabled?: boolean
+  msFullscreenEnabled?: boolean
+  requestFullscreen?: () => void
+  mozRequestFullScreen?: () => void
+  webkitRequestFullscreen?: () => void
+  msRequestFullscreen?: () => void
+  exitFullScreen?: () => void
+  mozCancelFullScreen?: () => void
+  webkitExitFullscreen?: () => void
+  msExitFullscreen?: () => void
+}
+
 // Events
 export type DGEvent = TouchEvent | MouseEvent | PointerEvent | MSPointerEvent
 export type DGEventHandle = (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => void
@@ -45,15 +61,15 @@ export interface DGGameInfo {
   id: string
   name: string
   url: string
-  size: number
+  size?: number
   command: Array<string>
-  save: {
+  save?: {
     path: string
     regexp: RegExp
   }
-  play: {
-    joystick: DGJoystickConf
-    keyboard: DGKeyboardConf
+  play?: {
+    joystick?: DGJoystickConf
+    keyboard?: DGKeyboardConf
   }
 }
 

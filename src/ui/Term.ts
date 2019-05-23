@@ -1,7 +1,7 @@
 import padEnd from 'lodash/padEnd'
-import { DGTerm } from '../types'
+import * as Typings from '../typings'
 
-export default class Term implements DGTerm {
+export default class Term implements Typings.DGTerm {
   private container: HTMLElement
   private screen: HTMLDivElement
   private lines: Array<HTMLPreElement> = []

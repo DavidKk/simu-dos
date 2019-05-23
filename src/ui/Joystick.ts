@@ -1,25 +1,17 @@
 import { EventEmitter } from 'events'
 import TouchEvents from '../share/event'
 import * as MathUtil from '../share/math'
-import {
-  DGPoint,
-  DGPosition,
-  DGEventHandle,
-  DGJoystickDirectionType,
-  DGJoystickDirection,
-  DGJoystickEventDatas,
-  DGJoystick
-} from '../types'
+import * as Typings from '../typings'
 
-export default class Joystick implements DGJoystick {
+export default class Joystick implements Typings.DGJoystick {
   private emitter: EventEmitter = new EventEmitter()
   private zone: HTMLDivElement
   private stand: HTMLDivElement
   private stick: HTMLDivElement
-  private fixedPoint: DGPoint = { x: 0, y: 0 }
-  private handleZoneTouchStart: DGEventHandle
-  private handleZoneTouchMove: DGEventHandle
-  private handleZoneTouchEnd: DGEventHandle
+  private fixedPoint: Typings.DGPoint = { x: 0, y: 0 }
+  private handleZoneTouchStart: Typings.DGEventHandle
+  private handleZoneTouchMove: Typings.DGEventHandle
+  private handleZoneTouchEnd: Typings.DGEventHandle
 
   constructor (zone: HTMLDivElement) {
     this.zone = zone
@@ -94,13 +86,13 @@ export default class Joystick implements DGJoystick {
     this.unbind(this.zone, TouchEvents.end, this.handleZoneTouchEnd)
   }
 
-  private setStickCoord (coord: DGPoint): void {
+  private setStickCoord (coord: Typings.DGPoint): void {
     const { x, y } = coord
     this.stick.style.marginLeft = x + 'px'
     this.stick.style.marginTop = y + 'px'
   }
 
-  private bind (element: HTMLElement, events: string | Array<string>, handle: DGEventHandle): void {
+  private bind (element: HTMLElement, events: string | Array<string>, handle: Typings.DGEventHandle): void {
     if (Array.isArray(events)) {
       events.forEach((event) => this.bind(element, event, handle))
       return
@@ -109,7 +101,7 @@ export default class Joystick implements DGJoystick {
     element.addEventListener(events, handle, false)
   }
 
-  private unbind (element: HTMLElement, events: string | Array<string>, handle: DGEventHandle): void {
+  private unbind (element: HTMLElement, events: string | Array<string>, handle: Typings.DGEventHandle): void {
     if (Array.isArray(events)) {
       events.forEach((event) => this.unbind(element, event, handle))
       return
@@ -118,7 +110,7 @@ export default class Joystick implements DGJoystick {
     element.removeEventListener(events, handle)
   }
 
-  private computes (pointA: DGPoint, pointB: DGPoint): DGJoystickEventDatas {
+  private computes (pointA: Typings.DGPoint, pointB: Typings.DGPoint): Typings.DGJoystickEventDatas {
     let { x, y } = pointB
     let { clientWidth: sizeA } = this.stand
     let { clientWidth: sizeB } = this.stick
@@ -135,34 +127,34 @@ export default class Joystick implements DGJoystick {
 
     let angle45 = Math.PI / 4
     let angle90 = Math.PI / 2
-    let direction: DGJoystickDirection = { x: null, y: null, angle: null }
+    let direction: Typings.DGJoystickDirection = { x: null, y: null, angle: null }
 
     if (radian > angle45 && radian < (angle45 * 3)) {
-      direction.angle = DGJoystickDirectionType.up
+      direction.angle = Typings.DGJoystickDirectionType.up
     } else if (radian > -angle45 && radian <= angle45) {
-      direction.angle = DGJoystickDirectionType.left
+      direction.angle = Typings.DGJoystickDirectionType.left
     } else if (radian > (-angle45 * 3) && radian <= -angle45) {
-      direction.angle = DGJoystickDirectionType.down
+      direction.angle = Typings.DGJoystickDirectionType.down
     } else {
-      direction.angle = DGJoystickDirectionType.right
+      direction.angle = Typings.DGJoystickDirectionType.right
     }
 
     if (radian > -angle90 && radian < angle90) {
-      direction.x = DGJoystickDirectionType.left
+      direction.x = Typings.DGJoystickDirectionType.left
     } else {
-      direction.x = DGJoystickDirectionType.right
+      direction.x = Typings.DGJoystickDirectionType.right
     }
 
     if (radian > 0) {
-      direction.y = DGJoystickDirectionType.up
+      direction.y = Typings.DGJoystickDirectionType.up
     } else {
-      direction.y = DGJoystickDirectionType.down
+      direction.y = Typings.DGJoystickDirectionType.down
     }
 
     return { coord, size, distance, angle, radian, direction }
   }
 
-  private getTouchPosition (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): DGPoint {
+  private getTouchPosition (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): Typings.DGPoint {
     if (event instanceof TouchEvent) {
       let { pageX, pageY } = event.touches[0]
       return { x: pageX, y: pageY }
@@ -172,7 +164,7 @@ export default class Joystick implements DGJoystick {
     return { x: pageX, y: pageY }
   }
 
-  public setPosition (position: DGPosition): void {
+  public setPosition (position: Typings.DGPosition): void {
     const { top, right, bottom, left } = position
     this.stand.style.top = typeof top === 'string' ? top : top + 'px'
     this.stand.style.right = typeof right === 'string' ? right : right + 'px'

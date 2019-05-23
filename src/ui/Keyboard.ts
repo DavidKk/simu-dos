@@ -1,11 +1,8 @@
 import remove from 'lodash/remove'
 import Button from './Button'
-import {
-  DGButtonOptions,
-  DGKeyboard
-} from '../types'
+import * as Typings from '../typings'
 
-export default class Keyboard implements DGKeyboard {
+export default class Keyboard implements Typings.DGKeyboard {
   private zone: HTMLDivElement = null
   private buttons: Array<Button> = []
 
@@ -13,7 +10,7 @@ export default class Keyboard implements DGKeyboard {
     this.zone = zone
   }
 
-  public add (context: string, options?: DGButtonOptions): Button {
+  public add (context: string, options?: Typings.DGButtonOptions): Button {
     let button = new Button(context, options)
     button.append(this.zone)
     this.buttons.push(button)

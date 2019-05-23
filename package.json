@@ -15,21 +15,27 @@
   },
   "scripts": {
     "lint-staged": "lint-staged",
-    "tslint": "tslint --config ./tslint.json --fix './src/**/*.ts'",
+    "tslint": "tslint --config ./tslint.json --fix './src/**/*.ts' './bundler/**/*.ts'",
     "lint": "npm run tslint",
     "test": "npm run lint",
-    "develop": "rimraf ./dist ./.cache && parcel ./src/index.html --no-hmr",
-    "release": "rimraf ./dist ./.cache && parcel build ./src/index.html --public-url /dosgame/",
+    "bundler": "tsc --project ./bundler --outDir ./libs/bundler",
+    "compile": "rimraf ./dist ./.cache && npm run bundler",
+    "develop": "npm run compile && node ./libs/bundler/index.js",
+    "release": "npm run compile && cross-env NODE_ENV=production node ./libs/bundler/index.js",
     "start": "npm run develop"
   },
   "dependencies": {
     "@types/lodash": "^4.14.122",
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "js-dos": "^6.22.19"
   },
   "devDependencies": {
+    "@types/fs-extra": "^7.0.0",
+    "@types/parcel-bundler": "^1.12.0",
+    "autoprefixer": "^9.5.1",
+    "fs-extra": "^8.0.1",
     "lint-staged": "^7.2.2",
     "parcel-bundler": "^1.11.0",
-    "parcel-plugin-static-files-copy": "^2.0.0",
     "postcss-pxtorem": "^4.0.1",
     "pre-commit": "^1.2.2",
     "rimraf": "^2.6.3",
@@ -37,8 +43,5 @@
     "tslint": "^5.12.1",
     "tslint-config-standard": "^8.0.1",
     "typescript": "^3.3.3"
-  },
-  "staticFiles": {
-    "staticPath": "src/vendors"
   }
 }

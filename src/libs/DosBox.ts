@@ -5,37 +5,29 @@ import { AxiosRequestConfig } from 'axios'
 import request, { CancelToken } from '../services/request'
 import dosConf from '../conf/dos'
 import version from '../conf/version'
-import {
-  DGGameInfo,
-  DGDosBoxOptions,
-  DGDosBoxPlayOptions,
-  DGDosBoxCompileOptions,
-  DGDosBoxWdosboxModule,
-  DGDosBoxFetchTask,
-  DGDosBox
-} from '../types'
+import * as Typings from '../typings'
 
-export default class DosBox implements DGDosBox {
-  private emitter: EventEmitter = new EventEmitter()
-  private options: DGDosBoxOptions = { wasmUrl: './wdosbox.wasm.js' }
-  private database: string = 'gdcenter_game'
-  private canvas: HTMLCanvasElement = null
-  private wdosboxModule: DGDosBoxWdosboxModule = null
-  private wasmModule: WebAssembly.Module = null
-  private shellInputQueue: string[] = []
-  private shellInputClients: Array<() => void> = []
-  private isAlive: boolean = true
-  private isInitialized: boolean = false
-  private isReady: boolean = false
-  private fetchTasks: Array<DGDosBoxFetchTask> = []
+export default class DosBox implements Typings.DGDosBox {
+  public emitter: EventEmitter = new EventEmitter()
+  public options: Typings.DGDosBoxOptions = { wasmUrl: './wdosbox.wasm.js' }
+  public database: string = 'gdcenter_game'
+  public canvas: HTMLCanvasElement = null
+  public wdosboxModule: Typings.DGDosBoxWdosboxModule = null
+  public wasmModule: WebAssembly.Module = null
+  public shellInputQueue: string[] = []
+  public shellInputClients: Array<() => void> = []
+  public isAlive: boolean = true
+  public isInitialized: boolean = false
+  public isReady: boolean = false
+  public fetchTasks: Array<Typings.DGDosBoxFetchTask> = []
 
-  constructor (canvas: HTMLCanvasElement, options: DGDosBoxOptions = {}) {
+  constructor (canvas: HTMLCanvasElement, options: Typings.DGDosBoxOptions = {}) {
     this.options = defaultsDeep(this.options, options)
     this.database = options.database || this.database
     this.canvas = canvas
   }
 
-  public async play (game: DGGameInfo, options?: DGDosBoxPlayOptions): Promise<void> {
+  public async play (game: Typings.DGGameInfo, options?: Typings.DGDosBoxPlayOptions): Promise<void> {
     const { id, name, url, command } = game
 
     const handleDownloadRoom = (event) => {
@@ -47,11 +39,9 @@ export default class DosBox implements DGDosBox {
       }
     }
 
-    let tasks = []
-    tasks.push(this.compile(this.options.wasmUrl, { onProgress: options.onDwonloadWasmProgress }))
-    tasks.push(this.extract(url, 'zip', { onDownloadProgress: handleDownloadRoom }))
+    const { mainFn } = await this.compile(this.options.wasmUrl, { onProgress: options.onDwonloadWasmProgress })
+    await this.extract(url, 'zip', { onDownloadProgress: handleDownloadRoom })
 
-    const [{ mainFn }] = await Promise.all(tasks)
     if (typeof options.onDownloadCompleted === 'function') {
       options.onDownloadCompleted()
     }
@@ -71,8 +61,11 @@ export default class DosBox implements DGDosBox {
     }
   }
 
-  public compile (wasmUrl?: string, options: DGDosBoxCompileOptions = {}): Promise<any> {
+  public compile (wasmUrl?: string, options: Typings.DGDosBoxCompileOptions = {}): Promise<any> {
     options = defaultsDeep({ wasmUrl }, options, this.options)
+
+    this.isReady = false
+    this.isInitialized = false
 
     const instantiateWasm = (info, receiveInstance) => {
       return WebAssembly.instantiate(this.wasmModule, info).then((instance) => {
@@ -155,7 +148,7 @@ export default class DosBox implements DGDosBox {
       onRuntimeInitialized,
       ping,
       print
-    } as DGDosBoxWdosboxModule
+    } as Typings.DGDosBoxWdosboxModule
 
     const onDownloadProgress = (event) => {
       const { loaded, total } = event
@@ -177,7 +170,7 @@ export default class DosBox implements DGDosBox {
       .then(async (module) => {
         this.wasmModule = module
 
-        const { default: WDOSBOX } = await import('../vendors/wdosbox')
+        const { default: WDOSBOX } = await import('../../node_modules/js-dos/dist/wdosbox')
         WDOSBOX(this.wdosboxModule)
       })
       .catch(reject)
@@ -204,19 +197,32 @@ export default class DosBox implements DGDosBox {
     return promise
   }
 
+  public getWdosboxModule (): Promise<any> {
+    if (this.isInitialized === true) {
+      return Promise.resolve(this.wdosboxModule)
+    }
+
+    return new Promise((resolve) => {
+      this.emitter.once('runtimeInitialized', () => {
+        resolve(this.wdosboxModule)
+      })
+    })
+  }
+
   public extract (url: string, type: string = 'zip', options?: AxiosRequestConfig): Promise<void> {
     if (type !== 'zip') {
       Promise.reject(new Error('Only ZIP archive is supported'))
       return
     }
 
-    return this.fetchArrayBuffer(url, options).then((data) => {
+    return this.fetchArrayBuffer(url, options).then((data: ArrayBuffer) => {
+      const wdosboxModule = this.wdosboxModule
       const bytes = new Uint8Array(data)
-      const buffer = this.wdosboxModule._malloc(bytes.length)
-      this.wdosboxModule.HEAPU8.set(bytes, buffer)
+      const buffer = wdosboxModule._malloc(bytes.length)
+      wdosboxModule.HEAPU8.set(bytes, buffer)
 
-      const code = this.wdosboxModule._extract_zip(buffer, bytes.length)
-      this.wdosboxModule._free(buffer)
+      const code = wdosboxModule._extract_zip(buffer, bytes.length)
+      wdosboxModule._free(buffer)
 
       if (code === 0) {
         return
