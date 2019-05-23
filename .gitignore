@@ -1,6 +1,6 @@
 # Output files
 /dist
-
+/libs
 
 # Dependency folders
 node_modules

@@ -3,13 +3,9 @@ import Button from '../ui/Button'
 import Keyboard from '../ui/Keyboard'
 import Joystick from '../ui/Joystick'
 import TouchEvent from '../conf/touch-event'
-import {
-  DGGameInfo,
-  DGControllerActionType,
-  DGController
-} from '../types'
+import * as Typings from '../typings'
 
-export default class Controller implements DGController {
+export default class Controller implements Typings.DGController {
   private emitter: EventEmitter = new EventEmitter()
   private touchpad: HTMLDivElement
   private keyboard: Keyboard
@@ -22,10 +18,10 @@ export default class Controller implements DGController {
     element.appendChild(this.touchpad)
   }
 
-  public mapGame (game: DGGameInfo): void {
+  public mapGame (game: Typings.DGGameInfo): void {
     if (game.play.joystick) {
       const handleActions = (data) => {
-        let datas = { type: DGControllerActionType.joystick, data }
+        let datas = { type: Typings.DGControllerActionType.joystick, data }
         this.emitter.emit('actions', datas)
       }
 

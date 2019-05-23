@@ -3,46 +3,37 @@ import Stage from './Stage'
 import DosBox from './DosBox'
 import Controller from './Controller'
 import * as games from '../conf/games'
-import {
-  DGJoystickConf,
-  DGJoystickDirectionType,
-  DGGameInfo,
-  DGControllerActionType,
-  DGGameDBOptions,
-  DGGame
-} from '../types'
+import * as Typings from '../typings'
 
-export const DefaultJoystickConfig: DGJoystickConf = [
+export const DefaultJoystickConfig: Typings.DGJoystickConf = [
   {
     keyCode: 37,
-    direction: DGJoystickDirectionType.left
+    direction: Typings.DGJoystickDirectionType.left
   },
   {
     keyCode: 38,
-    direction: DGJoystickDirectionType.up
+    direction: Typings.DGJoystickDirectionType.up
   },
   {
     keyCode: 39,
-    direction: DGJoystickDirectionType.right
+    direction: Typings.DGJoystickDirectionType.right
   },
   {
     keyCode: 40,
-    direction: DGJoystickDirectionType.down
+    direction: Typings.DGJoystickDirectionType.down
   }
 ]
 
-export default class Game implements DGGame {
-  private container: HTMLDivElement
-  private stage: Stage
-  private dosbox: DosBox
-  private controller: Controller
-  private syncIntervalId: NodeJS.Timeout
-  private disabledContextMenu: boolean = false
-  private isPlaying: boolean = false
+export default class Game implements Typings.DGGame {
+  public container: HTMLDivElement
+  public stage: Stage
+  public dosbox: DosBox
+  public controller: Controller
+  public syncIntervalId: NodeJS.Timeout
+  public disabledContextMenu: boolean = false
+  public isPlaying: boolean = false
 
   constructor () {
-    document.oncontextmenu = () => !this.disabledContextMenu
-
     this.container = document.createElement('div')
     this.container.classList.add('container')
     document.body.appendChild(this.container)
@@ -50,7 +41,7 @@ export default class Game implements DGGame {
     this.stage = new Stage(this.container)
     this.controller = new Controller(this.container)
 
-    this.play('xjqxz')
+    document.oncontextmenu = () => !this.disabledContextMenu
   }
 
   public async play (name: keyof typeof games): Promise<void> {
@@ -59,7 +50,7 @@ export default class Game implements DGGame {
 
     this.disableContextMenu()
 
-    const game: DGGameInfo = games[name]
+    const game: Typings.DGGameInfo = games[name]
     this.dosbox = this.stage.launch()
     this.dosbox.onExit(() => this.stop())
 
@@ -105,7 +96,7 @@ export default class Game implements DGGame {
     }
 
     const handleActions = (event) => {
-      if (event.type === DGControllerActionType.joystick) {
+      if (event.type === Typings.DGControllerActionType.joystick) {
         let { type, direction } = event.data
 
         if (type === 'move') {
@@ -131,7 +122,7 @@ export default class Game implements DGGame {
         }
       }
 
-      if (event.type === DGControllerActionType.keydown) {
+      if (event.type === Typings.DGControllerActionType.keydown) {
         this.dosbox.simulateKeyPress(event.keyCode)
       }
     }
@@ -140,14 +131,16 @@ export default class Game implements DGGame {
     this.controller.onActions(handleActions)
 
     const { id, save } = game
-    await this.loadArchiveFromDB({ dbTable: id })
+    if (save) {
+      await this.loadArchiveFromDB({ dbTable: id })
 
-    const interval = async () => {
-      let options = { dbTable: id, pattern: save.regexp }
-      await this.saveArchiveFromDB(save.path, options)
+      const interval = async () => {
+        let options = { dbTable: id, pattern: save.regexp }
+        await this.saveArchiveFromDB(save.path, options)
+      }
+
+      this.syncIntervalId = setInterval(interval, 3e3)
     }
-
-    this.syncIntervalId = setInterval(interval, 3e3)
   }
 
   public async stop (): Promise<void> {
@@ -160,12 +153,12 @@ export default class Game implements DGGame {
     this.isPlaying = false
   }
 
-  public async saveArchiveFromDB (dir: string, options?: DGGameDBOptions): Promise<void> {
+  public async saveArchiveFromDB (dir: string, options?: Typings.DGGameDBOptions): Promise<void> {
     const files = await this.dosbox.searchFiles(dir, options.pattern || /.*/)
     files.length > 0 && await this.dosbox.saveFilesToDB(files, options.dbTable)
   }
 
-  public async loadArchiveFromDB (options?: DGGameDBOptions): Promise<void> {
+  public async loadArchiveFromDB (options?: Typings.DGGameDBOptions): Promise<void> {
     await this.dosbox.loadFilesFromDB(null, options.dbTable)
   }
 

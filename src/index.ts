@@ -1,3 +1,7 @@
 import Game from './libs/Game'
 
-export default new Game()
+const game = new Game()
+
+game.play('jyqxz')
+
+export default game

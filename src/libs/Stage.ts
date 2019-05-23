@@ -1,10 +1,10 @@
 import DOSBox from './DosBox'
 import Term from '../ui/Term'
-import { DGStage } from '../types'
+import * as Typings from '../typings'
 
-export default class Stage implements DGStage {
-  private container: HTMLDivElement
-  private stage: HTMLCanvasElement
+export default class Stage implements Typings.DGStage {
+  public container: HTMLDivElement
+  public canvas: HTMLCanvasElement
   public term: Term
   public dosbox: DOSBox
 
@@ -12,10 +12,10 @@ export default class Stage implements DGStage {
     this.container = container
     this.term = new Term(this.container)
 
-    this.stage = document.createElement('canvas')
+    this.canvas = document.createElement('canvas')
 
-    this.stage.className = 'stage'
-    this.container.appendChild(this.stage)
+    this.canvas.className = 'stage'
+    this.container.appendChild(this.canvas)
 
     window.addEventListener('resize', this.resize.bind(this))
     this.resize()
@@ -27,7 +27,7 @@ export default class Stage implements DGStage {
 
   public launch (): DOSBox {
     if (!this.dosbox) {
-      this.dosbox = new DOSBox(this.stage)
+      this.dosbox = new DOSBox(this.canvas)
     }
 
     return this.dosbox
@@ -59,7 +59,7 @@ export default class Stage implements DGStage {
   }
 
   public toggle (isOpen: boolean = true): void {
-    this._toggle(this.stage, isOpen)
+    this._toggle(this.canvas, isOpen)
   }
 
   public resize (): void {
