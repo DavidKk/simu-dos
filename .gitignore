@@ -2,6 +2,7 @@
 /dist
 /libs
 
+
 # Dependency folders
 node_modules
 npm-debug.log
@@ -45,3 +46,7 @@ nbproject
 *.sublime-project
 *.sublime-workspace
 .idea
+
+# expect
+
+!/rooms/*.zip

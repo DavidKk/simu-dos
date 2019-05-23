@@ -1,16 +1,5 @@
 import * as Typings from '../typings'
 
-export const digger: Typings.DGGameInfo = {
-  id: 'digger',
-  name: 'Digger',
-  size: 24576,
-  url: require('../../rooms/digger.zip'),
-  command: ['DIGGER.COM'],
-  play: {
-    joystick: true
-  }
-}
-
 export const xjqxz: Typings.DGGameInfo = {
   id: 'xjqxz',
   name: '仙剑奇侠传',
