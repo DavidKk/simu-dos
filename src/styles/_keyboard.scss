@@ -1,3 +1,7 @@
+$keyBtnWidth: 30px !default;
+$keyBtnHeight: 20px !default;
+$keyRoundBtnSize: 80px !default;
+
 .keyboard-btn {
   position: absolute;
   z-index: 4;
@@ -7,21 +11,21 @@
   margin: auto;
   border-radius: 20px;
   padding: 4px 10px;
-  width: 30px;
-  height: 20px;
+  width: $keyBtnWidth;
+  height: $keyBtnHeight;
   font-size: 12px;
-  color: rgba(255,255,255,.4);
-  background-color: rgba(255,255,255,.4);
+  color: $uiColor;
+  background-color: $uiColor;
   transition: background-color .16s ease-in, color background-color .16s ease-in;
   user-select: none;
   cursor: pointer;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .keyboard-btn.round {
   border-radius: 100%;
   padding: 0;
-  width: 80px;
+  width: $keyRoundBtnSize;
   height: auto;
   font-size: 20px;
 
@@ -33,6 +37,6 @@
 }
 
 .keyboard-btn.active {
-  color: rgba(255,255,255,.6);
-  background-color: rgba(255,255,255,.6);
+  color: $uiActiveColor;
+  background-color: $uiActiveColor;
 }

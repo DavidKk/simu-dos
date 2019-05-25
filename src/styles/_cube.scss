@@ -1,5 +1,4 @@
-// Cube
-// ----------------
+$cubeSize: 72px !default;
 
 .cube {
   position: absolute;
@@ -21,7 +20,7 @@
   width: $cubeSize;
   height: $cubeSize;
   opacity: 1;
-  box-shadow: inset 0 0 ($cubeSize * 2 / 5) rgba(255,255,255,.4);
+  box-shadow: inset 0 0 ($cubeSize * 2 / 5) $uiColor;
   transition: opacity .26s ease-in;
 }
 
