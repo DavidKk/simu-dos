@@ -1,3 +1,5 @@
+$joystickSize: 100px !default;
+
 .joystick-stand {
   position: absolute;
   bottom: 50px;
@@ -5,8 +7,8 @@
   z-index: 4;
   display: block;
   border-radius: 100%;
-  width: 100px;
-  background-color: rgba(255,255,255,.4);
+  width: $joystickSize;
+  background-color: $uiColor;
   transition: background-color .16s ease-in;
   user-select: none;
   cursor: pointer;
@@ -20,7 +22,7 @@
   display: block;
   border-radius: 100%;
   width: 50%;
-  background-color: rgba(255,255,255,.4);
+  background-color: $uiColor;
   transition: background-color .16s ease-in;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -34,5 +36,5 @@
 
 .joystick-stand.active,
 .joystick-stand.active .joystick-stick {
-  background-color: rgba(255,255,255,.6);
+  background-color: $uiActiveColor;
 }

@@ -1,12 +1,11 @@
-$dpad-width: 35px !default;
-$dpad-height: 35px !default;
+$dpadBtnSize: 35px !default;
 
 .dpad {
   position: absolute;
   top: 40px;
   left: 50px;
-  width: $dpad-width * 3 + $dpad-width / 3;
-  height: $dpad-width * 3 + $dpad-width / 3;
+  width: $dpadBtnSize * 3 + $dpadBtnSize / 3;
+  height: $dpadBtnSize * 3 + $dpadBtnSize / 3;
 }
 
 .dpad-btn {
@@ -17,7 +16,8 @@ $dpad-height: 35px !default;
   left: 0;
   margin: auto;
   border-radius: 4px;
-  background-color: rgba(255,255,255,.4);
+  background-color: $uiColor;
+  cursor: pointer;
 
   &:before,
   &:after {
@@ -34,28 +34,28 @@ $dpad-height: 35px !default;
   }
 
   &:before {
-    border: ($dpad-height / 4) solid rgba(255,255,255,.4);
+    border: ($dpadBtnSize / 4) solid $uiColor;
   }
 
   &:after {
-    border: ($dpad-height / 2) solid rgba(255,255,255,.4);
+    border: ($dpadBtnSize / 2) solid $uiColor;
   }
 
   &.active {
-    background-color: rgba(255,255,255,.6);
+    background-color: $uiActiveColor;
   }
 }
 
 .dpad-up,
 .dpad-down {
-  width: $dpad-width;
-  height: $dpad-height;
+  width: $dpadBtnSize;
+  height: $dpadBtnSize;
 }
 
 .dpad-right,
 .dpad-left {
-  width: $dpad-height;
-  height: $dpad-width;
+  width: $dpadBtnSize;
+  height: $dpadBtnSize;
 }
 
 .dpad-up {
