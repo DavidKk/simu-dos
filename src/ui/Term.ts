@@ -1,10 +1,9 @@
 import padEnd from 'lodash/padEnd'
-import * as Typings from '../typings'
 
-export default class Term implements Typings.DGTerm {
+export default class Term {
   private container: HTMLElement
   private screen: HTMLDivElement
-  private lines: Array<HTMLPreElement> = []
+  private lines: Array<HTMLPreElement>
 
   get currentLine (): HTMLPreElement {
     return this.lines[this.lines.length - 1]
@@ -13,6 +12,8 @@ export default class Term implements Typings.DGTerm {
   constructor (container: HTMLElement) {
     this.container = container
     this.screen = document.createElement('div')
+    this.lines = []
+
     this.screen.className = 'term'
     this.container.appendChild(this.screen)
 

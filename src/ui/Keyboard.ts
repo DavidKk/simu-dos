@@ -2,12 +2,13 @@ import remove from 'lodash/remove'
 import Button from './Button'
 import * as Typings from '../typings'
 
-export default class Keyboard implements Typings.DGKeyboard {
-  private zone: HTMLDivElement = null
-  private buttons: Array<Button> = []
+export default class Keyboard {
+  private zone: HTMLDivElement
+  private buttons: Array<Button>
 
   constructor (zone: HTMLDivElement) {
     this.zone = zone
+    this.buttons = []
   }
 
   public add (context: string, options?: Typings.DGButtonOptions): Button {

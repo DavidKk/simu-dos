@@ -3,20 +3,22 @@ import TouchEvents from '../share/event'
 import * as MathUtil from '../share/math'
 import * as Typings from '../typings'
 
-export default class Joystick implements Typings.DGJoystick {
-  private emitter: EventEmitter = new EventEmitter()
+export default class Joystick {
+  private emitter: EventEmitter
   private zone: HTMLDivElement
   private stand: HTMLDivElement
   private stick: HTMLDivElement
-  private fixedPoint: Typings.DGPoint = { x: 0, y: 0 }
+  private fixedPoint: Typings.DGPoint
   private handleZoneTouchStart: Typings.DGEventHandle
   private handleZoneTouchMove: Typings.DGEventHandle
   private handleZoneTouchEnd: Typings.DGEventHandle
 
   constructor (zone: HTMLDivElement) {
+    this.emitter = new EventEmitter()
     this.zone = zone
     this.stand = document.createElement('div')
     this.stick = document.createElement('div')
+    this.fixedPoint = { x: 0, y: 0 }
 
     this.stand.className = 'joystick-stand'
     this.stick.className = 'joystick-stick'
@@ -130,25 +132,25 @@ export default class Joystick implements Typings.DGJoystick {
     let direction: Typings.DGJoystickDirection = { x: null, y: null, angle: null }
 
     if (radian > angle45 && radian < (angle45 * 3)) {
-      direction.angle = Typings.DGJoystickDirectionType.up
+      direction.angle = 'up'
     } else if (radian > -angle45 && radian <= angle45) {
-      direction.angle = Typings.DGJoystickDirectionType.left
+      direction.angle = 'left'
     } else if (radian > (-angle45 * 3) && radian <= -angle45) {
-      direction.angle = Typings.DGJoystickDirectionType.down
+      direction.angle = 'down'
     } else {
-      direction.angle = Typings.DGJoystickDirectionType.right
+      direction.angle = 'right'
     }
 
     if (radian > -angle90 && radian < angle90) {
-      direction.x = Typings.DGJoystickDirectionType.left
+      direction.x = 'left'
     } else {
-      direction.x = Typings.DGJoystickDirectionType.right
+      direction.x = 'right'
     }
 
     if (radian > 0) {
-      direction.y = Typings.DGJoystickDirectionType.up
+      direction.y = 'up'
     } else {
-      direction.y = Typings.DGJoystickDirectionType.down
+      direction.y = 'down'
     }
 
     return { coord, size, distance, angle, radian, direction }
@@ -181,7 +183,7 @@ export default class Joystick implements Typings.DGJoystick {
     this.emitter.addListener('actions', handle)
   }
 
-  public destory (): void {
+  public destroy (): void {
     this.unbindings()
 
     this.stick.parentElement.removeChild(this.stick)
@@ -190,5 +192,7 @@ export default class Joystick implements Typings.DGJoystick {
     this.stick = undefined
     this.stand = undefined
     this.zone = undefined
+
+    this.destroy = Function.prototype as any
   }
 }
