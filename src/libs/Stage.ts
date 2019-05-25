@@ -1,6 +1,5 @@
 import DOSBox from './DosBox'
 import Term from '../ui/Term'
-import * as Typings from '../typings'
 
 export default class Stage {
   public container: HTMLDivElement

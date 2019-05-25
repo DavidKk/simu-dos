@@ -24,10 +24,10 @@ export default class App {
 
       const id = element.getAttribute('data-game')
 
+      this.hide()
+
       await this.game.play(id)
       this.game.dosbox.onExit(this.show.bind(this))
-
-      this.hide()
     }
 
     document.body.addEventListener(TouchEvents.start, handleTouch)
