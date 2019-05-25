@@ -4,27 +4,9 @@ import DosBox from './DosBox'
 import Controller from './Controller'
 import Model from './Model'
 import * as games from '../conf/games'
+import { Joystick2DConfig, DPadDefaultConfig } from '../conf/controller'
 import * as Typings from '../typings'
 import Package from '../../package.json'
-
-export const DefaultJoystickConfig: Typings.DGJoystickConf = [
-  {
-    keyCode: 37,
-    direction: Typings.DGJoystickDirectionType.left
-  },
-  {
-    keyCode: 38,
-    direction: Typings.DGJoystickDirectionType.up
-  },
-  {
-    keyCode: 39,
-    direction: Typings.DGJoystickDirectionType.right
-  },
-  {
-    keyCode: 40,
-    direction: Typings.DGJoystickDirectionType.down
-  }
-]
 
 export default class Game {
   public container: HTMLDivElement
@@ -108,17 +90,18 @@ export default class Game {
     }
 
     const handleActions = (event) => {
-      if (event.type === Typings.DGControllerActionType.joystick) {
+      if (event.type === 'joystick') {
         let { type, direction } = event.data
+        let { joystick } = game.play
+        if (joystick === true) {
+          joystick = Joystick2DConfig
+        }
 
         if (type === 'move') {
           let { x, y, angle } = direction
-          if (game.play.joystick === true) {
-            game.play.joystick = DefaultJoystickConfig
-          }
 
-          if (Array.isArray(game.play.joystick)) {
-            let item = game.play.joystick.find((item) => {
+          if (Array.isArray(joystick)) {
+            let item = joystick.find((item) => {
               if (Array.isArray(item.direction)) {
                 return 0 === xor(item.direction, [x, y]).length
               }
@@ -132,10 +115,31 @@ export default class Game {
         } else if (type === 'up') {
           sendKeyup()
         }
-      }
 
-      if (event.type === Typings.DGControllerActionType.keydown) {
-        this.dosbox.simulateKeyPress(event.keyCode)
+      } else if (event.type === 'dpad') {
+        let { type, direction } = event.data
+        let { dpad } = game.play
+
+        if (dpad === true) {
+          dpad = DPadDefaultConfig
+        }
+
+        if (type === 'down') {
+          if (Array.isArray(dpad)) {
+            let item = dpad.find((item) => item.direction === direction)
+            item && sendKeydown(item.keyCode)
+          }
+
+        } else if (type === 'up') {
+          sendKeyup()
+        }
+
+      } else if (event.type === 'button') {
+        let { type, keyCode } = event.data
+
+        if (type === 'down') {
+          this.dosbox.simulateKeyPress(keyCode)
+        }
       }
     }
 
@@ -147,7 +151,6 @@ export default class Game {
 
       const interval = async () => {
         await this.saveArchiveFromDB(game)
-        console.log('自动保存成功')
       }
 
       this.syncIntervalId = setInterval(interval, 3e3)

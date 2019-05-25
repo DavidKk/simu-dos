@@ -1,6 +1,3 @@
-import { AxiosRequestConfig } from 'axios'
-import DosBox from './libs/DosBox'
-
 // Events
 export type DGEvent = TouchEvent | MouseEvent | PointerEvent | MSPointerEvent
 export type DGEventHandle = (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => void
@@ -42,6 +39,11 @@ export type DGKeyboardConf = Array<{
   options?: DGButtonOptions
 }>
 
+export type DGDPadConf = boolean | Array<{
+  keyCode: number
+  direction: DGDPadDirectionType
+}>
+
 export interface DGGameInfo {
   id: string
   name: string
@@ -57,48 +59,24 @@ export interface DGGameInfo {
   play?: {
     joystick?: DGJoystickConf
     keyboard?: DGKeyboardConf
+    dpad?: DGDPadConf
   }
 }
 
 // Buttons
-export enum DGButtonType {
-  normal = 'normal',
-  round = 'round'
-}
+export type DGButtonType = 'normal' | 'round'
 
 export interface DGButtonOptions {
-  type?: keyof typeof DGButtonType,
+  type?: DGButtonType,
   position?: DGPosition
   size?: DGStyleValue
 }
 
-export interface DGButton {
-  bind (events: string | Array<string>, handle: DGEventHandle): void
-  unbind (events: string | Array<string>, handle: DGEventHandle): void
-  setType (type: keyof typeof DGButtonType): void
-  setWidth (width: DGStyleValue): void
-  setHeight (height: DGStyleValue): void
-  setFontSize (size: DGStyleValue): void
-  setSize (size: string | number): void
-  setPosition (position: DGPosition): void
-  append (element: HTMLElement): void
-  remove (): void
-}
-
-// Keyboard
-export interface DGKeyboard {
-  add (context: string, options?: DGButtonOptions): DGButton
-  remove (button: DGButton): void
-  destroy (): void
-}
+// DPad
+export type DGDPadDirectionType = 'up' | 'down' | 'left' | 'right'
 
 // Joystick
-export enum DGJoystickDirectionType {
-  up = 'up',
-  down = 'down',
-  left = 'left',
-  right = 'right'
-}
+export type DGJoystickDirectionType = 'up' | 'down' | 'left' | 'right'
 
 export interface DGJoystickDirection {
   x: DGJoystickDirectionType
@@ -115,18 +93,8 @@ export interface DGJoystickEventDatas {
   direction: DGJoystickDirection
 }
 
-export interface DGJoystick {
-  setPosition (position: DGPosition): void
-  setSize (size: number | string): void
-  onActions (handle: (event: any) => void): void
-  destory (): void
-}
-
 // Controller
-export enum DGControllerActionType {
-  joystick = 'joystick',
-  keydown = 'keydown'
-}
+export type DGControllerActionType = 'joystick' | 'keydown'
 
 // Dosbox
 export interface DGDosBoxOptions {

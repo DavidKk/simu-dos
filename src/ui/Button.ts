@@ -9,11 +9,11 @@ enum DSOperation {
   divide = '/'
 }
 
-export default class Button implements Typings.DGButton {
+export default class Button {
   private element: HTMLDivElement
   private handleTouchStart: Typings.DGEventHandle
   private handleTouchEnd: Typings.DGEventHandle
-  private type: keyof typeof Typings.DGButtonType = 'normal'
+  private type: Typings.DGButtonType
 
   constructor (context: string, options?: Typings.DGButtonOptions) {
     this.element = document.createElement('div')
@@ -92,9 +92,9 @@ export default class Button implements Typings.DGButton {
     }
   }
 
-  public setType (type: keyof typeof Typings.DGButtonType): void {
+  public setType (type: Typings.DGButtonType): void {
     this.type = type
-    ;[Typings.DGButtonType.normal].forEach((style) => this.element.classList.remove(style))
+    ;['normal'].forEach((style) => this.element.classList.remove(style))
     type !== 'normal' && this.element.classList.add(type)
   }
 
@@ -111,20 +111,20 @@ export default class Button implements Typings.DGButton {
   }
 
   public setSize (size: Typings.DGStyleSize): void {
-    const ratio = this.type === Typings.DGButtonType.round ? 1 / 3 : 3 / 4
+    const ratio = this.type === 'round' ? 1 / 3 : 3 / 4
     if (typeof size === 'object') {
       const { width, height } = size
       this.setWidth(width)
       this.setHeight(height)
 
-      const value = this.type === Typings.DGButtonType.round ? width : height
+      const value = this.type === 'round' ? width : height
       const fontSize = this.calcSize(value, DSOperation.multi, ratio)
       this.setFontSize(fontSize)
 
     } else {
       this.setWidth(size)
 
-      const value = this.type === Typings.DGButtonType.round ? size : 20
+      const value = this.type === 'round' ? size : 20
       let fontSize = this.calcSize(value, DSOperation.multi, ratio)
       this.setFontSize(fontSize)
     }
