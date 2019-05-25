@@ -2,7 +2,7 @@ import DOSBox from './DosBox'
 import Term from '../ui/Term'
 import * as Typings from '../typings'
 
-export default class Stage implements Typings.DGStage {
+export default class Stage {
   public container: HTMLDivElement
   public canvas: HTMLCanvasElement
   public term: Term

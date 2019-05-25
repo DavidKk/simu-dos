@@ -158,13 +158,6 @@ export interface DGDosBoxFetchTask {
   cancel: (message?: string) => void
 }
 
-// Stage
-export interface DGStage {
-  launch (): DosBox
-  resize (): void
-  reset (): Promise<void>
-}
-
 // Game
 export interface DGGameDBOptions {
   pattern?: RegExp
