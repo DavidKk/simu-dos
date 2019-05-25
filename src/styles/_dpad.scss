@@ -1,9 +1,9 @@
-$dpadBtnSize: 35px !default;
+$dpadBtnSize: 45px !default;
 
 .dpad {
   position: absolute;
   top: 40px;
-  left: 50px;
+  left: 40px;
   width: $dpadBtnSize * 3 + $dpadBtnSize / 3;
   height: $dpadBtnSize * 3 + $dpadBtnSize / 3;
 }

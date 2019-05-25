@@ -88,6 +88,7 @@ export default class Controller {
     this.deprecates.splice(0)
 
     this.joystick && this.joystick.destroy()
+    this.dpad && this.dpad.destroy()
     this.keyboard && this.keyboard.destroy()
   }
 }

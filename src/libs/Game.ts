@@ -21,7 +21,7 @@ export default class Game {
   constructor () {
     const [major, minor] = (Package.version as string).split('.')
 
-    this.disabledContextMenu = false
+    this.disabledContextMenu = true
     this.isPlaying = false
     this.container = document.createElement('div')
     this.model = new Model(`${major}@${(Package.name as string)}`, Number(minor) + 1)

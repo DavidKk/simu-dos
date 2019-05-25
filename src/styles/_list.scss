@@ -8,12 +8,17 @@
   flex-wrap: wrap;
   width: 100%;
   height: 100%;
+  opacity: 0;
   overflow-y: auto;
   background-color: #000;
 }
 
 .game-list.fade {
   transition: opacity .16s ease-in-out;
+}
+
+.game-list.fade.in {
+  opacity: 1;
 }
 
 .game-list.fade:not(.in) {
