@@ -1,0 +1,40 @@
+.game-list {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #000;
+}
+
+.game-list.fade {
+  transition: opacity .16s ease-in-out;
+}
+
+.game-list.fade:not(.in) {
+  opacity: 0;
+}
+
+.game-list > .item {
+  display: block;
+  height: 33.333333333333334%;
+
+  > img {
+    outline: 0;
+    border: 0;
+    height: 100%;
+    transition: transform .16s ease-in-out;
+    pointer-events: none;
+  }
+
+  &.focus > img,
+  &:hover > img {
+    transform: scale(1.1);
+  }
+}
+

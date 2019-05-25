@@ -7,8 +7,8 @@ const options: ParcelOptions = {
   publicUrl: conf.isRelease ? '/dosgame/' : '/',
   watch: !conf.isRelease,
   minify: conf.isRelease,
-  sourceMaps: false,
-  contentHash: true,
+  sourceMaps: !conf.isRelease,
+  contentHash: conf.isRelease,
   hmr: false
 }
 

@@ -4,6 +4,7 @@ export const xjqxz: Typings.DGGameInfo = {
   id: 'xjqxz',
   name: '仙剑奇侠传',
   size: 20272189,
+  cover: require('../../rooms/images/xjqxz.jpg'),
   url: require('../../rooms/xjqxz.zip'),
   command: ['PAL!.EXE'],
   save: {
@@ -73,6 +74,7 @@ export const jyqxz: Typings.DGGameInfo = {
   id: 'jyqxz',
   name: '金庸群侠传',
   size: 26130954,
+  cover: require('../../rooms/images/jyqxz.jpg'),
   url: require('../../rooms/jyqxz.zip'),
   command: ['PLAY.BAT'],
   save: {

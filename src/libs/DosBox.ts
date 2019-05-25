@@ -7,7 +7,7 @@ import dosConf from '../conf/dos'
 import version from '../conf/version'
 import * as Typings from '../typings'
 
-export default class DosBox implements Typings.DGDosBox {
+export default class DosBox {
   public emitter: EventEmitter = new EventEmitter()
   public options: Typings.DGDosBoxOptions = { wasmUrl: './wdosbox.wasm.js' }
   public database: string = 'gdcenter_game'
@@ -28,7 +28,7 @@ export default class DosBox implements Typings.DGDosBox {
   }
 
   public async play (game: Typings.DGGameInfo, options?: Typings.DGDosBoxPlayOptions): Promise<void> {
-    const { id, name, url, command } = game
+    const { url, room, command } = game
 
     const handleDownloadRoom = (event) => {
       const { loaded, total } = event
@@ -40,25 +40,13 @@ export default class DosBox implements Typings.DGDosBox {
     }
 
     const { mainFn } = await this.compile(this.options.wasmUrl, { onProgress: options.onDwonloadWasmProgress })
-    await this.extract(url, 'zip', { onDownloadProgress: handleDownloadRoom })
+    const buffer = await this.extract(room || url, 'zip', { onDownloadProgress: handleDownloadRoom })
 
     if (typeof options.onDownloadCompleted === 'function') {
-      options.onDownloadCompleted()
+      options.onDownloadCompleted(buffer)
     }
 
     await mainFn(command)
-
-    this.wdosboxModule.setWindowTitle(name)
-    this.setSize(window.innerWidth, window.innerHeight)
-
-    const { FS } = this.wdosboxModule
-    let indexedDB = FS.indexedDB() as IDBFactory
-    let openRequest = indexedDB.open(this.database, FS.DB_VERSION)
-
-    openRequest.onupgradeneeded = () => {
-      let db = openRequest.result
-      db.createObjectStore(id)
-    }
   }
 
   public compile (wasmUrl?: string, options: Typings.DGDosBoxCompileOptions = {}): Promise<any> {
@@ -209,13 +197,13 @@ export default class DosBox implements Typings.DGDosBox {
     })
   }
 
-  public extract (url: string, type: string = 'zip', options?: AxiosRequestConfig): Promise<void> {
+  public extract (room: string | ArrayBuffer, type: string = 'zip', options?: AxiosRequestConfig): Promise<ArrayBuffer> {
     if (type !== 'zip') {
       Promise.reject(new Error('Only ZIP archive is supported'))
       return
     }
 
-    return this.fetchArrayBuffer(url, options).then((data: ArrayBuffer) => {
+    const extract = (data: ArrayBuffer) => {
       const wdosboxModule = this.wdosboxModule
       const bytes = new Uint8Array(data)
       const buffer = wdosboxModule._malloc(bytes.length)
@@ -225,11 +213,17 @@ export default class DosBox implements Typings.DGDosBox {
       wdosboxModule._free(buffer)
 
       if (code === 0) {
-        return
+        return Promise.resolve(data)
       }
 
       return Promise.reject(new Error(`Can't extract zip, retcode ${code}, see more info in logs`))
-    })
+    }
+
+    if (typeof room === 'string') {
+      return this.fetchArrayBuffer(room, options).then(extract)
+    }
+
+    return extract(room)
   }
 
   public createFile (file: string, body: ArrayBuffer | Uint8Array | string): void {
@@ -272,101 +266,26 @@ export default class DosBox implements Typings.DGDosBox {
     })
   }
 
-  public saveFilesToDB (files: string[], table = this.wdosboxModule.FS.DB_STORE_NAME): Promise<void> {
-    if (files.length === 0) {
-      return Promise.resolve()
+  public readFile (file: string): ArrayBuffer {
+    const { FS } = this.wdosboxModule
+    const { exists, object } = FS.analyzePath(file)
+    if (exists !== true) {
+      throw new Error(`File ${file} is not exists`)
     }
 
-    return new Promise((resolve, reject) => {
-      let { FS } = this.wdosboxModule
-      let indexedDB = FS.indexedDB() as IDBFactory
-      let openRequest = indexedDB.open(this.database, FS.DB_VERSION)
-
-      openRequest.onupgradeneeded = () => {
-        let db = openRequest.result
-        db.createObjectStore(table)
-      }
-
-      openRequest.onerror = (error) => reject(error)
-
-      openRequest.onsuccess = () => {
-        const db = openRequest.result
-        const transaction = db.transaction([table], 'readwrite')
-        const store = transaction.objectStore(table)
-
-        transaction.onerror = (error) => reject(error)
-
-        let promises = files.map((file) => new Promise((resolve, reject) => {
-          let stats = FS.analyzePath(file)
-          if (stats.exists !== true) {
-            reject(new Error(`File ${file} is not exists`))
-            return
-          }
-
-          let content = FS.analyzePath(file).object.contents
-          let putRequest = store.put(content, file)
-
-          putRequest.onsuccess = () => resolve()
-          putRequest.onerror = (error) => reject(error)
-        }))
-
-        return Promise.all(promises).then(() => resolve()).catch(reject)
-      }
-    })
+    return object.contents
   }
 
-  public loadFilesFromDB (files: string[] | null, table = this.wdosboxModule.FS.DB_STORE_NAME): Promise<void> {
-    return new Promise((resolve, reject) => {
-      const { FS } = this.wdosboxModule
-      const indexedDB = FS.indexedDB() as IDBFactory
-      const openRequest = indexedDB.open(this.database, FS.DB_VERSION)
+  public writeFile (file: string, content: ArrayBuffer): void {
+    const { FS } = this.wdosboxModule
+    const { exists } = FS.analyzePath(file)
 
-      openRequest.onupgradeneeded = () => reject(new Error(`Table ${table} is not exists`))
-      openRequest.onerror = (error) => reject(error)
+    exists && FS.unlink(file)
 
-      openRequest.onsuccess = () => {
-        const db = openRequest.result
-        const transaction = db.transaction([table], 'readonly')
-        const store = transaction.objectStore(table)
+    const dir = path.dirname(file)
+    const name = path.basename(file)
 
-        const _putfiles = (files) => {
-          const promises = files.map((file) => new Promise((resolve, reject) => {
-            const getRequest = store.get(file)
-
-            getRequest.onerror = (error) => reject(error)
-            getRequest.onsuccess = () => {
-              try {
-                FS.analyzePath(file).exists && FS.unlink(file)
-
-                let dir = path.dirname(file)
-                let name = path.basename(file)
-                let content = getRequest.result
-
-                FS.createDataFile(dir, name, content, true, true, true)
-                resolve()
-              } catch (error) {
-                reject(error)
-              }
-            }
-          }))
-
-          return Promise.all(promises)
-        }
-
-        if (Array.isArray(files)) {
-          _putfiles(files).then(() => resolve()).catch(reject)
-          return
-        }
-
-        const getRequest = store.getAllKeys()
-        getRequest.onerror = (error) => reject(error)
-
-        getRequest.onsuccess = () => {
-          const files = getRequest.result
-          _putfiles(files).then(() => resolve()).catch(reject)
-        }
-      }
-    })
+    FS.createDataFile(dir, name, content, true, true, true)
   }
 
   public simulateKeyEvent (keyCode: number, pressed: boolean): void {
@@ -388,7 +307,7 @@ export default class DosBox implements Typings.DGDosBox {
     : event.initKeyEvent(name, true, true, document.defaultView, false, false, false, false, keyCode, 0)
 
     event.keyCodeVal = keyCode
-    this.canvas.dispatchEvent(event)
+    this.canvas && this.canvas.dispatchEvent(event)
   }
 
   public simulateKeyPress (keyCode: number): void {

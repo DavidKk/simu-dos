@@ -1,7 +1,3 @@
-import Game from './libs/Game'
+import App from './libs/App'
 
-const game = new Game()
-
-game.play('jyqxz')
-
-export default game
+export default new App()

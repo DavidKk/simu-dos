@@ -1,16 +1,12 @@
-import * as Typings from '../typings'
-
 export const isFullscreenEnabled = (): boolean => {
-  const element = document as Typings.PolyfillHTMLElement
-
-  return element.fullscreenEnabled
-    || element.mozFullScreenEnabled
-    || element.webkitFullscreenEnabled
-    || element.msFullscreenEnabled
+  return document.fullscreenEnabled
+    || document.mozFullScreenEnabled
+    || document.webkitFullscreenEnabled
+    || document.msFullscreenEnabled
 }
 
 export const requestFullscreen = (): boolean => {
-  const element = document.body as Typings.PolyfillHTMLElement
+  const element = document.body
 
   try {
     if (isFullscreenEnabled()) {
@@ -35,7 +31,7 @@ export const requestFullscreen = (): boolean => {
 }
 
 export const exitFullscreen = (): void => {
-  const element = document as Typings.PolyfillHTMLElement
+  const element = document
 
   if (element.exitFullScreen) {
     element.exitFullScreen()

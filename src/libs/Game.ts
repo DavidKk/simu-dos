@@ -2,8 +2,10 @@ import xor from 'lodash/xor'
 import Stage from './Stage'
 import DosBox from './DosBox'
 import Controller from './Controller'
+import Model from './Model'
 import * as games from '../conf/games'
 import * as Typings from '../typings'
+import Package from '../../package.json'
 
 export const DefaultJoystickConfig: Typings.DGJoystickConf = [
   {
@@ -24,7 +26,7 @@ export const DefaultJoystickConfig: Typings.DGJoystickConf = [
   }
 ]
 
-export default class Game implements Typings.DGGame {
+export default class Game {
   public container: HTMLDivElement
   public stage: Stage
   public dosbox: DosBox
@@ -32,9 +34,16 @@ export default class Game implements Typings.DGGame {
   public syncIntervalId: NodeJS.Timeout
   public disabledContextMenu: boolean = false
   public isPlaying: boolean = false
+  public model: Model
 
   constructor () {
+    const [major, minor] = (Package.version as string).split('.')
+
+    this.disabledContextMenu = false
+    this.isPlaying = false
     this.container = document.createElement('div')
+    this.model = new Model(`${major}@${(Package.name as string)}`, Number(minor) + 1)
+
     this.container.classList.add('container')
     document.body.appendChild(this.container)
 
@@ -44,13 +53,15 @@ export default class Game implements Typings.DGGame {
     document.oncontextmenu = () => !this.disabledContextMenu
   }
 
-  public async play (name: keyof typeof games): Promise<void> {
+  public async play (id: string): Promise<void> {
     this.isPlaying && await this.stop()
     this.isPlaying = true
 
     this.disableContextMenu()
 
-    const game: Typings.DGGameInfo = games[name]
+    const game: Typings.DGGameInfo = games[id]
+    game.room = await this.model.loadRoom(id)
+
     this.dosbox = this.stage.launch()
     this.dosbox.onExit(() => this.stop())
 
@@ -70,7 +81,8 @@ export default class Game implements Typings.DGGame {
       roomProcessFn(game.url, loaded, total || game.size)
     }
 
-    const onDownloadCompleted = () => {
+    const onDownloadCompleted = (content: ArrayBuffer) => {
+      this.model.saveRoom(id, content)
       this.stage.print(`Game ${game.name} has been initialized, start now and wait please...`)
     }
 
@@ -130,13 +142,12 @@ export default class Game implements Typings.DGGame {
     this.controller.mapGame(game)
     this.controller.onActions(handleActions)
 
-    const { id, save } = game
-    if (save) {
-      await this.loadArchiveFromDB({ dbTable: id })
+    if (game.save) {
+      await this.loadArchiveFromDB(game)
 
       const interval = async () => {
-        let options = { dbTable: id, pattern: save.regexp }
-        await this.saveArchiveFromDB(save.path, options)
+        await this.saveArchiveFromDB(game)
+        console.log('自动保存成功')
       }
 
       this.syncIntervalId = setInterval(interval, 3e3)
@@ -153,13 +164,27 @@ export default class Game implements Typings.DGGame {
     this.isPlaying = false
   }
 
-  public async saveArchiveFromDB (dir: string, options?: Typings.DGGameDBOptions): Promise<void> {
-    const files = await this.dosbox.searchFiles(dir, options.pattern || /.*/)
-    files.length > 0 && await this.dosbox.saveFilesToDB(files, options.dbTable)
+  public async saveArchiveFromDB (game: Typings.DGGameInfo): Promise<void> {
+    const { id, save } = game
+    const files = await this.dosbox.searchFiles(save.path, save.regexp || /.*/)
+    if (files.length === 0) {
+      return
+    }
+
+    const datas = files.map((file) => {
+      const content = this.dosbox.readFile(file)
+      return { roomid: id, file, content }
+    })
+
+    return this.model.saveArchive(datas)
   }
 
-  public async loadArchiveFromDB (options?: Typings.DGGameDBOptions): Promise<void> {
-    await this.dosbox.loadFilesFromDB(null, options.dbTable)
+  public loadArchiveFromDB (game: Typings.DGGameInfo): Promise<void> {
+    return this.model.loadArchive(game.id).then((files) => {
+      files.forEach(({ file, content }) => {
+        this.dosbox.writeFile(file, content)
+      })
+    })
   }
 
   public disableContextMenu (disable: boolean = true): void {
