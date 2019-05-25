@@ -5,7 +5,7 @@ import Joystick from '../ui/Joystick'
 import TouchEvent from '../conf/touch-event'
 import * as Typings from '../typings'
 
-export default class Controller implements Typings.DGController {
+export default class Controller {
   private emitter: EventEmitter = new EventEmitter()
   private touchpad: HTMLDivElement
   private keyboard: Keyboard
