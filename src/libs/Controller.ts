@@ -115,5 +115,7 @@ export default class Controller extends EventEmitter {
     this.joystick && this.joystick.destroy()
     this.dpad && this.dpad.destroy()
     this.keypad && this.keypad.destroy()
+    this.keyboard && this.keyboard.destroy()
+    this.utils && this.utils.destroy()
   }
 }
