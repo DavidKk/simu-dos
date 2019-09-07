@@ -16,6 +16,7 @@ export default class App {
     this.items.forEach((item) => this.container.appendChild(item))
 
     const handleTouch = async (event: Event) => {
+      event.preventDefault()
       event.stopPropagation()
 
       const element = event.target as Element

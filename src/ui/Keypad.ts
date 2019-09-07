@@ -16,7 +16,6 @@ export default class Keypad extends Component {
     this.buttons = []
 
     this.container.classList.add('keypad', 'open')
-
     this.zone.appendChild(this.container)
   }
 
@@ -40,5 +39,7 @@ export default class Keypad extends Component {
 
     this.buttons = undefined
     this.zone = undefined
+
+    this.destroy = Function.prototype as any
   }
 }

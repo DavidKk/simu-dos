@@ -15,7 +15,6 @@
   display: block !important;
 }
 
-
 .keyboard-container {
   position: absolute;
   right: 0;
@@ -58,6 +57,7 @@
   user-select: none;
   cursor: pointer;
   pointer-events: all;
+  touch-action: manipulation;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 
   &:active,

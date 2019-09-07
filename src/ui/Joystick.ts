@@ -4,14 +4,15 @@ import * as MathUtil from '../share/math'
 import * as Typings from '../typings'
 
 export default class Joystick extends Component {
+  private handleZoneTouchStart: Typings.DGEventHandle
+  private handleZoneTouchMove: Typings.DGEventHandle
+  private handleZoneTouchEnd: Typings.DGEventHandle
+
   public zone: HTMLDivElement
   public el: HTMLDivElement
   public stand: HTMLDivElement
   public stick: HTMLDivElement
   public fixedPoint: Typings.DGPoint
-  public handleZoneTouchStart: Typings.DGEventHandle
-  public handleZoneTouchMove: Typings.DGEventHandle
-  public handleZoneTouchEnd: Typings.DGEventHandle
 
   constructor (zone: HTMLDivElement) {
     super()
@@ -87,30 +88,16 @@ export default class Joystick extends Component {
     this.unbind(this.stand, TouchEvents.start, this.handleZoneTouchStart)
     this.unbind(this.zone, TouchEvents.move, this.handleZoneTouchMove)
     this.unbind(this.zone, TouchEvents.end, this.handleZoneTouchEnd)
+
+    this.handleZoneTouchStart = undefined
+    this.handleZoneTouchMove = undefined
+    this.handleZoneTouchEnd = undefined
   }
 
   private setStickCoord (coord: Typings.DGPoint): void {
     const { x, y } = coord
     this.stick.style.marginLeft = x + 'px'
     this.stick.style.marginTop = y + 'px'
-  }
-
-  private bind (element: HTMLElement, events: string | Array<string>, handle: Typings.DGEventHandle): void {
-    if (Array.isArray(events)) {
-      events.forEach((event) => this.bind(element, event, handle))
-      return
-    }
-
-    element.addEventListener(events, handle, false)
-  }
-
-  private unbind (element: HTMLElement, events: string | Array<string>, handle: Typings.DGEventHandle): void {
-    if (Array.isArray(events)) {
-      events.forEach((event) => this.unbind(element, event, handle))
-      return
-    }
-
-    element.removeEventListener(events, handle)
   }
 
   private computes (pointA: Typings.DGPoint, pointB: Typings.DGPoint): Typings.DGJoystickEventDatas {

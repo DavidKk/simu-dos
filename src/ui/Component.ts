@@ -1,4 +1,5 @@
 import { EventEmitter } from 'events'
+import * as Typings from '../typings'
 
 export default class Component extends EventEmitter {
   public el: HTMLElement
@@ -14,7 +15,27 @@ export default class Component extends EventEmitter {
     this.emit('toggle', isOpen)
   }
 
+  public bind (element: HTMLElement, events: string | Array<string>, handle: Typings.DGEventHandle): void {
+    if (Array.isArray(events)) {
+      events.forEach((event) => this.bind(element, event, handle))
+      return
+    }
+
+    element.addEventListener(events, handle, false)
+  }
+
+  public unbind (element: HTMLElement, events: string | Array<string>, handle: Typings.DGEventHandle): void {
+    if (Array.isArray(events)) {
+      events.forEach((event) => this.unbind(element, event, handle))
+      return
+    }
+
+    element.removeEventListener(events, handle)
+  }
+
   public destroy (): void {
     this.removeAllListeners()
+
+    this.destroy = Function.prototype as any
   }
 }
