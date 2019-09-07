@@ -3,18 +3,21 @@ import Button from '../ui/Button'
 import Keypad from '../ui/Keypad'
 import Joystick from '../ui/Joystick'
 import DPad from '../ui/DPad'
+import Keyboard from '../ui/Keyboard'
 import TouchEvent from '../conf/touch-event'
 import * as Typings from '../typings'
 
-export default class Controller {
-  private emitter: EventEmitter = new EventEmitter()
+export default class Controller extends EventEmitter {
   private touchpad: HTMLDivElement
   private keypad: Keypad
   private joystick: Joystick
   private dpad: DPad
+  private keyboard: Keyboard
   private deprecates: Array<() => void> = []
 
   constructor (element: HTMLDivElement) {
+    super()
+
     this.touchpad = document.createElement('div')
     this.touchpad.className = 'touchpad'
     element.appendChild(this.touchpad)
@@ -22,9 +25,9 @@ export default class Controller {
 
   public mapGame (game: Typings.DGGameInfo): void {
     if (game.play.joystick) {
-      const handleActions = (data) => {
+      const handleActions = (data): void => {
         let event = { type: 'joystick', data }
-        this.emitter.emit('actions', event)
+        this.emit('actions', event)
       }
 
       this.joystick = new Joystick(this.touchpad)
@@ -32,9 +35,9 @@ export default class Controller {
     }
 
     if (game.play.dpad) {
-      const handleActions = (data) => {
+      const handleActions = (data): void => {
         let event = { type: 'dpad', data }
-        this.emitter.emit('actions', event)
+        this.emit('actions', event)
       }
 
       this.dpad = new DPad(this.touchpad)
@@ -50,19 +53,36 @@ export default class Controller {
         this.deprecates.push(deprecated)
       })
     }
+
+    if (game.play.keyboad === true) {
+      const handleToogle = (isOpen: boolean): void => {
+        this.joystick.toggle(!isOpen)
+        this.dpad.toggle(!isOpen)
+        this.keypad.toggle(!isOpen)
+      }
+
+      const handleActions = (data): void => {
+        let event = { type: 'keyboard', data }
+        this.emit('actions', event)
+      }
+
+      this.keyboard = new Keyboard(this.touchpad)
+      this.keyboard.onToggle(handleToogle)
+      this.keyboard.onActions(handleActions)
+    }
   }
 
   public mapButtonToKeyCode (button: Button, keyCode: number): () => void {
     let handleTouchDown = () => {
       const data = { type: 'down', keyCode }
       const event = { type: 'button', data }
-      this.emitter.emit('actions', event)
+      this.emit('actions', event)
     }
 
     let handleTouchUp = () => {
       const data = { type: 'up', keyCode }
       const event = { type: 'button', data }
-      this.emitter.emit('actions', event)
+      this.emit('actions', event)
     }
 
     button.bind(TouchEvent.start, handleTouchDown)
@@ -78,11 +98,11 @@ export default class Controller {
   }
 
   public onActions (handle: (event: any) => void): void {
-    this.emitter.addListener('actions', handle)
+    this.addListener('actions', handle)
   }
 
   public reset (): void {
-    this.emitter.removeAllListeners()
+    this.removeAllListeners()
 
     this.deprecates.forEach((fn) => fn)
     this.deprecates.splice(0)

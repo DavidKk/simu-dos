@@ -60,6 +60,7 @@ export interface DGGameInfo {
     joystick?: DGJoystickConf
     keypad?: DGKeypadConf
     dpad?: DGDPadConf
+    keyboad?: boolean
   }
 }
 

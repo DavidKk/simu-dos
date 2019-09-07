@@ -1,27 +1,28 @@
-import { EventEmitter } from 'events'
 import TouchEvents from '../share/event'
+import Component from './Component'
 import * as MathUtil from '../share/math'
 import * as Typings from '../typings'
 
-export default class Joystick {
-  private emitter: EventEmitter
-  private zone: HTMLDivElement
-  private stand: HTMLDivElement
-  private stick: HTMLDivElement
-  private fixedPoint: Typings.DGPoint
-  private handleZoneTouchStart: Typings.DGEventHandle
-  private handleZoneTouchMove: Typings.DGEventHandle
-  private handleZoneTouchEnd: Typings.DGEventHandle
+export default class Joystick extends Component {
+  public zone: HTMLDivElement
+  public el: HTMLDivElement
+  public stand: HTMLDivElement
+  public stick: HTMLDivElement
+  public fixedPoint: Typings.DGPoint
+  public handleZoneTouchStart: Typings.DGEventHandle
+  public handleZoneTouchMove: Typings.DGEventHandle
+  public handleZoneTouchEnd: Typings.DGEventHandle
 
   constructor (zone: HTMLDivElement) {
-    this.emitter = new EventEmitter()
+    super()
+
     this.zone = zone
-    this.stand = document.createElement('div')
+    this.stand = this.el = document.createElement('div')
     this.stick = document.createElement('div')
     this.fixedPoint = { x: 0, y: 0 }
 
-    this.stand.className = 'joystick-stand'
-    this.stick.className = 'joystick-stick'
+    this.stand.classList.add('joystick-stand', 'open')
+    this.stick.classList.add('joystick-stick')
 
     this.stand.appendChild(this.stick)
     this.zone.appendChild(this.stand)
@@ -37,7 +38,7 @@ export default class Joystick {
     this.fixedPoint = point
 
     this.stand.classList.add('active')
-    this.emitter.emit('actions', { type: 'start', coord: point })
+    this.emit('actions', { type: 'start', coord: point })
 
     this.bind(this.zone, TouchEvents.move, this.handleZoneTouchMove)
     this.bind(this.zone, TouchEvents.end, this.handleZoneTouchEnd)
@@ -56,7 +57,7 @@ export default class Joystick {
     y -= this.fixedPoint.y
 
     this.setStickCoord({ x, y })
-    this.emitter.emit('actions', { type: 'move', ...datas })
+    this.emit('actions', { type: 'move', ...datas })
   }
 
   private _onTouchEnd (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): void {
@@ -65,7 +66,7 @@ export default class Joystick {
 
     this.setStickCoord({ x: 0, y: 0 })
     this.stand.classList.remove('active')
-    this.emitter.emit('actions', { type: 'up' })
+    this.emit('actions', { type: 'up' })
 
     this.unbind(this.zone, TouchEvents.move, this.handleZoneTouchMove)
     this.unbind(this.zone, TouchEvents.end, this.handleZoneTouchEnd)
@@ -180,10 +181,12 @@ export default class Joystick {
   }
 
   public onActions (handle: (event: any) => void): void {
-    this.emitter.addListener('actions', handle)
+    this.addListener('actions', handle)
   }
 
   public destroy (): void {
+    super.destroy()
+
     this.unbindings()
 
     this.stick.parentElement.removeChild(this.stick)
