@@ -1,50 +1,50 @@
-import { EventEmitter } from 'events'
+import Component from './Component'
 import TouchEvents from '../share/event'
 import * as Typings from '../typings'
 
-export default class DPad {
-  private emitter: EventEmitter
-  private zone: HTMLDivElement
-  private stage: HTMLDivElement
-  private up: HTMLDivElement
-  private right: HTMLDivElement
-  private down: HTMLDivElement
-  private left: HTMLDivElement
-  private handleTapUp: (event: Event) => void
-  private handleTapRight: (event: Event) => void
-  private handleTapDown: (event: Event) => void
-  private handleTapLeft: (event: Event) => void
-  private handleTapUpEnd: (event: Event) => void
-  private handleTapRightEnd: (event: Event) => void
-  private handleTapDownEnd: (event: Event) => void
-  private handleTapLeftEnd: (event: Event) => void
+export default class DPad extends Component {
+  public zone: HTMLDivElement
+  public container: HTMLDivElement
+  public up: HTMLDivElement
+  public right: HTMLDivElement
+  public down: HTMLDivElement
+  public left: HTMLDivElement
+  public handleTapUp: (event: Event) => void
+  public handleTapRight: (event: Event) => void
+  public handleTapDown: (event: Event) => void
+  public handleTapLeft: (event: Event) => void
+  public handleTapUpEnd: (event: Event) => void
+  public handleTapRightEnd: (event: Event) => void
+  public handleTapDownEnd: (event: Event) => void
+  public handleTapLeftEnd: (event: Event) => void
 
   constructor (zone: HTMLDivElement) {
-    this.emitter = new EventEmitter()
+    super()
+
     this.zone = zone
-    this.stage = document.createElement('div')
+    this.container = this.el = document.createElement('div')
     this.up = document.createElement('div')
     this.right = document.createElement('div')
     this.down = document.createElement('div')
     this.left = document.createElement('div')
 
-    this.stage.classList.add('dpad')
+    this.container.classList.add('dpad', 'open')
     this.up.classList.add('dpad-btn', 'dpad-up')
     this.right.classList.add('dpad-btn', 'dpad-right')
     this.down.classList.add('dpad-btn', 'dpad-down')
     this.left.classList.add('dpad-btn', 'dpad-left')
 
-    this.stage.appendChild(this.up)
-    this.stage.appendChild(this.right)
-    this.stage.appendChild(this.down)
-    this.stage.appendChild(this.left)
-    this.zone.appendChild(this.stage)
+    this.container.appendChild(this.up)
+    this.container.appendChild(this.right)
+    this.container.appendChild(this.down)
+    this.container.appendChild(this.left)
+    this.zone.appendChild(this.container)
 
     this.bindings()
   }
 
   public onActions (handle: (event: any) => void): void {
-    this.emitter.addListener('actions', handle)
+    this.addListener('actions', handle)
   }
 
   private bind (element: HTMLElement, events: string | Array<string>, handle: Typings.DGEventHandle): void {
@@ -73,7 +73,7 @@ export default class DPad {
       const element = event.target as HTMLElement
       element.classList.add('active')
 
-      this.emitter.emit('actions', { type: 'down', direction })
+      this.emit('actions', { type: 'down', direction })
     }
 
     const wrapTouchUp = (direction: Typings.DGDPadDirectionType) => (event: Event) => {
@@ -83,7 +83,7 @@ export default class DPad {
       const element = event.target as HTMLElement
       element.classList.remove('active')
 
-      this.emitter.emit('actions', { type: 'up', direction })
+      this.emit('actions', { type: 'up', direction })
     }
 
     this.handleTapUp = wrapTouchDown('up')
@@ -130,19 +130,21 @@ export default class DPad {
   }
 
   public destroy (): void {
+    super.destroy()
+
     this.unbindings()
 
-    document.body.removeChild(this.stage)
-    this.stage.removeChild(this.up)
-    this.stage.removeChild(this.right)
-    this.stage.removeChild(this.down)
-    this.stage.removeChild(this.left)
+    document.body.removeChild(this.container)
+    this.container.removeChild(this.up)
+    this.container.removeChild(this.right)
+    this.container.removeChild(this.down)
+    this.container.removeChild(this.left)
 
     this.up = undefined
     this.right = undefined
     this.down = undefined
     this.left = undefined
-    this.stage = undefined
+    this.container = undefined
 
     this.destroy = Function.prototype as any
   }

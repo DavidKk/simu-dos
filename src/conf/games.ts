@@ -55,6 +55,7 @@ export const jyqxz: Typings.DGGameInfo = {
     regexp: /R[1-3]\.GRP$/
   },
   play: {
+    keyboad: true,
     dpad: true,
     joystick: Joystick3DConfig,
     keypad: [
@@ -82,7 +83,7 @@ export const jyqxz: Typings.DGGameInfo = {
         }
       },
       {
-        context: 'Y/是',
+        context: 'Y',
         keyCode: 89,
         options: {
           type: 'round',
@@ -94,7 +95,7 @@ export const jyqxz: Typings.DGGameInfo = {
         }
       },
       {
-        context: 'N/否',
+        context: 'N',
         keyCode: 78,
         options: {
           type: 'round',
