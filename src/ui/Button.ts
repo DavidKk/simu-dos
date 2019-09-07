@@ -52,6 +52,9 @@ export default class Button {
   private unbindings (): void {
     this.unbind(TouchEvent.start, this.handleTouchStart)
     this.unbind(TouchEvent.start, this.handleTouchEnd)
+
+    this.handleTouchStart = Function.prototype as any
+    this.handleTouchEnd = Function.prototype as any
   }
 
   public bind (events: string | Array<string>, handle: Typings.DGEventHandle): void {
@@ -158,8 +161,10 @@ export default class Button {
 
   public remove (): void {
     this.unbindings()
+
     this.handleTouchStart = undefined
     this.handleTouchEnd = undefined
+
     this.element.parentNode.removeChild(this.element)
   }
 }

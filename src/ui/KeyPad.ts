@@ -1,19 +1,29 @@
 import remove from 'lodash/remove'
 import Button from './Button'
+import Component from './Component'
 import * as Typings from '../typings'
 
-export default class Keypad {
-  private zone: HTMLDivElement
-  private buttons: Array<Button>
+export default class Keypad extends Component {
+  public zone: HTMLDivElement
+  public container: HTMLDivElement
+  public buttons: Array<Button>
 
   constructor (zone: HTMLDivElement) {
+    super()
+
     this.zone = zone
+    this.container = this.el = document.createElement('div')
     this.buttons = []
+
+    this.container.classList.add('keypad', 'open')
+
+    this.zone.appendChild(this.container)
   }
 
   public add (context: string, options?: Typings.DGButtonOptions): Button {
     let button = new Button(context, options)
-    button.append(this.zone)
+    button.append(this.container)
+
     this.buttons.push(button)
     return button
   }
@@ -23,6 +33,8 @@ export default class Keypad {
   }
 
   public destroy (): void {
+    super.destroy()
+
     this.buttons.forEach((button: Button) => button.remove())
     this.buttons.splice(0)
 

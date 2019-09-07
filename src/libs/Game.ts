@@ -88,66 +88,84 @@ export default class Game {
       }
     }
 
-    const sendKeyup = () => {
-      downkeys.forEach((keyCode) => this.dosbox.simulateKeyEvent(keyCode, false))
-      downkeys.splice(0)
-    }
+    const sendKeyup = (keyCode?: number) => {
+      if (typeof keyCode !== 'undefined') {
+        const index = downkeys.indexOf(keyCode)
 
-    const handleActions = (event) => {
-      if (event.type === 'joystick') {
-        let { type, direction } = event.data
-        let { joystick } = game.play
-        if (joystick === true) {
-          joystick = Joystick2DConfig
+        if (-1 !== index) {
+          downkeys.splice(index, 1)
+          this.dosbox.simulateKeyEvent(keyCode, false)
         }
-
-        if (type === 'move') {
-          let { x, y, angle } = direction
-
-          if (Array.isArray(joystick)) {
-            let item = joystick.find((item) => {
-              if (Array.isArray(item.direction)) {
-                return 0 === xor(item.direction, [x, y]).length
-              }
-
-              return item.direction === angle
-            })
-
-            item && sendKeydown(item.keyCode)
-          }
-
-        } else if (type === 'up') {
-          sendKeyup()
-        }
-
-      } else if (event.type === 'dpad') {
-        let { type, direction } = event.data
-        let { dpad } = game.play
-
-        if (dpad === true) {
-          dpad = DPadDefaultConfig
-        }
-
-        if (type === 'down') {
-          if (Array.isArray(dpad)) {
-            let item = dpad.find((item) => item.direction === direction)
-            item && sendKeydown(item.keyCode)
-          }
-
-        } else if (type === 'up') {
-          sendKeyup()
-        }
-
-      } else if (event.type === 'button') {
-        let { type, keyCode } = event.data
-
-        if (type === 'down') {
-          this.dosbox.simulateKeyPress(keyCode)
-        }
+      } else {
+        downkeys.forEach((keyCode) => this.dosbox.simulateKeyEvent(keyCode, false))
+        downkeys.splice(0)
       }
     }
 
     if (isMobile === true) {
+      const handleActions = (event) => {
+        if (event.type === 'joystick') {
+          let { type, direction } = event.data
+          let { joystick } = game.play
+          if (joystick === true) {
+            joystick = Joystick2DConfig
+          }
+
+          if (type === 'move') {
+            let { x, y, angle } = direction
+
+            if (Array.isArray(joystick)) {
+              let item = joystick.find((item) => {
+                if (Array.isArray(item.direction)) {
+                  return 0 === xor(item.direction, [x, y]).length
+                }
+
+                return item.direction === angle
+              })
+
+              item && sendKeydown(item.keyCode)
+            }
+
+          } else if (type === 'up') {
+            sendKeyup()
+          }
+
+        } else if (event.type === 'dpad') {
+          let { type, direction } = event.data
+          let { dpad } = game.play
+
+          if (dpad === true) {
+            dpad = DPadDefaultConfig
+          }
+
+          if (type === 'down') {
+            if (Array.isArray(dpad)) {
+              let item = dpad.find((item) => item.direction === direction)
+              item && sendKeydown(item.keyCode)
+            }
+
+          } else if (type === 'up') {
+            sendKeyup()
+          }
+
+        } else if (event.type === 'button') {
+          let { type, keyCode } = event.data
+
+          if (type === 'down') {
+            this.dosbox.simulateKeyPress(keyCode)
+          }
+        } else if (event.type === 'keyboard') {
+          let { type, keyCode } = event.data
+          if (type === 'keypress') {
+            this.dosbox.simulateKeyPress(keyCode)
+          } else if (type === 'down') {
+            sendKeydown(keyCode)
+          } else if (type === 'up') {
+            sendKeyup(keyCode)
+          }
+        }
+      }
+
       this.controller.mapGame(game)
       this.controller.onActions(handleActions)
     }

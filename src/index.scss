@@ -1,9 +1,21 @@
+// third-party
+@import "./styles/fontawesome";
+
+// functions
+@import "./styles/unit";
+
+// variables
 @import "./styles/variables";
+
+// resets
 @import "./styles/normalize";
+
+// components
 @import "./styles/cube";
 @import "./styles/term";
 @import "./styles/joystick";
 @import "./styles/keypad";
+@import "./styles/keyboard";
 @import "./styles/dpad";
 @import "./styles/controller";
 @import "./styles/list";
