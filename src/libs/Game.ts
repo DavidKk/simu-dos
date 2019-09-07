@@ -5,6 +5,7 @@ import Controller from './Controller'
 import Model from './Model'
 import * as games from '../conf/games'
 import { Joystick2DConfig, DPadDefaultConfig } from '../conf/controller'
+import { isMobile } from '../share/device'
 import * as Typings from '../typings'
 import Package from '../../package.json'
 
@@ -73,6 +74,9 @@ export default class Game {
 
     this.stage.toggleTerm(false)
     this.stage.toggle(true)
+    this.stage.resize()
+
+    document.title = game.name
 
     const downkeys: Array<number> = []
     const sendKeydown = (keyCode: number) => {
@@ -143,8 +147,10 @@ export default class Game {
       }
     }
 
-    this.controller.mapGame(game)
-    this.controller.onActions(handleActions)
+    if (isMobile === true) {
+      this.controller.mapGame(game)
+      this.controller.onActions(handleActions)
+    }
 
     if (game.save) {
       await this.loadArchiveFromDB(game)

@@ -32,7 +32,7 @@ export type DGJoystickConf = boolean | Array<{
   direction: DGJoystickDirectionType | Array<DGJoystickDirectionType>
 }>
 
-export type DGKeyboardConf = Array<{
+export type DGKeypadConf = Array<{
   context: string
   keyCode?: number
   action?: string
@@ -58,7 +58,7 @@ export interface DGGameInfo {
   }
   play?: {
     joystick?: DGJoystickConf
-    keyboard?: DGKeyboardConf
+    keypad?: DGKeypadConf
     dpad?: DGDPadConf
   }
 }
