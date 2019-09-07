@@ -4,7 +4,7 @@ import * as conf from './conf'
 
 const options: ParcelOptions = {
   outDir: conf.appPath,
-  publicUrl: conf.isRelease ? '/dosgame/' : '/',
+  publicUrl: conf.isRelease ? '/simu-dos/' : '/',
   watch: !conf.isRelease,
   minify: conf.isRelease,
   sourceMaps: !conf.isRelease,
