@@ -117,7 +117,7 @@ export default class DPad extends Component {
 
     this.unbindings()
 
-    document.body.removeChild(this.container)
+    this.container.parentNode.removeChild(this.container)
     this.container.removeChild(this.up)
     this.container.removeChild(this.right)
     this.container.removeChild(this.down)

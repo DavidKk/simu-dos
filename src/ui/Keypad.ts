@@ -34,10 +34,13 @@ export default class Keypad extends Component {
   public destroy (): void {
     super.destroy()
 
+    this.container.parentNode.removeChild(this.container)
+
     this.buttons.forEach((button: Button) => button.remove())
     this.buttons.splice(0)
 
     this.buttons = undefined
+    this.container = undefined
     this.zone = undefined
 
     this.destroy = Function.prototype as any
