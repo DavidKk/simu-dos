@@ -1,4 +1,5 @@
 import TouchEvent from '../conf/touch-event'
+import Component from './Component'
 import { trimUnit, px2rem } from '../share/style'
 import * as Typings from '../typings'
 
@@ -9,13 +10,16 @@ enum DSOperation {
   divide = '/'
 }
 
-export default class Button {
-  private element: HTMLDivElement
+export default class Button extends Component {
+  public element: HTMLDivElement
+  public type: Typings.DGButtonType
+
   private handleTouchStart: Typings.DGEventHandle
   private handleTouchEnd: Typings.DGEventHandle
-  private type: Typings.DGButtonType
 
   constructor (context: string, options?: Typings.DGButtonOptions) {
+    super()
+
     this.element = document.createElement('div')
     this.element.className = 'keypad-btn'
     this.element.innerText = context
@@ -45,34 +49,24 @@ export default class Button {
     this.handleTouchStart = this._onTouchDown.bind(this)
     this.handleTouchEnd = this._onTouchUp.bind(this)
 
-    this.bind(TouchEvent.start, this.handleTouchStart)
-    this.bind(TouchEvent.end, this.handleTouchEnd)
+    this.bind(this.element, TouchEvent.start, this.handleTouchStart)
+    this.bind(this.element, TouchEvent.end, this.handleTouchEnd)
   }
 
   private unbindings (): void {
-    this.unbind(TouchEvent.start, this.handleTouchStart)
-    this.unbind(TouchEvent.start, this.handleTouchEnd)
+    this.unbind(this.element, TouchEvent.start, this.handleTouchStart)
+    this.unbind(this.element, TouchEvent.start, this.handleTouchEnd)
 
     this.handleTouchStart = Function.prototype as any
     this.handleTouchEnd = Function.prototype as any
   }
 
-  public bind (events: string | Array<string>, handle: Typings.DGEventHandle): void {
-    if (Array.isArray(events)) {
-      events.forEach((event) => this.bind(event, handle))
-      return
-    }
-
-    this.element.addEventListener(events, handle, false)
+  public bindEvent (events: string | Array<string>, handle: Typings.DGEventHandle): void {
+    super.bind(this.element, events, handle)
   }
 
-  public unbind (events: string | Array<string>, handle: Typings.DGEventHandle): void {
-    if (Array.isArray(events)) {
-      events.forEach((event) => this.bind(event, handle))
-      return
-    }
-
-    this.element.removeEventListener(events, handle)
+  public unbindEvent (events: string | Array<string>, handle: Typings.DGEventHandle): void {
+    super.unbind(this.element, events, handle)
   }
 
   private calcSize (size: Typings.DGStyleValue, operation: DSOperation, value: number): Typings.DGStyleValue {

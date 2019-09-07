@@ -4,6 +4,7 @@ import * as Typings from '../typings'
 
 export default class Keyboard extends Component {
   static KEYS = [
+    ['esc'],
     ['`','1','2','3','4','5','6','7','8','9','0','-','=','delete'],
     ['tab','q','w','e','r','t','y','u','i','o','p','[',']','\\'],
     ['caps lock','a','s','d','f','g','h','j','k','l',';','\'','return'],
@@ -12,6 +13,7 @@ export default class Keyboard extends Component {
   ]
 
   static UPPERKEYS = [
+    ['Esc'],
     ['~','!','@','#','$','%','^','&','*','(',')','_','+','Delete'],
     ['Tab','Q','W','E','R','T','Y','U','I','O','P','{','}','|'],
     ['Caps Lock','A','S','D','F','G','H','J','K','L',':','"','Return'],
@@ -20,6 +22,7 @@ export default class Keyboard extends Component {
   ]
 
   static KEYOCDES = [
+    [27],
     [192,49,50,51,52,53,54,55,56,57,48,189,187,8],
     [9,81,87,69,82,84,89,85,73,79,80,219,221,220],
     [20,65,83,68,70,71,72,74,75,76,186,222,13],
@@ -81,6 +84,9 @@ export default class Keyboard extends Component {
   }
 
   private _onKeyboardTouchDown (event: TouchEvent | MouseEvent | PointerEvent): void {
+    event.preventDefault()
+    event.stopPropagation()
+
     const container = event.target as HTMLDivElement
     const keyCode = parseInt(container.getAttribute('code'), 10)
 
@@ -100,7 +106,10 @@ export default class Keyboard extends Component {
     }
   }
 
-  private _onSwitcherTouchDown (): void {
+  private _onSwitcherTouchDown (event: TouchEvent | MouseEvent | PointerEvent): void {
+    event.preventDefault()
+    event.stopPropagation()
+
     this.toggle()
   }
 
@@ -108,16 +117,16 @@ export default class Keyboard extends Component {
     this.handleKeyboardTouched = this._onKeyboardTouchDown.bind(this)
     this.handleSwitcherTouched = this._onSwitcherTouchDown.bind(this)
 
-    this.keyboard.addEventListener(TouchEvent.start, this.handleKeyboardTouched)
-    this.switcher.addEventListener(TouchEvent.start, this.handleSwitcherTouched)
+    this.bind(this.keyboard, TouchEvent.start, this.handleKeyboardTouched)
+    this.bind(this.switcher, TouchEvent.start, this.handleSwitcherTouched)
   }
 
   private unbindings (): void {
-    this.keyboard.removeEventListener(TouchEvent.start, this.handleKeyboardTouched)
-    this.switcher.removeEventListener(TouchEvent.start, this.handleSwitcherTouched)
+    this.unbind(this.keyboard, TouchEvent.start, this.handleKeyboardTouched)
+    this.unbind(this.switcher, TouchEvent.start, this.handleSwitcherTouched)
 
-    this.handleKeyboardTouched = Function.prototype as any
-    this.handleSwitcherTouched = Function.prototype as any
+    this.handleKeyboardTouched = undefined
+    this.handleSwitcherTouched = undefined
   }
 
   public toggleUppercase (isOpen: boolean = !this.isOpenShift): void {
@@ -143,6 +152,13 @@ export default class Keyboard extends Component {
     this.unbindings()
 
     this.container.parentNode.removeChild(this.container)
+    this.container.removeChild(this.switcher)
+    this.container.removeChild(this.keyboard)
+
+    this.switcher = undefined
+    this.keyboard = undefined
     this.container = undefined
+
+    this.destroy = Function.prototype as any
   }
 }

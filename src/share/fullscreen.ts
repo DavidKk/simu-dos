@@ -5,28 +5,17 @@ export const isFullscreenEnabled = (): boolean => {
     || document.msFullscreenEnabled
 }
 
-export const requestFullscreen = (): boolean => {
+export const requestFullscreen = () => {
   const element = document.body
 
-  try {
-    if (isFullscreenEnabled()) {
-      if (element.requestFullscreen) {
-        element.requestFullscreen()
-      } else if (element.mozRequestFullScreen) {
-        element.mozRequestFullScreen()
-      } else if (element.webkitRequestFullscreen) {
-        element.webkitRequestFullscreen()
-      } else if (element.msRequestFullscreen) {
-        element.msRequestFullscreen()
-      }
-
-      return true
-    }
-
-    return false
-
-  } catch (error) {
-    return false
+  if (element.requestFullscreen) {
+    element.requestFullscreen()
+  } else if (element.mozRequestFullScreen) {
+    element.mozRequestFullScreen()
+  } else if (element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen()
+  } else if (element.msRequestFullscreen) {
+    element.msRequestFullscreen()
   }
 }
 

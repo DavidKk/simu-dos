@@ -4,16 +4,18 @@ import Keypad from '../ui/Keypad'
 import Joystick from '../ui/Joystick'
 import DPad from '../ui/DPad'
 import Keyboard from '../ui/Keyboard'
+import Utils from '../ui/Utils'
 import TouchEvent from '../conf/touch-event'
 import * as Typings from '../typings'
 
 export default class Controller extends EventEmitter {
-  private touchpad: HTMLDivElement
-  private keypad: Keypad
-  private joystick: Joystick
-  private dpad: DPad
-  private keyboard: Keyboard
-  private deprecates: Array<() => void> = []
+  public touchpad: HTMLDivElement
+  public keypad: Keypad
+  public joystick: Joystick
+  public dpad: DPad
+  public utils: Utils
+  public keyboard: Keyboard
+  public deprecates: Array<() => void> = []
 
   constructor (element: HTMLDivElement) {
     super()
@@ -56,9 +58,10 @@ export default class Controller extends EventEmitter {
 
     if (game.play.keyboad === true) {
       const handleToogle = (isOpen: boolean): void => {
-        this.joystick.toggle(!isOpen)
-        this.dpad.toggle(!isOpen)
-        this.keypad.toggle(!isOpen)
+        this.joystick && this.joystick.toggle(!isOpen)
+        this.dpad && this.dpad.toggle(!isOpen)
+        this.keypad && this.keypad.toggle(!isOpen)
+        this.utils && this.utils.toggle(!isOpen)
       }
 
       const handleActions = (data): void => {
@@ -70,6 +73,8 @@ export default class Controller extends EventEmitter {
       this.keyboard.onToggle(handleToogle)
       this.keyboard.onActions(handleActions)
     }
+
+    this.utils = new Utils(this.touchpad)
   }
 
   public mapButtonToKeyCode (button: Button, keyCode: number): () => void {
@@ -85,12 +90,12 @@ export default class Controller extends EventEmitter {
       this.emit('actions', event)
     }
 
-    button.bind(TouchEvent.start, handleTouchDown)
-    button.bind(TouchEvent.end, handleTouchUp)
+    button.bindEvent(TouchEvent.start, handleTouchDown)
+    button.bindEvent(TouchEvent.end, handleTouchUp)
 
     return function deprecated () {
-      button.unbind(TouchEvent.start, handleTouchDown)
-      button.unbind(TouchEvent.start, handleTouchUp)
+      button.unbindEvent(TouchEvent.start, handleTouchDown)
+      button.unbindEvent(TouchEvent.start, handleTouchUp)
 
       handleTouchDown = undefined
       handleTouchUp = undefined

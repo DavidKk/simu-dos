@@ -3,20 +3,21 @@ import TouchEvents from '../share/event'
 import * as Typings from '../typings'
 
 export default class DPad extends Component {
+  private handleTapUp: (event: Event) => void
+  private handleTapRight: (event: Event) => void
+  private handleTapDown: (event: Event) => void
+  private handleTapLeft: (event: Event) => void
+  private handleTapUpEnd: (event: Event) => void
+  private handleTapRightEnd: (event: Event) => void
+  private handleTapDownEnd: (event: Event) => void
+  private handleTapLeftEnd: (event: Event) => void
+
   public zone: HTMLDivElement
   public container: HTMLDivElement
   public up: HTMLDivElement
   public right: HTMLDivElement
   public down: HTMLDivElement
   public left: HTMLDivElement
-  public handleTapUp: (event: Event) => void
-  public handleTapRight: (event: Event) => void
-  public handleTapDown: (event: Event) => void
-  public handleTapLeft: (event: Event) => void
-  public handleTapUpEnd: (event: Event) => void
-  public handleTapRightEnd: (event: Event) => void
-  public handleTapDownEnd: (event: Event) => void
-  public handleTapLeftEnd: (event: Event) => void
 
   constructor (zone: HTMLDivElement) {
     super()
@@ -45,24 +46,6 @@ export default class DPad extends Component {
 
   public onActions (handle: (event: any) => void): void {
     this.addListener('actions', handle)
-  }
-
-  private bind (element: HTMLElement, events: string | Array<string>, handle: Typings.DGEventHandle): void {
-    if (Array.isArray(events)) {
-      events.forEach((event) => this.bind(element, event, handle))
-      return
-    }
-
-    element.addEventListener(events, handle, false)
-  }
-
-  private unbind (element: HTMLElement, events: string | Array<string>, handle: Typings.DGEventHandle): void {
-    if (Array.isArray(events)) {
-      events.forEach((event) => this.unbind(element, event, handle))
-      return
-    }
-
-    element.removeEventListener(events, handle)
   }
 
   private bindings (): void {
