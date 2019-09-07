@@ -96,6 +96,8 @@ export default class Term {
     this.lines.splice(0).forEach((line) => {
       this.screen.removeChild(line)
     })
+
+    this.newline().innerText = 'C:> '
   }
 
   public show (): void {

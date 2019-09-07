@@ -48,8 +48,9 @@ export default class Game {
     this.dosbox = this.stage.launch()
     this.dosbox.onExit(() => this.stop())
 
+    this.stage.simulateClean()
     this.stage.toggleTerm(true)
-    await this.stage.simulateInput(`dosbox start ${game.url}`)
+    await this.stage.simulateInput(`simu-dos start ${game.url}`)
 
     let wasmProcessFn = this.stage.progress()
     let roomProcessFn = this.stage.progress()

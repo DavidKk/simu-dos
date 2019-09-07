@@ -36,6 +36,10 @@ export default class Stage {
     await this.term.simulateInput(context)
   }
 
+  public simulateClean (): void {
+    this.term.clear()
+  }
+
   public print (context: string): void {
     this.term.print(context)
     this.term.scrollToButtom()
