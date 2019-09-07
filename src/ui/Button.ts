@@ -17,7 +17,7 @@ export default class Button {
 
   constructor (context: string, options?: Typings.DGButtonOptions) {
     this.element = document.createElement('div')
-    this.element.className = 'keyboard-btn'
+    this.element.className = 'keypad-btn'
     this.element.innerText = context
 
     options.hasOwnProperty('size') && this.setSize(options.size)

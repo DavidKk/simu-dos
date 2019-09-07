@@ -15,7 +15,7 @@ export const xjqxz: Typings.DGGameInfo = {
   play: {
     dpad: true,
     joystick: Joystick3DConfig,
-    keyboard: [
+    keypad: [
       {
         context: 'Space',
         keyCode: 32,
@@ -57,7 +57,7 @@ export const jyqxz: Typings.DGGameInfo = {
   play: {
     dpad: true,
     joystick: Joystick3DConfig,
-    keyboard: [
+    keypad: [
       {
         context: 'Space',
         keyCode: 32,

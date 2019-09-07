@@ -2,7 +2,7 @@ $keyBtnWidth: 30px !default;
 $keyBtnHeight: 20px !default;
 $keyRoundBtnSize: 80px !default;
 
-.keyboard-btn {
+.keypad-btn {
   position: absolute;
   z-index: 4;
   display: flex;
@@ -22,7 +22,7 @@ $keyRoundBtnSize: 80px !default;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-.keyboard-btn.round {
+.keypad-btn.round {
   border-radius: 100%;
   padding: 0;
   width: $keyRoundBtnSize;
@@ -36,7 +36,7 @@ $keyRoundBtnSize: 80px !default;
   }
 }
 
-.keyboard-btn.active {
+.keypad-btn.active {
   color: $uiActiveColor;
   background-color: $uiActiveColor;
 }

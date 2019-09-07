@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events'
 import Button from '../ui/Button'
-import Keyboard from '../ui/Keyboard'
+import Keypad from '../ui/Keypad'
 import Joystick from '../ui/Joystick'
 import DPad from '../ui/DPad'
 import TouchEvent from '../conf/touch-event'
@@ -9,7 +9,7 @@ import * as Typings from '../typings'
 export default class Controller {
   private emitter: EventEmitter = new EventEmitter()
   private touchpad: HTMLDivElement
-  private keyboard: Keyboard
+  private keypad: Keypad
   private joystick: Joystick
   private dpad: DPad
   private deprecates: Array<() => void> = []
@@ -41,11 +41,11 @@ export default class Controller {
       this.dpad.onActions(handleActions)
     }
 
-    if (Array.isArray(game.play.keyboard) && game.play.keyboard.length > 0) {
-      this.keyboard = new Keyboard(this.touchpad)
+    if (Array.isArray(game.play.keypad) && game.play.keypad.length > 0) {
+      this.keypad = new Keypad(this.touchpad)
 
-      game.play.keyboard.forEach((item) => {
-        const button: Button = this.keyboard.add(item.context, item.options)
+      game.play.keypad.forEach((item) => {
+        const button: Button = this.keypad.add(item.context, item.options)
         const deprecated = this.mapButtonToKeyCode(button, item.keyCode)
         this.deprecates.push(deprecated)
       })
@@ -89,6 +89,6 @@ export default class Controller {
 
     this.joystick && this.joystick.destroy()
     this.dpad && this.dpad.destroy()
-    this.keyboard && this.keyboard.destroy()
+    this.keypad && this.keypad.destroy()
   }
 }

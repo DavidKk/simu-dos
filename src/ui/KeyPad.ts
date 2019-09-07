@@ -2,7 +2,7 @@ import remove from 'lodash/remove'
 import Button from './Button'
 import * as Typings from '../typings'
 
-export default class Keyboard {
+export default class Keypad {
   private zone: HTMLDivElement
   private buttons: Array<Button>
 
