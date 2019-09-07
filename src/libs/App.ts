@@ -1,3 +1,4 @@
+import chunk from 'lodash/chunk'
 import Game from './Game'
 import * as games from '../conf/games'
 import TouchEvents from '../share/event'
@@ -48,14 +49,17 @@ export default class App {
     return node
   }
 
-  private createItem (game: Typings.DGGameInfo): HTMLAnchorElement {
-    const image = document.createElement('img')
-    image.setAttribute('src', game.cover)
+  private createRow (): HTMLDivElement {
+    const node = document.createElement('div')
+    node.classList.add('game-row')
+    return node
+  }
 
+  private createItem (game: Typings.DGGameInfo): HTMLAnchorElement {
     const node = document.createElement('a')
     node.setAttribute('data-game', game.id)
-    node.appendChild(image)
-    node.classList.add('item')
+    node.classList.add('game-item')
+    node.style.backgroundImage = `url(${game.cover})`
 
     return node
   }
