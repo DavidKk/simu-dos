@@ -188,6 +188,8 @@ export default class Game {
     await this.stage.reset()
     this.controller.reset()
 
+    document.title = 'SimuDOS'
+
     this.disableContextMenu(false)
     this.isPlaying = false
   }
