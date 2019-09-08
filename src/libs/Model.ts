@@ -14,13 +14,28 @@ export default class Model {
     this.version = version
   }
 
-  private initTable () {
-    // table rooms
+  public initTables (): void {
+    if (!this.db) {
+      return
+    }
+
+    // Rooms Table
     this.db.createObjectStore(TableRooms)
 
-    // table saves
+    // Archives Table
     const saveStore = this.db.createObjectStore(TableArchive, { keyPath: 'file' })
     saveStore.createIndex('roomid', 'roomid', { unique: false })
+  }
+
+  public async recover (): Promise<IDBDatabase> {
+    return new Promise((resolve, reject) => {
+      this.db && this.db.close()
+      this.db = null
+
+      const openRequest = indexedDB.deleteDatabase(this.database)
+      openRequest.onerror = (error) => reject(error)
+      openRequest.onsuccess = () => this.open(this.database, this.version).then(resolve).catch(reject)
+    })
   }
 
   public open (database: string = this.database, version: number = this.version): Promise<IDBDatabase> {
@@ -32,20 +47,34 @@ export default class Model {
 
       const openRequest = indexedDB.open(database, version)
       openRequest.onerror = (error) => reject(error)
-      openRequest.onupgradeneeded = () => {
-        this.db = openRequest.result
-        this.initTable()
+      openRequest.onupgradeneeded = (event) => {
+        try {
+          if (event.oldVersion === 0) {
+            this.db = openRequest.result
+            this.initTables()
+          }
+        } catch (error) {
+          reject(error)
+        }
       }
 
       openRequest.onsuccess = () => {
         this.db = openRequest.result
+        if (this.db.objectStoreNames.length === 0) {
+          this.recover().then(resolve).catch(reject)
+          return
+        }
+
         resolve(this.db)
       }
+
+      this.database = database
+      this.version = version
     })
   }
 
   public saveArchive (archives: Array<Typings.DGArchive>): Promise<void> {
-    return this.open().then((database) => {
+    return this.open().then((database: IDBDatabase) => {
       const transaction = database.transaction(TableArchive, 'readwrite')
       const store = transaction.objectStore(TableArchive)
 
