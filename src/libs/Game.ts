@@ -3,6 +3,7 @@ import Stage from './Stage'
 import DosBox from './DosBox'
 import Controller from './Controller'
 import Model from './Model'
+import title from '../conf/title'
 import * as games from '../conf/games'
 import { Joystick2DConfig, DPadDefaultConfig } from '../conf/controller'
 import { isMobile } from '../share/device'
@@ -188,7 +189,7 @@ export default class Game {
     await this.stage.reset()
     this.controller.reset()
 
-    document.title = 'SimuDOS'
+    document.title = title
 
     this.disableContextMenu(false)
     this.isPlaying = false

@@ -4,9 +4,14 @@ import * as Typings from '../typings'
 export const xjqxz: Typings.DGGameInfo = {
   id: 'xjqxz',
   name: '仙剑奇侠传',
+  commonName: 'Legend of Sword and Fairy',
+  cover: require('../assets/images/xjqxz.jpg'),
+  type: 'RPG',
+  developers: ['大宇资讯股份有限公司'],
+  publisher: ['大宇资讯', '双语公司', '晶合时代'],
+  release: '1995/7/7',
+  url: 'https://wasabi.zczc.cz/dos-games/bin/仙剑奇侠传.zip',
   size: 20272189,
-  cover: require('../../rooms/images/xjqxz.jpg'),
-  url: require('../../rooms/xjqxz.zip'),
   command: ['PAL!.EXE'],
   save: {
     path: './',
@@ -46,9 +51,14 @@ export const xjqxz: Typings.DGGameInfo = {
 export const jyqxz: Typings.DGGameInfo = {
   id: 'jyqxz',
   name: '金庸群侠传',
+  commonName: 'Heroes of Jin Yong',
+  cover: require('../assets/images/jyqxz.jpg'),
+  type: 'RPG',
+  developers: ['河洛工作室'],
+  publisher: ['智冠科技'],
+  release: '1996',
+  url: 'https://wasabi.zczc.cz/dos-games/bin/金庸群侠传.zip',
   size: 26130954,
-  cover: require('../../rooms/images/jyqxz.jpg'),
-  url: require('../../rooms/jyqxz.zip'),
   command: ['PLAY.BAT'],
   save: {
     path: './',
@@ -103,6 +113,54 @@ export const jyqxz: Typings.DGGameInfo = {
           position: {
             right: 135,
             bottom: 120
+          }
+        }
+      }
+    ]
+  }
+}
+
+export const xuanyuanjian: Typings.DGGameInfo = {
+  id: 'xuanyuanjian',
+  name: '轩辕剑',
+  commonName: 'XuanYuan Sword',
+  cover: require('../assets/images/xuanyuanjian.jpg'),
+  type: 'RPG',
+  developers: ['大宇资讯股份有限公司'],
+  publisher: ['大宇资讯', '畅游'],
+  release: '1990/10/13',
+  url: 'https://wasabi.zczc.cz/dos-games/bin/轩辕剑1.zip',
+  size: 1033798,
+  command: ['Play.bat'],
+  save: {
+    path: './',
+    regexp: /^(CHAIN\.DSK|DATA1\.BVS|DATA2\.BVS)$/
+  },
+  play: {
+    keyboad: true,
+    dpad: true,
+    joystick: true,
+    keypad: [
+      {
+        context: 'Space',
+        keyCode: 32,
+        options: {
+          type: 'round',
+          position: {
+            right: 50,
+            bottom: 50
+          }
+        }
+      },
+      {
+        context: 'Exc',
+        keyCode: 27,
+        options: {
+          type: 'round',
+          size: 50,
+          position: {
+            right: 150,
+            bottom: 50
           }
         }
       }

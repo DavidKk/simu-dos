@@ -47,11 +47,16 @@ export type DGDPadConf = boolean | Array<{
 export interface DGGameInfo {
   id: string
   name: string
+  commonName?: string
   cover: string
+  type?: string
+  developers?: string[] | string
+  publisher?: string[] | string
+  release?: string | Date | number
   url: string
   size?: number
   room?: ArrayBuffer
-  command: Array<string>
+  command?: Array<string>
   save?: {
     path: string
     regexp: RegExp

@@ -116,12 +116,12 @@ export default class App {
     document.body.addEventListener('keyup', this.handleChoosed)
 
     this.handleSelected = this._onSelected.bind(this)
-    document.body.addEventListener('keypress', this.handleSelected)
+    document.body.addEventListener('keyup', this.handleSelected)
   }
 
   public unbindings (): void {
     document.body.removeEventListener('keyup', this.handleChoosed)
-    document.body.removeEventListener('keypress', this.handleSelected)
+    document.body.removeEventListener('keyup', this.handleSelected)
 
     this.handleChoosed = undefined
     this.handleSelected = undefined
