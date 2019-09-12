@@ -37,7 +37,11 @@ export default class Stage {
   }
 
   public simulateClean (): void {
-    this.term.clear()
+    this.term && this.term.clear()
+  }
+
+  public simulateReset (): void {
+    this.term && this.term.reset()
   }
 
   public print (context: string): void {

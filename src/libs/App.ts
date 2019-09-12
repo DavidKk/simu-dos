@@ -48,14 +48,13 @@ export default class App {
     document.body.addEventListener(TouchEvents.start, handleTouch)
     document.body.appendChild(this.container)
 
+    this.game.onExit(this.show.bind(this))
     this.bindings()
   }
 
-  public async play (id: string): Promise<void> {
+  public play (id: string): Promise<void> {
     this.hide()
-
-    await this.game.play(id)
-    this.game.dosbox.onExit(this.show.bind(this))
+    return this.game.play(id)
   }
 
   private _onChoosed (event: KeyboardEvent): void {
@@ -116,12 +115,12 @@ export default class App {
     document.body.addEventListener('keyup', this.handleChoosed)
 
     this.handleSelected = this._onSelected.bind(this)
-    document.body.addEventListener('keyup', this.handleSelected)
+    document.body.addEventListener('keypress', this.handleSelected)
   }
 
   public unbindings (): void {
     document.body.removeEventListener('keyup', this.handleChoosed)
-    document.body.removeEventListener('keyup', this.handleSelected)
+    document.body.removeEventListener('keypress', this.handleSelected)
 
     this.handleChoosed = undefined
     this.handleSelected = undefined

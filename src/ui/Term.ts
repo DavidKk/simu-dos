@@ -17,7 +17,7 @@ export default class Term {
     this.screen.className = 'term'
     this.container.appendChild(this.screen)
 
-    this.newline().innerText = 'C:> '
+    this.initialize()
   }
 
   private covertUnit (value: number, units: Array<string>): string {
@@ -28,6 +28,10 @@ export default class Term {
     }
 
     return value.toFixed(2) + unit
+  }
+
+  public initialize (): void {
+    this.newline().innerText = 'C:> '
   }
 
   public newline (): HTMLPreElement {
@@ -96,8 +100,11 @@ export default class Term {
     this.lines.splice(0).forEach((line) => {
       this.screen.removeChild(line)
     })
+  }
 
-    this.newline().innerText = 'C:> '
+  public reset (): void {
+    this.clear()
+    this.initialize()
   }
 
   public show (): void {

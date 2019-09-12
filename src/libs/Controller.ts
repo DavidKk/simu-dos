@@ -8,7 +8,8 @@ import Utils from '../ui/Utils'
 import TouchEvent from '../conf/touch-event'
 import * as Typings from '../typings'
 
-export default class Controller extends EventEmitter {
+export default class Controller {
+  private emitter: EventEmitter
   public touchpad: HTMLDivElement
   public keypad: Keypad
   public joystick: Joystick
@@ -18,8 +19,7 @@ export default class Controller extends EventEmitter {
   public deprecates: Array<() => void> = []
 
   constructor (element: HTMLDivElement) {
-    super()
-
+    this.emitter = new EventEmitter()
     this.touchpad = document.createElement('div')
     this.touchpad.className = 'touchpad'
     element.appendChild(this.touchpad)
@@ -31,7 +31,7 @@ export default class Controller extends EventEmitter {
     if (joystick) {
       const handleActions = (data): void => {
         let event = { type: 'joystick', data }
-        this.emit('actions', event)
+        this.emitter.emit('actions', event)
       }
 
       this.joystick = new Joystick(this.touchpad)
@@ -41,7 +41,7 @@ export default class Controller extends EventEmitter {
     if (dpad) {
       const handleActions = (data): void => {
         let event = { type: 'dpad', data }
-        this.emit('actions', event)
+        this.emitter.emit('actions', event)
       }
 
       this.dpad = new DPad(this.touchpad)
@@ -68,7 +68,7 @@ export default class Controller extends EventEmitter {
 
       const handleActions = (data): void => {
         let event = { type: 'keyboard', data }
-        this.emit('actions', event)
+        this.emitter.emit('actions', event)
       }
 
       this.keyboard = new Keyboard(this.touchpad)
@@ -83,13 +83,13 @@ export default class Controller extends EventEmitter {
     let handleTouchDown = () => {
       const data = { type: 'down', keyCode }
       const event = { type: 'button', data }
-      this.emit('actions', event)
+      this.emitter.emit('actions', event)
     }
 
     let handleTouchUp = () => {
       const data = { type: 'up', keyCode }
       const event = { type: 'button', data }
-      this.emit('actions', event)
+      this.emitter.emit('actions', event)
     }
 
     button.bindEvent(TouchEvent.start, handleTouchDown)
@@ -105,11 +105,11 @@ export default class Controller extends EventEmitter {
   }
 
   public onActions (handle: (event: any) => void): void {
-    this.addListener('actions', handle)
+    this.emitter.addListener('actions', handle)
   }
 
   public reset (): void {
-    this.removeAllListeners()
+    this.emitter.removeAllListeners()
 
     this.deprecates.forEach((fn) => fn)
     this.deprecates.splice(0)
@@ -119,5 +119,13 @@ export default class Controller extends EventEmitter {
     this.keypad && this.keypad.destroy()
     this.keyboard && this.keyboard.destroy()
     this.utils && this.utils.destroy()
+
+    this.emitter = undefined
+    this.deprecates = undefined
+    this.joystick = undefined
+    this.dpad = undefined
+    this.keypad = undefined
+    this.keyboard = undefined
+    this.utils = undefined
   }
 }

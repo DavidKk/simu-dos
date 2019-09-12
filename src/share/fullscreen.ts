@@ -5,9 +5,7 @@ export const isFullscreenEnabled = (): boolean => {
     || document.msFullscreenEnabled
 }
 
-export const requestFullscreen = () => {
-  const element = document.body
-
+export const requestFullscreen = (element = document.body): void => {
   if (element.requestFullscreen) {
     element.requestFullscreen()
   } else if (element.mozRequestFullScreen) {
@@ -19,9 +17,7 @@ export const requestFullscreen = () => {
   }
 }
 
-export const exitFullscreen = (): void => {
-  const element = document
-
+export const exitFullscreen = (element = document.body): void => {
   if (element.exitFullScreen) {
     element.exitFullScreen()
   } else if (element.mozCancelFullScreen) {

@@ -1,4 +1,5 @@
 import xor from 'lodash/xor'
+import { EventEmitter } from 'events'
 import Stage from './Stage'
 import DosBox from './DosBox'
 import Controller from './Controller'
@@ -7,10 +8,12 @@ import title from '../conf/title'
 import * as games from '../conf/games'
 import { Joystick2DConfig, DPadDefaultConfig } from '../conf/controller'
 import { isMobile } from '../share/device'
+import { supported } from '../share/webAssembly'
 import * as Typings from '../typings'
 import Package from '../../package.json'
 
 export default class Game {
+  public emitter: EventEmitter = new EventEmitter()
   public container: HTMLDivElement
   public stage: Stage
   public dosbox: DosBox
@@ -38,6 +41,26 @@ export default class Game {
   }
 
   public async play (id: string): Promise<void> {
+    if (!supported) {
+      this.stage.simulateClean()
+      this.stage.toggleTerm(true)
+
+      this.stage.print('Browser is not support WebAssembly, please upgrade your browser.')
+      this.stage.print('We recommend that you use the Chrome browser.')
+      this.stage.print('Press any key to exit...')
+
+      let exit = () => {
+        this.stage.toggleTerm(false)
+        this.emitter.emit('exit')
+
+        document.body.removeEventListener('keyup', exit)
+        exit = undefined
+      }
+
+      document.body.addEventListener('keyup', exit)
+      return Promise.reject(new Error('WebAssembly is not supported.'))
+    }
+
     this.isPlaying && await this.stop()
     this.isPlaying = true
 
@@ -47,11 +70,22 @@ export default class Game {
     game.room = await this.model.loadRoom(id)
 
     this.dosbox = this.stage.launch()
-    this.dosbox.onExit(() => this.stop())
+    this.dosbox.onExit(() => {
+      this.stop()
+      this.emitter.emit('exit')
+    })
 
-    this.stage.simulateClean()
+    this.stage.simulateReset()
     this.stage.toggleTerm(true)
     await this.stage.simulateInput(`simu-dos start ${game.url}`)
+
+    this.stage.print('=================================')
+    game.name && this.stage.print(`Name (名称): ${game.name}${game.commonName ? `(${game.commonName})` : ''}`)
+    game.type && this.stage.print(`Type (类型): ${game.type}`)
+    game.developers && this.stage.print(`Developers (开发商): ${game.developers}`)
+    game.publisher && this.stage.print(`Publisher (发行商): ${game.publisher}`)
+    game.release && this.stage.print(`Release (发行日期): ${game.release}`)
+    this.stage.print('=================================')
 
     let wasmProcessFn = this.stage.progress()
     let roomProcessFn = this.stage.progress()
@@ -193,6 +227,10 @@ export default class Game {
 
     this.disableContextMenu(false)
     this.isPlaying = false
+  }
+
+  public onExit (handle: (...args: any[]) => void): void {
+    this.emitter.addListener('exit', handle)
   }
 
   public async saveArchiveFromDB (game: Typings.DGGameInfo): Promise<void> {
