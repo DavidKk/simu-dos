@@ -9,6 +9,7 @@ import * as games from '../conf/games'
 import { Joystick2DConfig, DPadDefaultConfig } from '../conf/controller'
 import { isMobile } from '../share/device'
 import { supported } from '../share/webAssembly'
+import lang from '../share/lang'
 import * as Typings from '../typings'
 import Package from '../../package.json'
 
@@ -45,9 +46,7 @@ export default class Game {
       this.stage.simulateClean()
       this.stage.toggleTerm(true)
 
-      this.stage.print('Browser is not support WebAssembly, please upgrade your browser.')
-      this.stage.print('We recommend that you use the Chrome browser.')
-      this.stage.print('Press any key to exit...')
+      lang.supportWebassembly.forEach(this.stage.print.bind(this.stage))
 
       let exit = () => {
         this.stage.toggleTerm(false)
@@ -80,11 +79,11 @@ export default class Game {
     await this.stage.simulateInput(`simu-dos start ${game.url}`)
 
     this.stage.print('=================================')
-    game.name && this.stage.print(`Name (名称): ${game.name}${game.commonName ? `(${game.commonName})` : ''}`)
-    game.type && this.stage.print(`Type (类型): ${game.type}`)
-    game.developers && this.stage.print(`Developers (开发商): ${game.developers}`)
-    game.publisher && this.stage.print(`Publisher (发行商): ${game.publisher}`)
-    game.release && this.stage.print(`Release (发行日期): ${game.release}`)
+    game.name && this.stage.print(`${lang.gameInfo.name}: ${game.name} ${game.commonName ? `(${game.commonName})` : ''}`)
+    game.type && this.stage.print(`${lang.gameInfo.type}: ${game.type}`)
+    game.developers && this.stage.print(`${lang.gameInfo.developers}: ${game.developers}`)
+    game.publisher && this.stage.print(`${lang.gameInfo.publisher}: ${game.publisher}`)
+    game.release && this.stage.print(`${lang.gameInfo.release}: ${game.release}`)
     this.stage.print('=================================')
 
     let wasmProcessFn = this.stage.progress()

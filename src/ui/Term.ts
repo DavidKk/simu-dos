@@ -46,7 +46,7 @@ export default class Term {
 
   public print (context: string): void {
     let line = this.newline()
-    line.append(context)
+    line.innerText += context
   }
 
   public relace (context: string, line: HTMLElement = this.currentLine): void {
@@ -74,7 +74,7 @@ export default class Term {
       let wrap = document.createElement('br')
       this.currentLine.appendChild(wrap)
     } else {
-      this.currentLine.append(char)
+      this.currentLine.innerText += char
     }
   }
 
@@ -117,6 +117,6 @@ export default class Term {
 
   public scrollToButtom (): void {
     let { scrollHeight: top } = this.screen
-    this.screen.scrollTo({ top })
+    this.screen.scrollTop = top
   }
 }
