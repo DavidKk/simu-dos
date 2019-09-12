@@ -379,15 +379,15 @@ export default class DosBox {
     this.wdosboxModule.requestFullScreen()
   }
 
-  public onMessage (handle): void {
+  public onMessage (handle: (...args: any[]) => void): void {
     this.emitter.addListener('message', handle)
   }
 
-  public onProgress (handle): void {
+  public onProgress (handle: (...args: any[]) => void): void {
     this.emitter.addListener('progress', handle)
   }
 
-  public onExit (handle): void {
+  public onExit (handle: (...args: any[]) => void): void {
     this.emitter.addListener('exit', handle)
   }
 
@@ -399,7 +399,7 @@ export default class DosBox {
         this.fetchTasks.forEach((task) => task.cancel())
         this.emitter.removeAllListeners()
 
-        this.shellInputQueue.splice(0)
+        this.shellInputQueue && this.shellInputQueue.splice(0)
         this.shellInputClients.splice(0)
         this.fetchTasks.splice(0)
 
