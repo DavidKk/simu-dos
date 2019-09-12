@@ -26,7 +26,9 @@ export default class Controller extends EventEmitter {
   }
 
   public mapGame (game: Typings.DGGameInfo): void {
-    if (game.play.joystick) {
+    const { joystick, dpad, keypad, keyboad } = game.play || {}
+
+    if (joystick) {
       const handleActions = (data): void => {
         let event = { type: 'joystick', data }
         this.emit('actions', event)
@@ -36,7 +38,7 @@ export default class Controller extends EventEmitter {
       this.joystick.onActions(handleActions)
     }
 
-    if (game.play.dpad) {
+    if (dpad) {
       const handleActions = (data): void => {
         let event = { type: 'dpad', data }
         this.emit('actions', event)
@@ -46,17 +48,17 @@ export default class Controller extends EventEmitter {
       this.dpad.onActions(handleActions)
     }
 
-    if (Array.isArray(game.play.keypad) && game.play.keypad.length > 0) {
+    if (Array.isArray(keypad) && keypad.length > 0) {
       this.keypad = new Keypad(this.touchpad)
 
-      game.play.keypad.forEach((item) => {
+      keypad.forEach((item) => {
         const button: Button = this.keypad.add(item.context, item.options)
         const deprecated = this.mapButtonToKeyCode(button, item.keyCode)
         this.deprecates.push(deprecated)
       })
     }
 
-    if (game.play.keyboad === true) {
+    if (keyboad === true) {
       const handleToogle = (isOpen: boolean): void => {
         this.joystick && this.joystick.toggle(!isOpen)
         this.dpad && this.dpad.toggle(!isOpen)
