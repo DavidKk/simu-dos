@@ -1,8 +1,10 @@
 export const isFullscreenEnabled = (): boolean => {
-  return document.fullscreenEnabled
+  return !!(
+    document.fullscreenEnabled
     || document.mozFullScreenEnabled
     || document.webkitFullscreenEnabled
     || document.msFullscreenEnabled
+  )
 }
 
 export const requestFullscreen = (element = document.body): void => {
