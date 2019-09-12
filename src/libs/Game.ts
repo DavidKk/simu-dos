@@ -76,7 +76,7 @@ export default class Game {
 
     this.stage.simulateReset()
     this.stage.toggleTerm(true)
-    await this.stage.simulateInput(`simu-dos start ${game.url}`)
+    await this.stage.simulateInput(`simu-dos play ${game.url}`)
 
     this.stage.print('=================================')
     game.name && this.stage.print(`${lang.gameInfo.name}: ${game.name} ${game.commonName ? `(${game.commonName})` : ''}`)

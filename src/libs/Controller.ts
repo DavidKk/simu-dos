@@ -119,6 +119,10 @@ export default class Controller {
     this.keypad && this.keypad.destroy()
     this.keyboard && this.keyboard.destroy()
     this.utils && this.utils.destroy()
+  }
+
+  public destroy (): void {
+    this.reset()
 
     this.emitter = undefined
     this.deprecates = undefined
@@ -127,5 +131,7 @@ export default class Controller {
     this.keypad = undefined
     this.keyboard = undefined
     this.utils = undefined
+
+    this.destroy = Function.prototype as any
   }
 }
