@@ -3,7 +3,7 @@ import padEnd from 'lodash/padEnd'
 export default class Term {
   private container: HTMLElement
   private screen: HTMLDivElement
-  private lines: Array<HTMLPreElement>
+  private lines: HTMLPreElement[]
 
   get currentLine (): HTMLPreElement {
     return this.lines[this.lines.length - 1]
