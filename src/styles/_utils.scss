@@ -44,25 +44,3 @@
     background-color: $uiActiveColor;
   }
 }
-
-.utils-btn {
-  &.full {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-
-    &:before {
-      content: fa-content($fa-var-compress);
-    }
-  }
-
-  &.compress {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-
-    &:before {
-      content: fa-content($fa-var-compress-arrows-alt);
-    }
-  }
-}
