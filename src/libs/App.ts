@@ -45,7 +45,13 @@ export default class App {
       this.play(id)
     }
 
+    const handleStopScroll = (event) => {
+      event.preventDefault()
+      event.stopPropagation()
+    }
+
     document.body.addEventListener(TouchEvents.start, handleTouch)
+    document.body.addEventListener(TouchEvents.move, handleStopScroll, { passive: false })
     document.body.appendChild(this.container)
 
     this.game.onExit(this.show.bind(this))
