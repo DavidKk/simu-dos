@@ -18,7 +18,7 @@ export const en: Typings.LangDescription = {
     'Press any key to exit...'
   ],
   qrcode: {
-    label: 'Scan qrcode for mobile to visit.'
+    label: 'Scan qrcode for mobile to play.'
   }
 }
 
@@ -37,7 +37,7 @@ export const cn: Typings.LangDescription = {
     '按任意键退出...'
   ],
   qrcode: {
-    label: '移动设备扫描二维码访问'
+    label: '移动设备可扫描二维码进行游玩。'
   }
 }
 
@@ -56,7 +56,7 @@ export const tc: Typings.LangDescription = {
     '按任意鍵退出...'
   ],
   qrcode: {
-    label: '移動設備掃描二維碼訪問'
+    label: '移動設備可掃描二維碼進行遊玩。'
   }
 }
 
