@@ -155,15 +155,18 @@ export interface Archive {
 
 // Langs
 export interface LangDescription {
-  gameInfo: {
-    name?: string
-    type?: string
-    summary?: string
-    developers?: string
-    publisher?: string
-    release?: string
+  game: {
+    name: string
+    type: string
+    summary: string
+    developers: string
+    publisher: string
+    release: string
   },
-  supportWebassembly: string[]
+  supportWebassembly: string[],
+  qrcode: {
+    label: string
+  }
 }
 
 export interface LangOptions {
