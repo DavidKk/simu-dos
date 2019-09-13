@@ -4,7 +4,7 @@ export const language = window.navigator.language
 export const isChinese = /zh/i.test(language.toLocaleLowerCase())
 
 export const en: Typings.LangDescription = {
-  gameInfo: {
+  game: {
     name: 'Name',
     type: 'Type',
     summary: 'Summary',
@@ -16,11 +16,14 @@ export const en: Typings.LangDescription = {
     'Browser is not support WebAssembly, please upgrade your browser.',
     'We recommend that you use the Chrome browser.',
     'Press any key to exit...'
-  ]
+  ],
+  qrcode: {
+    label: 'Scan qrcode for mobile to visit.'
+  }
 }
 
 export const cn: Typings.LangDescription = {
-  gameInfo: {
+  game: {
     name: '名称',
     type: '类型',
     summary: '简介',
@@ -32,11 +35,14 @@ export const cn: Typings.LangDescription = {
     '您的浏览器不支持 WebAssembly，请升级您的浏览器。',
     '我们建议您使用 Chrome 浏览器。',
     '按任意键退出...'
-  ]
+  ],
+  qrcode: {
+    label: '移动设备扫描二维码访问'
+  }
 }
 
 export const tc: Typings.LangDescription = {
-  gameInfo: {
+  game: {
     name: '名稱',
     type: '類型',
     summary: '簡介',
@@ -48,7 +54,10 @@ export const tc: Typings.LangDescription = {
     '您的瀏覽器不支持 WebAssembly，請升級您的瀏覽器。 ',
     '我們建議您使用 Chrome 瀏覽器。 ',
     '按任意鍵退出...'
-  ]
+  ],
+  qrcode: {
+    label: '移動設備掃描二維碼訪問'
+  }
 }
 
 export const description = (() => {

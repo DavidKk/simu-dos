@@ -81,17 +81,17 @@ export default class Game {
     this.stage.print('=================================')
 
     const translatedName = Lang.get(game.translates)
-    game.name && this.stage.print(`${Lang.description.gameInfo.name}: ${game.name} ${game.name !== translatedName ? `(${translatedName})` : ''}`)
-    game.type && this.stage.print(`${Lang.description.gameInfo.type}: ${game.type}`)
-    game.developers && this.stage.print(`${Lang.description.gameInfo.developers}: ${game.developers}`)
-    game.publisher && this.stage.print(`${Lang.description.gameInfo.publisher}: ${game.publisher}`)
-    game.release && this.stage.print(`${Lang.description.gameInfo.release}: ${game.release}`)
+    game.name && this.stage.print(`${Lang.description.game.name}: ${game.name} ${game.name !== translatedName ? `(${translatedName})` : ''}`)
+    game.type && this.stage.print(`${Lang.description.game.type}: ${game.type}`)
+    game.developers && this.stage.print(`${Lang.description.game.developers}: ${game.developers}`)
+    game.publisher && this.stage.print(`${Lang.description.game.publisher}: ${game.publisher}`)
+    game.release && this.stage.print(`${Lang.description.game.release}: ${game.release}`)
 
     const summary = !Array.isArray(game.summary) && typeof game.summary === 'object' ? Lang.get(game.summary) : game.summary
     if (typeof summary === 'string') {
-      this.stage.print(`${Lang.description.gameInfo.summary}: ${summary}`)
+      this.stage.print(`${Lang.description.game.summary}: ${summary}`)
     } else if (Array.isArray(summary)) {
-      this.stage.print(`${Lang.description.gameInfo.summary}:\n${summary.join('\n')}`)
+      this.stage.print(`${Lang.description.game.summary}:\n${summary.join('\n')}`)
     }
 
     this.stage.print('=================================')
