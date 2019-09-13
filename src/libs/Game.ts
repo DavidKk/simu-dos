@@ -9,7 +9,7 @@ import * as games from '../conf/games'
 import { Joystick2DConfig, DPadDefaultConfig } from '../conf/controller'
 import { isMobile } from '../share/device'
 import { supported } from '../share/webAssembly'
-import lang from '../share/lang'
+import * as Lang from '../share/lang'
 import * as Typings from '../typings'
 import Package from '../../package.json'
 
@@ -46,7 +46,7 @@ export default class Game {
       this.stage.simulateClean()
       this.stage.toggleTerm(true)
 
-      lang.supportWebassembly.forEach(this.stage.print.bind(this.stage))
+      Lang.description.supportWebassembly.forEach(this.stage.print.bind(this.stage))
 
       let exit = () => {
         this.stage.toggleTerm(false)
@@ -65,7 +65,7 @@ export default class Game {
 
     this.disableContextMenu()
 
-    const game: Typings.DGGameInfo = games[id]
+    const game: Typings.GameInfo = games[id]
     game.room = await this.model.loadRoom(id)
 
     this.dosbox = this.stage.launch()
@@ -79,11 +79,21 @@ export default class Game {
     await this.stage.simulateInput(`simu-dos play ${game.url}`)
 
     this.stage.print('=================================')
-    game.name && this.stage.print(`${lang.gameInfo.name}: ${game.name} ${game.commonName ? `(${game.commonName})` : ''}`)
-    game.type && this.stage.print(`${lang.gameInfo.type}: ${game.type}`)
-    game.developers && this.stage.print(`${lang.gameInfo.developers}: ${game.developers}`)
-    game.publisher && this.stage.print(`${lang.gameInfo.publisher}: ${game.publisher}`)
-    game.release && this.stage.print(`${lang.gameInfo.release}: ${game.release}`)
+
+    const translatedName = Lang.get(game.translates)
+    game.name && this.stage.print(`${Lang.description.gameInfo.name}: ${game.name} ${game.name !== translatedName ? `(${translatedName})` : ''}`)
+    game.type && this.stage.print(`${Lang.description.gameInfo.type}: ${game.type}`)
+    game.developers && this.stage.print(`${Lang.description.gameInfo.developers}: ${game.developers}`)
+    game.publisher && this.stage.print(`${Lang.description.gameInfo.publisher}: ${game.publisher}`)
+    game.release && this.stage.print(`${Lang.description.gameInfo.release}: ${game.release}`)
+
+    const summary = !Array.isArray(game.summary) && typeof game.summary === 'object' ? Lang.get(game.summary) : game.summary
+    if (typeof summary === 'string') {
+      this.stage.print(`${Lang.description.gameInfo.summary}: ${summary}`)
+    } else if (Array.isArray(summary)) {
+      this.stage.print(`${Lang.description.gameInfo.summary}:\n${summary.join('\n')}`)
+    }
+
     this.stage.print('=================================')
 
     let wasmProcessFn = this.stage.progress()
@@ -232,7 +242,7 @@ export default class Game {
     this.emitter.addListener('exit', handle)
   }
 
-  public async saveArchiveFromDB (game: Typings.DGGameInfo): Promise<void> {
+  public async saveArchiveFromDB (game: Typings.GameInfo): Promise<void> {
     const { id, save } = game
     const files = await this.dosbox.searchFiles(save.path, save.regexp || /.*/)
     if (files.length === 0) {
@@ -247,7 +257,7 @@ export default class Game {
     return this.model.saveArchive(datas)
   }
 
-  public loadArchiveFromDB (game: Typings.DGGameInfo): Promise<void> {
+  public loadArchiveFromDB (game: Typings.GameInfo): Promise<void> {
     return this.model.loadArchive(game.id).then((files) => {
       files.forEach(({ file, content }) => {
         this.dosbox.writeFile(file, content)

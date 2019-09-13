@@ -15,7 +15,7 @@ export default class Component extends EventEmitter {
     this.emit('toggle', isOpen)
   }
 
-  public bind (element: HTMLElement, events: string | Array<string>, handle: Typings.DGEventHandle): void {
+  public bind (element: HTMLElement, events: string | Array<string>, handle: Typings.EventHandle): void {
     if (Array.isArray(events)) {
       events.forEach((event) => this.bind(element, event, handle))
       return
@@ -24,7 +24,7 @@ export default class Component extends EventEmitter {
     element.addEventListener(events, handle, false)
   }
 
-  public unbind (element: HTMLElement, events: string | Array<string>, handle: Typings.DGEventHandle): void {
+  public unbind (element: HTMLElement, events: string | Array<string>, handle: Typings.EventHandle): void {
     if (Array.isArray(events)) {
       events.forEach((event) => this.unbind(element, event, handle))
       return

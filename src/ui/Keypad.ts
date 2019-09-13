@@ -19,7 +19,7 @@ export default class Keypad extends Component {
     this.zone.appendChild(this.container)
   }
 
-  public add (context: string, options?: Typings.DGButtonOptions): Button {
+  public add (context: string, options?: Typings.ButtonOptions): Button {
     let button = new Button(context, options)
     button.append(this.container)
 

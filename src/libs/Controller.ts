@@ -25,7 +25,7 @@ export default class Controller {
     element.appendChild(this.touchpad)
   }
 
-  public mapGame (game: Typings.DGGameInfo): void {
+  public mapGame (game: Typings.GameInfo): void {
     const { joystick, dpad, keypad, keyboad } = game.play || {}
 
     if (joystick) {

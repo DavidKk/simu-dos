@@ -4,8 +4,8 @@ import TouchEvents from '../share/event'
 import * as Typings from '../typings'
 
 export default class App {
-  private handleChoosed: Typings.DGEventHandle
-  private handleSelected: Typings.DGEventHandle
+  private handleChoosed: Typings.EventHandle
+  private handleSelected: Typings.EventHandle
 
   public game: Game
   public container: HTMLDivElement
@@ -148,7 +148,7 @@ export default class App {
     return node
   }
 
-  private createItem (game: Typings.DGGameInfo): HTMLAnchorElement {
+  private createItem (game: Typings.GameInfo): HTMLAnchorElement {
     const node = document.createElement('a')
     node.setAttribute('data-game', game.id)
     node.classList.add('game-item')

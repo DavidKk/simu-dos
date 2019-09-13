@@ -73,7 +73,7 @@ export default class Model {
     })
   }
 
-  public saveArchive (archives: Array<Typings.DGArchive>): Promise<void> {
+  public saveArchive (archives: Array<Typings.Archive>): Promise<void> {
     return this.open().then((database: IDBDatabase) => {
       const transaction = database.transaction(TableArchive, 'readwrite')
       const store = transaction.objectStore(TableArchive)
@@ -95,7 +95,7 @@ export default class Model {
     })
   }
 
-  public loadArchive (roomid: string): Promise<Array<Typings.DGArchive>> {
+  public loadArchive (roomid: string): Promise<Array<Typings.Archive>> {
     return this.open().then((database) => new Promise((resolve, reject) => {
       const transaction = database.transaction(TableArchive, 'readonly')
       const store = transaction.objectStore(TableArchive)

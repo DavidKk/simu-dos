@@ -51,9 +51,16 @@ export default class Stage {
 
   public progress (): (context: string, loaded: number, total: number, size?: number) => void {
     let line = this.term.newline()
+    let scrollHeight = this.term.getScreenHeight()
 
     return (context: string, loaded: number, total: number, size?: number): void => {
       this.term.progress(context, loaded, total, size, line)
+
+      let newScrollHeight = this.term.getScreenHeight()
+      if (scrollHeight !== newScrollHeight) {
+        scrollHeight = newScrollHeight
+        this.term.scrollToButtom()
+      }
     }
   }
 

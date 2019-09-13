@@ -4,15 +4,15 @@ import * as MathUtil from '../share/math'
 import * as Typings from '../typings'
 
 export default class Joystick extends Component {
-  private handleZoneTouchStart: Typings.DGEventHandle
-  private handleZoneTouchMove: Typings.DGEventHandle
-  private handleZoneTouchEnd: Typings.DGEventHandle
+  private handleZoneTouchStart: Typings.EventHandle
+  private handleZoneTouchMove: Typings.EventHandle
+  private handleZoneTouchEnd: Typings.EventHandle
 
   public zone: HTMLDivElement
   public el: HTMLDivElement
   public stand: HTMLDivElement
   public stick: HTMLDivElement
-  public fixedPoint: Typings.DGPoint
+  public fixedPoint: Typings.Point
 
   constructor (zone: HTMLDivElement) {
     super()
@@ -94,13 +94,13 @@ export default class Joystick extends Component {
     this.handleZoneTouchEnd = undefined
   }
 
-  private setStickCoord (coord: Typings.DGPoint): void {
+  private setStickCoord (coord: Typings.Point): void {
     const { x, y } = coord
     this.stick.style.marginLeft = x + 'px'
     this.stick.style.marginTop = y + 'px'
   }
 
-  private computes (pointA: Typings.DGPoint, pointB: Typings.DGPoint): Typings.DGJoystickEventDatas {
+  private computes (pointA: Typings.Point, pointB: Typings.Point): Typings.JoystickEventDatas {
     let { x, y } = pointB
     let { clientWidth: sizeA } = this.stand
     let { clientWidth: sizeB } = this.stick
@@ -117,7 +117,7 @@ export default class Joystick extends Component {
 
     let angle45 = Math.PI / 4
     let angle90 = Math.PI / 2
-    let direction: Typings.DGJoystickDirection = { x: null, y: null, angle: null }
+    let direction: Typings.JoystickDirection = { x: null, y: null, angle: null }
 
     if (radian > angle45 && radian < (angle45 * 3)) {
       direction.angle = 'up'
@@ -144,7 +144,7 @@ export default class Joystick extends Component {
     return { coord, size, distance, angle, radian, direction }
   }
 
-  private getTouchPosition (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): Typings.DGPoint {
+  private getTouchPosition (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): Typings.Point {
     if (event instanceof TouchEvent) {
       let { pageX, pageY } = event.touches[0]
       return { x: pageX, y: pageY }
@@ -154,7 +154,7 @@ export default class Joystick extends Component {
     return { x: pageX, y: pageY }
   }
 
-  public setPosition (position: Typings.DGPosition): void {
+  public setPosition (position: Typings.Position): void {
     const { top, right, bottom, left } = position
     this.stand.style.top = typeof top === 'string' ? top : top + 'px'
     this.stand.style.right = typeof right === 'string' ? right : right + 'px'

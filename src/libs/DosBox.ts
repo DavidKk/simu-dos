@@ -9,25 +9,25 @@ import * as Typings from '../typings'
 
 export default class DosBox {
   public emitter: EventEmitter = new EventEmitter()
-  public options: Typings.DGDosBoxOptions = { wasmUrl: './wdosbox.wasm.js' }
+  public options: Typings.DosBoxOptions = { wasmUrl: './wdosbox.wasm.js' }
   public database: string = 'gdcenter_game'
   public canvas: HTMLCanvasElement = null
-  public wdosboxModule: Typings.DGDosBoxWdosboxModule = null
+  public wdosboxModule: Typings.DosBoxWdosboxModule = null
   public wasmModule: WebAssembly.Module = null
   public shellInputQueue: string[] = []
   public shellInputClients: Array<() => void> = []
   public isAlive: boolean = true
   public isInitialized: boolean = false
   public isReady: boolean = false
-  public fetchTasks: Array<Typings.DGDosBoxFetchTask> = []
+  public fetchTasks: Array<Typings.DosBoxFetchTask> = []
 
-  constructor (canvas: HTMLCanvasElement, options: Typings.DGDosBoxOptions = {}) {
+  constructor (canvas: HTMLCanvasElement, options: Typings.DosBoxOptions = {}) {
     this.options = defaultsDeep(this.options, options)
     this.database = options.database || this.database
     this.canvas = canvas
   }
 
-  public async play (game: Typings.DGGameInfo, options?: Typings.DGDosBoxPlayOptions): Promise<void> {
+  public async play (game: Typings.GameInfo, options?: Typings.DosBoxPlayOptions): Promise<void> {
     const { url, room, command } = game
 
     const handleDownloadRoom = (event) => {
@@ -49,7 +49,7 @@ export default class DosBox {
     await mainFn(command)
   }
 
-  public compile (wasmUrl?: string, options: Typings.DGDosBoxCompileOptions = {}): Promise<any> {
+  public compile (wasmUrl?: string, options: Typings.DosBoxCompileOptions = {}): Promise<any> {
     options = defaultsDeep({ wasmUrl }, options, this.options)
 
     this.isReady = false
@@ -136,7 +136,7 @@ export default class DosBox {
       onRuntimeInitialized,
       ping,
       print
-    } as Typings.DGDosBoxWdosboxModule
+    } as Typings.DosBoxWdosboxModule
 
     const onDownloadProgress = (event) => {
       const { loaded, total } = event
