@@ -1,55 +1,64 @@
 // Events
-export type DGEvent = TouchEvent | MouseEvent | PointerEvent | MSPointerEvent
-export type DGEventHandle = (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => void
+export type Event = TouchEvent | MouseEvent | PointerEvent | MSPointerEvent
+export type EventHandle = (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => void
 
-export interface DGDosBoxProgressEvent {
+export interface DosBoxProgressEvent {
   loaded: number
   total: number
 }
 
 // Styles
-export type DGStyleValue = string | number
-export type DGStyleSize = DGStyleValue | {
-  width: DGStyleValue
-  height: DGStyleValue
+export type StyleValue = string | number
+export type StyleSize = StyleValue | {
+  width: StyleValue
+  height: StyleValue
 }
 
-export interface DGPoint {
+export interface Point {
   x: number
   y: number
 }
 
-export interface DGPosition {
-  top?: DGStyleValue
-  right?: DGStyleValue
-  bottom?: DGStyleValue
-  left?: DGStyleValue
+export interface Position {
+  top?: StyleValue
+  right?: StyleValue
+  bottom?: StyleValue
+  left?: StyleValue
 }
 
 // Config
-export type DGJoystickConf = boolean | Array<{
+export type JoystickConf = boolean | Array<{
   keyCode: number,
-  direction: DGJoystickDirectionType | Array<DGJoystickDirectionType>
+  direction: JoystickDirectionType | Array<JoystickDirectionType>
 }>
 
-export type DGKeypadConf = Array<{
+export type KeypadConf = Array<{
   context: string
   keyCode?: number
   action?: string
-  options?: DGButtonOptions
+  options?: ButtonOptions
 }>
 
-export type DGDPadConf = boolean | Array<{
+export type DPadConf = boolean | Array<{
   keyCode: number
-  direction: DGDPadDirectionType
+  direction: DPadDirectionType
 }>
 
-export interface DGGameInfo {
+export interface GameInfo {
   id: string
   name: string
-  commonName?: string
+  translates?: {
+    cn?: string
+    tc?: string
+    en?: string
+  }
   cover: string
   type?: string
+  summary?: string | string[] | {
+    cn?: string | string[]
+    tc?: string | string[]
+    en?: string | string[]
+  }
   developers?: string[] | string
   publisher?: string[] | string
   release?: string | Date | number
@@ -62,63 +71,63 @@ export interface DGGameInfo {
     regexp: RegExp
   }
   play?: {
-    joystick?: DGJoystickConf
-    keypad?: DGKeypadConf
-    dpad?: DGDPadConf
+    joystick?: JoystickConf
+    keypad?: KeypadConf
+    dpad?: DPadConf
     keyboad?: boolean
   }
 }
 
 // Buttons
-export type DGButtonType = 'normal' | 'round'
+export type ButtonType = 'normal' | 'round'
 
-export interface DGButtonOptions {
-  type?: DGButtonType,
-  position?: DGPosition
-  size?: DGStyleValue
+export interface ButtonOptions {
+  type?: ButtonType,
+  position?: Position
+  size?: StyleValue
 }
 
 // DPad
-export type DGDPadDirectionType = 'up' | 'down' | 'left' | 'right'
+export type DPadDirectionType = 'up' | 'down' | 'left' | 'right'
 
 // Joystick
-export type DGJoystickDirectionType = 'up' | 'down' | 'left' | 'right'
+export type JoystickDirectionType = 'up' | 'down' | 'left' | 'right'
 
-export interface DGJoystickDirection {
-  x: DGJoystickDirectionType
-  y: DGJoystickDirectionType
-  angle: DGJoystickDirectionType
+export interface JoystickDirection {
+  x: JoystickDirectionType
+  y: JoystickDirectionType
+  angle: JoystickDirectionType
 }
 
-export interface DGJoystickEventDatas {
-  coord: DGPoint
+export interface JoystickEventDatas {
+  coord: Point
   size: number
   distance: number
   angle: number
   radian: number
-  direction: DGJoystickDirection
+  direction: JoystickDirection
 }
 
 // Controller
-export type DGControllerActionType = 'joystick' | 'keydown'
+export type ControllerActionType = 'joystick' | 'keydown'
 
 // Dosbox
-export interface DGDosBoxOptions {
+export interface DosBoxOptions {
   wasmUrl?: string
   database?: string
 }
 
-export interface DGDosBoxPlayOptions extends DGDosBoxOptions {
-  onDwonloadWasmProgress?: (DGDosBoxProgressEvent) => void
-  onDwonloadRoomProgress?: (DGDosBoxProgressEvent) => void
+export interface DosBoxPlayOptions extends DosBoxOptions {
+  onDwonloadWasmProgress?: (DosBoxProgressEvent) => void
+  onDwonloadRoomProgress?: (DosBoxProgressEvent) => void
   onDownloadCompleted?: (buffer: ArrayBuffer) => void
 }
 
-export interface DGDosBoxCompileOptions extends DGDosBoxOptions {
-  onProgress?: (DGDosBoxProgressEvent) => void
+export interface DosBoxCompileOptions extends DosBoxOptions {
+  onProgress?: (DosBoxProgressEvent) => void
 }
 
-export interface DGDosBoxWdosboxModule {
+export interface DosBoxWdosboxModule {
   version: string
   canvas: HTMLCanvasElement
   instantiateWasm: (info: object, receiveInstance: Function) => void
@@ -127,19 +136,38 @@ export interface DGDosBoxWdosboxModule {
   [key: string]: any
 }
 
-export interface DGDosBoxFetchTask {
+export interface DosBoxFetchTask {
   promise: Promise<any>
   cancel: (message?: string) => void
 }
 
 // Game
-export interface DGGameDBOptions {
+export interface GameDBOptions {
   pattern?: RegExp
 }
 
 // Files
-export interface DGArchive {
+export interface Archive {
   roomid: string
   file: string
   content: ArrayBuffer
+}
+
+// Langs
+export interface LangDescription {
+  gameInfo: {
+    name?: string
+    type?: string
+    summary?: string
+    developers?: string
+    publisher?: string
+    release?: string
+  },
+  supportWebassembly: string[]
+}
+
+export interface LangOptions {
+  cn?: any
+  tc?: any
+  en?: any
 }

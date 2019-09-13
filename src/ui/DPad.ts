@@ -49,7 +49,7 @@ export default class DPad extends Component {
   }
 
   private bindings (): void {
-    const wrapTouchDown = (direction: Typings.DGDPadDirectionType) => (event: Event) => {
+    const wrapTouchDown = (direction: Typings.DPadDirectionType) => (event: Event) => {
       event.preventDefault()
       event.stopPropagation()
 
@@ -59,7 +59,7 @@ export default class DPad extends Component {
       this.emit('actions', { type: 'down', direction })
     }
 
-    const wrapTouchUp = (direction: Typings.DGDPadDirectionType) => (event: Event) => {
+    const wrapTouchUp = (direction: Typings.DPadDirectionType) => (event: Event) => {
       event.preventDefault()
       event.stopPropagation()
 

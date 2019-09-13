@@ -1,6 +1,6 @@
 import * as Typings from '../typings'
 
-export const Joystick2DConfig: Typings.DGJoystickConf = [
+export const Joystick2DConfig: Typings.JoystickConf = [
   {
     keyCode: 37,
     direction: 'left'
@@ -19,7 +19,7 @@ export const Joystick2DConfig: Typings.DGJoystickConf = [
   }
 ]
 
-export const Joystick3DConfig: Typings.DGJoystickConf = [
+export const Joystick3DConfig: Typings.JoystickConf = [
   {
     keyCode: 37,
     direction: [
@@ -50,7 +50,7 @@ export const Joystick3DConfig: Typings.DGJoystickConf = [
   }
 ]
 
-export const DPadDefaultConfig: Typings.DGDPadConf = [
+export const DPadDefaultConfig: Typings.DPadConf = [
   {
     keyCode: 37,
     direction: 'left'

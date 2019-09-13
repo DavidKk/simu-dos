@@ -30,8 +30,8 @@ export default class Keyboard extends Component {
     [32]
   ]
 
-  private handleKeyboardTouched: Typings.DGEventHandle
-  private handleSwitcherTouched: Typings.DGEventHandle
+  private handleKeyboardTouched: Typings.EventHandle
+  private handleSwitcherTouched: Typings.EventHandle
 
   public zone: HTMLDivElement
   public container: HTMLDivElement

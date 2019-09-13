@@ -12,12 +12,12 @@ enum DSOperation {
 
 export default class Button extends Component {
   public element: HTMLDivElement
-  public type: Typings.DGButtonType
+  public type: Typings.ButtonType
 
-  private handleTouchStart: Typings.DGEventHandle
-  private handleTouchEnd: Typings.DGEventHandle
+  private handleTouchStart: Typings.EventHandle
+  private handleTouchEnd: Typings.EventHandle
 
-  constructor (context: string, options?: Typings.DGButtonOptions) {
+  constructor (context: string, options?: Typings.ButtonOptions) {
     super()
 
     this.element = document.createElement('div')
@@ -61,15 +61,15 @@ export default class Button extends Component {
     this.handleTouchEnd = Function.prototype as any
   }
 
-  public bindEvent (events: string | Array<string>, handle: Typings.DGEventHandle): void {
+  public bindEvent (events: string | Array<string>, handle: Typings.EventHandle): void {
     super.bind(this.element, events, handle)
   }
 
-  public unbindEvent (events: string | Array<string>, handle: Typings.DGEventHandle): void {
+  public unbindEvent (events: string | Array<string>, handle: Typings.EventHandle): void {
     super.unbind(this.element, events, handle)
   }
 
-  private calcSize (size: Typings.DGStyleValue, operation: DSOperation, value: number): Typings.DGStyleValue {
+  private calcSize (size: Typings.StyleValue, operation: DSOperation, value: number): Typings.StyleValue {
     if (typeof size === 'string') {
       let { num, unit } = trimUnit(size)
       return this.calcSize(num, operation, value) + unit
@@ -89,25 +89,25 @@ export default class Button extends Component {
     }
   }
 
-  public setType (type: Typings.DGButtonType): void {
+  public setType (type: Typings.ButtonType): void {
     this.type = type
     ;['normal'].forEach((style) => this.element.classList.remove(style))
     type !== 'normal' && this.element.classList.add(type)
   }
 
-  public setWidth (width: Typings.DGStyleValue): void {
+  public setWidth (width: Typings.StyleValue): void {
     this.element.style.width = typeof width === 'string' ? width : px2rem(width)
   }
 
-  public setHeight (height: Typings.DGStyleValue): void {
+  public setHeight (height: Typings.StyleValue): void {
     this.element.style.height = typeof height === 'string' ? height : px2rem(height)
   }
 
-  public setFontSize (size: Typings.DGStyleValue): void {
+  public setFontSize (size: Typings.StyleValue): void {
     this.element.style.fontSize = typeof size === 'string' ? size : px2rem(size)
   }
 
-  public setSize (size: Typings.DGStyleSize): void {
+  public setSize (size: Typings.StyleSize): void {
     const ratio = this.type === 'round' ? 1 / 3 : 3 / 4
     if (typeof size === 'object') {
       const { width, height } = size
@@ -127,7 +127,7 @@ export default class Button extends Component {
     }
   }
 
-  public setPosition (position: Typings.DGPosition): void {
+  public setPosition (position: Typings.Position): void {
     if (position.hasOwnProperty('top')) {
       let value = position.top
       this.element.style.top = typeof value === 'string' ? value : px2rem(value)

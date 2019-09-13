@@ -116,7 +116,12 @@ export default class Term {
   }
 
   public scrollToButtom (): void {
-    let { scrollHeight: top } = this.screen
+    const { scrollHeight: top } = this.screen
     this.screen.scrollTop = top
+  }
+
+  public getScreenHeight (): number {
+    const { scrollHeight: top } = this.screen
+    return top
   }
 }
