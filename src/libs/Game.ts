@@ -96,8 +96,8 @@ export default class Game {
 
     this.stage.print('=================================')
 
-    let wasmProcessFn = this.stage.progress()
-    let roomProcessFn = this.stage.progress()
+    let wasmProcessFn = this.stage.progress('Download wdosbox.wasm.js, please wait...')
+    let roomProcessFn = this.stage.progress(`Download ${game.name}, please wait...`)
 
     const onDwonloadWasmProgress = (data) => {
       let { loaded, total } = data
@@ -111,7 +111,7 @@ export default class Game {
 
     const onDownloadCompleted = (content: ArrayBuffer) => {
       this.model.saveRoom(id, content)
-      this.stage.print(`Game ${game.name} has been initialized, start now and wait please...`)
+      this.stage.print(`Download completed. ${game.name} has been initialized, start now and wait please...`)
     }
 
     const playOptions = { onDwonloadWasmProgress, onDwonloadRoomProgress, onDownloadCompleted }
