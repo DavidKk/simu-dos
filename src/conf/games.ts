@@ -3,7 +3,7 @@ import * as Typings from '../typings'
 
 export const xjqxz: Typings.GameInfo = {
   id: 'xjqxz',
-  name: '仙剑奇侠传',
+  name: '仙劍奇俠傳',
   translates: {
     cn: '仙剑奇侠传',
     tc: '仙劍奇俠傳',
@@ -55,7 +55,7 @@ export const xjqxz: Typings.GameInfo = {
 
 export const jyqxz: Typings.GameInfo = {
   id: 'jyqxz',
-  name: '金庸群侠传',
+  name: '金庸群俠傳',
   translates: {
     cn: '金庸群侠传',
     tc: '金庸群俠傳',
@@ -132,7 +132,7 @@ export const jyqxz: Typings.GameInfo = {
 
 export const xuanyuanjian: Typings.GameInfo = {
   id: 'xuanyuanjian',
-  name: '轩辕剑',
+  name: '軒轅劍',
   translates: {
     cn: '轩辕剑',
     tc: '軒轅劍',
@@ -186,6 +186,27 @@ export const xuanyuanjian: Typings.GameInfo = {
     ]
   }
 }
+
+// export const xuanyuanjian2: Typings.GameInfo = {
+//   id: 'xuanyuanjian2',
+//   name: '軒轅劍2',
+//   translates: {
+//     cn: '轩辕剑2',
+//     tc: '軒轅劍2',
+//     en: 'Xuan-Yuan Sword 2'
+//   },
+//   type: 'RPG',
+//   summary: [
+//     '盘古开天辟地后，世界原本只有善恶两神所统治的神魔界。女娲造人后才开创了人类与神魔共处的时代，起初人类的活动空间不大，与神魔之间相安无事，但逐渐人类的快速发展和大量开发缩小了神魔的生存空间。这种激进的行为终于触怒了神魔界，掌握邪念的恶神和其麾下的妖魔决心要毁灭人类，但碍于执掌善念的善神的反对，使得恶神一直无法如愿，人类才得以躲过了一场浩劫。',
+//     '经过了几千年的和平光阴，有一天妖魔宪然向人类攻击，人类的浩劫还是降临了。妖魔们摧毁村庄和一切人类创造的文明。更令人吃惊的是，从虎口逃生的人的口中得知善神决定与恶神联手毁灭人类的事实。失去了善神庇护的人类，面对凶猛的妖魔毫无抵抗能力，但此时出现了一位手持轩辕剑的侠士，组织众人组成一支抗魔军，发挥人类的凝聚力，压制住妖魔的攻势。',
+//     '然而好景不长，在善恶两神亲率妖魔的联手攻击下，抗魔军全部惨遭杀害，从此人们只有生活在妖魔的阴影下，以残余的力量与妖魔抗衡，直到16年后的一天，主角燕赤霞——也就是轩辕剑侠之子，经过一番历练之后，开始调查善恶神夹击人类的原因。'
+//   ],
+//   developers: ['大宇资讯股份有限公司'],
+//   publisher: ['大宇资讯', '畅游'],
+//   release: '1990/10/13',
+//   url: 'https://wasabi.zczc.cz/dos-games/bin/轩辕剑2.zip',
+//   command: ['SWD2.EXE']
+// }
 
 // export const mncs2000: Typings.GameInfo = {
 //   name: '模拟城市2000',
@@ -249,17 +270,6 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   },
 //   command: [
 //     "SAN486.COM"
-//   ]
-// }
-
-// export const 轩辕剑2: Typings.GameInfo = {
-//   translates: {
-//     cn: '轩辕剑2',
-//     tc: '軒轅劍2',
-//     en: 'Xuan-Yuan Sword 2'
-//   },
-//   command: [
-//     "SWD2.EXE"
 //   ]
 // }
 
