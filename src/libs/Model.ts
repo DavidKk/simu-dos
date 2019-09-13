@@ -108,7 +108,7 @@ export default class Model {
     }))
   }
 
-  public saveRoom (name: string, room: ArrayBuffer): Promise<void> {
+  public saveRom (name: string, room: ArrayBuffer): Promise<void> {
     return this.open().then((database) => new Promise((resolve, reject) => {
       const transaction = database.transaction(TableRooms, 'readwrite')
       const store = transaction.objectStore(TableRooms)
@@ -119,7 +119,7 @@ export default class Model {
     }))
   }
 
-  public loadRoom (name: string): Promise<ArrayBuffer> {
+  public loadRom (name: string): Promise<ArrayBuffer> {
     return this.open().then((database) => new Promise((resolve, reject) => {
       const transaction = database.transaction(TableRooms, 'readonly')
       const store = transaction.objectStore(TableRooms)
