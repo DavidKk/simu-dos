@@ -172,7 +172,19 @@ export const xuanyuanjian: Typings.GameInfo = {
         }
       },
       {
-        context: 'Exc',
+        context: 'Ctrl',
+        keyCode: 17,
+        options: {
+          type: 'round',
+          size: 50,
+          position: {
+            right: 135,
+            bottom: 120
+          }
+        }
+      },
+      {
+        context: 'Esc',
         keyCode: 27,
         options: {
           type: 'round',
