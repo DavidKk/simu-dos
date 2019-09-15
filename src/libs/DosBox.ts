@@ -36,42 +36,124 @@ export default class DosBox extends EventEmitter {
     this.fetchTasks = []
   }
 
+  /**
+   * 转换文件成 ArrayBuffer
+   * @param {Typings.DosBoxConvertFileToArrayBufferParams} params 参数
+   * @returns {ArrayBuffer[]}
+   * @description
+   * 这里最主要作用是并行下载文件
+   */
+  private convertFileToArrayBuffer (params: Typings.DosBoxConvertFileToArrayBufferParams): Promise<ArrayBuffer[]> {
+    const promises = params.map(({ file, options }) => {
+      if (file instanceof ArrayBuffer) {
+        return Promise.resolve(file)
+      }
+
+      const onCompleted = (data: ArrayBuffer) => {
+        if (typeof options.onCompleted === 'function') {
+          options.onCompleted(data)
+        }
+
+        return data
+      }
+
+      const onProgress = (event) => {
+        const { loaded, total } = event
+        if (typeof options.onProgress === 'function') {
+          options.onProgress({ loaded, total })
+        }
+      }
+
+      const requestOptions: AxiosRequestConfig = {
+        responseType: 'arraybuffer',
+        onDownloadProgress: onProgress
+      }
+
+      return this.fetchArrayBuffer(file, requestOptions).then(onCompleted)
+    })
+
+    return Promise.all(promises)
+  }
+
+  /**
+   * 运行游戏
+   * @param {Typings.GameInfo} game 游戏信息
+   * @param {Typings.DosBoxPlayOptions} options 执行配置
+   * @returns {Promise}
+   */
   public async play (game: Typings.GameInfo, options?: Typings.DosBoxPlayOptions): Promise<void> {
     const { url, rom, command } = game
+    const { wasm, wasmUrl } = defaultsDeep(options, this.options)
 
-    const handleDownloadRom = (event) => {
-      const { loaded, total } = event
-      this.emit('progress', { loaded, total })
-
-      if (typeof options.onDwonloadRomProgress === 'function') {
-        options.onDwonloadRomProgress({ loaded, total })
+    /**
+     * 并行下载文件
+     * 若文件已有内容则直接返回该文件
+     */
+    const [wasmFile, romFile] = await this.convertFileToArrayBuffer([
+      {
+        file: wasm || wasmUrl,
+        options: {
+          onProgress: options.onDownloadWasmProgress,
+          onCompleted: options.onDownloadWasmCompleted
+        }
+      },
+      {
+        file: rom || url,
+        options: {
+          onProgress: options.onDownloadRomProgress,
+          onCompleted: options.onDownloadRomCompleted
+        }
       }
+    ])
+
+    /**
+     * 下载并编译 wasm 文件
+     * WASM 初始化后才回调
+     */
+    const { mainFn } = await this.compile(wasmFile)
+
+    /**
+     * 下载并解压缩 ROM 文件
+     * 最后载入到模拟器中
+     */
+
+    const buffer = await this.extract(romFile, 'zip')
+    if (typeof options.onExtractCompleted === 'function') {
+      options.onExtractCompleted(buffer)
     }
 
-    const { mainFn } = await this.compile(this.options.wasmUrl, { onProgress: options.onDwonloadWasmProgress })
-    const buffer = await this.extract(rom || url, 'zip', { onDownloadProgress: handleDownloadRom })
-
-    if (typeof options.onDownloadCompleted === 'function') {
-      options.onDownloadCompleted(buffer)
-    }
-
+    /**
+     * 执行命令运行程序
+     */
     await mainFn(command)
   }
 
-  public compile (wasmUrl?: string, options: Typings.DosBoxCompileOptions = {}): Promise<any> {
-    options = defaultsDeep({ wasmUrl }, options, this.options)
-
+  /**
+   * 编译 wasm 文件
+   * @param {string|ArrayBuffer} wasm 文件地址或者文件内容
+   * @param {Typings.DosBoxCompileOptions} options 编译配置
+   * @returns {Promise}
+   * @description
+   * 若文件为远程文件, 则先下载再解压
+   */
+  public compile (wasm: ArrayBuffer): Promise<any> {
     this.isReady = false
     this.isInitialized = false
 
-    const instantiateWasm = (info, receiveInstance) => {
+    /**
+     * 实例化WASM
+     */
+    const instantiateWasm = (info: any, receiveInstance: Function) => {
       return WebAssembly.instantiate(this.wasmModule, info).then((instance) => {
         return receiveInstance(instance, this.wasmModule)
       })
     }
 
+    /**
+     * 实例化后执行的命令
+     */
     const onRuntimeInitialized = () => {
-      let mainFn = (args: string[] = []): Promise<void> => {
+      const mainFn = (args: string[] = []): Promise<void> => {
         return new Promise((resolve) => {
           this.createFile('/home/web_user/.dosbox/dosbox-jsdos.conf', dosConf)
 
@@ -88,6 +170,12 @@ export default class DosBox extends EventEmitter {
       this.emit('runtimeInitialized', { mainFn })
     }
 
+    /**
+     * 对模拟器进行PING
+     * @description
+     * 若有特定输出返回即可对外广播
+     * 注意这里无法监听崩溃退出程序情况
+     */
     const ping = (message: string, ...args: any[]) => {
       if (this.isAlive !== true) {
         return
@@ -130,6 +218,12 @@ export default class DosBox extends EventEmitter {
       }
     }
 
+    /**
+     * 打印信息
+     * @description
+     * 注意这里无法知道是否运行的程序是否退出了
+     * 因此可在这里监听 message 来实现
+     */
     const print = (message) => {
       this.emit('message', message)
 
@@ -138,6 +232,11 @@ export default class DosBox extends EventEmitter {
       }
     }
 
+    /**
+     * 传递给模拟器的属性接口
+     * @description
+     * 用于与模拟器交互并交换数据的一个对象接口
+     */
     this.wdosboxModule = {
       canvas: this.canvas,
       version,
@@ -147,31 +246,58 @@ export default class DosBox extends EventEmitter {
       print
     } as Typings.DosBoxWdosboxModule
 
-    const onDownloadProgress = (event) => {
-      const { loaded, total } = event
-      if (typeof options.onProgress === 'function') {
-        options.onProgress({ loaded, total })
-      }
-    }
-
-    const requestOptions: AxiosRequestConfig = {
-      responseType: 'arraybuffer',
-      onDownloadProgress
-    }
-
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
+      /**
+       * 因为是否完成注册与能够执行主程序并不能
+       * 同时进行, 因此这里通过事件来确定注册与
+       * 启动正式完成
+       */
       this.once('runtimeInitialized', resolve)
 
-      this.fetchArrayBuffer(options.wasmUrl, requestOptions)
-      .then((data) => WebAssembly.compile(data))
-      .then(async (module) => {
+      try {
+        /**
+         * 编译 wasm 文件
+         */
+        const module = await WebAssembly.compile(wasm)
         this.wasmModule = module
 
         const { default: WDOSBOX } = await import('../../node_modules/js-dos/dist/wdosbox')
         WDOSBOX(this.wdosboxModule)
-      })
-      .catch(reject)
+
+      } catch (error) {
+        reject(error)
+      }
     })
+  }
+
+  /**
+   * 解压 ROM 文件
+   * @param {string|ArrayBuffer} rom ROM 文件
+   * @param {string} type 文件类型, 默认为 zip
+   * @param {Typings.DosBoxExtractOptions} options 解压配置
+   * @returns {Promise}
+   * @description
+   * 若文件为远程文件, 则先下载再解压
+   */
+  public extract (rom: ArrayBuffer, type: string = 'zip'): Promise<ArrayBuffer> {
+    if (type !== 'zip') {
+      Promise.reject(new Error('Only ZIP archive is supported'))
+      return
+    }
+
+    const wdosboxModule = this.wdosboxModule
+    const bytes = new Uint8Array(rom)
+    const buffer = wdosboxModule._malloc(bytes.length)
+    wdosboxModule.HEAPU8.set(bytes, buffer)
+
+    const code = wdosboxModule._extract_zip(buffer, bytes.length)
+    wdosboxModule._free(buffer)
+
+    if (code === 0) {
+      return Promise.resolve(rom)
+    }
+
+    return Promise.reject(new Error(`Can't extract zip, retcode ${code}, see more info in logs`))
   }
 
   public fetchArrayBuffer (url: string, options?: AxiosRequestConfig): Promise<ArrayBuffer> {
@@ -204,35 +330,6 @@ export default class DosBox extends EventEmitter {
         resolve(this.wdosboxModule)
       })
     })
-  }
-
-  public extract (rom: string | ArrayBuffer, type: string = 'zip', options?: AxiosRequestConfig): Promise<ArrayBuffer> {
-    if (type !== 'zip') {
-      Promise.reject(new Error('Only ZIP archive is supported'))
-      return
-    }
-
-    const extract = (data: ArrayBuffer) => {
-      const wdosboxModule = this.wdosboxModule
-      const bytes = new Uint8Array(data)
-      const buffer = wdosboxModule._malloc(bytes.length)
-      wdosboxModule.HEAPU8.set(bytes, buffer)
-
-      const code = wdosboxModule._extract_zip(buffer, bytes.length)
-      wdosboxModule._free(buffer)
-
-      if (code === 0) {
-        return Promise.resolve(data)
-      }
-
-      return Promise.reject(new Error(`Can't extract zip, retcode ${code}, see more info in logs`))
-    }
-
-    if (typeof rom === 'string') {
-      return this.fetchArrayBuffer(rom, options).then(extract)
-    }
-
-    return extract(rom)
   }
 
   public createFile (file: string, body: ArrayBuffer | Uint8Array | string): void {

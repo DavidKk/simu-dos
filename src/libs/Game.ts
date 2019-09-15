@@ -102,6 +102,11 @@ export default class Game extends EventEmitter {
     this.disableContextMenu()
 
     /**
+     * 尝试读取本地存储的WASM
+     */
+    const wasm = await this.model.loadWasm()
+
+    /**
      * 尝试读取本地存储的ROM
      */
     const game: Typings.GameInfo = games[id]
@@ -148,29 +153,51 @@ export default class Game extends EventEmitter {
     /**
      * 注册下载进程进度条
      */
-    let wasmProcessFn = this.stage.progress('Download wdosbox.wasm.js, please wait...')
-    let romProcessFn = this.stage.progress(`Download ${game.name}, please wait...`)
+    const wasmProcessFn = this.stage.progress('Download wdosbox.wasm.js, please wait...')
+    const wasmTermLine = this.stage.term.currentLine
+    if (wasm instanceof ArrayBuffer) {
+      wasmTermLine.setContext('Find wdosbox.wasm.js from local file.')
+    }
 
-    const onDwonloadWasmProgress = (data) => {
-      let { loaded, total } = data
+    const onDownloadWasmProgress = (data): void => {
+      const { loaded, total } = data
       wasmProcessFn('wdosbox.wasm.js', loaded, total || 2167039)
     }
 
-    const onDwonloadRomProgress = (data) => {
-      let { loaded, total } = data
+    const onDownloadWasmCompleted = (content: ArrayBuffer) => {
+      this.model.saveWasm(content)
+    }
+
+    const romProcessFn = this.stage.progress(`Download ${game.name}, please wait...`)
+    const romTermLine = this.stage.term.currentLine
+    if (wasm instanceof ArrayBuffer) {
+      romTermLine.setContext(`Find ${game.url} from local file.`)
+    }
+
+    const onDownloadRomProgress = (data): void => {
+      const { loaded, total } = data
       romProcessFn(game.url, loaded, total || game.size)
     }
 
-    const onDownloadCompleted = (content: ArrayBuffer) => {
+    const onDownloadRomCompleted = (content: ArrayBuffer) => {
       this.model.saveRom(id, content)
-      this.stage.print(`Download completed. ${game.name} has been initialized, start now and wait please...`)
+    }
+
+    const onExtractCompleted = (): void => {
+      this.stage.print(`Game ${game.name} has been initialized, start now and wait please...`)
     }
 
     /**
      * 开始游戏
      */
-    const playOptions = { onDwonloadWasmProgress, onDwonloadRomProgress, onDownloadCompleted }
-    await this.dosbox.play(game, playOptions)
+    await this.dosbox.play(game, {
+      wasm,
+      onDownloadWasmProgress,
+      onDownloadWasmCompleted,
+      onDownloadRomProgress,
+      onDownloadRomCompleted,
+      onExtractCompleted
+    })
 
     this.stage.toggleTerm(false)
     this.stage.toggleCanvas(true)
