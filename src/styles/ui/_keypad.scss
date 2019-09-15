@@ -10,14 +10,10 @@ $keyRoundBtnSize: 80px !default;
   left: 0;;
   width: 100%;
   height: 100%;
-  display: none;
+  display: block;
   margin: auto;
   font-size: $uiRootFontSize;
   pointer-events: none;
-
-  &.open {
-    display: block !important;
-  }
 }
 
 .keypad-btn {

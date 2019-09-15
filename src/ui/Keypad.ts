@@ -1,27 +1,23 @@
 import remove from 'lodash/remove'
+import Element from '../libs/Element'
+import Component from '../libs/Component'
 import Button from './Button'
-import Component from './Component'
 import * as Typings from '../typings'
 
 export default class Keypad extends Component {
-  public zone: HTMLDivElement
-  public container: HTMLDivElement
+  public element: Element
   public buttons: Array<Button>
 
-  constructor (zone: HTMLDivElement) {
+  constructor () {
     super()
 
-    this.zone = zone
-    this.container = this.el = document.createElement('div')
+    this.element = new Element(['keypad'])
     this.buttons = []
-
-    this.container.classList.add('keypad', 'open')
-    this.zone.appendChild(this.container)
   }
 
   public add (context: string, options?: Typings.ButtonOptions): Button {
-    let button = new Button(context, options)
-    button.append(this.container)
+    const button = new Button(context, options)
+    button.appendTo(this.element)
 
     this.buttons.push(button)
     return button
@@ -34,14 +30,11 @@ export default class Keypad extends Component {
   public destroy (): void {
     super.destroy()
 
-    this.container.parentNode.removeChild(this.container)
-
-    this.buttons.forEach((button: Button) => button.remove())
-    this.buttons.splice(0)
+    this.element.destroy()
+    this.buttons.splice(0).forEach((button: Button) => button.destroy())
 
     this.buttons = undefined
-    this.container = undefined
-    this.zone = undefined
+    this.element = undefined
 
     this.destroy = Function.prototype as any
   }

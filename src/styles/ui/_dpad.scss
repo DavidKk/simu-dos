@@ -4,14 +4,10 @@ $dpadBtnSize: 45px !default;
   position: absolute;
   top: 40px;
   left: 40px;
-  display: none;
+  display: block;
   width: $dpadBtnSize * 3 + $dpadBtnSize / 3;
   height: $dpadBtnSize * 3 + $dpadBtnSize / 3;
   font-size: $uiRootFontSize;
-
-  &.open {
-    display: block !important;
-  }
 }
 
 .dpad-btn {

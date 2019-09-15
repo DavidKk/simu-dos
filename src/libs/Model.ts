@@ -1,7 +1,7 @@
 import * as Typings from '../typings'
 
 const indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB
-const TableRooms = 'rooms'
+const TableRoms = 'roms'
 const TableArchive = 'archive'
 
 export default class Model {
@@ -19,12 +19,12 @@ export default class Model {
       return
     }
 
-    // Rooms Table
-    this.db.createObjectStore(TableRooms)
+    // Roms Table
+    this.db.createObjectStore(TableRoms)
 
     // Archives Table
     const saveStore = this.db.createObjectStore(TableArchive, { keyPath: 'file' })
-    saveStore.createIndex('roomid', 'roomid', { unique: false })
+    saveStore.createIndex('romId', 'romId', { unique: false })
   }
 
   public async recover (): Promise<IDBDatabase> {
@@ -95,24 +95,24 @@ export default class Model {
     })
   }
 
-  public loadArchive (roomid: string): Promise<Array<Typings.Archive>> {
+  public loadArchive (romId: string): Promise<Array<Typings.Archive>> {
     return this.open().then((database) => new Promise((resolve, reject) => {
       const transaction = database.transaction(TableArchive, 'readonly')
       const store = transaction.objectStore(TableArchive)
 
-      const index = store.index('roomid')
-      const getRequest = index.getAll(roomid)
+      const index = store.index('romId')
+      const getRequest = index.getAll(romId)
 
       getRequest.onerror = (error) => reject(error)
       getRequest.onsuccess = (event: any) => resolve(event.target.result)
     }))
   }
 
-  public saveRom (name: string, room: ArrayBuffer): Promise<void> {
+  public saveRom (name: string, rom: ArrayBuffer): Promise<void> {
     return this.open().then((database) => new Promise((resolve, reject) => {
-      const transaction = database.transaction(TableRooms, 'readwrite')
-      const store = transaction.objectStore(TableRooms)
-      const putRequest = store.put(room, name)
+      const transaction = database.transaction(TableRoms, 'readwrite')
+      const store = transaction.objectStore(TableRoms)
+      const putRequest = store.put(rom, name)
 
       putRequest.onsuccess = () => resolve()
       putRequest.onerror = (error) => reject(error)
@@ -121,8 +121,8 @@ export default class Model {
 
   public loadRom (name: string): Promise<ArrayBuffer> {
     return this.open().then((database) => new Promise((resolve, reject) => {
-      const transaction = database.transaction(TableRooms, 'readonly')
-      const store = transaction.objectStore(TableRooms)
+      const transaction = database.transaction(TableRoms, 'readonly')
+      const store = transaction.objectStore(TableRoms)
 
       const getRequest = store.get(name)
       getRequest.onerror = (error) => reject(error)
@@ -132,9 +132,7 @@ export default class Model {
 
   public destroy (): void {
     this.db && this.db.close()
-
     this.db = undefined
-
     this.destroy = Function.prototype as any
   }
 }

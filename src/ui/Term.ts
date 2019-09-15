@@ -1,23 +1,24 @@
 import padEnd from 'lodash/padEnd'
+import Element from '../libs/Element'
+import Component from '../libs/Component'
 
-export default class Term {
-  private container: HTMLElement
-  private screen: HTMLDivElement
-  private lines: HTMLPreElement[]
+export default class Term extends Component {
+  private lines: Element[]
 
-  get currentLine (): HTMLPreElement {
+  public element: Element
+  public screen: Element
+
+  get currentLine (): Element {
     return this.lines[this.lines.length - 1]
   }
 
-  constructor (container: HTMLElement) {
-    this.container = container
-    this.screen = document.createElement('div')
+  constructor () {
+    super()
+
+    this.element = this.screen = new Element(['term', 'hidden'])
     this.lines = []
 
-    this.screen.className = 'term'
-    this.container.appendChild(this.screen)
-
-    this.initialize()
+    this.init()
   }
 
   private covertUnit (value: number, units: Array<string>): string {
@@ -30,15 +31,14 @@ export default class Term {
     return value.toFixed(2) + unit
   }
 
-  public initialize (): void {
-    this.newline().innerText = 'C:> '
+  public init (): void {
+    this.newline().setContext('C:> ')
   }
 
-  public newline (): HTMLPreElement {
-    const line = document.createElement('pre')
-    line.className = 'term-line'
+  public newline (): Element {
+    const line = new Element(['term-line'], null, 'pre')
 
-    this.screen.appendChild(line)
+    this.screen.append(line)
     this.lines.push(line)
 
     return line
@@ -46,14 +46,14 @@ export default class Term {
 
   public print (context: string): void {
     let line = this.newline()
-    line.innerText += context
+    line.appendContext(context)
   }
 
-  public relace (context: string, line: HTMLElement = this.currentLine): void {
-    line.innerText = context
+  public relace (context: string, line: Element = this.currentLine): void {
+    line.setContext(context)
   }
 
-  public progress (context: string, loaded: number, total: number, size: number = 10, line: HTMLElement): void {
+  public progress (context: string, loaded: number, total: number, size: number = 10, line: Element): void {
     total = total === 0 ? loaded : total
 
     let units = ['bytes', 'K', 'M', 'G']
@@ -72,9 +72,9 @@ export default class Term {
 
     if (char === '\n') {
       let wrap = document.createElement('br')
-      this.currentLine.appendChild(wrap)
+      this.currentLine.append(wrap)
     } else {
-      this.currentLine.innerText += char
+      this.currentLine.appendContext(char)
     }
   }
 
@@ -104,7 +104,7 @@ export default class Term {
 
   public reset (): void {
     this.clear()
-    this.initialize()
+    this.init()
   }
 
   public show (): void {
@@ -117,11 +117,24 @@ export default class Term {
 
   public scrollToButtom (): void {
     const { scrollHeight: top } = this.screen
-    this.screen.scrollTop = top
+    this.screen.scrollTo({ top })
   }
 
   public getScreenHeight (): number {
     const { scrollHeight: top } = this.screen
     return top
+  }
+
+  public destroy (): void {
+    super.destroy()
+
+    this.screen.destroy()
+    this.lines.splice(0).forEach((item) => item.destroy())
+
+    this.lines = undefined
+    this.screen = undefined
+    this.element = undefined
+
+    this.destroy = Function.prototype as any
   }
 }

@@ -1,4 +1,4 @@
-.game-list {
+.gallery {
   box-sizing: border-box;
   position: absolute;
   top: 0;
@@ -7,24 +7,11 @@
   left: 0;
   padding: 10px;
   width: 100%;
-  opacity: 0;
   overflow-y: auto;
   background-color: #000;
 }
 
-.game-list.fade {
-  transition: opacity .16s ease-in-out;
-}
-
-.game-list.fade.in {
-  opacity: 1;
-}
-
-.game-list.fade:not(.in) {
-  opacity: 0;
-}
-
-.game-item {
+.gallery-item {
   position: relative;
   z-index: 1;
   display: inline-flex;
@@ -111,7 +98,7 @@
 }
 
 @media screen and (orientation: portrait) {
-  .game-item {
+  .gallery-item {
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     width: percentage(1/3);

@@ -4,6 +4,7 @@ import Stage from './Stage'
 import DosBox from './DosBox'
 import Controller from './Controller'
 import Model from './Model'
+import Element from './Element'
 import title from '../conf/title'
 import * as games from '../conf/games'
 import { Joystick2DConfig, DPadDefaultConfig } from '../conf/controller'
@@ -16,18 +17,11 @@ import Package from '../../package.json'
 /**
  * 游戏类
  */
-export default class Game {
-  /**
-   * 事件触发器
-   * 所有事件均通过函数处理,
-   * 因此这里注册一个私有触发器而不用继承
-   */
-  private emitter: EventEmitter
-
+export default class Game extends EventEmitter {
   /**
    * 容器
    */
-  public element: HTMLDivElement
+  public element: Element
   public stage: Stage
   public dosbox: DosBox
 
@@ -57,18 +51,20 @@ export default class Game {
   public model: Model
 
   constructor () {
-    this.emitter = new EventEmitter()
-    this.element = document.createElement('div')
-    this.element.classList.add('container')
-    document.body.appendChild(this.element)
+    super()
 
-    this.stage = new Stage(this.element)
-    this.controller = new Controller(this.element)
+    this.element = new Element(['container'])
+    this.stage = new Stage()
+    this.controller = new Controller()
     this.disabledContextMenu = false
     this.isPlaying = false
 
     const [major, minor] = (Package.version as string).split('.')
     this.model = new Model(`${major}@${(Package.name as string)}`, Number(minor) + 1)
+
+    this.stage.appendTo(this.element)
+    this.controller.appendTo(this.element)
+    this.element.appendTo(document.body)
 
     document.oncontextmenu = () => !this.disabledContextMenu
   }
@@ -90,7 +86,7 @@ export default class Game {
 
       let exit = () => {
         this.stage.toggleTerm(false)
-        this.emitter.emit('exit')
+        this.emit('exit')
 
         document.body.removeEventListener('keyup', exit)
         exit = undefined
@@ -109,7 +105,7 @@ export default class Game {
      * 尝试读取本地存储的ROM
      */
     const game: Typings.GameInfo = games[id]
-    game.room = await this.model.loadRom(id)
+    game.rom = await this.model.loadRom(id)
 
     /**
      * 开启模拟器
@@ -117,7 +113,7 @@ export default class Game {
     this.dosbox = this.stage.launch()
     this.dosbox.onExit(() => {
       this.stop()
-      this.emitter.emit('exit')
+      this.emit('exit')
     })
 
     /**
@@ -153,16 +149,16 @@ export default class Game {
      * 注册下载进程进度条
      */
     let wasmProcessFn = this.stage.progress('Download wdosbox.wasm.js, please wait...')
-    let roomProcessFn = this.stage.progress(`Download ${game.name}, please wait...`)
+    let romProcessFn = this.stage.progress(`Download ${game.name}, please wait...`)
 
     const onDwonloadWasmProgress = (data) => {
       let { loaded, total } = data
       wasmProcessFn('wdosbox.wasm.js', loaded, total || 2167039)
     }
 
-    const onDwonloadRoomProgress = (data) => {
+    const onDwonloadRomProgress = (data) => {
       let { loaded, total } = data
-      roomProcessFn(game.url, loaded, total || game.size)
+      romProcessFn(game.url, loaded, total || game.size)
     }
 
     const onDownloadCompleted = (content: ArrayBuffer) => {
@@ -173,11 +169,11 @@ export default class Game {
     /**
      * 开始游戏
      */
-    const playOptions = { onDwonloadWasmProgress, onDwonloadRoomProgress, onDownloadCompleted }
+    const playOptions = { onDwonloadWasmProgress, onDwonloadRomProgress, onDownloadCompleted }
     await this.dosbox.play(game, playOptions)
 
     this.stage.toggleTerm(false)
-    this.stage.toggle(true)
+    this.stage.toggleCanvas(true)
     this.stage.resize()
 
     document.title = game.name
@@ -315,7 +311,7 @@ export default class Game {
    * @param {Function} handle 回调函数
    */
   public onExit (handle: (...args: any[]) => void): void {
-    this.emitter.addListener('exit', handle)
+    this.addListener('exit', handle)
   }
 
   /**
@@ -332,7 +328,7 @@ export default class Game {
 
     const datas = files.map((file) => {
       const content = this.dosbox.readFile(file)
-      return { roomid: id, file, content }
+      return { romId: id, file, content }
     })
 
     return this.model.saveArchive(datas)
@@ -358,5 +354,27 @@ export default class Game {
    */
   public disableContextMenu (disable: boolean = true): void {
     this.disabledContextMenu = process.env.NODE_ENV === 'development' ? false : disable
+  }
+
+  public destroy (): void {
+    this.removeAllListeners()
+
+    this.element.destroy()
+    this.stage.destroy()
+    this.dosbox.destroy()
+    this.controller.destroy()
+    this.syncIntervalId && clearInterval(this.syncIntervalId)
+    this.model.destroy()
+
+    this.model = undefined
+    this.syncIntervalId = undefined
+    this.controller = undefined
+    this.dosbox = undefined
+    this.stage = undefined
+    this.element = undefined
+    this.disabledContextMenu = undefined
+    this.isPlaying = undefined
+
+    this.destroy = Function.prototype as any
   }
 }

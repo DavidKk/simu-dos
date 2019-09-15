@@ -1,51 +1,25 @@
-import Component from './Component'
+import Element from '../libs/Element'
+import Component from '../libs/Component'
 import TouchEvents from '../share/event'
 import * as Typings from '../typings'
 
 export default class DPad extends Component {
-  private handleTapUp: (event: Event) => void
-  private handleTapRight: (event: Event) => void
-  private handleTapDown: (event: Event) => void
-  private handleTapLeft: (event: Event) => void
-  private handleTapUpEnd: (event: Event) => void
-  private handleTapRightEnd: (event: Event) => void
-  private handleTapDownEnd: (event: Event) => void
-  private handleTapLeftEnd: (event: Event) => void
+  public element: Element
+  public up: Element
+  public right: Element
+  public down: Element
+  public left: Element
 
-  public zone: HTMLDivElement
-  public container: HTMLDivElement
-  public up: HTMLDivElement
-  public right: HTMLDivElement
-  public down: HTMLDivElement
-  public left: HTMLDivElement
-
-  constructor (zone: HTMLDivElement) {
+  constructor () {
     super()
 
-    this.zone = zone
-    this.container = this.el = document.createElement('div')
-    this.up = document.createElement('div')
-    this.right = document.createElement('div')
-    this.down = document.createElement('div')
-    this.left = document.createElement('div')
-
-    this.container.classList.add('dpad', 'open')
-    this.up.classList.add('dpad-btn', 'dpad-up')
-    this.right.classList.add('dpad-btn', 'dpad-right')
-    this.down.classList.add('dpad-btn', 'dpad-down')
-    this.left.classList.add('dpad-btn', 'dpad-left')
-
-    this.container.appendChild(this.up)
-    this.container.appendChild(this.right)
-    this.container.appendChild(this.down)
-    this.container.appendChild(this.left)
-    this.zone.appendChild(this.container)
+    this.up = new Element(['dpad-btn', 'dpad-up'])
+    this.right = new Element(['dpad-btn', 'dpad-right'])
+    this.down = new Element(['dpad-btn', 'dpad-down'])
+    this.left = new Element(['dpad-btn', 'dpad-left'])
+    this.element = new Element('dpad', [this.up, this.right, this.down, this.left])
 
     this.bindings()
-  }
-
-  public onActions (handle: (event: any) => void): void {
-    this.addListener('actions', handle)
   }
 
   private bindings (): void {
@@ -69,47 +43,26 @@ export default class DPad extends Component {
       this.emit('actions', { type: 'up', direction })
     }
 
-    this.handleTapUp = wrapTouchDown('up')
-    this.handleTapRight = wrapTouchDown('right')
-    this.handleTapDown = wrapTouchDown('down')
-    this.handleTapLeft = wrapTouchDown('left')
+    this.up.addListener(TouchEvents.start, wrapTouchDown('up'))
+    this.right.addListener(TouchEvents.start, wrapTouchDown('right'))
+    this.down.addListener(TouchEvents.start, wrapTouchDown('down'))
+    this.left.addListener(TouchEvents.start, wrapTouchDown('left'))
 
-    this.bind(this.up, TouchEvents.start, this.handleTapUp)
-    this.bind(this.right, TouchEvents.start, this.handleTapRight)
-    this.bind(this.down, TouchEvents.start, this.handleTapDown)
-    this.bind(this.left, TouchEvents.start, this.handleTapLeft)
-
-    this.handleTapUpEnd = wrapTouchUp('up')
-    this.handleTapRightEnd = wrapTouchUp('right')
-    this.handleTapDownEnd = wrapTouchUp('down')
-    this.handleTapLeftEnd = wrapTouchUp('left')
-
-    this.bind(this.up, TouchEvents.end, this.handleTapUpEnd)
-    this.bind(this.right, TouchEvents.end, this.handleTapRightEnd)
-    this.bind(this.down, TouchEvents.end, this.handleTapDownEnd)
-    this.bind(this.left, TouchEvents.end, this.handleTapLeftEnd)
+    this.up.addListener(TouchEvents.end, wrapTouchUp('up'))
+    this.right.addListener(TouchEvents.end, wrapTouchUp('right'))
+    this.down.addListener(TouchEvents.end, wrapTouchUp('down'))
+    this.left.addListener(TouchEvents.end, wrapTouchUp('left'))
   }
 
   private unbindings (): void {
-    this.unbind(this.up, TouchEvents.start, this.handleTapUp)
-    this.unbind(this.right, TouchEvents.start, this.handleTapRight)
-    this.unbind(this.down, TouchEvents.start, this.handleTapDown)
-    this.unbind(this.left, TouchEvents.start, this.handleTapLeft)
+    this.up.removeAllListeners()
+    this.right.removeAllListeners()
+    this.down.removeAllListeners()
+    this.left.removeAllListeners()
+  }
 
-    this.handleTapUp = undefined
-    this.handleTapRight = undefined
-    this.handleTapDown = undefined
-    this.handleTapLeft = undefined
-
-    this.unbind(this.up, TouchEvents.end, this.handleTapUpEnd)
-    this.unbind(this.right, TouchEvents.end, this.handleTapRightEnd)
-    this.unbind(this.down, TouchEvents.end, this.handleTapDownEnd)
-    this.unbind(this.left, TouchEvents.end, this.handleTapLeftEnd)
-
-    this.handleTapUpEnd = undefined
-    this.handleTapRightEnd = undefined
-    this.handleTapDownEnd = undefined
-    this.handleTapLeftEnd = undefined
+  public onActions (handle: (event: any) => void): void {
+    this.addListener('actions', handle)
   }
 
   public destroy (): void {
@@ -117,17 +70,18 @@ export default class DPad extends Component {
 
     this.unbindings()
 
-    this.container.parentNode.removeChild(this.container)
-    this.container.removeChild(this.up)
-    this.container.removeChild(this.right)
-    this.container.removeChild(this.down)
-    this.container.removeChild(this.left)
+    this.element.destroy()
+    this.up.destroy()
+    this.right.destroy()
+    this.down.destroy()
+    this.left.destroy()
+    this.element.destroy()
 
     this.up = undefined
     this.right = undefined
     this.down = undefined
     this.left = undefined
-    this.container = undefined
+    this.element = undefined
 
     this.destroy = Function.prototype as any
   }

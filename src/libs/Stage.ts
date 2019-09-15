@@ -1,39 +1,51 @@
 import DOSBox from './DosBox'
+import Element from './Element'
 import Term from '../ui/Term'
+import * as Typings from '../typings'
+import Component from './Component'
 
 export default class Stage {
-  public container: HTMLDivElement
-  public canvas: HTMLCanvasElement
+  private show: Typings.StageShowType
+  public canvas: Element
   public term: Term
   public dosbox: DOSBox
 
-  constructor (container: HTMLDivElement) {
-    this.container = container
-    this.term = new Term(this.container)
+  public get isOpenTerm (): boolean {
+    return this.show === 'term'
+  }
 
-    this.canvas = document.createElement('canvas')
+  public get isOpenCanvas (): boolean {
+    return this.show === 'canvas'
+  }
 
-    this.canvas.className = 'stage'
-    this.container.appendChild(this.canvas)
+  constructor () {
+    this.show = 'term'
+    this.term = new Term()
+    this.canvas = new Element(['stage', 'hidden'], null, 'canvas')
 
     window.addEventListener('resize', this.resize.bind(this))
     this.resize()
 
-    let spinner = document.getElementById('spinner')
-    this._toggle(spinner, false)
-    setTimeout(() => spinner.parentNode.removeChild(spinner), 3e3)
+    const spinner = new Element(document.getElementById('spinner'))
+    spinner.addClass('fadeout')
+    setTimeout(() => spinner.remove(), 3e3)
+  }
+
+  public appendTo (element: Component | Element | HTMLElement): void {
+    this.term.appendTo(element)
+    this.canvas.appendTo(element instanceof Component ? element.element : element)
   }
 
   public launch (): DOSBox {
     if (!this.dosbox) {
-      this.dosbox = new DOSBox(this.canvas)
+      this.dosbox = new DOSBox(this.canvas.element as HTMLCanvasElement)
     }
 
     return this.dosbox
   }
 
-  public async simulateInput (context: string): Promise<void> {
-    await this.term.simulateInput(context)
+  public simulateInput (context: string): Promise<void> {
+    return this.term.simulateInput(context)
   }
 
   public simulateClean (): void {
@@ -65,16 +77,25 @@ export default class Stage {
     }
   }
 
-  private _toggle (element: HTMLElement, isOpen: Boolean = true) {
-    isOpen ? element.classList.add('in') : element.classList.remove('in')
+  public toggleTerm (isOpen: boolean = !this.isOpenTerm): void {
+    return this.term.toggle(isOpen)
   }
 
-  public toggleTerm (isOpen: boolean = true): void {
-    return isOpen ? this.term.show() : this.term.hide()
+  public toggleCanvas (isOpen: boolean = !this.isOpenCanvas): void {
+    return isOpen ? this.canvas.fadeIn() : this.canvas.fadeOut()
   }
 
-  public toggle (isOpen: boolean = true): void {
-    this._toggle(this.canvas, isOpen)
+  public switch (type: Typings.StageShowType): void {
+    switch (type) {
+      case 'term':
+        this.toggleCanvas(false)
+        this.toggleTerm(true)
+        break
+      case 'canvas':
+        this.toggleTerm(false)
+        this.toggleCanvas(true)
+        break
+    }
   }
 
   public resize (): void {
@@ -89,5 +110,18 @@ export default class Stage {
       await this.dosbox.destroy()
       this.dosbox = undefined
     }
+  }
+
+  public destroy (): void {
+    this.canvas.destroy()
+    this.term.destroy()
+    this.dosbox.destroy()
+
+    this.canvas = undefined
+    this.term = undefined
+    this.dosbox = undefined
+    this.show = undefined
+
+    this.destroy = Function.prototype as any
   }
 }

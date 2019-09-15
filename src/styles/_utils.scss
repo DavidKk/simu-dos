@@ -1,46 +1,15 @@
-.utils {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  display: none;
-  width: 100%;
-  height: 100%;
-  font-size: $uiRootFontSize;
-  pointer-events: none;
-
-  &.open {
-    display: block;
-  }
+.fade {
+  transition: opacity .16s ease-in-out;
 }
 
-.utils-btn {
-  @include fa-icon;
-  @extend .fa;
+.fade.in {
+  opacity: 1;
+}
 
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  width: 42px;
-  height: 42px;
-  word-wrap: normal;
-  white-space: nowrap;
-  font-size: 20px;
-  color: $uiColor;
-  background-color: $uiColor;
-  transition: background-color .16s ease-in, color background-color .16s ease-in;
-  user-select: none;
-  cursor: pointer;
-  pointer-events: all;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+.fade:not(.in) {
+  opacity: 0;
+}
 
-  &:active,
-  &.active {
-    color: $uiActiveColor;
-    background-color: $uiActiveColor;
-  }
+.hidden:not(.fade) {
+  display: none !important;
 }

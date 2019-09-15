@@ -1,5 +1,6 @@
+import Element from '../libs/Element'
+import Component from '../libs/Component'
 import TouchEvents from '../share/event'
-import Component from './Component'
 import * as MathUtil from '../share/math'
 import * as Typings from '../typings'
 
@@ -8,27 +9,28 @@ export default class Joystick extends Component {
   private handleZoneTouchMove: Typings.EventHandle
   private handleZoneTouchEnd: Typings.EventHandle
 
-  public zone: HTMLDivElement
-  public el: HTMLDivElement
-  public stand: HTMLDivElement
-  public stick: HTMLDivElement
+  public element: Element
+  public stand: Element
+  public stick: Element
   public fixedPoint: Typings.Point
 
-  constructor (zone: HTMLDivElement) {
+  private get parent (): Element {
+    return new Element(this.element.element.parentElement)
+  }
+
+  constructor () {
     super()
 
-    this.zone = zone
-    this.stand = this.el = document.createElement('div')
-    this.stick = document.createElement('div')
+    this.stick = new Element(['joystick-stick'])
+    this.stand = this.element = new Element(['joystick-stand'], [this.stick])
     this.fixedPoint = { x: 0, y: 0 }
 
-    this.stand.classList.add('joystick-stand', 'open')
-    this.stick.classList.add('joystick-stick')
-
-    this.stand.appendChild(this.stick)
-    this.zone.appendChild(this.stand)
-
     this.bindings()
+
+    /**
+     * Docs: https://stackoverflow.com/questions/48124372/pointermove-event-not-working-with-touch-why-not
+     */
+    this.parent.style.touchAction = 'none'
   }
 
   private _onTouchStart (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): void {
@@ -37,12 +39,11 @@ export default class Joystick extends Component {
 
     let point = this.getTouchPosition(event)
     this.fixedPoint = point
-
-    this.stand.classList.add('active')
+    this.stand.addClass('active')
     this.emit('actions', { type: 'start', coord: point })
 
-    this.bind(this.zone, TouchEvents.move, this.handleZoneTouchMove)
-    this.bind(this.zone, TouchEvents.end, this.handleZoneTouchEnd)
+    this.parent.bind(TouchEvents.move, this.handleZoneTouchMove)
+    this.parent.bind(TouchEvents.end, this.handleZoneTouchEnd)
   }
 
   private _onTouchMove (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): void {
@@ -66,28 +67,24 @@ export default class Joystick extends Component {
     event.stopPropagation()
 
     this.setStickCoord({ x: 0, y: 0 })
-    this.stand.classList.remove('active')
+    this.stand.addClass('active')
     this.emit('actions', { type: 'up' })
 
-    this.unbind(this.zone, TouchEvents.move, this.handleZoneTouchMove)
-    this.unbind(this.zone, TouchEvents.end, this.handleZoneTouchEnd)
+    this.parent.unbind(TouchEvents.move, this.handleZoneTouchMove)
+    this.parent.unbind(TouchEvents.end, this.handleZoneTouchEnd)
   }
 
   private bindings (): void {
-    /**
-     * Docs: https://stackoverflow.com/questions/48124372/pointermove-event-not-working-with-touch-why-not
-     */
-    this.zone.style.touchAction = 'none'
     this.handleZoneTouchStart = this._onTouchStart.bind(this)
     this.handleZoneTouchMove = this._onTouchMove.bind(this)
     this.handleZoneTouchEnd = this._onTouchEnd.bind(this)
-    this.bind(this.stand, TouchEvents.start, this.handleZoneTouchStart)
+    this.stand.bind(TouchEvents.start, this.handleZoneTouchStart)
   }
 
   private unbindings (): void {
-    this.unbind(this.stand, TouchEvents.start, this.handleZoneTouchStart)
-    this.unbind(this.zone, TouchEvents.move, this.handleZoneTouchMove)
-    this.unbind(this.zone, TouchEvents.end, this.handleZoneTouchEnd)
+    this.stand.unbind(TouchEvents.start, this.handleZoneTouchStart)
+    this.parent.unbind(TouchEvents.move, this.handleZoneTouchMove)
+    this.parent.unbind(TouchEvents.end, this.handleZoneTouchEnd)
 
     this.handleZoneTouchStart = undefined
     this.handleZoneTouchMove = undefined
@@ -102,8 +99,8 @@ export default class Joystick extends Component {
 
   private computes (pointA: Typings.Point, pointB: Typings.Point): Typings.JoystickEventDatas {
     let { x, y } = pointB
-    let { clientWidth: sizeA } = this.stand
-    let { clientWidth: sizeB } = this.stick
+    let { width: sizeA } = this.stand
+    let { height: sizeB } = this.stick
     let distance = MathUtil.distance(pointB, pointA)
     let angle = MathUtil.angle(pointB, pointA)
     let radian = MathUtil.radian(angle)
@@ -176,12 +173,12 @@ export default class Joystick extends Component {
 
     this.unbindings()
 
-    this.stick.parentElement.removeChild(this.stick)
-    this.stand.parentElement.removeChild(this.stand)
+    this.stand.destroy()
+    this.stick.destroy()
 
     this.stick = undefined
     this.stand = undefined
-    this.zone = undefined
+    this.element = undefined
 
     this.destroy = Function.prototype as any
   }
