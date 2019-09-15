@@ -1,6 +1,6 @@
+import Element from '../libs/Element'
+import Component from '../libs/Component'
 import TouchEvent from '../conf/touch-event'
-import Component from './Component'
-import * as Typings from '../typings'
 
 export default class Keyboard extends Component {
   static KEYS = [
@@ -30,116 +30,96 @@ export default class Keyboard extends Component {
     [32]
   ]
 
-  private handleKeyboardTouched: Typings.EventHandle
-  private handleSwitcherTouched: Typings.EventHandle
-
-  public zone: HTMLDivElement
-  public container: HTMLDivElement
-  public keyboard: HTMLDivElement
-  public switcher: HTMLDivElement
-  public buttons: HTMLDivElement[]
+  public element: Element
+  public keyboard: Element
+  public switcher: Element
+  public buttons: Element[]
   public isOpenShift: boolean
 
-  constructor (zone: HTMLDivElement) {
+  constructor () {
     super()
 
+    this.switcher = new Element(['keyboard-switcher'])
+    this.keyboard = new Element(['keyboard-container'])
+    this.element = new Element(['keyboard'], [this.switcher, this.keyboard], 'div')
     this.buttons = []
-
-    this.zone = zone
-    this.container = this.el = document.createElement('div')
-    this.container.classList.add('keyboard')
-
-    this.switcher = document.createElement('div')
-    this.switcher.classList.add('keyboard-switcher')
-    this.container.appendChild(this.switcher)
-
-    this.keyboard = document.createElement('div')
-    this.keyboard.classList.add('keyboard-container')
-    this.container.appendChild(this.keyboard)
+    this.isOpenShift = false
 
     Keyboard.KEYS.forEach((group, gIndex) => {
-      const row = document.createElement('div')
-      row.classList.add('keyboard-row')
-
+      const row = new Element(['keyboard-row'])
       group.forEach((key, kIndex) => {
-        const node = document.createElement('div')
+        const node = new Element(['keyboard-key'])
         const uppercase = Keyboard.UPPERKEYS[gIndex][kIndex]
         const code = Keyboard.KEYOCDES[gIndex][kIndex]
 
-        node.innerText = key
-        node.classList.add('keyboard-key')
-        node.setAttribute('key', key)
-        node.setAttribute('uppercase', uppercase)
-        node.setAttribute('code', code + '')
+        node.setAttr('key', key)
+        node.setAttr('uppercase', uppercase)
+        node.setAttr('code', code + '')
+        node.setContext(key)
+        node.appendTo(row)
 
         this.buttons.push(node)
-        row.appendChild(node)
       })
 
-      this.keyboard.appendChild(row)
+      row.appendTo(this.keyboard)
     })
 
-    zone.appendChild(this.container)
     this.bindings()
-  }
-
-  private _onKeyboardTouchDown (event: TouchEvent | MouseEvent | PointerEvent): void {
-    event.preventDefault()
-    event.stopPropagation()
-
-    const container = event.target as HTMLDivElement
-    const keyCode = parseInt(container.getAttribute('code'), 10)
-
-    if (isNaN(keyCode)) {
-      return
-    }
-
-    switch (keyCode) {
-      case 16:
-      case 20:
-        this.toggleUppercase()
-        this.emit('actions', { keyCode, type: this.isOpenShift ? 'down' : 'up' })
-        break
-
-      default:
-        this.emit('actions', { keyCode, type: 'keypress' })
-    }
-  }
-
-  private _onSwitcherTouchDown (event: TouchEvent | MouseEvent | PointerEvent): void {
-    event.preventDefault()
-    event.stopPropagation()
-
-    this.toggle()
+    this.keyboard.hide()
   }
 
   private bindings (): void {
-    this.handleKeyboardTouched = this._onKeyboardTouchDown.bind(this)
-    this.handleSwitcherTouched = this._onSwitcherTouchDown.bind(this)
+    const onKeyboardTouchDown = (event: TouchEvent | MouseEvent | PointerEvent): void => {
+      event.preventDefault()
+      event.stopPropagation()
 
-    this.bind(this.keyboard, TouchEvent.start, this.handleKeyboardTouched)
-    this.bind(this.switcher, TouchEvent.start, this.handleSwitcherTouched)
+      const container = event.target as HTMLDivElement
+      const keyCode = parseInt(container.getAttribute('code'), 10)
+
+      if (isNaN(keyCode)) {
+        return
+      }
+
+      switch (keyCode) {
+        case 16:
+        case 20:
+          this.toggleUppercase()
+          this.emit('actions', { keyCode, type: this.isOpenShift ? 'down' : 'up' })
+          break
+
+        default:
+          this.emit('actions', { keyCode, type: 'keypress' })
+      }
+    }
+
+    const onSwitcherTouchDown = (event: TouchEvent | MouseEvent | PointerEvent): void => {
+      event.preventDefault()
+      event.stopPropagation()
+
+      this.keyboard.toggle()
+      this.emit('siwtch', this.keyboard.isOpen)
+    }
+
+    this.keyboard.addListener(TouchEvent.start, onKeyboardTouchDown)
+    this.switcher.addListener(TouchEvent.start, onSwitcherTouchDown)
   }
 
   private unbindings (): void {
-    this.unbind(this.keyboard, TouchEvent.start, this.handleKeyboardTouched)
-    this.unbind(this.switcher, TouchEvent.start, this.handleSwitcherTouched)
-
-    this.handleKeyboardTouched = undefined
-    this.handleSwitcherTouched = undefined
+    this.keyboard.removeAllListeners()
+    this.switcher.removeAllListeners()
   }
 
   public toggleUppercase (isOpen: boolean = !this.isOpenShift): void {
     this.isOpenShift = isOpen
 
     this.buttons.forEach((node) => {
-      const uppercase = this.isOpenShift ? node.getAttribute('uppercase') : node.getAttribute('key')
-      node.innerText = uppercase
+      const uppercase = this.isOpenShift ? node.getAttr('uppercase') : node.getAttr('key')
+      node.setContext(uppercase)
     })
   }
 
-  public onToggle (handle: (event: any) => void): void {
-    this.addListener('toggle', handle)
+  public onSwitch (handle: (event: any) => void): void {
+    this.addListener('siwtch', handle)
   }
 
   public onActions (handle: (event: any) => void): void {
@@ -151,13 +131,13 @@ export default class Keyboard extends Component {
 
     this.unbindings()
 
-    this.container.parentNode.removeChild(this.container)
-    this.container.removeChild(this.switcher)
-    this.container.removeChild(this.keyboard)
+    this.element.destroy()
+    this.keyboard.destroy()
+    this.switcher.destroy()
 
     this.switcher = undefined
     this.keyboard = undefined
-    this.container = undefined
+    this.element = undefined
 
     this.destroy = Function.prototype as any
   }

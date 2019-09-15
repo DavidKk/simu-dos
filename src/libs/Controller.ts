@@ -1,10 +1,11 @@
 import { EventEmitter } from 'events'
+import Element from './Element'
+import Component from './Component'
 import Button from '../ui/Button'
 import Keypad from '../ui/Keypad'
 import Joystick from '../ui/Joystick'
 import DPad from '../ui/DPad'
 import Keyboard from '../ui/Keyboard'
-import Utils from '../ui/Utils'
 import TouchEvent from '../conf/touch-event'
 import * as Typings from '../typings'
 
@@ -22,7 +23,7 @@ export default class Controller {
   /**
    * 交互的面板容器
    */
-  public element: HTMLDivElement
+  public element: Element
 
   /**
    * 按键面板
@@ -40,23 +41,18 @@ export default class Controller {
   public dpad: DPad
 
   /**
-   * 功能键面板
-   */
-  public utils: Utils
-
-  /**
    * 键盘面板
    */
   public keyboard: Keyboard
   public deprecates: Array<() => void> = []
 
-  constructor (container: HTMLDivElement) {
+  constructor () {
     this.emitter = new EventEmitter()
+    this.element = new Element(['touchpad'])
+  }
 
-    this.element = document.createElement('div')
-    this.element.className = 'touchpad'
-
-    container.appendChild(this.element)
+  public appendTo (element: Component | Element | HTMLElement): void {
+    this.element.appendTo(element instanceof Component ? element.element : element)
   }
 
   /**
@@ -72,8 +68,9 @@ export default class Controller {
         this.emitter.emit('actions', event)
       }
 
-      this.joystick = new Joystick(this.element)
+      this.joystick = new Joystick()
       this.joystick.onActions(handleActions)
+      this.joystick.appendTo(this.element)
     }
 
     if (dpad) {
@@ -82,26 +79,28 @@ export default class Controller {
         this.emitter.emit('actions', event)
       }
 
-      this.dpad = new DPad(this.element)
+      this.dpad = new DPad()
       this.dpad.onActions(handleActions)
+      this.dpad.appendTo(this.element)
     }
 
     if (Array.isArray(keypad) && keypad.length > 0) {
-      this.keypad = new Keypad(this.element)
+      this.keypad = new Keypad()
 
       keypad.forEach((item) => {
         const button: Button = this.keypad.add(item.context, item.options)
         const deprecated = this.mapKeyCodeToButton(item.keyCode, button)
         this.deprecates.push(deprecated)
       })
+
+      this.keypad.appendTo(this.element)
     }
 
     if (keyboad === true) {
-      const handleToogle = (isOpen: boolean): void => {
+      const handleSwitch = (isOpen: boolean): void => {
         this.joystick && this.joystick.toggle(!isOpen)
         this.dpad && this.dpad.toggle(!isOpen)
         this.keypad && this.keypad.toggle(!isOpen)
-        this.utils && this.utils.toggle(!isOpen)
       }
 
       const handleActions = (data): void => {
@@ -109,12 +108,11 @@ export default class Controller {
         this.emitter.emit('actions', event)
       }
 
-      this.keyboard = new Keyboard(this.element)
-      this.keyboard.onToggle(handleToogle)
+      this.keyboard = new Keyboard()
+      this.keyboard.onSwitch(handleSwitch)
       this.keyboard.onActions(handleActions)
+      this.keyboard.appendTo(this.element)
     }
-
-    this.utils = new Utils(this.element)
   }
 
   /**
@@ -136,12 +134,12 @@ export default class Controller {
       this.emitter.emit('actions', event)
     }
 
-    button.bindEvent(TouchEvent.start, handleTouchDown)
-    button.bindEvent(TouchEvent.end, handleTouchUp)
+    button.bind(TouchEvent.start, handleTouchDown)
+    button.bind(TouchEvent.end, handleTouchUp)
 
     return function deprecated () {
-      button.unbindEvent(TouchEvent.start, handleTouchDown)
-      button.unbindEvent(TouchEvent.start, handleTouchUp)
+      button.unbind(TouchEvent.start, handleTouchDown)
+      button.unbind(TouchEvent.start, handleTouchUp)
 
       handleTouchDown = undefined
       handleTouchUp = undefined
@@ -169,7 +167,6 @@ export default class Controller {
     this.dpad && this.dpad.destroy()
     this.keypad && this.keypad.destroy()
     this.keyboard && this.keyboard.destroy()
-    this.utils && this.utils.destroy()
   }
 
   /**
@@ -184,7 +181,6 @@ export default class Controller {
     this.dpad = undefined
     this.keypad = undefined
     this.keyboard = undefined
-    this.utils = undefined
 
     this.destroy = Function.prototype as any
   }

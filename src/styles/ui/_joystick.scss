@@ -5,7 +5,7 @@ $joystickSize: 100px !default;
   bottom: 50px;
   left: 50px;
   z-index: 4;
-  display: none;
+  display: block;
   border-radius: 100%;
   width: $joystickSize;
   font-size: $uiRootFontSize;
@@ -14,10 +14,6 @@ $joystickSize: 100px !default;
   user-select: none;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-  &.open {
-    display: block !important;
-  }
 }
 
 .joystick-stick {

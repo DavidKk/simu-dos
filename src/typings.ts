@@ -64,7 +64,7 @@ export interface GameInfo {
   release?: string | Date | number
   url: string
   size?: number
-  room?: ArrayBuffer
+  rom?: ArrayBuffer
   command?: Array<string>
   save?: {
     path: string
@@ -119,7 +119,7 @@ export interface DosBoxOptions {
 
 export interface DosBoxPlayOptions extends DosBoxOptions {
   onDwonloadWasmProgress?: (DosBoxProgressEvent) => void
-  onDwonloadRoomProgress?: (DosBoxProgressEvent) => void
+  onDwonloadRomProgress?: (DosBoxProgressEvent) => void
   onDownloadCompleted?: (buffer: ArrayBuffer) => void
 }
 
@@ -148,7 +148,7 @@ export interface GameDBOptions {
 
 // Files
 export interface Archive {
-  roomid: string
+  romId: string
   file: string
   content: ArrayBuffer
 }
@@ -174,3 +174,6 @@ export interface LangOptions {
   tc?: any
   en?: any
 }
+
+// Stage
+export type StageShowType = 'term' | 'canvas'

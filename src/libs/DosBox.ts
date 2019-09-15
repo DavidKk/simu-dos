@@ -7,40 +7,49 @@ import dosConf from '../conf/dos'
 import version from '../conf/version'
 import * as Typings from '../typings'
 
-export default class DosBox {
-  public emitter: EventEmitter = new EventEmitter()
-  public options: Typings.DosBoxOptions = { wasmUrl: './wdosbox.wasm.js' }
-  public database: string = 'gdcenter_game'
-  public canvas: HTMLCanvasElement = null
-  public wdosboxModule: Typings.DosBoxWdosboxModule = null
-  public wasmModule: WebAssembly.Module = null
-  public shellInputQueue: string[] = []
-  public shellInputClients: Array<() => void> = []
-  public isAlive: boolean = true
-  public isInitialized: boolean = false
-  public isReady: boolean = false
-  public fetchTasks: Array<Typings.DosBoxFetchTask> = []
+export default class DosBox extends EventEmitter {
+  public options: Typings.DosBoxOptions
+  public database: string
+  public canvas: HTMLCanvasElement
+  public wdosboxModule: Typings.DosBoxWdosboxModule
+  public wasmModule: WebAssembly.Module
+  public shellInputQueue: string[]
+  public shellInputClients: Array<() => void>
+  public isAlive: boolean
+  public isInitialized: boolean
+  public isReady: boolean
+  public fetchTasks: Array<Typings.DosBoxFetchTask>
 
   constructor (canvas: HTMLCanvasElement, options: Typings.DosBoxOptions = {}) {
-    this.options = defaultsDeep(this.options, options)
-    this.database = options.database || this.database
-    this.canvas = canvas
+    super()
+
+    this.options = defaultsDeep({ wasmUrl: './wdosbox.wasm.js' }, options)
+    this.database = options.database || 'gdcenter_game'
+    this.canvas = canvas || null
+    this.wdosboxModule = null
+    this.wasmModule = null
+    this.shellInputQueue = []
+    this.shellInputClients = []
+    this.isAlive = true
+    this.isInitialized = false
+    this.isReady = false
+    this.fetchTasks = []
   }
 
   public async play (game: Typings.GameInfo, options?: Typings.DosBoxPlayOptions): Promise<void> {
-    const { url, room, command } = game
+    const { url, rom, command } = game
 
-    const handleDownloadRoom = (event) => {
+    const handleDownloadRom = (event) => {
       const { loaded, total } = event
-      this.emitter.emit('progress', { loaded, total })
+      this.emit('progress', { loaded, total })
 
-      if (typeof options.onDwonloadRoomProgress === 'function') {
-        options.onDwonloadRoomProgress({ loaded, total })
+      if (typeof options.onDwonloadRomProgress === 'function') {
+        options.onDwonloadRomProgress({ loaded, total })
       }
     }
 
     const { mainFn } = await this.compile(this.options.wasmUrl, { onProgress: options.onDwonloadWasmProgress })
-    const buffer = await this.extract(room || url, 'zip', { onDownloadProgress: handleDownloadRoom })
+    const buffer = await this.extract(rom || url, 'zip', { onDownloadProgress: handleDownloadRom })
 
     if (typeof options.onDownloadCompleted === 'function') {
       options.onDownloadCompleted(buffer)
@@ -71,12 +80,12 @@ export default class DosBox {
 
           this.wdosboxModule.callMain(args)
 
-          this.emitter.once('ready', resolve)
+          this.once('ready', resolve)
         })
       }
 
       this.isInitialized = true
-      this.emitter.emit('runtimeInitialized', { mainFn })
+      this.emit('runtimeInitialized', { mainFn })
     }
 
     const ping = (message: string, ...args: any[]) => {
@@ -87,7 +96,7 @@ export default class DosBox {
       switch (message) {
         case 'ready': {
           this.isReady = true
-          this.emitter.emit('ready')
+          this.emit('ready')
           break
         }
 
@@ -122,10 +131,10 @@ export default class DosBox {
     }
 
     const print = (message) => {
-      this.emitter.emit('message', message)
+      this.emit('message', message)
 
       if (message === 'SDL_Quit called (and ignored)') {
-        this.emitter.emit('exit')
+        this.emit('exit')
       }
     }
 
@@ -151,7 +160,7 @@ export default class DosBox {
     }
 
     return new Promise((resolve, reject) => {
-      this.emitter.once('runtimeInitialized', resolve)
+      this.once('runtimeInitialized', resolve)
 
       this.fetchArrayBuffer(options.wasmUrl, requestOptions)
       .then((data) => WebAssembly.compile(data))
@@ -191,13 +200,13 @@ export default class DosBox {
     }
 
     return new Promise((resolve) => {
-      this.emitter.once('runtimeInitialized', () => {
+      this.once('runtimeInitialized', () => {
         resolve(this.wdosboxModule)
       })
     })
   }
 
-  public extract (room: string | ArrayBuffer, type: string = 'zip', options?: AxiosRequestConfig): Promise<ArrayBuffer> {
+  public extract (rom: string | ArrayBuffer, type: string = 'zip', options?: AxiosRequestConfig): Promise<ArrayBuffer> {
     if (type !== 'zip') {
       Promise.reject(new Error('Only ZIP archive is supported'))
       return
@@ -219,11 +228,11 @@ export default class DosBox {
       return Promise.reject(new Error(`Can't extract zip, retcode ${code}, see more info in logs`))
     }
 
-    if (typeof room === 'string') {
-      return this.fetchArrayBuffer(room, options).then(extract)
+    if (typeof rom === 'string') {
+      return this.fetchArrayBuffer(rom, options).then(extract)
     }
 
-    return extract(room)
+    return extract(rom)
   }
 
   public createFile (file: string, body: ArrayBuffer | Uint8Array | string): void {
@@ -380,53 +389,48 @@ export default class DosBox {
   }
 
   public onMessage (handle: (...args: any[]) => void): void {
-    this.emitter.addListener('message', handle)
+    this.addListener('message', handle)
   }
 
   public onProgress (handle: (...args: any[]) => void): void {
-    this.emitter.addListener('progress', handle)
+    this.addListener('progress', handle)
   }
 
   public onExit (handle: (...args: any[]) => void): void {
-    this.emitter.addListener('exit', handle)
+    this.addListener('exit', handle)
   }
 
-  public destroy (force: boolean = true): Promise<void> {
-    return new Promise((resolve) => {
-      const handleDestroyDosBox = () => {
-        this.exit()
+  public destroy (force: boolean = true): void {
+    const handleDestroyDosBox = () => {
+      this.exit()
 
-        this.fetchTasks.forEach((task) => task.cancel())
-        this.emitter.removeAllListeners()
+      this.fetchTasks.forEach((task) => task.cancel())
+      this.removeAllListeners()
 
-        this.shellInputQueue && this.shellInputQueue.splice(0)
-        this.shellInputClients.splice(0)
-        this.fetchTasks.splice(0)
+      this.shellInputQueue && this.shellInputQueue.splice(0)
+      this.shellInputClients.splice(0)
+      this.fetchTasks.splice(0)
 
-        this.options = undefined
-        this.emitter = undefined
-        this.canvas = undefined
-        this.wdosboxModule = undefined
-        this.wasmModule = undefined
-        this.shellInputQueue = undefined
-        this.shellInputClients = undefined
-        this.isAlive = undefined
-        this.isInitialized = undefined
-        this.isReady = undefined
-        this.fetchTasks = undefined
+      this.options = undefined
+      this.canvas = undefined
+      this.wdosboxModule = undefined
+      this.wasmModule = undefined
+      this.shellInputQueue = undefined
+      this.shellInputClients = undefined
+      this.isAlive = undefined
+      this.isInitialized = undefined
+      this.isReady = undefined
+      this.fetchTasks = undefined
+    }
 
-        resolve()
-      }
-
-      if (force === true) {
-        handleDestroyDosBox()
-      } else if (this.isInitialized === false) {
-        this.emitter.once('runtimeInitialized', handleDestroyDosBox)
-      } else if (this.isReady === false) {
-        this.emitter.once('ready', handleDestroyDosBox)
-      } else {
-        handleDestroyDosBox()
-      }
-    })
+    if (force === true) {
+      handleDestroyDosBox()
+    } else if (this.isInitialized === false) {
+      this.once('runtimeInitialized', handleDestroyDosBox)
+    } else if (this.isReady === false) {
+      this.once('ready', handleDestroyDosBox)
+    } else {
+      handleDestroyDosBox()
+    }
   }
 }

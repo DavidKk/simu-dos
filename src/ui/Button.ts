@@ -1,5 +1,6 @@
 import TouchEvent from '../conf/touch-event'
-import Component from './Component'
+import Element from '../libs/Element'
+import Component from '../libs/Component'
 import { trimUnit, px2rem } from '../share/style'
 import * as Typings from '../typings'
 
@@ -11,18 +12,13 @@ enum DSOperation {
 }
 
 export default class Button extends Component {
-  public element: HTMLDivElement
+  public element: Element
   public type: Typings.ButtonType
-
-  private handleTouchStart: Typings.EventHandle
-  private handleTouchEnd: Typings.EventHandle
 
   constructor (context: string, options?: Typings.ButtonOptions) {
     super()
 
-    this.element = document.createElement('div')
-    this.element.className = 'keypad-btn'
-    this.element.innerText = context
+    this.element = new Element(['keypad-btn'], [context])
 
     options.hasOwnProperty('size') && this.setSize(options.size)
     options.hasOwnProperty('position') && this.setPosition(options.position)
@@ -31,42 +27,27 @@ export default class Button extends Component {
     this.bindings()
   }
 
-  private _onTouchDown (event) {
-    event.preventDefault()
-    event.stopPropagation()
-
-    this.element.classList.add('active')
-  }
-
-  private _onTouchUp (event) {
-    event.preventDefault()
-    event.stopPropagation()
-
-    this.element.classList.remove('active')
-  }
-
   private bindings (): void {
-    this.handleTouchStart = this._onTouchDown.bind(this)
-    this.handleTouchEnd = this._onTouchUp.bind(this)
+    const onTouchDown = (event) => {
+      event.preventDefault()
+      event.stopPropagation()
 
-    this.bind(this.element, TouchEvent.start, this.handleTouchStart)
-    this.bind(this.element, TouchEvent.end, this.handleTouchEnd)
+      this.element.addClass('active')
+    }
+
+    const onTouchUp = (event) => {
+      event.preventDefault()
+      event.stopPropagation()
+
+      this.element.removeClass('active')
+    }
+
+    this.element.bind(TouchEvent.start, onTouchDown)
+    this.element.bind(TouchEvent.end, onTouchUp)
   }
 
   private unbindings (): void {
-    this.unbind(this.element, TouchEvent.start, this.handleTouchStart)
-    this.unbind(this.element, TouchEvent.start, this.handleTouchEnd)
-
-    this.handleTouchStart = Function.prototype as any
-    this.handleTouchEnd = Function.prototype as any
-  }
-
-  public bindEvent (events: string | Array<string>, handle: Typings.EventHandle): void {
-    super.bind(this.element, events, handle)
-  }
-
-  public unbindEvent (events: string | Array<string>, handle: Typings.EventHandle): void {
-    super.unbind(this.element, events, handle)
+    this.element.removeAllListeners()
   }
 
   private calcSize (size: Typings.StyleValue, operation: DSOperation, value: number): Typings.StyleValue {
@@ -89,10 +70,18 @@ export default class Button extends Component {
     }
   }
 
+  public bind (events: string | Array<string>, handle: Typings.EventHandle): void {
+    return this.element.bind(events, handle)
+  }
+
+  public unbind (events: string | Array<string>, handle: Typings.EventHandle): void {
+    this.element.unbind(events, handle)
+  }
+
   public setType (type: Typings.ButtonType): void {
     this.type = type
-    ;['normal'].forEach((style) => this.element.classList.remove(style))
-    type !== 'normal' && this.element.classList.add(type)
+    ;['normal'].forEach((style) => this.element.removeClass(style))
+    type !== 'normal' && this.element.addClass(type)
   }
 
   public setWidth (width: Typings.StyleValue): void {
@@ -149,16 +138,22 @@ export default class Button extends Component {
     }
   }
 
-  public append (element: HTMLElement): void {
-    element.appendChild(this.element)
+  public appendTo (element: Element | HTMLElement): void {
+    this.element.appendTo(element)
   }
 
   public remove (): void {
     this.unbindings()
+    this.element.remove()
+  }
 
-    this.handleTouchStart = undefined
-    this.handleTouchEnd = undefined
+  public destroy (): void {
+    super.destroy()
 
-    this.element.parentNode.removeChild(this.element)
+    this.unbindings()
+    this.element.destroy()
+    this.element = undefined
+
+    this.destroy = Function.prototype as any
   }
 }

@@ -1,8 +1,8 @@
-// third-party
-@import "./styles/fontawesome";
+// third party
+@import "./styles/vendors/fontawesome";
 
 // functions
-@import "./styles/unit";
+@import "./styles/func/unit";
 
 // variables
 @import "./styles/variables";
@@ -10,14 +10,18 @@
 // resets
 @import "./styles/normalize";
 
-// components
-@import "./styles/cube";
-@import "./styles/term";
-@import "./styles/joystick";
-@import "./styles/keypad";
-@import "./styles/keyboard";
-@import "./styles/dpad";
+// common
 @import "./styles/utils";
+
+// components
+@import "./styles/ui/spinner";
+@import "./styles/ui/term";
+@import "./styles/ui/joystick";
+@import "./styles/ui/keypad";
+@import "./styles/ui/keyboard";
+@import "./styles/ui/dpad";
+@import "./styles/ui/gallery";
+
+// main
 @import "./styles/controller";
-@import "./styles/list";
 @import "./styles/game";
