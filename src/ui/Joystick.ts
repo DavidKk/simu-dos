@@ -9,28 +9,32 @@ export default class Joystick extends Component {
   private handleZoneTouchMove: Typings.EventHandle
   private handleZoneTouchEnd: Typings.EventHandle
 
+  public body: Element
   public element: Element
   public stand: Element
   public stick: Element
   public fixedPoint: Typings.Point
 
-  private get parent (): Element {
-    return new Element(this.element.element.parentElement)
-  }
-
   constructor () {
     super()
 
+    this.body = new Element(document.body)
     this.stick = new Element(['joystick-stick'])
     this.stand = this.element = new Element(['joystick-stand'], [this.stick])
     this.fixedPoint = { x: 0, y: 0 }
 
     this.bindings()
+  }
 
+  public appendTo (element: Component | Element | HTMLElement): void {
     /**
      * Docs: https://stackoverflow.com/questions/48124372/pointermove-event-not-working-with-touch-why-not
      */
-    this.parent.style.touchAction = 'none'
+    element = element instanceof Component ? element.element : element
+    element = element instanceof Element ? element.element : element
+    element.style.touchAction = 'none'
+
+    return super.appendTo(element)
   }
 
   private _onTouchStart (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): void {
@@ -42,8 +46,8 @@ export default class Joystick extends Component {
     this.stand.addClass('active')
     this.emit('actions', { type: 'start', coord: point })
 
-    this.parent.bind(TouchEvents.move, this.handleZoneTouchMove)
-    this.parent.bind(TouchEvents.end, this.handleZoneTouchEnd)
+    this.body.bind(TouchEvents.move, this.handleZoneTouchMove)
+    this.body.bind(TouchEvents.end, this.handleZoneTouchEnd)
   }
 
   private _onTouchMove (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent): void {
@@ -70,8 +74,8 @@ export default class Joystick extends Component {
     this.stand.addClass('active')
     this.emit('actions', { type: 'up' })
 
-    this.parent.unbind(TouchEvents.move, this.handleZoneTouchMove)
-    this.parent.unbind(TouchEvents.end, this.handleZoneTouchEnd)
+    this.body.unbind(TouchEvents.move, this.handleZoneTouchMove)
+    this.body.unbind(TouchEvents.end, this.handleZoneTouchEnd)
   }
 
   private bindings (): void {
@@ -83,8 +87,8 @@ export default class Joystick extends Component {
 
   private unbindings (): void {
     this.stand.unbind(TouchEvents.start, this.handleZoneTouchStart)
-    this.parent.unbind(TouchEvents.move, this.handleZoneTouchMove)
-    this.parent.unbind(TouchEvents.end, this.handleZoneTouchEnd)
+    this.body.unbind(TouchEvents.move, this.handleZoneTouchMove)
+    this.body.unbind(TouchEvents.end, this.handleZoneTouchEnd)
 
     this.handleZoneTouchStart = undefined
     this.handleZoneTouchMove = undefined
