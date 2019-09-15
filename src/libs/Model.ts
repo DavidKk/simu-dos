@@ -1,8 +1,7 @@
+import * as ModelConf from '../conf/model'
 import * as Typings from '../typings'
 
 const indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB
-const TableRoms = 'roms'
-const TableArchive = 'archive'
 
 export default class Model {
   private db: IDBDatabase
@@ -19,11 +18,14 @@ export default class Model {
       return
     }
 
-    // Roms Table
-    this.db.createObjectStore(TableRoms)
+    // WASM Table
+    this.db.createObjectStore(ModelConf.wasmTable)
+
+    // ROMS Table
+    this.db.createObjectStore(ModelConf.romsTable)
 
     // Archives Table
-    const saveStore = this.db.createObjectStore(TableArchive, { keyPath: 'file' })
+    const saveStore = this.db.createObjectStore(ModelConf.archiveTable, { keyPath: 'file' })
     saveStore.createIndex('romId', 'romId', { unique: false })
   }
 
@@ -75,8 +77,8 @@ export default class Model {
 
   public saveArchive (archives: Array<Typings.Archive>): Promise<void> {
     return this.open().then((database: IDBDatabase) => {
-      const transaction = database.transaction(TableArchive, 'readwrite')
-      const store = transaction.objectStore(TableArchive)
+      const transaction = database.transaction(ModelConf.archiveTable, 'readwrite')
+      const store = transaction.objectStore(ModelConf.archiveTable)
 
       const promises = archives.map((archive) => new Promise((resolve, reject) => {
         const openRequest = store.openCursor(archive.file)
@@ -97,8 +99,8 @@ export default class Model {
 
   public loadArchive (romId: string): Promise<Array<Typings.Archive>> {
     return this.open().then((database) => new Promise((resolve, reject) => {
-      const transaction = database.transaction(TableArchive, 'readonly')
-      const store = transaction.objectStore(TableArchive)
+      const transaction = database.transaction(ModelConf.archiveTable, 'readonly')
+      const store = transaction.objectStore(ModelConf.archiveTable)
 
       const index = store.index('romId')
       const getRequest = index.getAll(romId)
@@ -110,8 +112,8 @@ export default class Model {
 
   public saveRom (name: string, rom: ArrayBuffer): Promise<void> {
     return this.open().then((database) => new Promise((resolve, reject) => {
-      const transaction = database.transaction(TableRoms, 'readwrite')
-      const store = transaction.objectStore(TableRoms)
+      const transaction = database.transaction(ModelConf.romsTable, 'readwrite')
+      const store = transaction.objectStore(ModelConf.romsTable)
       const putRequest = store.put(rom, name)
 
       putRequest.onsuccess = () => resolve()
@@ -121,10 +123,32 @@ export default class Model {
 
   public loadRom (name: string): Promise<ArrayBuffer> {
     return this.open().then((database) => new Promise((resolve, reject) => {
-      const transaction = database.transaction(TableRoms, 'readonly')
-      const store = transaction.objectStore(TableRoms)
+      const transaction = database.transaction(ModelConf.romsTable, 'readonly')
+      const store = transaction.objectStore(ModelConf.romsTable)
 
       const getRequest = store.get(name)
+      getRequest.onerror = (error) => reject(error)
+      getRequest.onsuccess = () => resolve(getRequest.result)
+    }))
+  }
+
+  public saveWasm (source: ArrayBuffer): Promise<void> {
+    return this.open().then((database) => new Promise((resolve, reject) => {
+      const transaction = database.transaction(ModelConf.wasmTable, 'readwrite')
+      const store = transaction.objectStore(ModelConf.wasmTable)
+      const putRequest = store.put(source, 'file')
+
+      putRequest.onsuccess = () => resolve()
+      putRequest.onerror = (error) => reject(error)
+    }))
+  }
+
+  public loadWasm (): Promise<ArrayBuffer> {
+    return this.open().then((database) => new Promise((resolve, reject) => {
+      const transaction = database.transaction(ModelConf.wasmTable, 'readonly')
+      const store = transaction.objectStore(ModelConf.wasmTable)
+
+      const getRequest = store.get('file')
       getRequest.onerror = (error) => reject(error)
       getRequest.onsuccess = () => resolve(getRequest.result)
     }))

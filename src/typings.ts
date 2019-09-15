@@ -113,19 +113,30 @@ export type ControllerActionType = 'joystick' | 'keydown'
 
 // Dosbox
 export interface DosBoxOptions {
+  wasm?: ArrayBuffer
   wasmUrl?: string
   database?: string
 }
 
 export interface DosBoxPlayOptions extends DosBoxOptions {
-  onDwonloadWasmProgress?: (DosBoxProgressEvent) => void
-  onDwonloadRomProgress?: (DosBoxProgressEvent) => void
-  onDownloadCompleted?: (buffer: ArrayBuffer) => void
+  onDownloadWasmProgress?: (DosBoxProgressEvent) => void
+  onDownloadWasmCompleted?: (buffer: ArrayBuffer) => void
+  onDownloadRomProgress?: (DosBoxProgressEvent) => void
+  onDownloadRomCompleted?: (buffer: ArrayBuffer) => void
+  onExtractCompleted?: (buffer: ArrayBuffer) => void
 }
 
-export interface DosBoxCompileOptions extends DosBoxOptions {
-  onProgress?: (DosBoxProgressEvent) => void
-}
+export type DosBoxConvertFileToArrayBufferParams = Array<{
+  file: string | ArrayBuffer
+  options: {
+    onProgress?: (DosBoxProgressEvent) => void
+    onCompleted?: (buffer: ArrayBuffer) => void
+  }
+}>
+
+export interface DosBoxCompileOptions {}
+
+export interface DosBoxExtractOptions {}
 
 export interface DosBoxWdosboxModule {
   version: string
