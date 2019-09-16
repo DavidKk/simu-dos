@@ -34,6 +34,15 @@ export default class DosBox extends EventEmitter {
     this.isInitialized = false
     this.isReady = false
     this.fetchTasks = []
+
+    /**
+     * 因为 WDOSBOX 会删除部分样式
+     * 重写 removeProperty 将重新获取更改
+     * 样式的主导权, 若要删除使用
+     * document.body.style.removeProperty.call(this.canvas.style, 'propertyName')
+     */
+    const canvasStyle = this.canvas.style
+    canvasStyle.removeProperty = Function.prototype as any
   }
 
   /**
@@ -477,8 +486,8 @@ export default class DosBox extends EventEmitter {
       height = width / originRatio
     }
 
-    this.canvas.style.width = `${width}px`
-    this.canvas.style.height = `${height}px`
+    this.canvas.style.setProperty('width', `${width}px`)
+    this.canvas.style.setProperty('height', `${height}px`)
   }
 
   public requestFullScreen (): void {
