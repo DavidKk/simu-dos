@@ -11,6 +11,9 @@ import * as Typings from '../typings'
 
 /**
  * 控制器
+ * @description
+ * 主要用于管理各种UI交互,
+ * 作为连接UI与模拟器之间的桥梁
  */
 export default class Controller {
   /**
@@ -44,6 +47,10 @@ export default class Controller {
    * 键盘面板
    */
   public keyboard: Keyboard
+
+  /**
+   * 事件销毁集合
+   */
   public deprecates: Array<() => void> = []
 
   constructor () {
@@ -51,6 +58,10 @@ export default class Controller {
     this.element = new Element(['touchpad'])
   }
 
+  /**
+   * 插入
+   * @param {Component|Element|HTMLElement} element 目标
+   */
   public appendTo (element: Component | Element | HTMLElement): void {
     this.element.appendTo(element instanceof Component ? element.element : element)
   }

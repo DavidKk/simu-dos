@@ -7,17 +7,65 @@ import dosConf from '../conf/dos'
 import version from '../conf/version'
 import * as Typings from '../typings'
 
+/**
+ * DOS 模拟器类
+ * @description
+ * 主要对 wdosbox 进行二次封装
+ */
 export default class DosBox extends EventEmitter {
+  /**
+   * 初始化配置
+   */
   public options: Typings.DosBoxOptions
+
+  /**
+   * 数据库名称
+   */
   public database: string
+
+  /**
+   * 画布
+   */
   public canvas: HTMLCanvasElement
+
+  /**
+   * wdosbox 模块对象
+   */
   public wdosboxModule: Typings.DosBoxWdosboxModule
+
+  /**
+   * wasm 模块对象
+   */
   public wasmModule: WebAssembly.Module
+
+  /**
+   * 脚本输入队列
+   */
   public shellInputQueue: string[]
+
+  /**
+   * 脚本输入回调事件集合
+   */
   public shellInputClients: Array<() => void>
+
+  /**
+   * 是否为活动状态
+   */
   public isAlive: boolean
+
+  /**
+   * 是否完成初始化
+   */
   public isInitialized: boolean
+
+  /**
+   * 是否准备完成
+   */
   public isReady: boolean
+
+  /**
+   * 下载任务集合
+   */
   public fetchTasks: Array<Typings.DosBoxFetchTask>
 
   constructor (canvas: HTMLCanvasElement, options: Typings.DosBoxOptions = {}) {
@@ -309,6 +357,12 @@ export default class DosBox extends EventEmitter {
     return Promise.reject(new Error(`Can't extract zip, retcode ${code}, see more info in logs`))
   }
 
+  /**
+   * 下载远程文件
+   * @param {string} url 远程文件目录
+   * @param {AxiosRequestConfig} options 配置
+   * @returns {Promise<ArrayBuffer>}
+   */
   public fetchArrayBuffer (url: string, options?: AxiosRequestConfig): Promise<ArrayBuffer> {
     const source = CancelToken.source()
     const token = source.token
@@ -329,6 +383,9 @@ export default class DosBox extends EventEmitter {
     return promise
   }
 
+  /**
+   * 获取 wdosbox 模块
+   */
   public getWdosboxModule (): Promise<any> {
     if (this.isInitialized === true) {
       return Promise.resolve(this.wdosboxModule)
@@ -341,6 +398,11 @@ export default class DosBox extends EventEmitter {
     })
   }
 
+  /**
+   * 创建文件
+   * @param {string} file 文件名称
+   * @param {ArrayBuffer | Uint8Array | string} 文件内容
+   */
   public createFile (file: string, body: ArrayBuffer | Uint8Array | string): void {
     if (body instanceof ArrayBuffer) {
       body = new Uint8Array(body)
@@ -372,7 +434,13 @@ export default class DosBox extends EventEmitter {
     this.wdosboxModule.FS_createDataFile(path, filename, body, true, true, true)
   }
 
-  public searchFiles (dir: string, pattern: RegExp): Promise<Array<string>> {
+  /**
+   * 搜索文件
+   * @param {string} dir 文件目录
+   * @param {RegExp} pattern 匹配正则
+   * @returns {Promise<string[]>} 文件名称
+   */
+  public searchFiles (dir: string, pattern: RegExp): Promise<string[]> {
     return new Promise((resolve) => {
       let { FS } = this.wdosboxModule
       let files = FS.readdir(dir)
@@ -381,6 +449,11 @@ export default class DosBox extends EventEmitter {
     })
   }
 
+  /**
+   * 读取文件
+   * @param {string} file 文件名称
+   * @returns {ArrayBuffer} 文件内容
+   */
   public readFile (file: string): ArrayBuffer {
     const { FS } = this.wdosboxModule
     const { exists, object } = FS.analyzePath(file)
@@ -391,6 +464,11 @@ export default class DosBox extends EventEmitter {
     return object.contents
   }
 
+  /**
+   * 写文件
+   * @param {string} file 文件名称
+   * @param {ArrayBuffer} content 文件内容
+   */
   public writeFile (file: string, content: ArrayBuffer): void {
     const { FS } = this.wdosboxModule
     const { exists } = FS.analyzePath(file)
@@ -403,6 +481,11 @@ export default class DosBox extends EventEmitter {
     FS.createDataFile(dir, name, content, true, true, true)
   }
 
+  /**
+   * 模拟输入事件
+   * @param {number} keyCode 键值
+   * @param {boolean} pressed 是否为按键
+   */
   public simulateKeyEvent (keyCode: number, pressed: boolean): void {
     let name = pressed ? 'keydown' : 'keyup'
     let event = document.createEvent('KeyboardEvent') as any
@@ -425,21 +508,37 @@ export default class DosBox extends EventEmitter {
     this.canvas && this.canvas.dispatchEvent(event)
   }
 
+  /**
+   * 模拟按键
+   * @param {number} keyCode 键值
+   */
   public simulateKeyPress (keyCode: number): void {
     this.simulateKeyEvent(keyCode, true)
     setTimeout(() => this.simulateKeyEvent(keyCode, false), 100)
   }
 
+  /**
+   * 发送模拟按键
+   * @param {number} code 键值
+   */
   public sendKeyPress (code: number): void {
     if (this.isInitialized === true) {
       this.wdosboxModule.send('sdl_key_event', code + '')
     }
   }
 
+  /**
+   * 请求 shell 输入
+   */
   public requestShellInput (): void {
     this.sendKeyPress(13)
   }
 
+  /**
+   * 执行命令
+   * @param {string[]} ...cmd 命令
+   * @returns {Promise}
+   */
   public shell (...cmd: string[]): Promise<void> {
     if (cmd.length === 0) {
       return Promise.resolve()
@@ -456,6 +555,10 @@ export default class DosBox extends EventEmitter {
     })
   }
 
+  /**
+   * 退出
+   * @returns {boolean} 是否成功退出
+   */
   public exit (): boolean {
     try {
       this.wdosboxModule.send('exit')
@@ -466,6 +569,11 @@ export default class DosBox extends EventEmitter {
     return true
   }
 
+  /**
+   * 设置画布大小
+   * @param {number} width 宽度
+   * @param {number} height 高度
+   */
   public setSize (width: number, height: number): void {
     let { innerWidth: maxWidth, innerHeight: maxHeight } = window
     let originWidth = parseFloat(this.canvas.getAttribute('width')) || 640
@@ -490,22 +598,34 @@ export default class DosBox extends EventEmitter {
     this.canvas.style.setProperty('height', `${height}px`)
   }
 
-  public requestFullScreen (): void {
-    this.wdosboxModule.requestFullScreen()
-  }
-
+  /**
+   * 监听消息
+   * @param {Function} handle 回调
+   */
   public onMessage (handle: (...args: any[]) => void): void {
     this.addListener('message', handle)
   }
 
+  /**
+   * 监听进度
+   * @param {Function} handle 回调
+   */
   public onProgress (handle: (...args: any[]) => void): void {
     this.addListener('progress', handle)
   }
 
+  /**
+   * 监听退出
+   * @param {Function} handle 回调
+   */
   public onExit (handle: (...args: any[]) => void): void {
     this.addListener('exit', handle)
   }
 
+  /**
+   * 销毁
+   * @param {boolean} force 强制销毁
+   */
   public destroy (force: boolean = true): void {
     const handleDestroyDosBox = () => {
       this.exit()
