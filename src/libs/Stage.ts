@@ -6,6 +6,8 @@ import Component from './Component'
 
 export default class Stage {
   private show: Typings.StageShowType
+  private handleResizeStage: Typings.EventHandle
+
   public canvas: Element
   public term: Term
   public dosbox: DOSBox
@@ -23,8 +25,8 @@ export default class Stage {
     this.term = new Term()
     this.canvas = new Element(['stage', 'hidden'], null, 'canvas')
 
-    window.addEventListener('resize', this.resize.bind(this))
-    this.resize()
+    this.handleResizeStage = this.resize.bind(this)
+    window.addEventListener('resize', this.handleResizeStage)
 
     const spinner = new Element(document.getElementById('spinner'))
     spinner.addClass('fadeout')
@@ -102,7 +104,7 @@ export default class Stage {
 
   public resize (): void {
     if (this.dosbox) {
-      let { innerWidth: width, innerHeight: height } = window
+      const { innerWidth: width, innerHeight: height } = window
       this.dosbox.setSize(width, height)
     }
   }
@@ -115,10 +117,13 @@ export default class Stage {
   }
 
   public destroy (): void {
+    window.removeEventListener('resize', this.handleResizeStage)
+
     this.canvas.destroy()
     this.term.destroy()
     this.dosbox.destroy()
 
+    this.handleResizeStage = undefined
     this.canvas = undefined
     this.term = undefined
     this.dosbox = undefined
