@@ -178,8 +178,8 @@ export const xuanyuanjian: Typings.GameInfo = {
           type: 'round',
           size: 50,
           position: {
-            right: 135,
-            bottom: 120
+            right: 150,
+            bottom: 50
           }
         }
       },
@@ -190,8 +190,8 @@ export const xuanyuanjian: Typings.GameInfo = {
           type: 'round',
           size: 50,
           position: {
-            right: 150,
-            bottom: 50
+            right: 135,
+            bottom: 120
           }
         }
       }
