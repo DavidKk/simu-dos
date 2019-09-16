@@ -1,7 +1,6 @@
 import * as Typings from '../typings'
 
-export const language = window.navigator.language
-export const isChinese = /zh/i.test(language.toLocaleLowerCase())
+export const useLanguage = window.navigator.language
 
 export const en: Typings.LangDescription = {
   game: {
@@ -60,21 +59,33 @@ export const tc: Typings.LangDescription = {
   }
 }
 
-export const description = (() => {
-  const lang = language.toLocaleLowerCase()
+export const language = (() => {
+  const lang = useLanguage.toLocaleLowerCase()
   if (/zh-cn/i.test(lang)) {
-    return cn
+    return 'cn'
   }
 
   if (/(zh-hk|zh-sg|zh-tw)/i.test(lang)) {
-    return tc
+    return 'tc'
   }
 
-  return en
+  return 'en'
+})()
+
+export const description = (() => {
+  switch (language) {
+    case 'cn':
+      return cn
+    case 'tc':
+      return tc
+    case 'en':
+    default:
+      return en
+  }
 })()
 
 export const get = (languages: Typings.LangOptions = {}, defaultValue?: any) => {
-  const lang = language.toLocaleLowerCase()
+  const lang = useLanguage.toLocaleLowerCase()
   if (/zh-cn/i.test(lang)) {
     return languages.cn
   }
