@@ -1,3 +1,10 @@
+// Utils
+export type Lang<T> = {
+  cn?: T
+  tc?: T
+  en?: T
+}
+
 // Events
 export type Event = TouchEvent | MouseEvent | PointerEvent | MSPointerEvent
 export type EventHandle = (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => void
@@ -26,6 +33,30 @@ export interface Position {
   left?: StyleValue
 }
 
+// IndexedDB
+export interface IndexedDBStoreOptions {
+  [key: string]: {
+    options?: IDBObjectStoreParameters
+    indexes?: Array<{
+      name: string
+      keyPath: string | string[],
+      options?: IDBIndexParameters
+    }>
+  }
+}
+
+export interface IndexedDBOptions {
+  database: string
+  version: number
+  store: IndexedDBStoreOptions
+}
+
+export type ModelUseType = 'indexedDB'
+
+export interface ModelOptions {
+  use: ModelUseType
+}
+
 // Config
 export type JoystickConf = boolean | Array<{
   keyCode: number,
@@ -47,22 +78,14 @@ export type DPadConf = boolean | Array<{
 export interface GameInfo {
   id: string
   name: string
-  translates?: {
-    cn?: string
-    tc?: string
-    en?: string
-  }
+  translates?: Lang<string>
   cover: string
   type?: string
-  summary?: string | string[] | {
-    cn?: string | string[]
-    tc?: string | string[]
-    en?: string | string[]
-  }
-  developers?: string[] | string
-  publisher?: string[] | string
+  summary?: string | string[] | Lang<string | string[]>
+  developers?: string | string[] | Lang<string | string[]>
+  publisher?: string | string[] | Lang<string | string[]>
   release?: string | Date | number
-  url: string
+  url: string | Lang<string>
   size?: number
   rom?: ArrayBuffer
   command?: Array<string>

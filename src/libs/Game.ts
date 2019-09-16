@@ -10,9 +10,9 @@ import * as games from '../conf/games'
 import { Joystick2DConfig, DPadDefaultConfig } from '../conf/controller'
 import { isMobile } from '../share/device'
 import { supported } from '../share/webAssembly'
+import { md5 } from '../share/encryption'
 import * as Lang from '../share/lang'
 import * as Typings from '../typings'
-import Package from '../../package.json'
 
 /**
  * 游戏类
@@ -58,17 +58,27 @@ export default class Game extends EventEmitter {
     this.controller = new Controller()
     this.disabledContextMenu = false
     this.isPlaying = false
-
-    if (Model.supportIndexedDB) {
-      const [major, minor] = (Package.version as string).split('.')
-      this.model = new Model(`${major}@${(Package.name as string)}`, Number(minor) + 1)
-    }
-
+    this.model = new Model({ use: 'indexedDB' })
     this.stage.appendTo(this.element)
     this.controller.appendTo(this.element)
     this.element.appendTo(document.body)
 
     document.oncontextmenu = () => !this.disabledContextMenu
+  }
+
+  /**
+   * 获取游戏存储的唯一值
+   * @description
+   * 主要用于同一款游戏不同ROM的存储
+   * 例如不同版本语言的游戏
+   */
+  public getGameStoreUniqKey (game: string | Typings.GameInfo): string {
+    if (typeof game === 'string') {
+      return this.getGameStoreUniqKey(games[game])
+    }
+
+    const id: string = game.id
+    return `${id}@${Lang.language}`
   }
 
   /**
@@ -106,13 +116,15 @@ export default class Game extends EventEmitter {
     /**
      * 尝试读取本地存储的WASM
      */
-    const wasm = this.model ? await this.model.loadWasm() : undefined
+    const wasm = await this.model.loadWasm()
 
     /**
      * 尝试读取本地存储的ROM
      */
     const game: Typings.GameInfo = games[id]
-    game.rom = this.model ? await this.model.loadRom(id) : undefined
+    const url: string = typeof game.url === 'string' ? game.url : Lang.get(game.url)
+    const key: string = this.getGameStoreUniqKey(game)
+    game.rom = await this.model.loadRom(key)
 
     /**
      * 开启模拟器
@@ -129,7 +141,7 @@ export default class Game extends EventEmitter {
      */
     this.stage.simulateReset()
     this.stage.toggleTerm(true)
-    await this.stage.simulateInput(`simu-dos play ${game.url}`)
+    await this.stage.simulateInput(`simu-dos play ${url}`)
 
     /**
      * 打印游戏信息
@@ -167,22 +179,22 @@ export default class Game extends EventEmitter {
     }
 
     const onDownloadWasmCompleted = (content: ArrayBuffer) => {
-      this.model && this.model.saveWasm(content)
+      this.model.saveWasm(content)
     }
 
     const romProcessFn = this.stage.progress(`Download ${game.name}, please wait...`)
     const romTermLine = this.stage.term.currentLine
     if (wasm instanceof ArrayBuffer) {
-      romTermLine.setContext(`Find ${game.url} from local file.`)
+      romTermLine.setContext(`Find ${url} from local file.`)
     }
 
     const onDownloadRomProgress = (data): void => {
       const { loaded, total } = data
-      romProcessFn(game.url, loaded, total || game.size)
+      romProcessFn(url, loaded, total || game.size)
     }
 
     const onDownloadRomCompleted = (content: ArrayBuffer) => {
-      this.model && this.model.saveRom(id, content)
+      this.model.saveRom(key, content)
     }
 
     const onExtractCompleted = (): void => {
@@ -309,7 +321,7 @@ export default class Game extends EventEmitter {
      * 每三秒进行一次存档保存
      */
     if (game.save) {
-      await this.loadArchiveFromDB(game)
+      // await this.loadArchiveFromDB(game)
       const interval = () => this.saveArchiveFromDB(game)
       this.syncIntervalId = setInterval(interval, 3e3)
     }
@@ -345,11 +357,8 @@ export default class Game extends EventEmitter {
    * @returns {Promise}
    */
   public async saveArchiveFromDB (game: Typings.GameInfo): Promise<void> {
-    if (!this.model) {
-      return Promise.resolve()
-    }
-
-    const { id, save } = game
+    const { save } = game
+    const romId: string = this.getGameStoreUniqKey(game)
     const files = await this.dosbox.searchFiles(save.path, save.regexp || /.*/)
     if (files.length === 0) {
       return
@@ -357,7 +366,7 @@ export default class Game extends EventEmitter {
 
     const datas = files.map((file) => {
       const content = this.dosbox.readFile(file)
-      return { romId: id, file, content }
+      return { romId, file, content }
     })
 
     return this.model.saveArchive(datas)
@@ -369,12 +378,9 @@ export default class Game extends EventEmitter {
    * @returns {Promise}
    */
   public loadArchiveFromDB (game: Typings.GameInfo): Promise<void> {
-    if (!this.model) {
-      return Promise.resolve()
-    }
-
-    return this.model.loadArchive(game.id).then((files) => {
-      files.forEach(({ file, content }) => {
+    const key: string = this.getGameStoreUniqKey(game)
+    return this.model.loadArchive(key).then((files) => {
+      Array.isArray(files) && files.forEach(({ file, content }) => {
         this.dosbox.writeFile(file, content)
       })
     })
@@ -389,6 +395,9 @@ export default class Game extends EventEmitter {
     this.disabledContextMenu = process.env.NODE_ENV === 'development' ? false : disable
   }
 
+  /**
+   * 销毁
+   */
   public destroy (): void {
     this.removeAllListeners()
 
