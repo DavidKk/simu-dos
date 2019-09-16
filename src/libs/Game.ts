@@ -59,8 +59,10 @@ export default class Game extends EventEmitter {
     this.disabledContextMenu = false
     this.isPlaying = false
 
-    const [major, minor] = (Package.version as string).split('.')
-    this.model = new Model(`${major}@${(Package.name as string)}`, Number(minor) + 1)
+    if (Model.supportIndexedDB) {
+      const [major, minor] = (Package.version as string).split('.')
+      this.model = new Model(`${major}@${(Package.name as string)}`, Number(minor) + 1)
+    }
 
     this.stage.appendTo(this.element)
     this.controller.appendTo(this.element)
@@ -104,13 +106,13 @@ export default class Game extends EventEmitter {
     /**
      * 尝试读取本地存储的WASM
      */
-    const wasm = await this.model.loadWasm()
+    const wasm = this.model ? await this.model.loadWasm() : undefined
 
     /**
      * 尝试读取本地存储的ROM
      */
     const game: Typings.GameInfo = games[id]
-    game.rom = await this.model.loadRom(id)
+    game.rom = this.model ? await this.model.loadRom(id) : undefined
 
     /**
      * 开启模拟器
@@ -165,7 +167,7 @@ export default class Game extends EventEmitter {
     }
 
     const onDownloadWasmCompleted = (content: ArrayBuffer) => {
-      this.model.saveWasm(content)
+      this.model && this.model.saveWasm(content)
     }
 
     const romProcessFn = this.stage.progress(`Download ${game.name}, please wait...`)
@@ -180,7 +182,7 @@ export default class Game extends EventEmitter {
     }
 
     const onDownloadRomCompleted = (content: ArrayBuffer) => {
-      this.model.saveRom(id, content)
+      this.model && this.model.saveRom(id, content)
     }
 
     const onExtractCompleted = (): void => {
@@ -308,11 +310,7 @@ export default class Game extends EventEmitter {
      */
     if (game.save) {
       await this.loadArchiveFromDB(game)
-
-      const interval = async () => {
-        await this.saveArchiveFromDB(game)
-      }
-
+      const interval = () => this.saveArchiveFromDB(game)
       this.syncIntervalId = setInterval(interval, 3e3)
     }
   }
@@ -347,6 +345,10 @@ export default class Game extends EventEmitter {
    * @returns {Promise}
    */
   public async saveArchiveFromDB (game: Typings.GameInfo): Promise<void> {
+    if (!this.model) {
+      return Promise.resolve()
+    }
+
     const { id, save } = game
     const files = await this.dosbox.searchFiles(save.path, save.regexp || /.*/)
     if (files.length === 0) {
@@ -367,6 +369,10 @@ export default class Game extends EventEmitter {
    * @returns {Promise}
    */
   public loadArchiveFromDB (game: Typings.GameInfo): Promise<void> {
+    if (!this.model) {
+      return Promise.resolve()
+    }
+
     return this.model.loadArchive(game.id).then((files) => {
       files.forEach(({ file, content }) => {
         this.dosbox.writeFile(file, content)

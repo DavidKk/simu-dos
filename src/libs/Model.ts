@@ -4,6 +4,7 @@ import * as Typings from '../typings'
 const indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB
 
 export default class Model {
+  static supportIndexedDB = !!indexedDB
   private db: IDBDatabase
   public database: string
   public version: number
@@ -13,6 +14,9 @@ export default class Model {
     this.version = version
   }
 
+  /**
+   * 初始化数据表
+   */
   public initTables (): void {
     if (!this.db) {
       return
@@ -29,6 +33,11 @@ export default class Model {
     saveStore.createIndex('romId', 'romId', { unique: false })
   }
 
+  /**
+   * 重置数据表
+   * @description
+   * 主要用于数据表升级不兼容的情况
+   */
   public async recover (): Promise<IDBDatabase> {
     return new Promise((resolve, reject) => {
       this.db && this.db.close()
@@ -41,6 +50,10 @@ export default class Model {
   }
 
   public open (database: string = this.database, version: number = this.version): Promise<IDBDatabase> {
+    if (!Model.supportIndexedDB) {
+      return Promise.reject(new Error('IndexedDB is not support'))
+    }
+
     return new Promise((resolve, reject) => {
       if (this.db) {
         resolve(this.db)
