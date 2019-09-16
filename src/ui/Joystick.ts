@@ -71,7 +71,7 @@ export default class Joystick extends Component {
     event.stopPropagation()
 
     this.setStickCoord({ x: 0, y: 0 })
-    this.stand.addClass('active')
+    this.stand.removeClass('active')
     this.emit('actions', { type: 'up' })
 
     this.body.unbind(TouchEvents.move, this.handleZoneTouchMove)
