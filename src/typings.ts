@@ -1,20 +1,39 @@
-// Utils
-export type Lang<T> = {
+// Events
+// -----------------------
+
+export type Event = TouchEvent | MouseEvent | PointerEvent | MSPointerEvent
+export type EventHandle = (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => void
+
+// Localization
+// -----------------------
+
+export type i18nType<T> = {
   cn?: T
   tc?: T
   en?: T
 }
 
-// Events
-export type Event = TouchEvent | MouseEvent | PointerEvent | MSPointerEvent
-export type EventHandle = (event: TouchEvent | MouseEvent | PointerEvent | MSPointerEvent) => void
-
-export interface DosBoxProgressEvent {
-  loaded: number
-  total: number
+export interface I18nTranslation {
+  support: {
+    webassembly: string[],
+    indexedDB: string[]
+  },
+  game: {
+    name: string
+    type: string
+    summary: string
+    developers: string
+    publisher: string
+    release: string
+  },
+  qrcode: {
+    label: string
+  }
 }
 
-// Styles
+// Style & Position
+// -----------------------
+
 export type StyleValue = string | number
 export type StyleSize = StyleValue | {
   width: StyleValue
@@ -33,7 +52,105 @@ export interface Position {
   left?: StyleValue
 }
 
-// IndexedDB
+export type ElementClassNameItem = string | { [key: string]: boolean }
+export interface ElementClassNameArray extends Array<ElementClassNameItem | ElementClassNameArray> {}
+export type ElementClassNames = ElementClassNameItem | ElementClassNameArray
+
+// Buttons
+// -----------------------
+
+export type ButtonType = 'normal' | 'round'
+
+export interface ButtonOptions {
+  type?: ButtonType,
+  position?: Position
+  size?: StyleValue
+}
+
+// KeyPad
+// -----------------------
+
+export type KeyPadConf = Array<{
+  context: string
+  keyCode?: number
+  action?: string
+  options?: ButtonOptions
+}>
+
+// DPad
+// ------------------------
+
+export type DPadDirectionType = 'up' | 'down' | 'left' | 'right'
+
+export type DPadConf = boolean | Array<{
+  keyCode: number
+  direction: DPadDirectionType
+}>
+
+// Joystick
+// ------------------------
+
+export type JoystickDirectionType = 'up' | 'down' | 'left' | 'right'
+export type JoystickConf = boolean | Array<{
+  keyCode: number,
+  direction: JoystickDirectionType | Array<JoystickDirectionType>
+}>
+
+export interface JoystickDirection {
+  x: JoystickDirectionType
+  y: JoystickDirectionType
+  angle: JoystickDirectionType
+}
+
+export interface JoystickEventDatas {
+  coord: Point
+  size: number
+  distance: number
+  angle: number
+  radian: number
+  direction: JoystickDirection
+}
+
+// Game List
+// ------------------------
+
+export interface GameInformationPlay {
+  joystick?: JoystickConf
+  keypad?: KeyPadConf
+  dpad?: DPadConf
+  keyboad?: boolean
+}
+
+export interface GameInformation {
+  id: string
+  name: string
+  translates?: i18nType<string>
+  cover: string
+  type?: string
+  summary?: string | string[] | i18nType<string | string[]>
+  developers?: string | string[] | i18nType<string | string[]>
+  publisher?: string | string[] | i18nType<string | string[]>
+  release?: string | Date | number
+  url: string | i18nType<string>
+  size?: number
+  rom?: ArrayBuffer
+  command?: Array<string>
+  save?: {
+    path: string
+    regexp: RegExp
+  }
+  play?: GameInformationPlay
+}
+
+// Model & IndexedDB
+// --------------------
+
+export interface Archive {
+  romId: string
+  file: string
+  content: ArrayBuffer
+}
+
 export interface IndexedDBStoreOptions {
   [key: string]: {
     options?: IDBObjectStoreParameters
@@ -57,84 +174,14 @@ export interface ModelOptions {
   use: ModelUseType
 }
 
-// Config
-export type JoystickConf = boolean | Array<{
-  keyCode: number,
-  direction: JoystickDirectionType | Array<JoystickDirectionType>
-}>
+// DosBox
+// ---------------------
 
-export type KeypadConf = Array<{
-  context: string
-  keyCode?: number
-  action?: string
-  options?: ButtonOptions
-}>
-
-export type DPadConf = boolean | Array<{
-  keyCode: number
-  direction: DPadDirectionType
-}>
-
-export interface GameInfo {
-  id: string
-  name: string
-  translates?: Lang<string>
-  cover: string
-  type?: string
-  summary?: string | string[] | Lang<string | string[]>
-  developers?: string | string[] | Lang<string | string[]>
-  publisher?: string | string[] | Lang<string | string[]>
-  release?: string | Date | number
-  url: string | Lang<string>
-  size?: number
-  rom?: ArrayBuffer
-  command?: Array<string>
-  save?: {
-    path: string
-    regexp: RegExp
-  }
-  play?: {
-    joystick?: JoystickConf
-    keypad?: KeypadConf
-    dpad?: DPadConf
-    keyboad?: boolean
-  }
+export interface DosBoxProgressEvent {
+  loaded: number
+  total: number
 }
 
-// Buttons
-export type ButtonType = 'normal' | 'round'
-
-export interface ButtonOptions {
-  type?: ButtonType,
-  position?: Position
-  size?: StyleValue
-}
-
-// DPad
-export type DPadDirectionType = 'up' | 'down' | 'left' | 'right'
-
-// Joystick
-export type JoystickDirectionType = 'up' | 'down' | 'left' | 'right'
-
-export interface JoystickDirection {
-  x: JoystickDirectionType
-  y: JoystickDirectionType
-  angle: JoystickDirectionType
-}
-
-export interface JoystickEventDatas {
-  coord: Point
-  size: number
-  distance: number
-  angle: number
-  radian: number
-  direction: JoystickDirection
-}
-
-// Controller
-export type ControllerActionType = 'joystick' | 'keydown'
-
-// Dosbox
 export interface DosBoxOptions {
   wasm?: ArrayBuffer
   wasmUrl?: string
@@ -175,39 +222,12 @@ export interface DosBoxFetchTask {
   cancel: (message?: string) => void
 }
 
-// Game
-export interface GameDBOptions {
-  pattern?: RegExp
-}
+// Controller
+// ----------------------
 
-// Files
-export interface Archive {
-  romId: string
-  file: string
-  content: ArrayBuffer
-}
-
-// Langs
-export interface LangDescription {
-  game: {
-    name: string
-    type: string
-    summary: string
-    developers: string
-    publisher: string
-    release: string
-  },
-  supportWebassembly: string[],
-  qrcode: {
-    label: string
-  }
-}
-
-export interface LangOptions {
-  cn?: any
-  tc?: any
-  en?: any
-}
+export type ControllerActionType = 'joystick' | 'keydown'
 
 // Stage
+// ------------------------
+
 export type StageShowType = 'term' | 'canvas'

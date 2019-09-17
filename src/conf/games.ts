@@ -1,7 +1,7 @@
 import { Joystick3DConfig } from './controller'
 import * as Typings from '../typings'
 
-export const xjqxz: Typings.GameInfo = {
+export const xjqxz: Typings.GameInformation = {
   id: 'xjqxz',
   name: '仙劍奇俠傳',
   translates: {
@@ -53,7 +53,7 @@ export const xjqxz: Typings.GameInfo = {
   }
 }
 
-export const jyqxz: Typings.GameInfo = {
+export const jyqxz: Typings.GameInformation = {
   id: 'jyqxz',
   name: '金庸群俠傳',
   translates: {
@@ -130,7 +130,7 @@ export const jyqxz: Typings.GameInfo = {
   }
 }
 
-export const xuanyuanjian: Typings.GameInfo = {
+export const xuanyuanjian: Typings.GameInformation = {
   id: 'xuanyuanjian',
   name: '軒轅劍',
   translates: {
@@ -199,7 +199,7 @@ export const xuanyuanjian: Typings.GameInfo = {
   }
 }
 
-// export const xuanyuanjian2: Typings.GameInfo = {
+// export const xuanyuanjian2: Typings.GameInformation = {
 //   id: 'xuanyuanjian2',
 //   name: '軒轅劍2',
 //   translates: {
@@ -220,7 +220,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   command: ['SWD2.EXE']
 // }
 
-// export const mncs2000: Typings.GameInfo = {
+// export const mncs2000: Typings.GameInformation = {
 //   name: '模拟城市2000',
 //   translates: {
 //     cn: '模拟城市 2000',
@@ -230,7 +230,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   command: ['SC2000.EXE']
 // }
 
-// export const 美少女梦工厂2: Typings.GameInfo = {
+// export const 美少女梦工厂2: Typings.GameInformation = {
 //   translates: {
 //     cn: '美少女梦工厂 2',
 //     tc: '美少女夢工廠 2',
@@ -241,7 +241,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 同级生2: Typings.GameInfo = {
+// export const 同级生2: Typings.GameInformation = {
 //   translates: {
 //     cn: '同级生 2',
 //     tc: '同級生 2',
@@ -252,7 +252,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大富翁3: Typings.GameInfo = {
+// export const 大富翁3: Typings.GameInformation = {
 //   translates: {
 //     cn: '大富翁3',
 //     tc: '大富翁3',
@@ -263,7 +263,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 明星志愿1: Typings.GameInfo = {
+// export const 明星志愿1: Typings.GameInformation = {
 //   translates: {
 //     cn: '明星志愿1',
 //     tc: '明星志願1',
@@ -274,7 +274,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国志4: Typings.GameInfo = {
+// export const 三国志4: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国志IV',
 //     tc: '三國志IV',
@@ -285,7 +285,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 皇帝: Typings.GameInfo = {
+// export const 皇帝: Typings.GameInformation = {
 //   translates: {
 //     cn: '皇帝',
 //     tc: '皇帝',
@@ -296,7 +296,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 轩辕剑外传：枫之舞: Typings.GameInfo = {
+// export const 轩辕剑外传：枫之舞: Typings.GameInformation = {
 //   translates: {
 //     cn: '轩辕剑外传：枫之舞',
 //     tc: '軒轅劍外傳：楓之舞',
@@ -307,7 +307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狂医院: Typings.GameInfo = {
+// export const 疯狂医院: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狂医院',
 //     tc: '瘋狂醫院',
@@ -318,7 +318,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大航海时代: Typings.GameInfo = {
+// export const 大航海时代: Typings.GameInformation = {
 //   translates: {
 //     cn: '大航海时代',
 //     tc: '大航海時代',
@@ -329,7 +329,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大航海时代2: Typings.GameInfo = {
+// export const 大航海时代2: Typings.GameInformation = {
 //   translates: {
 //     cn: '大航海时代2',
 //     tc: '大航海時代2',
@@ -340,7 +340,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银河英雄传说3SP: Typings.GameInfo = {
+// export const 银河英雄传说3SP: Typings.GameInformation = {
 //   translates: {
 //     cn: '银河英雄传说III SP',
 //     tc: '銀河英雄傳說III SP',
@@ -351,7 +351,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国志2: Typings.GameInfo = {
+// export const 三国志2: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国志II',
 //     tc: '三國志II',
@@ -362,7 +362,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国志3: Typings.GameInfo = {
+// export const 三国志3: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国志III',
 //     tc: '三國志III',
@@ -373,7 +373,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国志5: Typings.GameInfo = {
+// export const 三国志5: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国志V',
 //     tc: '三國志V',
@@ -384,7 +384,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国志5X: Typings.GameInfo = {
+// export const 三国志5X: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国志V 威力加强版',
 //     tc: '三國志V 威力加強版',
@@ -395,7 +395,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国志英杰传: Typings.GameInfo = {
+// export const 三国志英杰传: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国志英杰传',
 //     tc: '三國志英傑傳',
@@ -406,7 +406,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 主题医院: Typings.GameInfo = {
+// export const 主题医院: Typings.GameInformation = {
 //   translates: {
 //     cn: '主题医院 无声音版',
 //     tc: '杏林也瘋狂',
@@ -417,7 +417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国演义: Typings.GameInfo = {
+// export const 三国演义: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国演义',
 //     tc: '三國演義',
@@ -428,7 +428,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三界谕邦沛之迷: Typings.GameInfo = {
+// export const 三界谕邦沛之迷: Typings.GameInformation = {
 //   translates: {
 //     cn: '三界谕：邦沛之迷',
 //     tc: '三界諭：邦沛之謎',
@@ -439,7 +439,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 殖民计划: Typings.GameInfo = {
+// export const 殖民计划: Typings.GameInformation = {
 //   translates: {
 //     cn: '殖民计划',
 //     tc: '殖民計畫',
@@ -450,7 +450,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 炎龙骑士团2黄金城之谜: Typings.GameInfo = {
+// export const 炎龙骑士团2黄金城之谜: Typings.GameInformation = {
 //   translates: {
 //     cn: '炎龙骑士团II‧黄金城之谜',
 //     tc: '炎龍騎士團II‧黃金城之謎',
@@ -461,7 +461,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 倚天屠龙记: Typings.GameInfo = {
+// export const 倚天屠龙记: Typings.GameInformation = {
 //   translates: {
 //     cn: '倚天屠龙记',
 //     tc: '倚天屠龍記',
@@ -472,7 +472,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 信长之野望天翔记: Typings.GameInfo = {
+// export const 信长之野望天翔记: Typings.GameInformation = {
 //   translates: {
 //     cn: '信长之野望·天翔记',
 //     tc: '信長之野望·天翔記',
@@ -483,7 +483,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 信长之野望霸王传: Typings.GameInfo = {
+// export const 信长之野望霸王传: Typings.GameInformation = {
 //   translates: {
 //     cn: '信长之野望·霸王传',
 //     tc: '信長之野望·霸王傳',
@@ -494,7 +494,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 金瓶梅: Typings.GameInfo = {
+// export const 金瓶梅: Typings.GameInformation = {
 //   translates: {
 //     cn: '金瓶梅之偷情宝鉴',
 //     tc: '金瓶梅之偷情寶鑑',
@@ -505,7 +505,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 江南才子唐伯虎: Typings.GameInfo = {
+// export const 江南才子唐伯虎: Typings.GameInformation = {
 //   translates: {
 //     cn: '江南才子唐伯虎',
 //     tc: '江南才子唐伯虎',
@@ -516,7 +516,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 暗棋圣手: Typings.GameInfo = {
+// export const 暗棋圣手: Typings.GameInformation = {
 //   translates: {
 //     cn: '暗棋圣手',
 //     tc: '暗棋聖手',
@@ -527,7 +527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 太阁立志传: Typings.GameInfo = {
+// export const 太阁立志传: Typings.GameInformation = {
 //   translates: {
 //     cn: '太阁立志传',
 //     tc: '太閤立志傳',
@@ -538,7 +538,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 非洲探险2: Typings.GameInfo = {
+// export const 非洲探险2: Typings.GameInformation = {
 //   translates: {
 //     cn: '非洲探险2',
 //     tc: '非洲探險2',
@@ -549,7 +549,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 主题医院S: Typings.GameInfo = {
+// export const 主题医院S: Typings.GameInformation = {
 //   translates: {
 //     cn: '主题医院',
 //     tc: '杏林也瘋狂',
@@ -560,7 +560,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 航空霸业2: Typings.GameInfo = {
+// export const 航空霸业2: Typings.GameInformation = {
 //   translates: {
 //     cn: '航空霸业2',
 //     tc: '航空霸業2',
@@ -571,7 +571,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 中国球王: Typings.GameInfo = {
+// export const 中国球王: Typings.GameInformation = {
 //   translates: {
 //     cn: '中国球王',
 //     tc: '中國球王',
@@ -582,7 +582,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 艾蒂丝魔法大冒险: Typings.GameInfo = {
+// export const 艾蒂丝魔法大冒险: Typings.GameInformation = {
 //   translates: {
 //     cn: '艾蒂丝魔法大冒险',
 //     tc: '艾蒂絲魔法大冒險',
@@ -593,7 +593,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 卧龙传: Typings.GameInfo = {
+// export const 卧龙传: Typings.GameInformation = {
 //   translates: {
 //     cn: '卧龙传',
 //     tc: '臥龍傳',
@@ -604,7 +604,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天使帝国: Typings.GameInfo = {
+// export const 天使帝国: Typings.GameInformation = {
 //   translates: {
 //     cn: '天使帝国',
 //     tc: '天使帝國',
@@ -615,7 +615,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔域传说4波斯战记: Typings.GameInfo = {
+// export const 魔域传说4波斯战记: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔域传说Ⅳ：波斯战记',
 //     tc: '魔域传说Ⅳ：波斯战记',
@@ -626,7 +626,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法公主: Typings.GameInfo = {
+// export const 魔法公主: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法公主',
 //     tc: '魔法公主',
@@ -637,7 +637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 1000公里: Typings.GameInfo = {
+// export const 1000公里: Typings.GameInformation = {
 //   translates: {
 //     cn: '1000公里'
 //   },
@@ -647,7 +647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 1000米利亚: Typings.GameInfo = {
+// export const 1000米利亚: Typings.GameInformation = {
 //   translates: {
 //     cn: '1000米利亚'
 //   },
@@ -657,7 +657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 1-0足球经理: Typings.GameInfo = {
+// export const 1-0足球经理: Typings.GameInformation = {
 //   translates: {
 //     cn: '1-0足球经理'
 //   },
@@ -667,7 +667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 1830铁路公爵: Typings.GameInfo = {
+// export const 1830铁路公爵: Typings.GameInformation = {
 //   translates: {
 //     cn: '1830铁路公爵'
 //   },
@@ -677,7 +677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 1869大航海: Typings.GameInfo = {
+// export const 1869大航海: Typings.GameInformation = {
 //   translates: {
 //     cn: '1869大航海'
 //   },
@@ -687,7 +687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 1942特种部队: Typings.GameInfo = {
+// export const 1942特种部队: Typings.GameInformation = {
 //   translates: {
 //     cn: '1942特种部队'
 //   },
@@ -697,7 +697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 2001特遣队: Typings.GameInfo = {
+// export const 2001特遣队: Typings.GameInformation = {
 //   translates: {
 //     cn: '2001特遣队'
 //   },
@@ -707,7 +707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 2601帝国联合舰队: Typings.GameInfo = {
+// export const 2601帝国联合舰队: Typings.GameInformation = {
 //   translates: {
 //     cn: '2601帝国联合舰队'
 //   },
@@ -717,7 +717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 3D俄罗斯: Typings.GameInfo = {
+// export const 3D俄罗斯: Typings.GameInformation = {
 //   translates: {
 //     cn: '3D俄罗斯'
 //   },
@@ -727,7 +727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 3D魔方: Typings.GameInfo = {
+// export const 3D魔方: Typings.GameInformation = {
 //   translates: {
 //     cn: '3D魔方'
 //   },
@@ -737,7 +737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 3D陨石: Typings.GameInfo = {
+// export const 3D陨石: Typings.GameInformation = {
 //   translates: {
 //     cn: '3D陨石'
 //   },
@@ -747,7 +747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 3D炸弹人: Typings.GameInfo = {
+// export const 3D炸弹人: Typings.GameInformation = {
 //   translates: {
 //     cn: '3D炸弹人'
 //   },
@@ -757,7 +757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 3D桌上体育: Typings.GameInfo = {
+// export const 3D桌上体育: Typings.GameInformation = {
 //   translates: {
 //     cn: '3D桌上体育'
 //   },
@@ -767,7 +767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 3x3只眼: Typings.GameInfo = {
+// export const 3x3只眼: Typings.GameInformation = {
 //   translates: {
 //     cn: '3x3只眼'
 //   },
@@ -777,7 +777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 4D网球: Typings.GameInfo = {
+// export const 4D网球: Typings.GameInformation = {
 //   translates: {
 //     cn: '4D网球'
 //   },
@@ -787,7 +787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 66区: Typings.GameInfo = {
+// export const 66区: Typings.GameInformation = {
 //   translates: {
 //     cn: '66区'
 //   },
@@ -797,7 +797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 688攻击潜艇: Typings.GameInfo = {
+// export const 688攻击潜艇: Typings.GameInformation = {
 //   translates: {
 //     cn: '688攻击潜艇'
 //   },
@@ -807,7 +807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 80年空中激斗: Typings.GameInfo = {
+// export const 80年空中激斗: Typings.GameInformation = {
 //   translates: {
 //     cn: '80年空中激斗'
 //   },
@@ -817,7 +817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 94美国世界杯: Typings.GameInfo = {
+// export const 94美国世界杯: Typings.GameInformation = {
 //   translates: {
 //     cn: '94美国世界杯'
 //   },
@@ -827,7 +827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 97超少女: Typings.GameInfo = {
+// export const 97超少女: Typings.GameInformation = {
 //   translates: {
 //     cn: '97超少女'
 //   },
@@ -837,7 +837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const A320空中客机: Typings.GameInfo = {
+// export const A320空中客机: Typings.GameInformation = {
 //   translates: {
 //     cn: 'A320空中客机'
 //   },
@@ -847,7 +847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const ALPHA风暴: Typings.GameInfo = {
+// export const ALPHA风暴: Typings.GameInformation = {
 //   translates: {
 //     cn: 'ALPHA风暴'
 //   },
@@ -857,7 +857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const B17飞行堡垒: Typings.GameInfo = {
+// export const B17飞行堡垒: Typings.GameInformation = {
 //   translates: {
 //     cn: 'B17飞行堡垒'
 //   },
@@ -867,7 +867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const BOPPIN物理游戏: Typings.GameInfo = {
+// export const BOPPIN物理游戏: Typings.GameInformation = {
 //   translates: {
 //     cn: 'BOPPIN物理游戏'
 //   },
@@ -877,7 +877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const CBA嘉年华: Typings.GameInfo = {
+// export const CBA嘉年华: Typings.GameInformation = {
 //   translates: {
 //     cn: 'CBA嘉年华'
 //   },
@@ -887,7 +887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const Dvorak打字: Typings.GameInfo = {
+// export const Dvorak打字: Typings.GameInformation = {
 //   translates: {
 //     cn: 'Dvorak打字'
 //   },
@@ -897,7 +897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const D计划: Typings.GameInfo = {
+// export const D计划: Typings.GameInformation = {
 //   translates: {
 //     cn: 'D计划'
 //   },
@@ -907,7 +907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const ES方程式: Typings.GameInfo = {
+// export const ES方程式: Typings.GameInformation = {
 //   translates: {
 //     cn: 'ES方程式'
 //   },
@@ -917,7 +917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const F14战机: Typings.GameInfo = {
+// export const F14战机: Typings.GameInformation = {
 //   translates: {
 //     cn: 'F14战机'
 //   },
@@ -927,7 +927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const F15战斗机: Typings.GameInfo = {
+// export const F15战斗机: Typings.GameInformation = {
 //   translates: {
 //     cn: 'F15战斗机'
 //   },
@@ -937,7 +937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const F1赛车1994: Typings.GameInfo = {
+// export const F1赛车1994: Typings.GameInformation = {
 //   translates: {
 //     cn: 'F1赛车1994'
 //   },
@@ -947,7 +947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const F1赛车经理: Typings.GameInfo = {
+// export const F1赛车经理: Typings.GameInformation = {
 //   translates: {
 //     cn: 'F1赛车经理'
 //   },
@@ -957,7 +957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const FIFA1996: Typings.GameInfo = {
+// export const FIFA1996: Typings.GameInformation = {
 //   translates: {
 //     cn: 'FIFA1996'
 //   },
@@ -967,7 +967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const FIFA97: Typings.GameInfo = {
+// export const FIFA97: Typings.GameInformation = {
 //   translates: {
 //     cn: 'FIFA97'
 //   },
@@ -977,7 +977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const FX战士: Typings.GameInfo = {
+// export const FX战士: Typings.GameInformation = {
 //   translates: {
 //     cn: 'FX战士'
 //   },
@@ -987,7 +987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const GEEK游戏集: Typings.GameInfo = {
+// export const GEEK游戏集: Typings.GameInformation = {
 //   translates: {
 //     cn: 'GEEK游戏集'
 //   },
@@ -997,7 +997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const GP500摩托赛: Typings.GameInfo = {
+// export const GP500摩托赛: Typings.GameInformation = {
 //   translates: {
 //     cn: 'GP500摩托赛'
 //   },
@@ -1007,7 +1007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const GT赛车97: Typings.GameInfo = {
+// export const GT赛车97: Typings.GameInformation = {
 //   translates: {
 //     cn: 'GT赛车97'
 //   },
@@ -1017,7 +1017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const MAX机械突袭: Typings.GameInfo = {
+// export const MAX机械突袭: Typings.GameInformation = {
 //   translates: {
 //     cn: 'MAX机械突袭'
 //   },
@@ -1027,7 +1027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const NBA嘉年华: Typings.GameInfo = {
+// export const NBA嘉年华: Typings.GameInformation = {
 //   translates: {
 //     cn: 'NBA嘉年华'
 //   },
@@ -1037,7 +1037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const NBA直播: Typings.GameInfo = {
+// export const NBA直播: Typings.GameInformation = {
 //   translates: {
 //     cn: 'NBA直播'
 //   },
@@ -1047,7 +1047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const Nectaris: Typings.GameInfo = {
+// export const Nectaris: Typings.GameInformation = {
 //   translates: {
 //     cn: 'Nectaris'
 //   },
@@ -1057,7 +1057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const PCE合集(执行PCE+文件名): Typings.GameInfo = {
+// export const PCE合集(执行PCE+文件名): Typings.GameInformation = {
 //   translates: {
 //     cn: 'PCE合集(执行PCE+文件名)'
 //   },
@@ -1067,7 +1067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const PC拉力赛: Typings.GameInfo = {
+// export const PC拉力赛: Typings.GameInformation = {
 //   translates: {
 //     cn: 'PC拉力赛'
 //   },
@@ -1077,7 +1077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const PC原人: Typings.GameInfo = {
+// export const PC原人: Typings.GameInformation = {
 //   translates: {
 //     cn: 'PC原人'
 //   },
@@ -1087,7 +1087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const PC原人2: Typings.GameInfo = {
+// export const PC原人2: Typings.GameInformation = {
 //   translates: {
 //     cn: 'PC原人2'
 //   },
@@ -1097,7 +1097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const PSY幽记: Typings.GameInfo = {
+// export const PSY幽记: Typings.GameInformation = {
 //   translates: {
 //     cn: 'PSY幽记'
 //   },
@@ -1107,7 +1107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const QQ三国志: Typings.GameInfo = {
+// export const QQ三国志: Typings.GameInformation = {
 //   translates: {
 //     cn: 'QQ三国志'
 //   },
@@ -1117,7 +1117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const RS2: Typings.GameInfo = {
+// export const RS2: Typings.GameInformation = {
 //   translates: {
 //     cn: 'RS2'
 //   },
@@ -1127,7 +1127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const SU27侧翼部队: Typings.GameInfo = {
+// export const SU27侧翼部队: Typings.GameInformation = {
 //   translates: {
 //     cn: 'SU27侧翼部队'
 //   },
@@ -1137,7 +1137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const V字战机: Typings.GameInfo = {
+// export const V字战机: Typings.GameInformation = {
 //   translates: {
 //     cn: 'V字战机'
 //   },
@@ -1147,7 +1147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const XATAX战机: Typings.GameInfo = {
+// export const XATAX战机: Typings.GameInformation = {
 //   translates: {
 //     cn: 'XATAX战机'
 //   },
@@ -1157,7 +1157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const X计划: Typings.GameInfo = {
+// export const X计划: Typings.GameInformation = {
 //   translates: {
 //     cn: 'X计划'
 //   },
@@ -1167,7 +1167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const X任务: Typings.GameInfo = {
+// export const X任务: Typings.GameInformation = {
 //   translates: {
 //     cn: 'X任务'
 //   },
@@ -1177,7 +1177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const YAB棒球: Typings.GameInfo = {
+// export const YAB棒球: Typings.GameInformation = {
 //   translates: {
 //     cn: 'YAB棒球'
 //   },
@@ -1187,7 +1187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const YES！HG: Typings.GameInfo = {
+// export const YES！HG: Typings.GameInformation = {
 //   translates: {
 //     cn: 'YES！HG'
 //   },
@@ -1197,7 +1197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const Z字特工队: Typings.GameInfo = {
+// export const Z字特工队: Typings.GameInformation = {
 //   translates: {
 //     cn: 'Z字特工队'
 //   },
@@ -1207,7 +1207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 阿尔比恩: Typings.GameInfo = {
+// export const 阿尔比恩: Typings.GameInformation = {
 //   translates: {
 //     cn: '阿尔比恩'
 //   },
@@ -1217,7 +1217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 阿卡尼亚之地莉娃阴影: Typings.GameInfo = {
+// export const 阿卡尼亚之地莉娃阴影: Typings.GameInformation = {
 //   translates: {
 //     cn: '阿卡尼亚之地莉娃阴影'
 //   },
@@ -1227,7 +1227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 阿卡尼亚之地命运之刃: Typings.GameInfo = {
+// export const 阿卡尼亚之地命运之刃: Typings.GameInformation = {
 //   translates: {
 //     cn: '阿卡尼亚之地命运之刃'
 //   },
@@ -1237,7 +1237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 阿卡尼亚之地星痕: Typings.GameInfo = {
+// export const 阿卡尼亚之地星痕: Typings.GameInformation = {
 //   translates: {
 //     cn: '阿卡尼亚之地星痕'
 //   },
@@ -1247,7 +1247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 阿卡特兹: Typings.GameInfo = {
+// export const 阿卡特兹: Typings.GameInformation = {
 //   translates: {
 //     cn: '阿卡特兹'
 //   },
@@ -1257,7 +1257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 阿拉丁2灯神诅咒: Typings.GameInfo = {
+// export const 阿拉丁2灯神诅咒: Typings.GameInformation = {
 //   translates: {
 //     cn: '阿拉丁2灯神诅咒'
 //   },
@@ -1267,7 +1267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 阿拉丁传奇: Typings.GameInfo = {
+// export const 阿拉丁传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '阿拉丁传奇'
 //   },
@@ -1277,7 +1277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 阿蕾莎冰封世界: Typings.GameInfo = {
+// export const 阿蕾莎冰封世界: Typings.GameInformation = {
 //   translates: {
 //     cn: '阿蕾莎冰封世界'
 //   },
@@ -1287,7 +1287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 阿曼达2525: Typings.GameInfo = {
+// export const 阿曼达2525: Typings.GameInformation = {
 //   translates: {
 //     cn: '阿曼达2525'
 //   },
@@ -1297,7 +1297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 阿曼尼开国启示录: Typings.GameInfo = {
+// export const 阿曼尼开国启示录: Typings.GameInformation = {
 //   translates: {
 //     cn: '阿曼尼开国启示录'
 //   },
@@ -1307,7 +1307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 阿曼尼斯传说3: Typings.GameInfo = {
+// export const 阿曼尼斯传说3: Typings.GameInformation = {
 //   translates: {
 //     cn: '阿曼尼斯传说3'
 //   },
@@ -1317,7 +1317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 阿猫阿狗: Typings.GameInfo = {
+// export const 阿猫阿狗: Typings.GameInformation = {
 //   translates: {
 //     cn: '阿猫阿狗'
 //   },
@@ -1327,7 +1327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 阿瓦隆: Typings.GameInfo = {
+// export const 阿瓦隆: Typings.GameInformation = {
 //   translates: {
 //     cn: '阿瓦隆'
 //   },
@@ -1337,7 +1337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 哀伤罗曼史: Typings.GameInfo = {
+// export const 哀伤罗曼史: Typings.GameInformation = {
 //   translates: {
 //     cn: '哀伤罗曼史'
 //   },
@@ -1347,7 +1347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 埃及统治者: Typings.GameInfo = {
+// export const 埃及统治者: Typings.GameInformation = {
 //   translates: {
 //     cn: '埃及统治者'
 //   },
@@ -1357,7 +1357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 艾薇拉: Typings.GameInfo = {
+// export const 艾薇拉: Typings.GameInformation = {
 //   translates: {
 //     cn: '艾薇拉'
 //   },
@@ -1367,7 +1367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 艾薇拉2: Typings.GameInfo = {
+// export const 艾薇拉2: Typings.GameInformation = {
 //   translates: {
 //     cn: '艾薇拉2'
 //   },
@@ -1377,7 +1377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 艾薇拉动作版: Typings.GameInfo = {
+// export const 艾薇拉动作版: Typings.GameInformation = {
 //   translates: {
 //     cn: '艾薇拉动作版'
 //   },
@@ -1387,7 +1387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 爱之物语: Typings.GameInfo = {
+// export const 爱之物语: Typings.GameInformation = {
 //   translates: {
 //     cn: '爱之物语'
 //   },
@@ -1397,7 +1397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 爱之物语2: Typings.GameInfo = {
+// export const 爱之物语2: Typings.GameInformation = {
 //   translates: {
 //     cn: '爱之物语2'
 //   },
@@ -1407,7 +1407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 爱之物语3: Typings.GameInfo = {
+// export const 爱之物语3: Typings.GameInformation = {
 //   translates: {
 //     cn: '爱之物语3'
 //   },
@@ -1417,7 +1417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 安雅战机: Typings.GameInfo = {
+// export const 安雅战机: Typings.GameInformation = {
 //   translates: {
 //     cn: '安雅战机'
 //   },
@@ -1427,7 +1427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 暗狼(共享版): Typings.GameInfo = {
+// export const 暗狼(共享版): Typings.GameInformation = {
 //   translates: {
 //     cn: '暗狼(共享版)'
 //   },
@@ -1437,7 +1437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 暗棋侏罗纪: Typings.GameInfo = {
+// export const 暗棋侏罗纪: Typings.GameInformation = {
 //   translates: {
 //     cn: '暗棋侏罗纪'
 //   },
@@ -1447,7 +1447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 暗色: Typings.GameInfo = {
+// export const 暗色: Typings.GameInformation = {
 //   translates: {
 //     cn: '暗色'
 //   },
@@ -1457,7 +1457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 暗影术士: Typings.GameInfo = {
+// export const 暗影术士: Typings.GameInformation = {
 //   translates: {
 //     cn: '暗影术士'
 //   },
@@ -1467,7 +1467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 暗影武士: Typings.GameInfo = {
+// export const 暗影武士: Typings.GameInformation = {
 //   translates: {
 //     cn: '暗影武士'
 //   },
@@ -1477,7 +1477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 暗影之地: Typings.GameInfo = {
+// export const 暗影之地: Typings.GameInformation = {
 //   translates: {
 //     cn: '暗影之地'
 //   },
@@ -1487,7 +1487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 暗影之力: Typings.GameInfo = {
+// export const 暗影之力: Typings.GameInformation = {
 //   translates: {
 //     cn: '暗影之力'
 //   },
@@ -1497,7 +1497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 暗之纹章: Typings.GameInfo = {
+// export const 暗之纹章: Typings.GameInformation = {
 //   translates: {
 //     cn: '暗之纹章'
 //   },
@@ -1507,7 +1507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 奥尼大作战2: Typings.GameInfo = {
+// export const 奥尼大作战2: Typings.GameInformation = {
 //   translates: {
 //     cn: '奥尼大作战2'
 //   },
@@ -1517,7 +1517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 八女神物语: Typings.GameInfo = {
+// export const 八女神物语: Typings.GameInformation = {
 //   translates: {
 //     cn: '八女神物语'
 //   },
@@ -1527,7 +1527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 八女神物语2: Typings.GameInfo = {
+// export const 八女神物语2: Typings.GameInformation = {
 //   translates: {
 //     cn: '八女神物语2'
 //   },
@@ -1537,7 +1537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巴克罗杰矩阵立方: Typings.GameInfo = {
+// export const 巴克罗杰矩阵立方: Typings.GameInformation = {
 //   translates: {
 //     cn: '巴克罗杰矩阵立方'
 //   },
@@ -1547,7 +1547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巴克罗杰末日倒数: Typings.GameInfo = {
+// export const 巴克罗杰末日倒数: Typings.GameInformation = {
 //   translates: {
 //     cn: '巴克罗杰末日倒数'
 //   },
@@ -1557,7 +1557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巴士帝国: Typings.GameInfo = {
+// export const 巴士帝国: Typings.GameInformation = {
 //   translates: {
 //     cn: '巴士帝国'
 //   },
@@ -1567,7 +1567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 芭比超级模特: Typings.GameInfo = {
+// export const 芭比超级模特: Typings.GameInformation = {
 //   translates: {
 //     cn: '芭比超级模特'
 //   },
@@ -1577,7 +1577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 白银塔里斯曼传奇: Typings.GameInfo = {
+// export const 白银塔里斯曼传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '白银塔里斯曼传奇'
 //   },
@@ -1587,7 +1587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 百夫长罗马防御: Typings.GameInfo = {
+// export const 百夫长罗马防御: Typings.GameInformation = {
 //   translates: {
 //     cn: '百夫长罗马防御'
 //   },
@@ -1597,7 +1597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 百战百胜: Typings.GameInfo = {
+// export const 百战百胜: Typings.GameInformation = {
 //   translates: {
 //     cn: '百战百胜'
 //   },
@@ -1607,7 +1607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 百战地虫: Typings.GameInfo = {
+// export const 百战地虫: Typings.GameInformation = {
 //   translates: {
 //     cn: '百战地虫'
 //   },
@@ -1617,7 +1617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 百战爬虫: Typings.GameInfo = {
+// export const 百战爬虫: Typings.GameInformation = {
 //   translates: {
 //     cn: '百战爬虫'
 //   },
@@ -1627,7 +1627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 百战水管工: Typings.GameInfo = {
+// export const 百战水管工: Typings.GameInformation = {
 //   translates: {
 //     cn: '百战水管工'
 //   },
@@ -1637,7 +1637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 百战天虫: Typings.GameInfo = {
+// export const 百战天虫: Typings.GameInformation = {
 //   translates: {
 //     cn: '百战天虫'
 //   },
@@ -1647,7 +1647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 百战天虫光碟版: Typings.GameInfo = {
+// export const 百战天虫光碟版: Typings.GameInformation = {
 //   translates: {
 //     cn: '百战天虫光碟版'
 //   },
@@ -1657,7 +1657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 班级99: Typings.GameInfo = {
+// export const 班级99: Typings.GameInformation = {
 //   translates: {
 //     cn: '班级99'
 //   },
@@ -1667,7 +1667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 板球97: Typings.GameInfo = {
+// export const 板球97: Typings.GameInformation = {
 //   translates: {
 //     cn: '板球97'
 //   },
@@ -1677,7 +1677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 棒棒糖: Typings.GameInfo = {
+// export const 棒棒糖: Typings.GameInformation = {
 //   translates: {
 //     cn: '棒棒糖'
 //   },
@@ -1687,7 +1687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 棒球大联盟3: Typings.GameInfo = {
+// export const 棒球大联盟3: Typings.GameInformation = {
 //   translates: {
 //     cn: '棒球大联盟3'
 //   },
@@ -1697,7 +1697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 棒球大联盟4: Typings.GameInfo = {
+// export const 棒球大联盟4: Typings.GameInformation = {
 //   translates: {
 //     cn: '棒球大联盟4'
 //   },
@@ -1707,7 +1707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 宝藏陷阱: Typings.GameInfo = {
+// export const 宝藏陷阱: Typings.GameInformation = {
 //   translates: {
 //     cn: '宝藏陷阱'
 //   },
@@ -1717,7 +1717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 宝里宝气骑士: Typings.GameInfo = {
+// export const 宝里宝气骑士: Typings.GameInformation = {
 //   translates: {
 //     cn: '宝里宝气骑士'
 //   },
@@ -1727,7 +1727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 宝石迷阵: Typings.GameInfo = {
+// export const 宝石迷阵: Typings.GameInformation = {
 //   translates: {
 //     cn: '宝石迷阵'
 //   },
@@ -1737,7 +1737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 堡垒防卫战／领国战役: Typings.GameInfo = {
+// export const 堡垒防卫战／领国战役: Typings.GameInformation = {
 //   translates: {
 //     cn: '堡垒防卫战/领国战役'
 //   },
@@ -1747,7 +1747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 报应: Typings.GameInfo = {
+// export const 报应: Typings.GameInformation = {
 //   translates: {
 //     cn: '报应'
 //   },
@@ -1757,7 +1757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 鲍勃逃离地狱: Typings.GameInfo = {
+// export const 鲍勃逃离地狱: Typings.GameInformation = {
 //   translates: {
 //     cn: '鲍勃逃离地狱'
 //   },
@@ -1767,7 +1767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 鲍勃跳跃因子: Typings.GameInfo = {
+// export const 鲍勃跳跃因子: Typings.GameInformation = {
 //   translates: {
 //     cn: '鲍勃跳跃因子'
 //   },
@@ -1777,7 +1777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 暴力辛迪加: Typings.GameInfo = {
+// export const 暴力辛迪加: Typings.GameInformation = {
 //   translates: {
 //     cn: '暴力辛迪加'
 //   },
@@ -1787,7 +1787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 暴怒终结者: Typings.GameInfo = {
+// export const 暴怒终结者: Typings.GameInformation = {
 //   translates: {
 //     cn: '暴怒终结者'
 //   },
@@ -1797,7 +1797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 爆笑保龄球: Typings.GameInfo = {
+// export const 爆笑保龄球: Typings.GameInformation = {
 //   translates: {
 //     cn: '爆笑保龄球'
 //   },
@@ -1807,7 +1807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 爆笑出击: Typings.GameInfo = {
+// export const 爆笑出击: Typings.GameInformation = {
 //   translates: {
 //     cn: '爆笑出击'
 //   },
@@ -1817,7 +1817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 爆笑躲避球: Typings.GameInfo = {
+// export const 爆笑躲避球: Typings.GameInformation = {
 //   translates: {
 //     cn: '爆笑躲避球'
 //   },
@@ -1827,7 +1827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 爆笑三国志: Typings.GameInfo = {
+// export const 爆笑三国志: Typings.GameInformation = {
 //   translates: {
 //     cn: '爆笑三国志'
 //   },
@@ -1837,7 +1837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 爆笑水浒传: Typings.GameInfo = {
+// export const 爆笑水浒传: Typings.GameInformation = {
 //   translates: {
 //     cn: '爆笑水浒传'
 //   },
@@ -1847,7 +1847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 悲恋湖杀人事件: Typings.GameInfo = {
+// export const 悲恋湖杀人事件: Typings.GameInformation = {
 //   translates: {
 //     cn: '悲恋湖杀人事件'
 //   },
@@ -1857,7 +1857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 北极行动: Typings.GameInfo = {
+// export const 北极行动: Typings.GameInformation = {
 //   translates: {
 //     cn: '北极行动'
 //   },
@@ -1867,7 +1867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 北太平洋海战: Typings.GameInfo = {
+// export const 北太平洋海战: Typings.GameInformation = {
 //   translates: {
 //     cn: '北太平洋海战'
 //   },
@@ -1877,7 +1877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 贝多芬二世犬: Typings.GameInfo = {
+// export const 贝多芬二世犬: Typings.GameInformation = {
 //   translates: {
 //     cn: '贝多芬二世犬'
 //   },
@@ -1887,7 +1887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 贝弗利山人: Typings.GameInfo = {
+// export const 贝弗利山人: Typings.GameInformation = {
 //   translates: {
 //     cn: '贝弗利山人'
 //   },
@@ -1897,7 +1897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 被遗忘的世界: Typings.GameInfo = {
+// export const 被遗忘的世界: Typings.GameInformation = {
 //   translates: {
 //     cn: '被遗忘的世界'
 //   },
@@ -1907,7 +1907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 被遗忘之地: Typings.GameInfo = {
+// export const 被遗忘之地: Typings.GameInformation = {
 //   translates: {
 //     cn: '被遗忘之地'
 //   },
@@ -1917,7 +1917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 边境宝藏: Typings.GameInfo = {
+// export const 边境宝藏: Typings.GameInformation = {
 //   translates: {
 //     cn: '边境宝藏'
 //   },
@@ -1927,7 +1927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蝙蝠侠电影版: Typings.GameInfo = {
+// export const 蝙蝠侠电影版: Typings.GameInformation = {
 //   translates: {
 //     cn: '蝙蝠侠电影版'
 //   },
@@ -1937,7 +1937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蝙蝠侠归来: Typings.GameInfo = {
+// export const 蝙蝠侠归来: Typings.GameInformation = {
 //   translates: {
 //     cn: '蝙蝠侠归来'
 //   },
@@ -1947,7 +1947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 变态杀手: Typings.GameInfo = {
+// export const 变态杀手: Typings.GameInformation = {
 //   translates: {
 //     cn: '变态杀手'
 //   },
@@ -1957,7 +1957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 飚车小子: Typings.GameInfo = {
+// export const 飚车小子: Typings.GameInformation = {
 //   translates: {
 //     cn: '飚车小子'
 //   },
@@ -1967,7 +1967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 冰城传奇: Typings.GameInfo = {
+// export const 冰城传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '冰城传奇'
 //   },
@@ -1977,7 +1977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 冰城传奇2: Typings.GameInfo = {
+// export const 冰城传奇2: Typings.GameInformation = {
 //   translates: {
 //     cn: '冰城传奇2'
 //   },
@@ -1987,7 +1987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 冰城传奇3: Typings.GameInfo = {
+// export const 冰城传奇3: Typings.GameInformation = {
 //   translates: {
 //     cn: '冰城传奇3'
 //   },
@@ -1997,7 +1997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 冰冷之梦: Typings.GameInfo = {
+// export const 冰冷之梦: Typings.GameInformation = {
 //   translates: {
 //     cn: '冰冷之梦'
 //   },
@@ -2007,7 +2007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 冰球95: Typings.GameInfo = {
+// export const 冰球95: Typings.GameInformation = {
 //   translates: {
 //     cn: '冰球95'
 //   },
@@ -2017,7 +2017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 冰球联赛97: Typings.GameInfo = {
+// export const 冰球联赛97: Typings.GameInformation = {
 //   translates: {
 //     cn: '冰球联赛97'
 //   },
@@ -2027,7 +2027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 冰与火: Typings.GameInfo = {
+// export const 冰与火: Typings.GameInformation = {
 //   translates: {
 //     cn: '冰与火'
 //   },
@@ -2037,7 +2037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 波士顿守卫者: Typings.GameInfo = {
+// export const 波士顿守卫者: Typings.GameInformation = {
 //   translates: {
 //     cn: '波士顿守卫者'
 //   },
@@ -2047,7 +2047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 波斯王子: Typings.GameInfo = {
+// export const 波斯王子: Typings.GameInformation = {
 //   translates: {
 //     cn: '波斯王子'
 //   },
@@ -2057,7 +2057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 波斯王子2: Typings.GameInfo = {
+// export const 波斯王子2: Typings.GameInformation = {
 //   translates: {
 //     cn: '波斯王子2'
 //   },
@@ -2067,7 +2067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 波斯王子民间改版: Typings.GameInfo = {
+// export const 波斯王子民间改版: Typings.GameInformation = {
 //   translates: {
 //     cn: '波斯王子民间改版'
 //   },
@@ -2077,7 +2077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 博比教你国际象棋: Typings.GameInfo = {
+// export const 博比教你国际象棋: Typings.GameInformation = {
 //   translates: {
 //     cn: '博比教你国际象棋'
 //   },
@@ -2087,7 +2087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 博物馆惊魂夜: Typings.GameInfo = {
+// export const 博物馆惊魂夜: Typings.GameInformation = {
 //   translates: {
 //     cn: '博物馆惊魂夜'
 //   },
@@ -2097,7 +2097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 捕猎行动: Typings.GameInfo = {
+// export const 捕猎行动: Typings.GameInformation = {
 //   translates: {
 //     cn: '捕猎行动'
 //   },
@@ -2107,7 +2107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 不给糖就捣蛋: Typings.GameInfo = {
+// export const 不给糖就捣蛋: Typings.GameInformation = {
 //   translates: {
 //     cn: '不给糖就捣蛋'
 //   },
@@ -2117,7 +2117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 不可思议的机器: Typings.GameInfo = {
+// export const 不可思议的机器: Typings.GameInformation = {
 //   translates: {
 //     cn: '不可思议的机器'
 //   },
@@ -2127,7 +2127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 不可思议的机器2: Typings.GameInfo = {
+// export const 不可思议的机器2: Typings.GameInformation = {
 //   translates: {
 //     cn: '不可思议的机器2'
 //   },
@@ -2137,7 +2137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 不可思议的机器拓展包: Typings.GameInfo = {
+// export const 不可思议的机器拓展包: Typings.GameInformation = {
 //   translates: {
 //     cn: '不可思议的机器拓展包'
 //   },
@@ -2147,7 +2147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 不朽之人: Typings.GameInfo = {
+// export const 不朽之人: Typings.GameInformation = {
 //   translates: {
 //     cn: '不朽之人'
 //   },
@@ -2157,7 +2157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 布莱克之石异星黄金: Typings.GameInfo = {
+// export const 布莱克之石异星黄金: Typings.GameInformation = {
 //   translates: {
 //     cn: '布莱克之石异星黄金'
 //   },
@@ -2167,7 +2167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 布莱克之石异星突击: Typings.GameInfo = {
+// export const 布莱克之石异星突击: Typings.GameInformation = {
 //   translates: {
 //     cn: '布莱克之石异星突击'
 //   },
@@ -2177,7 +2177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 部落: Typings.GameInfo = {
+// export const 部落: Typings.GameInformation = {
 //   translates: {
 //     cn: '部落'
 //   },
@@ -2187,7 +2187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 残酷世界: Typings.GameInfo = {
+// export const 残酷世界: Typings.GameInformation = {
 //   translates: {
 //     cn: '残酷世界'
 //   },
@@ -2197,7 +2197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 残杀行动: Typings.GameInfo = {
+// export const 残杀行动: Typings.GameInformation = {
 //   translates: {
 //     cn: '残杀行动'
 //   },
@@ -2207,7 +2207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 苍白之地: Typings.GameInfo = {
+// export const 苍白之地: Typings.GameInformation = {
 //   translates: {
 //     cn: '苍白之地'
 //   },
@@ -2217,7 +2217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 钞票强强滚: Typings.GameInfo = {
+// export const 钞票强强滚: Typings.GameInformation = {
 //   translates: {
 //     cn: '钞票强强滚'
 //   },
@@ -2227,7 +2227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超凡蜘蛛侠: Typings.GameInfo = {
+// export const 超凡蜘蛛侠: Typings.GameInformation = {
 //   translates: {
 //     cn: '超凡蜘蛛侠'
 //   },
@@ -2237,7 +2237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级超越竞速: Typings.GameInfo = {
+// export const 超级超越竞速: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级超越竞速'
 //   },
@@ -2247,7 +2247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级大富翁: Typings.GameInfo = {
+// export const 超级大富翁: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级大富翁'
 //   },
@@ -2257,7 +2257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级大战略: Typings.GameInfo = {
+// export const 超级大战略: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级大战略'
 //   },
@@ -2267,7 +2267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级俄罗斯方块: Typings.GameInfo = {
+// export const 超级俄罗斯方块: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级俄罗斯方块'
 //   },
@@ -2277,7 +2277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级国际象棋2: Typings.GameInfo = {
+// export const 超级国际象棋2: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级国际象棋2'
 //   },
@@ -2287,7 +2287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级滑雪2: Typings.GameInfo = {
+// export const 超级滑雪2: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级滑雪2'
 //   },
@@ -2297,7 +2297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级滑雪3: Typings.GameInfo = {
+// export const 超级滑雪3: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级滑雪3'
 //   },
@@ -2307,7 +2307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级滑雪专业版: Typings.GameInfo = {
+// export const 超级滑雪专业版: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级滑雪专业版'
 //   },
@@ -2317,7 +2317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级机车赛: Typings.GameInfo = {
+// export const 超级机车赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级机车赛'
 //   },
@@ -2327,7 +2327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级街霸2: Typings.GameInfo = {
+// export const 超级街霸2: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级街霸2'
 //   },
@@ -2337,7 +2337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级街霸新挑战者: Typings.GameInfo = {
+// export const 超级街霸新挑战者: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级街霸新挑战者'
 //   },
@@ -2347,7 +2347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级卡丁车: Typings.GameInfo = {
+// export const 超级卡丁车: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级卡丁车'
 //   },
@@ -2357,7 +2357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级科曼奇: Typings.GameInfo = {
+// export const 超级科曼奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级科曼奇'
 //   },
@@ -2367,7 +2367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级玛丽: Typings.GameInfo = {
+// export const 超级玛丽: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级玛丽'
 //   },
@@ -2377,7 +2377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级三剑客: Typings.GameInfo = {
+// export const 超级三剑客: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级三剑客'
 //   },
@@ -2387,7 +2387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级蛙: Typings.GameInfo = {
+// export const 超级蛙: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级蛙'
 //   },
@@ -2397,7 +2397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级五子棋: Typings.GameInfo = {
+// export const 超级五子棋: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级五子棋'
 //   },
@@ -2407,7 +2407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级星尘: Typings.GameInfo = {
+// export const 超级星尘: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级星尘'
 //   },
@@ -2417,7 +2417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级学园麻雀海外版: Typings.GameInfo = {
+// export const 超级学园麻雀海外版: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级学园麻雀海外版'
 //   },
@@ -2427,7 +2427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级学院麻雀: Typings.GameInfo = {
+// export const 超级学院麻雀: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级学院麻雀'
 //   },
@@ -2437,7 +2437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超级英雄联盟: Typings.GameInfo = {
+// export const 超级英雄联盟: Typings.GameInformation = {
 //   translates: {
 //     cn: '超级英雄联盟'
 //   },
@@ -2447,7 +2447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超空霸传: Typings.GameInfo = {
+// export const 超空霸传: Typings.GameInformation = {
 //   translates: {
 //     cn: '超空霸传'
 //   },
@@ -2457,7 +2457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超人战记: Typings.GameInfo = {
+// export const 超人战记: Typings.GameInformation = {
 //   translates: {
 //     cn: '超人战记'
 //   },
@@ -2467,7 +2467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超时空G点: Typings.GameInfo = {
+// export const 超时空G点: Typings.GameInformation = {
 //   translates: {
 //     cn: '超时空G点'
 //   },
@@ -2477,7 +2477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超时空要塞: Typings.GameInfo = {
+// export const 超时空要塞: Typings.GameInformation = {
 //   translates: {
 //     cn: '超时空要塞'
 //   },
@@ -2487,7 +2487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超时空英雄传说: Typings.GameInfo = {
+// export const 超时空英雄传说: Typings.GameInformation = {
 //   translates: {
 //     cn: '超时空英雄传说'
 //   },
@@ -2497,7 +2497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超时空英雄传说2: Typings.GameInfo = {
+// export const 超时空英雄传说2: Typings.GameInformation = {
 //   translates: {
 //     cn: '超时空英雄传说2'
 //   },
@@ -2507,7 +2507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超时空英雄传说2SP: Typings.GameInfo = {
+// export const 超时空英雄传说2SP: Typings.GameInformation = {
 //   translates: {
 //     cn: '超时空英雄传说2SP'
 //   },
@@ -2517,7 +2517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超速驾驶: Typings.GameInfo = {
+// export const 超速驾驶: Typings.GameInformation = {
 //   translates: {
 //     cn: '超速驾驶'
 //   },
@@ -2527,7 +2527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超未来少女: Typings.GameInfo = {
+// export const 超未来少女: Typings.GameInformation = {
 //   translates: {
 //     cn: '超未来少女'
 //   },
@@ -2537,7 +2537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超越Void星: Typings.GameInfo = {
+// export const 超越Void星: Typings.GameInformation = {
 //   translates: {
 //     cn: '超越Void星'
 //   },
@@ -2547,7 +2547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超越竞速: Typings.GameInfo = {
+// export const 超越竞速: Typings.GameInformation = {
 //   translates: {
 //     cn: '超越竞速'
 //   },
@@ -2557,7 +2557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 超越深渊: Typings.GameInfo = {
+// export const 超越深渊: Typings.GameInformation = {
 //   translates: {
 //     cn: '超越深渊'
 //   },
@@ -2567,7 +2567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 沉默的舰队: Typings.GameInfo = {
+// export const 沉默的舰队: Typings.GameInformation = {
 //   translates: {
 //     cn: '沉默的舰队'
 //   },
@@ -2577,7 +2577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 沉默潜航2: Typings.GameInfo = {
+// export const 沉默潜航2: Typings.GameInformation = {
 //   translates: {
 //     cn: '沉默潜航2'
 //   },
@@ -2587,7 +2587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 成吉思汗: Typings.GameInfo = {
+// export const 成吉思汗: Typings.GameInformation = {
 //   translates: {
 //     cn: '成吉思汗'
 //   },
@@ -2597,7 +2597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 成吉思汗3: Typings.GameInfo = {
+// export const 成吉思汗3: Typings.GameInformation = {
 //   translates: {
 //     cn: '成吉思汗3'
 //   },
@@ -2607,7 +2607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 成吉思汗英版: Typings.GameInfo = {
+// export const 成吉思汗英版: Typings.GameInformation = {
 //   translates: {
 //     cn: '成吉思汗英版'
 //   },
@@ -2617,7 +2617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 惩罚者: Typings.GameInfo = {
+// export const 惩罚者: Typings.GameInformation = {
 //   translates: {
 //     cn: '惩罚者'
 //   },
@@ -2627,7 +2627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吃豆夫人: Typings.GameInfo = {
+// export const 吃豆夫人: Typings.GameInformation = {
 //   translates: {
 //     cn: '吃豆夫人'
 //   },
@@ -2637,7 +2637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吃豆人: Typings.GameInfo = {
+// export const 吃豆人: Typings.GameInformation = {
 //   translates: {
 //     cn: '吃豆人'
 //   },
@@ -2647,7 +2647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吃豆人初代: Typings.GameInfo = {
+// export const 吃豆人初代: Typings.GameInformation = {
 //   translates: {
 //     cn: '吃豆人初代'
 //   },
@@ -2657,7 +2657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吃豆人山寨版: Typings.GameInfo = {
+// export const 吃豆人山寨版: Typings.GameInformation = {
 //   translates: {
 //     cn: '吃豆人山寨版'
 //   },
@@ -2667,7 +2667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吃豆人时空之旅: Typings.GameInfo = {
+// export const 吃豆人时空之旅: Typings.GameInformation = {
 //   translates: {
 //     cn: '吃豆人时空之旅'
 //   },
@@ -2677,7 +2677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 齿轮游戏: Typings.GameInfo = {
+// export const 齿轮游戏: Typings.GameInformation = {
 //   translates: {
 //     cn: '齿轮游戏'
 //   },
@@ -2687,7 +2687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 赤壁之战: Typings.GameInfo = {
+// export const 赤壁之战: Typings.GameInformation = {
 //   translates: {
 //     cn: '赤壁之战'
 //   },
@@ -2697,7 +2697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 炽天之翼: Typings.GameInfo = {
+// export const 炽天之翼: Typings.GameInformation = {
 //   translates: {
 //     cn: '炽天之翼'
 //   },
@@ -2707,7 +2707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 臭鼬赛车: Typings.GameInfo = {
+// export const 臭鼬赛车: Typings.GameInformation = {
 //   translates: {
 //     cn: '臭鼬赛车'
 //   },
@@ -2717,7 +2717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 出击飞龙: Typings.GameInfo = {
+// export const 出击飞龙: Typings.GameInformation = {
 //   translates: {
 //     cn: '出击飞龙'
 //   },
@@ -2727,7 +2727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 锄大地2: Typings.GameInfo = {
+// export const 锄大地2: Typings.GameInformation = {
 //   translates: {
 //     cn: '锄大地2'
 //   },
@@ -2737,7 +2737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 楚汉之争: Typings.GameInfo = {
+// export const 楚汉之争: Typings.GameInformation = {
 //   translates: {
 //     cn: '楚汉之争'
 //   },
@@ -2747,7 +2747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 楚汉之争2: Typings.GameInfo = {
+// export const 楚汉之争2: Typings.GameInformation = {
 //   translates: {
 //     cn: '楚汉之争2'
 //   },
@@ -2757,7 +2757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 楚留香传奇: Typings.GameInfo = {
+// export const 楚留香传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '楚留香传奇'
 //   },
@@ -2767,7 +2767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 穿越之战: Typings.GameInfo = {
+// export const 穿越之战: Typings.GameInformation = {
 //   translates: {
 //     cn: '穿越之战'
 //   },
@@ -2777,7 +2777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 传说大陆帝王之子: Typings.GameInfo = {
+// export const 传说大陆帝王之子: Typings.GameInformation = {
 //   translates: {
 //     cn: '传说大陆帝王之子'
 //   },
@@ -2787,7 +2787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 传说纪元黑暗之屋: Typings.GameInfo = {
+// export const 传说纪元黑暗之屋: Typings.GameInformation = {
 //   translates: {
 //     cn: '传说纪元黑暗之屋'
 //   },
@@ -2797,7 +2797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 传说恐惧之夜: Typings.GameInfo = {
+// export const 传说恐惧之夜: Typings.GameInformation = {
 //   translates: {
 //     cn: '传说恐惧之夜'
 //   },
@@ -2807,7 +2807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 传说时代: Typings.GameInfo = {
+// export const 传说时代: Typings.GameInformation = {
 //   translates: {
 //     cn: '传说时代'
 //   },
@@ -2817,7 +2817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 传说勇士: Typings.GameInfo = {
+// export const 传说勇士: Typings.GameInformation = {
 //   translates: {
 //     cn: '传说勇士'
 //   },
@@ -2827,7 +2827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 创世弹珠台: Typings.GameInfo = {
+// export const 创世弹珠台: Typings.GameInformation = {
 //   translates: {
 //     cn: '创世弹珠台'
 //   },
@@ -2837,7 +2837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 创世封魔传: Typings.GameInfo = {
+// export const 创世封魔传: Typings.GameInformation = {
 //   translates: {
 //     cn: '创世封魔传'
 //   },
@@ -2847,7 +2847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 创世机神: Typings.GameInfo = {
+// export const 创世机神: Typings.GameInformation = {
 //   translates: {
 //     cn: '创世机神'
 //   },
@@ -2857,7 +2857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 创世纪1(1987RM版): Typings.GameInfo = {
+// export const 创世纪1(1987RM版): Typings.GameInformation = {
 //   translates: {
 //     cn: '创世纪1(1987RM版)'
 //   },
@@ -2867,7 +2867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 创世纪2: Typings.GameInfo = {
+// export const 创世纪2: Typings.GameInformation = {
 //   translates: {
 //     cn: '创世纪2'
 //   },
@@ -2877,7 +2877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 创世纪3: Typings.GameInfo = {
+// export const 创世纪3: Typings.GameInformation = {
 //   translates: {
 //     cn: '创世纪3'
 //   },
@@ -2887,7 +2887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 创世纪4: Typings.GameInfo = {
+// export const 创世纪4: Typings.GameInformation = {
 //   translates: {
 //     cn: '创世纪4'
 //   },
@@ -2897,7 +2897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 创世纪5: Typings.GameInfo = {
+// export const 创世纪5: Typings.GameInformation = {
 //   translates: {
 //     cn: '创世纪5'
 //   },
@@ -2907,7 +2907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 创世纪6: Typings.GameInfo = {
+// export const 创世纪6: Typings.GameInformation = {
 //   translates: {
 //     cn: '创世纪6'
 //   },
@@ -2917,7 +2917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 创世纪7上黑月之门: Typings.GameInfo = {
+// export const 创世纪7上黑月之门: Typings.GameInformation = {
 //   translates: {
 //     cn: '创世纪7上黑月之门'
 //   },
@@ -2927,7 +2927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 创世纪7下巨蛇之岛: Typings.GameInfo = {
+// export const 创世纪7下巨蛇之岛: Typings.GameInformation = {
 //   translates: {
 //     cn: '创世纪7下巨蛇之岛'
 //   },
@@ -2937,7 +2937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 创世纪8: Typings.GameInfo = {
+// export const 创世纪8: Typings.GameInformation = {
 //   translates: {
 //     cn: '创世纪8'
 //   },
@@ -2947,7 +2947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 创世纪外传1荒芜帝国: Typings.GameInfo = {
+// export const 创世纪外传1荒芜帝国: Typings.GameInformation = {
 //   translates: {
 //     cn: '创世纪外传1荒芜帝国'
 //   },
@@ -2957,7 +2957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 创世纪外传2火星之旅: Typings.GameInfo = {
+// export const 创世纪外传2火星之旅: Typings.GameInformation = {
 //   translates: {
 //     cn: '创世纪外传2火星之旅'
 //   },
@@ -2967,7 +2967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 春秋争霸传: Typings.GameInfo = {
+// export const 春秋争霸传: Typings.GameInformation = {
 //   translates: {
 //     cn: '春秋争霸传'
 //   },
@@ -2977,7 +2977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 春秋争霸传2: Typings.GameInfo = {
+// export const 春秋争霸传2: Typings.GameInformation = {
 //   translates: {
 //     cn: '春秋争霸传2'
 //   },
@@ -2987,7 +2987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 从前有片林: Typings.GameInfo = {
+// export const 从前有片林: Typings.GameInformation = {
 //   translates: {
 //     cn: '从前有片林'
 //   },
@@ -2997,7 +2997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 丛林大作战: Typings.GameInfo = {
+// export const 丛林大作战: Typings.GameInformation = {
 //   translates: {
 //     cn: '丛林大作战'
 //   },
@@ -3007,7 +3007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 丛林历险记: Typings.GameInfo = {
+// export const 丛林历险记: Typings.GameInformation = {
 //   translates: {
 //     cn: '丛林历险记'
 //   },
@@ -3017,7 +3017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 丛林之书: Typings.GameInfo = {
+// export const 丛林之书: Typings.GameInformation = {
 //   translates: {
 //     cn: '丛林之书'
 //   },
@@ -3027,7 +3027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 达兰科出击: Typings.GameInfo = {
+// export const 达兰科出击: Typings.GameInformation = {
 //   translates: {
 //     cn: '达兰科出击'
 //   },
@@ -3037,7 +3037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 打砖块: Typings.GameInfo = {
+// export const 打砖块: Typings.GameInformation = {
 //   translates: {
 //     cn: '打砖块'
 //   },
@@ -3047,7 +3047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 打砖块2: Typings.GameInfo = {
+// export const 打砖块2: Typings.GameInformation = {
 //   translates: {
 //     cn: '打砖块2'
 //   },
@@ -3057,7 +3057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大兵日记: Typings.GameInfo = {
+// export const 大兵日记: Typings.GameInformation = {
 //   translates: {
 //     cn: '大兵日记'
 //   },
@@ -3067,7 +3067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大地传说黑暗王座: Typings.GameInfo = {
+// export const 大地传说黑暗王座: Typings.GameInformation = {
 //   translates: {
 //     cn: '大地传说黑暗王座'
 //   },
@@ -3077,7 +3077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大地之怒: Typings.GameInfo = {
+// export const 大地之怒: Typings.GameInformation = {
 //   translates: {
 //     cn: '大地之怒'
 //   },
@@ -3087,7 +3087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大富翁1: Typings.GameInfo = {
+// export const 大富翁1: Typings.GameInformation = {
 //   translates: {
 //     cn: '大富翁1'
 //   },
@@ -3097,7 +3097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大富翁2: Typings.GameInfo = {
+// export const 大富翁2: Typings.GameInformation = {
 //   translates: {
 //     cn: '大富翁2'
 //   },
@@ -3107,7 +3107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大富翁城市英雄: Typings.GameInfo = {
+// export const 大富翁城市英雄: Typings.GameInformation = {
 //   translates: {
 //     cn: '大富翁城市英雄'
 //   },
@@ -3117,7 +3117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大富翁环游世界: Typings.GameInfo = {
+// export const 大富翁环游世界: Typings.GameInformation = {
 //   translates: {
 //     cn: '大富翁环游世界'
 //   },
@@ -3127,7 +3127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大富翁总动员: Typings.GameInfo = {
+// export const 大富翁总动员: Typings.GameInformation = {
 //   translates: {
 //     cn: '大富翁总动员'
 //   },
@@ -3137,7 +3137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大海商: Typings.GameInfo = {
+// export const 大海商: Typings.GameInformation = {
 //   translates: {
 //     cn: '大海商'
 //   },
@@ -3147,7 +3147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大海战: Typings.GameInfo = {
+// export const 大海战: Typings.GameInformation = {
 //   translates: {
 //     cn: '大海战'
 //   },
@@ -3157,7 +3157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大海战13: Typings.GameInfo = {
+// export const 大海战13: Typings.GameInformation = {
 //   translates: {
 //     cn: '大海战13'
 //   },
@@ -3167,7 +3167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大航海1: Typings.GameInfo = {
+// export const 大航海1: Typings.GameInformation = {
 //   translates: {
 //     cn: '大航海1'
 //   },
@@ -3177,7 +3177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大航海2: Typings.GameInfo = {
+// export const 大航海2: Typings.GameInformation = {
 //   translates: {
 //     cn: '大航海2'
 //   },
@@ -3187,7 +3187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大红大冒险: Typings.GameInfo = {
+// export const 大红大冒险: Typings.GameInformation = {
 //   translates: {
 //     cn: '大红大冒险'
 //   },
@@ -3197,7 +3197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大金刚: Typings.GameInfo = {
+// export const 大金刚: Typings.GameInformation = {
 //   translates: {
 //     cn: '大金刚'
 //   },
@@ -3207,7 +3207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大力水手2: Typings.GameInfo = {
+// export const 大力水手2: Typings.GameInformation = {
 //   translates: {
 //     cn: '大力水手2'
 //   },
@@ -3217,7 +3217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大麻农夫: Typings.GameInfo = {
+// export const 大麻农夫: Typings.GameInformation = {
 //   translates: {
 //     cn: '大麻农夫'
 //   },
@@ -3227,7 +3227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大明英雄传: Typings.GameInfo = {
+// export const 大明英雄传: Typings.GameInformation = {
 //   translates: {
 //     cn: '大明英雄传'
 //   },
@@ -3237,7 +3237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大魔王物语: Typings.GameInfo = {
+// export const 大魔王物语: Typings.GameInformation = {
 //   translates: {
 //     cn: '大魔王物语'
 //   },
@@ -3247,7 +3247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大企业家: Typings.GameInfo = {
+// export const 大企业家: Typings.GameInformation = {
 //   translates: {
 //     cn: '大企业家'
 //   },
@@ -3257,7 +3257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大时代的故事: Typings.GameInfo = {
+// export const 大时代的故事: Typings.GameInformation = {
 //   translates: {
 //     cn: '大时代的故事'
 //   },
@@ -3267,7 +3267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大宋英豪岳飞传: Typings.GameInfo = {
+// export const 大宋英豪岳飞传: Typings.GameInformation = {
 //   translates: {
 //     cn: '大宋英豪岳飞传'
 //   },
@@ -3277,7 +3277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大唐英雄传: Typings.GameInfo = {
+// export const 大唐英雄传: Typings.GameInformation = {
 //   translates: {
 //     cn: '大唐英雄传'
 //   },
@@ -3287,7 +3287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大野风云: Typings.GameInfo = {
+// export const 大野风云: Typings.GameInformation = {
 //   translates: {
 //     cn: '大野风云'
 //   },
@@ -3297,7 +3297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大战略: Typings.GameInfo = {
+// export const 大战略: Typings.GameInformation = {
 //   translates: {
 //     cn: '大战略'
 //   },
@@ -3307,7 +3307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大战略SP: Typings.GameInfo = {
+// export const 大战略SP: Typings.GameInformation = {
 //   translates: {
 //     cn: '大战略SP'
 //   },
@@ -3317,7 +3317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大战略SP2: Typings.GameInfo = {
+// export const 大战略SP2: Typings.GameInformation = {
 //   translates: {
 //     cn: '大战略SP2'
 //   },
@@ -3327,7 +3327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大战役: Typings.GameInfo = {
+// export const 大战役: Typings.GameInformation = {
 //   translates: {
 //     cn: '大战役'
 //   },
@@ -3337,7 +3337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 大战役2: Typings.GameInfo = {
+// export const 大战役2: Typings.GameInformation = {
 //   translates: {
 //     cn: '大战役2'
 //   },
@@ -3347,7 +3347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 诞生: Typings.GameInfo = {
+// export const 诞生: Typings.GameInformation = {
 //   translates: {
 //     cn: '诞生'
 //   },
@@ -3357,7 +3357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 弹震坦克: Typings.GameInfo = {
+// export const 弹震坦克: Typings.GameInformation = {
 //   translates: {
 //     cn: '弹震坦克'
 //   },
@@ -3367,7 +3367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 弹珠台世界: Typings.GameInfo = {
+// export const 弹珠台世界: Typings.GameInformation = {
 //   translates: {
 //     cn: '弹珠台世界'
 //   },
@@ -3377,7 +3377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 荡寇雄狮: Typings.GameInfo = {
+// export const 荡寇雄狮: Typings.GameInformation = {
 //   translates: {
 //     cn: '荡寇雄狮'
 //   },
@@ -3387,7 +3387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 荡魔平妖志: Typings.GameInfo = {
+// export const 荡魔平妖志: Typings.GameInformation = {
 //   translates: {
 //     cn: '荡魔平妖志'
 //   },
@@ -3397,7 +3397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 德川家康: Typings.GameInfo = {
+// export const 德川家康: Typings.GameInformation = {
 //   translates: {
 //     cn: '德川家康'
 //   },
@@ -3407,7 +3407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 德军总部: Typings.GameInfo = {
+// export const 德军总部: Typings.GameInformation = {
 //   translates: {
 //     cn: '德军总部'
 //   },
@@ -3417,7 +3417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 德军总部MOD-CARVEN: Typings.GameInfo = {
+// export const 德军总部MOD-CARVEN: Typings.GameInformation = {
 //   translates: {
 //     cn: '德军总部MOD-CARVEN'
 //   },
@@ -3427,7 +3427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 德军总部MOD-DOOM版: Typings.GameInfo = {
+// export const 德军总部MOD-DOOM版: Typings.GameInformation = {
 //   translates: {
 //     cn: '德军总部MOD-DOOM版'
 //   },
@@ -3437,7 +3437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 德军总部MOD-ROMAN: Typings.GameInfo = {
+// export const 德军总部MOD-ROMAN: Typings.GameInformation = {
 //   translates: {
 //     cn: '德军总部MOD-ROMAN'
 //   },
@@ -3447,7 +3447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 德军总部MOD-黎明: Typings.GameInfo = {
+// export const 德军总部MOD-黎明: Typings.GameInformation = {
 //   translates: {
 //     cn: '德军总部MOD-黎明'
 //   },
@@ -3457,7 +3457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 德军总部命运之矛: Typings.GameInfo = {
+// export const 德军总部命运之矛: Typings.GameInformation = {
 //   translates: {
 //     cn: '德军总部命运之矛'
 //   },
@@ -3467,7 +3467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 德库拉传说: Typings.GameInfo = {
+// export const 德库拉传说: Typings.GameInformation = {
 //   translates: {
 //     cn: '德库拉传说'
 //   },
@@ -3477,7 +3477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 德鲁伊恶魔之心: Typings.GameInfo = {
+// export const 德鲁伊恶魔之心: Typings.GameInformation = {
 //   translates: {
 //     cn: '德鲁伊恶魔之心'
 //   },
@@ -3487,7 +3487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 迪斯尼夺宝奇兵: Typings.GameInfo = {
+// export const 迪斯尼夺宝奇兵: Typings.GameInformation = {
 //   translates: {
 //     cn: '迪斯尼夺宝奇兵'
 //   },
@@ -3497,7 +3497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 底特律汽车大亨: Typings.GameInfo = {
+// export const 底特律汽车大亨: Typings.GameInformation = {
 //   translates: {
 //     cn: '底特律汽车大亨'
 //   },
@@ -3507,7 +3507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 地动山摇: Typings.GameInfo = {
+// export const 地动山摇: Typings.GameInformation = {
 //   translates: {
 //     cn: '地动山摇'
 //   },
@@ -3517,7 +3517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 地球2140: Typings.GameInfo = {
+// export const 地球2140: Typings.GameInformation = {
 //   translates: {
 //     cn: '地球2140'
 //   },
@@ -3527,7 +3527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 地球围攻: Typings.GameInfo = {
+// export const 地球围攻: Typings.GameInformation = {
 //   translates: {
 //     cn: '地球围攻'
 //   },
@@ -3537,7 +3537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 地下创世纪: Typings.GameInfo = {
+// export const 地下创世纪: Typings.GameInformation = {
 //   translates: {
 //     cn: '地下创世纪'
 //   },
@@ -3547,7 +3547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 地下创世纪2: Typings.GameInfo = {
+// export const 地下创世纪2: Typings.GameInformation = {
 //   translates: {
 //     cn: '地下创世纪2'
 //   },
@@ -3557,7 +3557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 地下克里姆林宫: Typings.GameInfo = {
+// export const 地下克里姆林宫: Typings.GameInformation = {
 //   translates: {
 //     cn: '地下克里姆林宫'
 //   },
@@ -3567,7 +3567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 地狱付费之旅: Typings.GameInfo = {
+// export const 地狱付费之旅: Typings.GameInformation = {
 //   translates: {
 //     cn: '地狱付费之旅'
 //   },
@@ -3577,7 +3577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 地狱火: Typings.GameInfo = {
+// export const 地狱火: Typings.GameInformation = {
 //   translates: {
 //     cn: '地狱火'
 //   },
@@ -3587,7 +3587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 地狱赛博朋克: Typings.GameInfo = {
+// export const 地狱赛博朋克: Typings.GameInformation = {
 //   translates: {
 //     cn: '地狱赛博朋克'
 //   },
@@ -3597,7 +3597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 地狱也疯狂: Typings.GameInfo = {
+// export const 地狱也疯狂: Typings.GameInformation = {
 //   translates: {
 //     cn: '地狱也疯狂'
 //   },
@@ -3607,7 +3607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 帝国2: Typings.GameInfo = {
+// export const 帝国2: Typings.GameInformation = {
 //   translates: {
 //     cn: '帝国2'
 //   },
@@ -3617,7 +3617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 帝国的光荣: Typings.GameInfo = {
+// export const 帝国的光荣: Typings.GameInformation = {
 //   translates: {
 //     cn: '帝国的光荣'
 //   },
@@ -3627,7 +3627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 帝国豪华版: Typings.GameInfo = {
+// export const 帝国豪华版: Typings.GameInformation = {
 //   translates: {
 //     cn: '帝国豪华版'
 //   },
@@ -3637,7 +3637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 第13楼: Typings.GameInfo = {
+// export const 第13楼: Typings.GameInformation = {
 //   translates: {
 //     cn: '第13楼'
 //   },
@@ -3647,7 +3647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 第13支局: Typings.GameInfo = {
+// export const 第13支局: Typings.GameInformation = {
 //   translates: {
 //     cn: '第13支局'
 //   },
@@ -3657,7 +3657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 第3日龙之力量: Typings.GameInfo = {
+// export const 第3日龙之力量: Typings.GameInformation = {
 //   translates: {
 //     cn: '第3日龙之力量'
 //   },
@@ -3667,7 +3667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 第4日伊卡洛斯: Typings.GameInfo = {
+// export const 第4日伊卡洛斯: Typings.GameInformation = {
 //   translates: {
 //     cn: '第4日伊卡洛斯'
 //   },
@@ -3677,7 +3677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 第5舰队: Typings.GameInfo = {
+// export const 第5舰队: Typings.GameInformation = {
 //   translates: {
 //     cn: '第5舰队'
 //   },
@@ -3687,7 +3687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 第5日龙机突击: Typings.GameInfo = {
+// export const 第5日龙机突击: Typings.GameInformation = {
 //   translates: {
 //     cn: '第5日龙机突击'
 //   },
@@ -3697,7 +3697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 第十瓶-保龄: Typings.GameInfo = {
+// export const 第十瓶-保龄: Typings.GameInformation = {
 //   translates: {
 //     cn: '第十瓶-保龄'
 //   },
@@ -3707,7 +3707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 第五个火枪手: Typings.GameInfo = {
+// export const 第五个火枪手: Typings.GameInformation = {
 //   translates: {
 //     cn: '第五个火枪手'
 //   },
@@ -3717,7 +3717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 第一武士: Typings.GameInfo = {
+// export const 第一武士: Typings.GameInformation = {
 //   translates: {
 //     cn: '第一武士'
 //   },
@@ -3727,7 +3727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蒂斯蛋蛋黄王子: Typings.GameInfo = {
+// export const 蒂斯蛋蛋黄王子: Typings.GameInformation = {
 //   translates: {
 //     cn: '蒂斯蛋蛋黄王子'
 //   },
@@ -3737,7 +3737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蒂斯蛋快餐世界: Typings.GameInfo = {
+// export const 蒂斯蛋快餐世界: Typings.GameInformation = {
 //   translates: {
 //     cn: '蒂斯蛋快餐世界'
 //   },
@@ -3747,7 +3747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蒂斯蛋梦幻世界: Typings.GameInfo = {
+// export const 蒂斯蛋梦幻世界: Typings.GameInformation = {
 //   translates: {
 //     cn: '蒂斯蛋梦幻世界'
 //   },
@@ -3757,7 +3757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蒂斯蛋梦幻之旅: Typings.GameInfo = {
+// export const 蒂斯蛋梦幻之旅: Typings.GameInformation = {
 //   translates: {
 //     cn: '蒂斯蛋梦幻之旅'
 //   },
@@ -3767,7 +3767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蒂斯蛋泡泡冒险: Typings.GameInfo = {
+// export const 蒂斯蛋泡泡冒险: Typings.GameInformation = {
 //   translates: {
 //     cn: '蒂斯蛋泡泡冒险'
 //   },
@@ -3777,7 +3777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 电脑魔域: Typings.GameInfo = {
+// export const 电脑魔域: Typings.GameInformation = {
 //   translates: {
 //     cn: '电脑魔域'
 //   },
@@ -3787,7 +3787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 电影工坊: Typings.GameInfo = {
+// export const 电影工坊: Typings.GameInformation = {
 //   translates: {
 //     cn: '电影工坊'
 //   },
@@ -3797,7 +3797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 电子波动: Typings.GameInfo = {
+// export const 电子波动: Typings.GameInformation = {
 //   translates: {
 //     cn: '电子波动'
 //   },
@@ -3807,7 +3807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 电子侠: Typings.GameInfo = {
+// export const 电子侠: Typings.GameInformation = {
 //   translates: {
 //     cn: '电子侠'
 //   },
@@ -3817,7 +3817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 喋血赛车: Typings.GameInfo = {
+// export const 喋血赛车: Typings.GameInformation = {
 //   translates: {
 //     cn: '喋血赛车'
 //   },
@@ -3827,7 +3827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 碟形世界: Typings.GameInfo = {
+// export const 碟形世界: Typings.GameInformation = {
 //   translates: {
 //     cn: '碟形世界'
 //   },
@@ -3837,7 +3837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 碟形世界2: Typings.GameInfo = {
+// export const 碟形世界2: Typings.GameInformation = {
 //   translates: {
 //     cn: '碟形世界2'
 //   },
@@ -3847,7 +3847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 丁丁历险记太阳之罪: Typings.GameInfo = {
+// export const 丁丁历险记太阳之罪: Typings.GameInformation = {
 //   translates: {
 //     cn: '丁丁历险记太阳之罪'
 //   },
@@ -3857,7 +3857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 丁丁在西藏: Typings.GameInfo = {
+// export const 丁丁在西藏: Typings.GameInformation = {
 //   translates: {
 //     cn: '丁丁在西藏'
 //   },
@@ -3867,7 +3867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 动作足球: Typings.GameInfo = {
+// export const 动作足球: Typings.GameInformation = {
 //   translates: {
 //     cn: '动作足球'
 //   },
@@ -3877,7 +3877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 洞穴战争: Typings.GameInfo = {
+// export const 洞穴战争: Typings.GameInformation = {
 //   translates: {
 //     cn: '洞穴战争'
 //   },
@@ -3887,7 +3887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 都市飞鸭: Typings.GameInfo = {
+// export const 都市飞鸭: Typings.GameInformation = {
 //   translates: {
 //     cn: '都市飞鸭'
 //   },
@@ -3897,7 +3897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 斗神传: Typings.GameInfo = {
+// export const 斗神传: Typings.GameInformation = {
 //   translates: {
 //     cn: '斗神传'
 //   },
@@ -3907,7 +3907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 毒品战争: Typings.GameInfo = {
+// export const 毒品战争: Typings.GameInformation = {
 //   translates: {
 //     cn: '毒品战争'
 //   },
@@ -3917,7 +3917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 毒兔崽子: Typings.GameInfo = {
+// export const 毒兔崽子: Typings.GameInformation = {
 //   translates: {
 //     cn: '毒兔崽子'
 //   },
@@ -3927,7 +3927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 独立车赛: Typings.GameInfo = {
+// export const 独立车赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '独立车赛'
 //   },
@@ -3937,7 +3937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 独立赛车2: Typings.GameInfo = {
+// export const 独立赛车2: Typings.GameInformation = {
 //   translates: {
 //     cn: '独立赛车2'
 //   },
@@ -3947,7 +3947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 独立战争: Typings.GameInfo = {
+// export const 独立战争: Typings.GameInformation = {
 //   translates: {
 //     cn: '独立战争'
 //   },
@@ -3957,7 +3957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 赌神至尊之战: Typings.GameInfo = {
+// export const 赌神至尊之战: Typings.GameInformation = {
 //   translates: {
 //     cn: '赌神至尊之战'
 //   },
@@ -3967,7 +3967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 对抗战争: Typings.GameInfo = {
+// export const 对抗战争: Typings.GameInformation = {
 //   translates: {
 //     cn: '对抗战争'
 //   },
@@ -3977,7 +3977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 对手: Typings.GameInfo = {
+// export const 对手: Typings.GameInformation = {
 //   translates: {
 //     cn: '对手'
 //   },
@@ -3987,7 +3987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 遁入黑暗: Typings.GameInfo = {
+// export const 遁入黑暗: Typings.GameInformation = {
 //   translates: {
 //     cn: '遁入黑暗'
 //   },
@@ -3997,7 +3997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 夺旗大战: Typings.GameInfo = {
+// export const 夺旗大战: Typings.GameInformation = {
 //   translates: {
 //     cn: '夺旗大战'
 //   },
@@ -4007,7 +4007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 俄勒冈小道: Typings.GameInfo = {
+// export const 俄勒冈小道: Typings.GameInformation = {
 //   translates: {
 //     cn: '俄勒冈小道'
 //   },
@@ -4017,7 +4017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 俄罗斯方块: Typings.GameInfo = {
+// export const 俄罗斯方块: Typings.GameInformation = {
 //   translates: {
 //     cn: '俄罗斯方块'
 //   },
@@ -4027,7 +4027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 俄罗斯方块经典版: Typings.GameInfo = {
+// export const 俄罗斯方块经典版: Typings.GameInformation = {
 //   translates: {
 //     cn: '俄罗斯方块经典版'
 //   },
@@ -4037,7 +4037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 俄罗斯拼盘: Typings.GameInfo = {
+// export const 俄罗斯拼盘: Typings.GameInformation = {
 //   translates: {
 //     cn: '俄罗斯拼盘'
 //   },
@@ -4047,7 +4047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 恶魔城: Typings.GameInfo = {
+// export const 恶魔城: Typings.GameInformation = {
 //   translates: {
 //     cn: '恶魔城'
 //   },
@@ -4057,7 +4057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 恶魔禁地: Typings.GameInfo = {
+// export const 恶魔禁地: Typings.GameInformation = {
 //   translates: {
 //     cn: '恶魔禁地'
 //   },
@@ -4067,7 +4067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 恶魔禁地英文版: Typings.GameInfo = {
+// export const 恶魔禁地英文版: Typings.GameInformation = {
 //   translates: {
 //     cn: '恶魔禁地英文版'
 //   },
@@ -4077,7 +4077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 恶魔之门: Typings.GameInfo = {
+// export const 恶魔之门: Typings.GameInformation = {
 //   translates: {
 //     cn: '恶魔之门'
 //   },
@@ -4087,7 +4087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 噩梦3D: Typings.GameInfo = {
+// export const 噩梦3D: Typings.GameInformation = {
 //   translates: {
 //     cn: '噩梦3D'
 //   },
@@ -4097,7 +4097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 法兰克疯狂复仇: Typings.GameInfo = {
+// export const 法兰克疯狂复仇: Typings.GameInformation = {
 //   translates: {
 //     cn: '法兰克疯狂复仇'
 //   },
@@ -4107,7 +4107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 犯罪浪潮: Typings.GameInfo = {
+// export const 犯罪浪潮: Typings.GameInformation = {
 //   translates: {
 //     cn: '犯罪浪潮'
 //   },
@@ -4117,7 +4117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 方程式赛车: Typings.GameInfo = {
+// export const 方程式赛车: Typings.GameInformation = {
 //   translates: {
 //     cn: '方程式赛车'
 //   },
@@ -4127,7 +4127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 放射博士的城堡: Typings.GameInfo = {
+// export const 放射博士的城堡: Typings.GameInformation = {
 //   translates: {
 //     cn: '放射博士的城堡'
 //   },
@@ -4137,7 +4137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 飞碟任务: Typings.GameInfo = {
+// export const 飞碟任务: Typings.GameInformation = {
 //   translates: {
 //     cn: '飞碟任务'
 //   },
@@ -4147,7 +4147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 飞虎队: Typings.GameInfo = {
+// export const 飞虎队: Typings.GameInformation = {
 //   translates: {
 //     cn: '飞虎队'
 //   },
@@ -4157,7 +4157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 飞虎队2: Typings.GameInfo = {
+// export const 飞虎队2: Typings.GameInformation = {
 //   translates: {
 //     cn: '飞虎队2'
 //   },
@@ -4167,7 +4167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 飞空艇: Typings.GameInfo = {
+// export const 飞空艇: Typings.GameInformation = {
 //   translates: {
 //     cn: '飞空艇'
 //   },
@@ -4177,7 +4177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 飞狼突击队: Typings.GameInfo = {
+// export const 飞狼突击队: Typings.GameInformation = {
 //   translates: {
 //     cn: '飞狼突击队'
 //   },
@@ -4187,7 +4187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 飞龙传奇: Typings.GameInfo = {
+// export const 飞龙传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '飞龙传奇'
 //   },
@@ -4197,7 +4197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 飞龙骑士: Typings.GameInfo = {
+// export const 飞龙骑士: Typings.GameInformation = {
 //   translates: {
 //     cn: '飞龙骑士'
 //   },
@@ -4207,7 +4207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 飞轮勇士: Typings.GameInfo = {
+// export const 飞轮勇士: Typings.GameInformation = {
 //   translates: {
 //     cn: '飞轮勇士'
 //   },
@@ -4217,7 +4217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 飞鹰骑士: Typings.GameInfo = {
+// export const 飞鹰骑士: Typings.GameInformation = {
 //   translates: {
 //     cn: '飞鹰骑士'
 //   },
@@ -4227,7 +4227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 飞跃疯人院: Typings.GameInfo = {
+// export const 飞跃疯人院: Typings.GameInformation = {
 //   translates: {
 //     cn: '飞跃疯人院'
 //   },
@@ -4237,7 +4237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 非洲探险: Typings.GameInfo = {
+// export const 非洲探险: Typings.GameInformation = {
 //   translates: {
 //     cn: '非洲探险'
 //   },
@@ -4247,7 +4247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 绯王传2: Typings.GameInfo = {
+// export const 绯王传2: Typings.GameInformation = {
 //   translates: {
 //     cn: '绯王传2'
 //   },
@@ -4257,7 +4257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 废土: Typings.GameInfo = {
+// export const 废土: Typings.GameInformation = {
 //   translates: {
 //     cn: '废土'
 //   },
@@ -4267,7 +4267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 分歧：裂痕: Typings.GameInfo = {
+// export const 分歧：裂痕: Typings.GameInformation = {
 //   translates: {
 //     cn: '分歧:裂痕'
 //   },
@@ -4277,7 +4277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 风暴领主: Typings.GameInfo = {
+// export const 风暴领主: Typings.GameInformation = {
 //   translates: {
 //     cn: '风暴领主'
 //   },
@@ -4287,7 +4287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 风暴之眼: Typings.GameInfo = {
+// export const 风暴之眼: Typings.GameInformation = {
 //   translates: {
 //     cn: '风暴之眼'
 //   },
@@ -4297,7 +4297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 风尘三侠之金剑使者: Typings.GameInfo = {
+// export const 风尘三侠之金剑使者: Typings.GameInformation = {
 //   translates: {
 //     cn: '风尘三侠之金剑使者'
 //   },
@@ -4307,7 +4307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 风驰电掣: Typings.GameInfo = {
+// export const 风驰电掣: Typings.GameInformation = {
 //   translates: {
 //     cn: '风驰电掣'
 //   },
@@ -4317,7 +4317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 风行者: Typings.GameInfo = {
+// export const 风行者: Typings.GameInformation = {
 //   translates: {
 //     cn: '风行者'
 //   },
@@ -4327,7 +4327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 风神传承: Typings.GameInfo = {
+// export const 风神传承: Typings.GameInformation = {
 //   translates: {
 //     cn: '风神传承'
 //   },
@@ -4337,7 +4337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 风速小子: Typings.GameInfo = {
+// export const 风速小子: Typings.GameInformation = {
 //   translates: {
 //     cn: '风速小子'
 //   },
@@ -4347,7 +4347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 风雪江山: Typings.GameInfo = {
+// export const 风雪江山: Typings.GameInformation = {
 //   translates: {
 //     cn: '风雪江山'
 //   },
@@ -4357,7 +4357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 风语河岸柳: Typings.GameInfo = {
+// export const 风语河岸柳: Typings.GameInformation = {
 //   translates: {
 //     cn: '风语河岸柳'
 //   },
@@ -4367,7 +4367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 风云霸主: Typings.GameInfo = {
+// export const 风云霸主: Typings.GameInformation = {
 //   translates: {
 //     cn: '风云霸主'
 //   },
@@ -4377,7 +4377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 风云天下三国篇: Typings.GameInfo = {
+// export const 风云天下三国篇: Typings.GameInformation = {
 //   translates: {
 //     cn: '风云天下三国篇'
 //   },
@@ -4387,7 +4387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 封神榜格斗: Typings.GameInfo = {
+// export const 封神榜格斗: Typings.GameInformation = {
 //   translates: {
 //     cn: '封神榜格斗'
 //   },
@@ -4397,7 +4397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 封神演义: Typings.GameInfo = {
+// export const 封神演义: Typings.GameInformation = {
 //   translates: {
 //     cn: '封神演义'
 //   },
@@ -4407,7 +4407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狗: Typings.GameInfo = {
+// export const 疯狗: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狗'
 //   },
@@ -4417,7 +4417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狗威廉的地下城之旅: Typings.GameInfo = {
+// export const 疯狗威廉的地下城之旅: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狗威廉的地下城之旅'
 //   },
@@ -4427,7 +4427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狂大毁灭: Typings.GameInfo = {
+// export const 疯狂大毁灭: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狂大毁灭'
 //   },
@@ -4437,7 +4437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狂大陆: Typings.GameInfo = {
+// export const 疯狂大陆: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狂大陆'
 //   },
@@ -4447,7 +4447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狂电视台: Typings.GameInfo = {
+// export const 疯狂电视台: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狂电视台'
 //   },
@@ -4457,7 +4457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狂橄榄球: Typings.GameInfo = {
+// export const 疯狂橄榄球: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狂橄榄球'
 //   },
@@ -4467,7 +4467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狂科学机器: Typings.GameInfo = {
+// export const 疯狂科学机器: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狂科学机器'
 //   },
@@ -4477,7 +4477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狂赛车2: Typings.GameInfo = {
+// export const 疯狂赛车2: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狂赛车2'
 //   },
@@ -4487,7 +4487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狂赛车3: Typings.GameInfo = {
+// export const 疯狂赛车3: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狂赛车3'
 //   },
@@ -4497,7 +4497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狂时代: Typings.GameInfo = {
+// export const 疯狂时代: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狂时代'
 //   },
@@ -4507,7 +4507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狂双响炮: Typings.GameInfo = {
+// export const 疯狂双响炮: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狂双响炮'
 //   },
@@ -4517,7 +4517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狂小旅鼠: Typings.GameInfo = {
+// export const 疯狂小旅鼠: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狂小旅鼠'
 //   },
@@ -4527,7 +4527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狂小旅鼠2: Typings.GameInfo = {
+// export const 疯狂小旅鼠2: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狂小旅鼠2'
 //   },
@@ -4537,7 +4537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狂小旅鼠3: Typings.GameInfo = {
+// export const 疯狂小旅鼠3: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狂小旅鼠3'
 //   },
@@ -4547,7 +4547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狂小鸭: Typings.GameInfo = {
+// export const 疯狂小鸭: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狂小鸭'
 //   },
@@ -4557,7 +4557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯狂医院2: Typings.GameInfo = {
+// export const 疯狂医院2: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯狂医院2'
 //   },
@@ -4567,7 +4567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 疯子: Typings.GameInfo = {
+// export const 疯子: Typings.GameInformation = {
 //   translates: {
 //     cn: '疯子'
 //   },
@@ -4577,7 +4577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蜂箱赌坊: Typings.GameInfo = {
+// export const 蜂箱赌坊: Typings.GameInformation = {
 //   translates: {
 //     cn: '蜂箱赌坊'
 //   },
@@ -4587,7 +4587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 拂晓攻击: Typings.GameInfo = {
+// export const 拂晓攻击: Typings.GameInformation = {
 //   translates: {
 //     cn: '拂晓攻击'
 //   },
@@ -4597,7 +4597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 福尔摩莎: Typings.GameInfo = {
+// export const 福尔摩莎: Typings.GameInformation = {
 //   translates: {
 //     cn: '福尔摩莎'
 //   },
@@ -4607,7 +4607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 福尔摩斯2玫瑰纹身: Typings.GameInfo = {
+// export const 福尔摩斯2玫瑰纹身: Typings.GameInformation = {
 //   translates: {
 //     cn: '福尔摩斯2玫瑰纹身'
 //   },
@@ -4617,7 +4617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 福尔摩斯失落的文件: Typings.GameInfo = {
+// export const 福尔摩斯失落的文件: Typings.GameInformation = {
 //   translates: {
 //     cn: '福尔摩斯失落的文件'
 //   },
@@ -4627,7 +4627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 福禄双霸天: Typings.GameInfo = {
+// export const 福禄双霸天: Typings.GameInformation = {
 //   translates: {
 //     cn: '福禄双霸天'
 //   },
@@ -4637,7 +4637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 福禄双霸天2: Typings.GameInfo = {
+// export const 福禄双霸天2: Typings.GameInformation = {
 //   translates: {
 //     cn: '福禄双霸天2'
 //   },
@@ -4647,7 +4647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 福特模拟驾驶: Typings.GameInfo = {
+// export const 福特模拟驾驶: Typings.GameInformation = {
 //   translates: {
 //     cn: '福特模拟驾驶'
 //   },
@@ -4657,7 +4657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 富贵列车: Typings.GameInfo = {
+// export const 富贵列车: Typings.GameInformation = {
 //   translates: {
 //     cn: '富贵列车'
 //   },
@@ -4667,7 +4667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 富甲天下: Typings.GameInfo = {
+// export const 富甲天下: Typings.GameInformation = {
 //   translates: {
 //     cn: '富甲天下'
 //   },
@@ -4677,7 +4677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 富甲天下2: Typings.GameInfo = {
+// export const 富甲天下2: Typings.GameInformation = {
 //   translates: {
 //     cn: '富甲天下2'
 //   },
@@ -4687,7 +4687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 盖世龙王: Typings.GameInfo = {
+// export const 盖世龙王: Typings.GameInformation = {
 //   translates: {
 //     cn: '盖世龙王'
 //   },
@@ -4697,7 +4697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 感官足球: Typings.GameInfo = {
+// export const 感官足球: Typings.GameInformation = {
 //   translates: {
 //     cn: '感官足球'
 //   },
@@ -4707,7 +4707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 感官足球95: Typings.GameInfo = {
+// export const 感官足球95: Typings.GameInformation = {
 //   translates: {
 //     cn: '感官足球95'
 //   },
@@ -4717,7 +4717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 橄榄球世界杯95: Typings.GameInfo = {
+// export const 橄榄球世界杯95: Typings.GameInformation = {
 //   translates: {
 //     cn: '橄榄球世界杯95'
 //   },
@@ -4727,7 +4727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 橄榄球小联盟: Typings.GameInfo = {
+// export const 橄榄球小联盟: Typings.GameInformation = {
 //   translates: {
 //     cn: '橄榄球小联盟'
 //   },
@@ -4737,7 +4737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 钢铁冲突: Typings.GameInfo = {
+// export const 钢铁冲突: Typings.GameInformation = {
 //   translates: {
 //     cn: '钢铁冲突'
 //   },
@@ -4747,7 +4747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 钢铁冲突未来版: Typings.GameInfo = {
+// export const 钢铁冲突未来版: Typings.GameInformation = {
 //   translates: {
 //     cn: '钢铁冲突未来版'
 //   },
@@ -4757,7 +4757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 钢铁领主: Typings.GameInfo = {
+// export const 钢铁领主: Typings.GameInformation = {
 //   translates: {
 //     cn: '钢铁领主'
 //   },
@@ -4767,7 +4767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 钢铁骑士团: Typings.GameInfo = {
+// export const 钢铁骑士团: Typings.GameInformation = {
 //   translates: {
 //     cn: '钢铁骑士团'
 //   },
@@ -4777,7 +4777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 钢铁十字: Typings.GameInfo = {
+// export const 钢铁十字: Typings.GameInformation = {
 //   translates: {
 //     cn: '钢铁十字'
 //   },
@@ -4787,7 +4787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 钢铁信条: Typings.GameInfo = {
+// export const 钢铁信条: Typings.GameInformation = {
 //   translates: {
 //     cn: '钢铁信条'
 //   },
@@ -4797,7 +4797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 钢铁意志: Typings.GameInfo = {
+// export const 钢铁意志: Typings.GameInformation = {
 //   translates: {
 //     cn: '钢铁意志'
 //   },
@@ -4807,7 +4807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 钢铁之路1: Typings.GameInfo = {
+// export const 钢铁之路1: Typings.GameInformation = {
 //   translates: {
 //     cn: '钢铁之路1'
 //   },
@@ -4817,7 +4817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 钢铁之路2: Typings.GameInfo = {
+// export const 钢铁之路2: Typings.GameInformation = {
 //   translates: {
 //     cn: '钢铁之路2'
 //   },
@@ -4827,7 +4827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 钢铁之路3: Typings.GameInfo = {
+// export const 钢铁之路3: Typings.GameInformation = {
 //   translates: {
 //     cn: '钢铁之路3'
 //   },
@@ -4837,7 +4837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 钢铁之拳: Typings.GameInfo = {
+// export const 钢铁之拳: Typings.GameInformation = {
 //   translates: {
 //     cn: '钢铁之拳'
 //   },
@@ -4847,7 +4847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 钢铁之心: Typings.GameInfo = {
+// export const 钢铁之心: Typings.GameInformation = {
 //   translates: {
 //     cn: '钢铁之心'
 //   },
@@ -4857,7 +4857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 钢铁之血: Typings.GameInfo = {
+// export const 钢铁之血: Typings.GameInformation = {
 //   translates: {
 //     cn: '钢铁之血'
 //   },
@@ -4867,7 +4867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 高报酬战将: Typings.GameInfo = {
+// export const 高报酬战将: Typings.GameInformation = {
 //   translates: {
 //     cn: '高报酬战将'
 //   },
@@ -4877,7 +4877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 高尔夫训练: Typings.GameInfo = {
+// export const 高尔夫训练: Typings.GameInformation = {
 //   translates: {
 //     cn: '高尔夫训练'
 //   },
@@ -4887,7 +4887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 高尔夫训练386: Typings.GameInfo = {
+// export const 高尔夫训练386: Typings.GameInformation = {
 //   translates: {
 //     cn: '高尔夫训练386'
 //   },
@@ -4897,7 +4897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 高级文明: Typings.GameInfo = {
+// export const 高级文明: Typings.GameInformation = {
 //   translates: {
 //     cn: '高级文明'
 //   },
@@ -4907,7 +4907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 高级银河帝国: Typings.GameInfo = {
+// export const 高级银河帝国: Typings.GameInformation = {
 //   translates: {
 //     cn: '高级银河帝国'
 //   },
@@ -4917,7 +4917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 高卢英雄传: Typings.GameInfo = {
+// export const 高卢英雄传: Typings.GameInformation = {
 //   translates: {
 //     cn: '高卢英雄传'
 //   },
@@ -4927,7 +4927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 高速猎人: Typings.GameInfo = {
+// export const 高速猎人: Typings.GameInformation = {
 //   translates: {
 //     cn: '高速猎人'
 //   },
@@ -4937,7 +4937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 高校魔影: Typings.GameInfo = {
+// export const 高校魔影: Typings.GameInformation = {
 //   translates: {
 //     cn: '高校魔影'
 //   },
@@ -4947,7 +4947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 哥伦布发现之旅: Typings.GameInfo = {
+// export const 哥伦布发现之旅: Typings.GameInformation = {
 //   translates: {
 //     cn: '哥伦布发现之旅'
 //   },
@@ -4957,7 +4957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 革命力量: Typings.GameInfo = {
+// export const 革命力量: Typings.GameInformation = {
 //   translates: {
 //     cn: '革命力量'
 //   },
@@ -4967,7 +4967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 格斗：过度杀戮: Typings.GameInfo = {
+// export const 格斗：过度杀戮: Typings.GameInformation = {
 //   translates: {
 //     cn: '格斗:过度杀戮'
 //   },
@@ -4977,7 +4977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 格斗悍将: Typings.GameInfo = {
+// export const 格斗悍将: Typings.GameInformation = {
 //   translates: {
 //     cn: '格斗悍将'
 //   },
@@ -4987,7 +4987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 格斗拳王: Typings.GameInfo = {
+// export const 格斗拳王: Typings.GameInformation = {
 //   translates: {
 //     cn: '格斗拳王'
 //   },
@@ -4997,7 +4997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 格杀令: Typings.GameInfo = {
+// export const 格杀令: Typings.GameInformation = {
 //   translates: {
 //     cn: '格杀令'
 //   },
@@ -5007,7 +5007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 隔离区1: Typings.GameInfo = {
+// export const 隔离区1: Typings.GameInformation = {
 //   translates: {
 //     cn: '隔离区1'
 //   },
@@ -5017,7 +5017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 隔离区2马路英雄: Typings.GameInfo = {
+// export const 隔离区2马路英雄: Typings.GameInformation = {
 //   translates: {
 //     cn: '隔离区2马路英雄'
 //   },
@@ -5027,7 +5027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 工人物语: Typings.GameInfo = {
+// export const 工人物语: Typings.GameInformation = {
 //   translates: {
 //     cn: '工人物语'
 //   },
@@ -5037,7 +5037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 工人物语2: Typings.GameInfo = {
+// export const 工人物语2: Typings.GameInformation = {
 //   translates: {
 //     cn: '工人物语2'
 //   },
@@ -5047,7 +5047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 公路狂飙: Typings.GameInfo = {
+// export const 公路狂飙: Typings.GameInformation = {
 //   translates: {
 //     cn: '公路狂飙'
 //   },
@@ -5057,7 +5057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 公元前车赛: Typings.GameInfo = {
+// export const 公元前车赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '公元前车赛'
 //   },
@@ -5067,7 +5067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 孤胆枪手: Typings.GameInfo = {
+// export const 孤胆枪手: Typings.GameInformation = {
 //   translates: {
 //     cn: '孤胆枪手'
 //   },
@@ -5077,7 +5077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 古堡之宴: Typings.GameInfo = {
+// export const 古堡之宴: Typings.GameInformation = {
 //   translates: {
 //     cn: '古堡之宴'
 //   },
@@ -5087,7 +5087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 古大陆物语: Typings.GameInfo = {
+// export const 古大陆物语: Typings.GameInformation = {
 //   translates: {
 //     cn: '古大陆物语'
 //   },
@@ -5097,7 +5097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 古大陆物语2: Typings.GameInfo = {
+// export const 古大陆物语2: Typings.GameInformation = {
 //   translates: {
 //     cn: '古大陆物语2'
 //   },
@@ -5107,7 +5107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 古大陆物语4: Typings.GameInfo = {
+// export const 古大陆物语4: Typings.GameInformation = {
 //   translates: {
 //     cn: '古大陆物语4'
 //   },
@@ -5117,7 +5117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 古大陆物语5光盘版: Typings.GameInfo = {
+// export const 古大陆物语5光盘版: Typings.GameInformation = {
 //   translates: {
 //     cn: '古大陆物语5光盘版'
 //   },
@@ -5127,7 +5127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 古怪小搭档: Typings.GameInfo = {
+// export const 古怪小搭档: Typings.GameInformation = {
 //   translates: {
 //     cn: '古怪小搭档'
 //   },
@@ -5137,7 +5137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 古怪星球伊特兰: Typings.GameInfo = {
+// export const 古怪星球伊特兰: Typings.GameInformation = {
 //   translates: {
 //     cn: '古怪星球伊特兰'
 //   },
@@ -5147,7 +5147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 古怪之梦: Typings.GameInfo = {
+// export const 古怪之梦: Typings.GameInformation = {
 //   translates: {
 //     cn: '古怪之梦'
 //   },
@@ -5157,7 +5157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 古墓丽影: Typings.GameInfo = {
+// export const 古墓丽影: Typings.GameInformation = {
 //   translates: {
 //     cn: '古墓丽影'
 //   },
@@ -5167,7 +5167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 古事记外传(日文): Typings.GameInfo = {
+// export const 古事记外传(日文): Typings.GameInformation = {
 //   translates: {
 //     cn: '古事记外传(日文)'
 //   },
@@ -5177,7 +5177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 古文明霸王传: Typings.GameInfo = {
+// export const 古文明霸王传: Typings.GameInformation = {
 //   translates: {
 //     cn: '古文明霸王传'
 //   },
@@ -5187,7 +5187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雇佣之枪: Typings.GameInfo = {
+// export const 雇佣之枪: Typings.GameInformation = {
 //   translates: {
 //     cn: '雇佣之枪'
 //   },
@@ -5197,7 +5197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 关键任务: Typings.GameInfo = {
+// export const 关键任务: Typings.GameInformation = {
 //   translates: {
 //     cn: '关键任务'
 //   },
@@ -5207,7 +5207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 官能习教: Typings.GameInfo = {
+// export const 官能习教: Typings.GameInformation = {
 //   translates: {
 //     cn: '官能习教'
 //   },
@@ -5217,7 +5217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 管状世界: Typings.GameInfo = {
+// export const 管状世界: Typings.GameInformation = {
 //   translates: {
 //     cn: '管状世界'
 //   },
@@ -5227,7 +5227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 冠军拉力赛: Typings.GameInfo = {
+// export const 冠军拉力赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '冠军拉力赛'
 //   },
@@ -5237,7 +5237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 冠军足球经理2: Typings.GameInfo = {
+// export const 冠军足球经理2: Typings.GameInformation = {
 //   translates: {
 //     cn: '冠军足球经理2'
 //   },
@@ -5247,7 +5247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 灌篮96: Typings.GameInfo = {
+// export const 灌篮96: Typings.GameInformation = {
 //   translates: {
 //     cn: '灌篮96'
 //   },
@@ -5257,7 +5257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 灌篮金刚: Typings.GameInfo = {
+// export const 灌篮金刚: Typings.GameInformation = {
 //   translates: {
 //     cn: '灌篮金刚'
 //   },
@@ -5267,7 +5267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 光明圣使团: Typings.GameInfo = {
+// export const 光明圣使团: Typings.GameInformation = {
 //   translates: {
 //     cn: '光明圣使团'
 //   },
@@ -5277,7 +5277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 光明战史: Typings.GameInfo = {
+// export const 光明战史: Typings.GameInformation = {
 //   translates: {
 //     cn: '光明战史'
 //   },
@@ -5287,7 +5287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 光头大战: Typings.GameInfo = {
+// export const 光头大战: Typings.GameInformation = {
 //   translates: {
 //     cn: '光头大战'
 //   },
@@ -5297,7 +5297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 鬼马小英雄: Typings.GameInfo = {
+// export const 鬼马小英雄: Typings.GameInformation = {
 //   translates: {
 //     cn: '鬼马小英雄'
 //   },
@@ -5307,7 +5307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 鬼屋魔影: Typings.GameInfo = {
+// export const 鬼屋魔影: Typings.GameInformation = {
 //   translates: {
 //     cn: '鬼屋魔影'
 //   },
@@ -5317,7 +5317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 鬼屋魔影2: Typings.GameInfo = {
+// export const 鬼屋魔影2: Typings.GameInformation = {
 //   translates: {
 //     cn: '鬼屋魔影2'
 //   },
@@ -5327,7 +5327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 鬼屋魔影3: Typings.GameInfo = {
+// export const 鬼屋魔影3: Typings.GameInformation = {
 //   translates: {
 //     cn: '鬼屋魔影3'
 //   },
@@ -5337,7 +5337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 鬼屋魔影万圣节特别篇: Typings.GameInfo = {
+// export const 鬼屋魔影万圣节特别篇: Typings.GameInformation = {
 //   translates: {
 //     cn: '鬼屋魔影万圣节特别篇'
 //   },
@@ -5347,7 +5347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 鬼屋文字冒险: Typings.GameInfo = {
+// export const 鬼屋文字冒险: Typings.GameInformation = {
 //   translates: {
 //     cn: '鬼屋文字冒险'
 //   },
@@ -5357,7 +5357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 贵族: Typings.GameInfo = {
+// export const 贵族: Typings.GameInformation = {
 //   translates: {
 //     cn: '贵族'
 //   },
@@ -5367,7 +5367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国际超级车赛: Typings.GameInfo = {
+// export const 国际超级车赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '国际超级车赛'
 //   },
@@ -5377,7 +5377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国际摩托赛: Typings.GameInfo = {
+// export const 国际摩托赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '国际摩托赛'
 //   },
@@ -5387,7 +5387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国际拳击赛: Typings.GameInfo = {
+// export const 国际拳击赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '国际拳击赛'
 //   },
@@ -5397,7 +5397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国际忍者兔: Typings.GameInfo = {
+// export const 国际忍者兔: Typings.GameInformation = {
 //   translates: {
 //     cn: '国际忍者兔'
 //   },
@@ -5407,7 +5407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国际体育联赛: Typings.GameInfo = {
+// export const 国际体育联赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '国际体育联赛'
 //   },
@@ -5417,7 +5417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国际网球联赛: Typings.GameInfo = {
+// export const 国际网球联赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '国际网球联赛'
 //   },
@@ -5427,7 +5427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国际象棋末日审判版: Typings.GameInfo = {
+// export const 国际象棋末日审判版: Typings.GameInformation = {
 //   translates: {
 //     cn: '国际象棋末日审判版'
 //   },
@@ -5437,7 +5437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国际象棋巫术对决: Typings.GameInfo = {
+// export const 国际象棋巫术对决: Typings.GameInformation = {
 //   translates: {
 //     cn: '国际象棋巫术对决'
 //   },
@@ -5447,7 +5447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国土争霸: Typings.GameInfo = {
+// export const 国土争霸: Typings.GameInformation = {
 //   translates: {
 //     cn: '国土争霸'
 //   },
@@ -5457,7 +5457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国王的恩赐: Typings.GameInfo = {
+// export const 国王的恩赐: Typings.GameInformation = {
 //   translates: {
 //     cn: '国王的恩赐'
 //   },
@@ -5467,7 +5467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国王的桌游: Typings.GameInfo = {
+// export const 国王的桌游: Typings.GameInformation = {
 //   translates: {
 //     cn: '国王的桌游'
 //   },
@@ -5477,7 +5477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国王密使1皇冠探求: Typings.GameInfo = {
+// export const 国王密使1皇冠探求: Typings.GameInformation = {
 //   translates: {
 //     cn: '国王密使1皇冠探求'
 //   },
@@ -5487,7 +5487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国王密使2皇家罗曼史: Typings.GameInfo = {
+// export const 国王密使2皇家罗曼史: Typings.GameInformation = {
 //   translates: {
 //     cn: '国王密使2皇家罗曼史'
 //   },
@@ -5497,7 +5497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国王密使3魔法生死门: Typings.GameInfo = {
+// export const 国王密使3魔法生死门: Typings.GameInformation = {
 //   translates: {
 //     cn: '国王密使3魔法生死门'
 //   },
@@ -5507,7 +5507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国王密使4罗塞拉冒险: Typings.GameInfo = {
+// export const 国王密使4罗塞拉冒险: Typings.GameInformation = {
 //   translates: {
 //     cn: '国王密使4罗塞拉冒险'
 //   },
@@ -5517,7 +5517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国王密使5失城记: Typings.GameInfo = {
+// export const 国王密使5失城记: Typings.GameInformation = {
 //   translates: {
 //     cn: '国王密使5失城记'
 //   },
@@ -5527,7 +5527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 国王密使6希望之旅: Typings.GameInfo = {
+// export const 国王密使6希望之旅: Typings.GameInformation = {
 //   translates: {
 //     cn: '国王密使6希望之旅'
 //   },
@@ -5537,7 +5537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 过度杀戮92: Typings.GameInfo = {
+// export const 过度杀戮92: Typings.GameInformation = {
 //   translates: {
 //     cn: '过度杀戮92'
 //   },
@@ -5547,7 +5547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 海豹突击队: Typings.GameInfo = {
+// export const 海豹突击队: Typings.GameInformation = {
 //   translates: {
 //     cn: '海豹突击队'
 //   },
@@ -5557,7 +5557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 海盗大战: Typings.GameInfo = {
+// export const 海盗大战: Typings.GameInformation = {
 //   translates: {
 //     cn: '海盗大战'
 //   },
@@ -5567,7 +5567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 海盗黄金版: Typings.GameInfo = {
+// export const 海盗黄金版: Typings.GameInformation = {
 //   translates: {
 //     cn: '海盗黄金版'
 //   },
@@ -5577,7 +5577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 海军出击: Typings.GameInfo = {
+// export const 海军出击: Typings.GameInformation = {
 //   translates: {
 //     cn: '海军出击'
 //   },
@@ -5587,7 +5587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 海狼: Typings.GameInfo = {
+// export const 海狼: Typings.GameInformation = {
 //   translates: {
 //     cn: '海狼'
 //   },
@@ -5597,7 +5597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 海姆达: Typings.GameInfo = {
+// export const 海姆达: Typings.GameInformation = {
 //   translates: {
 //     cn: '海姆达'
 //   },
@@ -5607,7 +5607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 海姆达2: Typings.GameInfo = {
+// export const 海姆达2: Typings.GameInformation = {
 //   translates: {
 //     cn: '海姆达2'
 //   },
@@ -5617,7 +5617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 海上传奇: Typings.GameInfo = {
+// export const 海上传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '海上传奇'
 //   },
@@ -5627,7 +5627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 海滩斗忍者: Typings.GameInfo = {
+// export const 海滩斗忍者: Typings.GameInformation = {
 //   translates: {
 //     cn: '海滩斗忍者'
 //   },
@@ -5637,7 +5637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 海下罗格: Typings.GameInfo = {
+// export const 海下罗格: Typings.GameInformation = {
 //   translates: {
 //     cn: '海下罗格'
 //   },
@@ -5647,7 +5647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 海洋多米诺: Typings.GameInfo = {
+// export const 海洋多米诺: Typings.GameInformation = {
 //   translates: {
 //     cn: '海洋多米诺'
 //   },
@@ -5657,7 +5657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 汉堡战争: Typings.GameInfo = {
+// export const 汉堡战争: Typings.GameInformation = {
 //   translates: {
 //     cn: '汉堡战争'
 //   },
@@ -5667,7 +5667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 汉尼拔: Typings.GameInfo = {
+// export const 汉尼拔: Typings.GameInformation = {
 //   translates: {
 //     cn: '汉尼拔'
 //   },
@@ -5677,7 +5677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 捍卫雄鹰: Typings.GameInfo = {
+// export const 捍卫雄鹰: Typings.GameInformation = {
 //   translates: {
 //     cn: '捍卫雄鹰'
 //   },
@@ -5687,7 +5687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 撼天神塔: Typings.GameInfo = {
+// export const 撼天神塔: Typings.GameInformation = {
 //   translates: {
 //     cn: '撼天神塔'
 //   },
@@ -5697,7 +5697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 撼天神塔2: Typings.GameInfo = {
+// export const 撼天神塔2: Typings.GameInformation = {
 //   translates: {
 //     cn: '撼天神塔2'
 //   },
@@ -5707,7 +5707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 撼天神塔3: Typings.GameInfo = {
+// export const 撼天神塔3: Typings.GameInformation = {
 //   translates: {
 //     cn: '撼天神塔3'
 //   },
@@ -5717,7 +5717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 撼天神塔VT: Typings.GameInfo = {
+// export const 撼天神塔VT: Typings.GameInformation = {
 //   translates: {
 //     cn: '撼天神塔VT'
 //   },
@@ -5727,7 +5727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 行星边际: Typings.GameInfo = {
+// export const 行星边际: Typings.GameInformation = {
 //   translates: {
 //     cn: '行星边际'
 //   },
@@ -5737,7 +5737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 航海世纪: Typings.GameInfo = {
+// export const 航海世纪: Typings.GameInformation = {
 //   translates: {
 //     cn: '航海世纪'
 //   },
@@ -5747,7 +5747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 豪华弹珠台: Typings.GameInfo = {
+// export const 豪华弹珠台: Typings.GameInformation = {
 //   translates: {
 //     cn: '豪华弹珠台'
 //   },
@@ -5757,7 +5757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 好莱坞谋杀案: Typings.GameInfo = {
+// export const 好莱坞谋杀案: Typings.GameInformation = {
 //   translates: {
 //     cn: '好莱坞谋杀案'
 //   },
@@ -5767,7 +5767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 好梦连床: Typings.GameInfo = {
+// export const 好梦连床: Typings.GameInformation = {
 //   translates: {
 //     cn: '好梦连床'
 //   },
@@ -5777,7 +5777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 合金装备: Typings.GameInfo = {
+// export const 合金装备: Typings.GameInformation = {
 //   translates: {
 //     cn: '合金装备'
 //   },
@@ -5787,7 +5787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 合金装备2: Typings.GameInfo = {
+// export const 合金装备2: Typings.GameInformation = {
 //   translates: {
 //     cn: '合金装备2'
 //   },
@@ -5797,7 +5797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 河源崎家一族(日): Typings.GameInfo = {
+// export const 河源崎家一族(日): Typings.GameInformation = {
 //   translates: {
 //     cn: '河源崎家一族(日)'
 //   },
@@ -5807,7 +5807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 荷兰人的失落之矿: Typings.GameInfo = {
+// export const 荷兰人的失落之矿: Typings.GameInformation = {
 //   translates: {
 //     cn: '荷兰人的失落之矿'
 //   },
@@ -5817,7 +5817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 核能武士: Typings.GameInfo = {
+// export const 核能武士: Typings.GameInformation = {
 //   translates: {
 //     cn: '核能武士'
 //   },
@@ -5827,7 +5827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 核战狂人梦: Typings.GameInfo = {
+// export const 核战狂人梦: Typings.GameInformation = {
 //   translates: {
 //     cn: '核战狂人梦'
 //   },
@@ -5837,7 +5837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 赫拉瑞恩之剑: Typings.GameInfo = {
+// export const 赫拉瑞恩之剑: Typings.GameInformation = {
 //   translates: {
 //     cn: '赫拉瑞恩之剑'
 //   },
@@ -5847,7 +5847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑暗的公证: Typings.GameInfo = {
+// export const 黑暗的公证: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑暗的公证'
 //   },
@@ -5857,7 +5857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑暗军团／魔法伏击战: Typings.GameInfo = {
+// export const 黑暗军团／魔法伏击战: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑暗军团/魔法伏击战'
 //   },
@@ -5867,7 +5867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑暗迷宫: Typings.GameInfo = {
+// export const 黑暗迷宫: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑暗迷宫'
 //   },
@@ -5877,7 +5877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑暗圣战录: Typings.GameInfo = {
+// export const 黑暗圣战录: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑暗圣战录'
 //   },
@@ -5887,7 +5887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑暗时代三部曲: Typings.GameInfo = {
+// export const 黑暗时代三部曲: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑暗时代三部曲'
 //   },
@@ -5897,7 +5897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑暗天使: Typings.GameInfo = {
+// export const 黑暗天使: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑暗天使'
 //   },
@@ -5907,7 +5907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑暗元素: Typings.GameInfo = {
+// export const 黑暗元素: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑暗元素'
 //   },
@@ -5917,7 +5917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑暗之地: Typings.GameInfo = {
+// export const 黑暗之地: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑暗之地'
 //   },
@@ -5927,7 +5927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑暗之蛊: Typings.GameInfo = {
+// export const 黑暗之蛊: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑暗之蛊'
 //   },
@@ -5937,7 +5937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑暗之心: Typings.GameInfo = {
+// export const 黑暗之心: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑暗之心'
 //   },
@@ -5947,7 +5947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑洞谜题: Typings.GameInfo = {
+// export const 黑洞谜题: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑洞谜题'
 //   },
@@ -5957,7 +5957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑街风云: Typings.GameInfo = {
+// export const 黑街风云: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑街风云'
 //   },
@@ -5967,7 +5967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑杰克: Typings.GameInfo = {
+// export const 黑杰克: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑杰克'
 //   },
@@ -5977,7 +5977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑杰克S: Typings.GameInfo = {
+// export const 黑杰克S: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑杰克S'
 //   },
@@ -5987,7 +5987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑日危机: Typings.GameInfo = {
+// export const 黑日危机: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑日危机'
 //   },
@@ -5997,7 +5997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑日危机2: Typings.GameInfo = {
+// export const 黑日危机2: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑日危机2'
 //   },
@@ -6007,7 +6007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑色街区: Typings.GameInfo = {
+// export const 黑色街区: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑色街区'
 //   },
@@ -6017,7 +6017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑武士: Typings.GameInfo = {
+// export const 黑武士: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑武士'
 //   },
@@ -6027,7 +6027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑星正义使者: Typings.GameInfo = {
+// export const 黑星正义使者: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑星正义使者'
 //   },
@@ -6037,7 +6037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黑之断章: Typings.GameInfo = {
+// export const 黑之断章: Typings.GameInformation = {
 //   translates: {
 //     cn: '黑之断章'
 //   },
@@ -6047,7 +6047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 横版俄罗斯方块: Typings.GameInfo = {
+// export const 横版俄罗斯方块: Typings.GameInformation = {
 //   translates: {
 //     cn: '横版俄罗斯方块'
 //   },
@@ -6057,7 +6057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 横扫: Typings.GameInfo = {
+// export const 横扫: Typings.GameInformation = {
 //   translates: {
 //     cn: '横扫'
 //   },
@@ -6067,7 +6067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 红楼梦麻将: Typings.GameInfo = {
+// export const 红楼梦麻将: Typings.GameInformation = {
 //   translates: {
 //     cn: '红楼梦麻将'
 //   },
@@ -6077,7 +6077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 红楼梦之十二金钗: Typings.GameInfo = {
+// export const 红楼梦之十二金钗: Typings.GameInformation = {
 //   translates: {
 //     cn: '红楼梦之十二金钗'
 //   },
@@ -6087,7 +6087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 红猫1: Typings.GameInfo = {
+// export const 红猫1: Typings.GameInformation = {
 //   translates: {
 //     cn: '红猫1'
 //   },
@@ -6097,7 +6097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 红猫2: Typings.GameInfo = {
+// export const 红猫2: Typings.GameInformation = {
 //   translates: {
 //     cn: '红猫2'
 //   },
@@ -6107,7 +6107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 红色地狱纳粹悖论: Typings.GameInfo = {
+// export const 红色地狱纳粹悖论: Typings.GameInformation = {
 //   translates: {
 //     cn: '红色地狱纳粹悖论'
 //   },
@@ -6117,7 +6117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 红色风暴: Typings.GameInfo = {
+// export const 红色风暴: Typings.GameInformation = {
 //   translates: {
 //     cn: '红色风暴'
 //   },
@@ -6127,7 +6127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 红色警戒: Typings.GameInfo = {
+// export const 红色警戒: Typings.GameInformation = {
 //   translates: {
 //     cn: '红色警戒'
 //   },
@@ -6137,7 +6137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 红色男爵: Typings.GameInfo = {
+// export const 红色男爵: Typings.GameInformation = {
 //   translates: {
 //     cn: '红色男爵'
 //   },
@@ -6147,7 +6147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 红色水晶石: Typings.GameInfo = {
+// export const 红色水晶石: Typings.GameInformation = {
 //   translates: {
 //     cn: '红色水晶石'
 //   },
@@ -6157,7 +6157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 红色诱惑: Typings.GameInfo = {
+// export const 红色诱惑: Typings.GameInformation = {
 //   translates: {
 //     cn: '红色诱惑'
 //   },
@@ -6167,7 +6167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 红色越野拉力赛: Typings.GameInfo = {
+// export const 红色越野拉力赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '红色越野拉力赛'
 //   },
@@ -6177,7 +6177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 洪荒格斗: Typings.GameInfo = {
+// export const 洪荒格斗: Typings.GameInformation = {
 //   translates: {
 //     cn: '洪荒格斗'
 //   },
@@ -6187,7 +6187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 洪流剑客: Typings.GameInfo = {
+// export const 洪流剑客: Typings.GameInformation = {
 //   translates: {
 //     cn: '洪流剑客'
 //   },
@@ -6197,7 +6197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 猴岛小英雄: Typings.GameInfo = {
+// export const 猴岛小英雄: Typings.GameInformation = {
 //   translates: {
 //     cn: '猴岛小英雄'
 //   },
@@ -6207,7 +6207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 猴岛小英雄2: Typings.GameInfo = {
+// export const 猴岛小英雄2: Typings.GameInformation = {
 //   translates: {
 //     cn: '猴岛小英雄2'
 //   },
@@ -6217,7 +6217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 呼啸拉力赛: Typings.GameInfo = {
+// export const 呼啸拉力赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '呼啸拉力赛'
 //   },
@@ -6227,7 +6227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 呼啸赛车: Typings.GameInfo = {
+// export const 呼啸赛车: Typings.GameInformation = {
 //   translates: {
 //     cn: '呼啸赛车'
 //   },
@@ -6237,7 +6237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 呼啸赛车2: Typings.GameInfo = {
+// export const 呼啸赛车2: Typings.GameInformation = {
 //   translates: {
 //     cn: '呼啸赛车2'
 //   },
@@ -6247,7 +6247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 狐战机: Typings.GameInfo = {
+// export const 狐战机: Typings.GameInformation = {
 //   translates: {
 //     cn: '狐战机'
 //   },
@@ -6257,7 +6257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 湖人对凯尔特人: Typings.GameInfo = {
+// export const 湖人对凯尔特人: Typings.GameInformation = {
 //   translates: {
 //     cn: '湖人对凯尔特人'
 //   },
@@ -6267,7 +6267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 虎胆妙算: Typings.GameInfo = {
+// export const 虎胆妙算: Typings.GameInformation = {
 //   translates: {
 //     cn: '虎胆妙算'
 //   },
@@ -6277,7 +6277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 琥珀之星: Typings.GameInfo = {
+// export const 琥珀之星: Typings.GameInformation = {
 //   translates: {
 //     cn: '琥珀之星'
 //   },
@@ -6287,7 +6287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 花木兰: Typings.GameInfo = {
+// export const 花木兰: Typings.GameInformation = {
 //   translates: {
 //     cn: '花木兰'
 //   },
@@ -6297,7 +6297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 华丽人生2: Typings.GameInfo = {
+// export const 华丽人生2: Typings.GameInformation = {
 //   translates: {
 //     cn: '华丽人生2'
 //   },
@@ -6307,7 +6307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 滑溜小赛车: Typings.GameInfo = {
+// export const 滑溜小赛车: Typings.GameInformation = {
 //   translates: {
 //     cn: '滑溜小赛车'
 //   },
@@ -6317,7 +6317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 滑流5000: Typings.GameInfo = {
+// export const 滑流5000: Typings.GameInformation = {
 //   translates: {
 //     cn: '滑流5000'
 //   },
@@ -6327,7 +6327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 滑轮小子: Typings.GameInfo = {
+// export const 滑轮小子: Typings.GameInformation = {
 //   translates: {
 //     cn: '滑轮小子'
 //   },
@@ -6337,7 +6337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 滑轮小子2: Typings.GameInfo = {
+// export const 滑轮小子2: Typings.GameInformation = {
 //   translates: {
 //     cn: '滑轮小子2'
 //   },
@@ -6347,7 +6347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 滑雪场: Typings.GameInfo = {
+// export const 滑雪场: Typings.GameInformation = {
 //   translates: {
 //     cn: '滑雪场'
 //   },
@@ -6357,7 +6357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 欢乐城市: Typings.GameInfo = {
+// export const 欢乐城市: Typings.GameInformation = {
 //   translates: {
 //     cn: '欢乐城市'
 //   },
@@ -6367,7 +6367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 欢乐接龙: Typings.GameInfo = {
+// export const 欢乐接龙: Typings.GameInformation = {
 //   translates: {
 //     cn: '欢乐接龙'
 //   },
@@ -6377,7 +6377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 欢乐麻将: Typings.GameInfo = {
+// export const 欢乐麻将: Typings.GameInformation = {
 //   translates: {
 //     cn: '欢乐麻将'
 //   },
@@ -6387,7 +6387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 欢乐天使: Typings.GameInfo = {
+// export const 欢乐天使: Typings.GameInformation = {
 //   translates: {
 //     cn: '欢乐天使'
 //   },
@@ -6397,7 +6397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 欢乐幸福人: Typings.GameInfo = {
+// export const 欢乐幸福人: Typings.GameInformation = {
 //   translates: {
 //     cn: '欢乐幸福人'
 //   },
@@ -6407,7 +6407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 环世界: Typings.GameInfo = {
+// export const 环世界: Typings.GameInformation = {
 //   translates: {
 //     cn: '环世界'
 //   },
@@ -6417,7 +6417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幻界霸者: Typings.GameInfo = {
+// export const 幻界霸者: Typings.GameInformation = {
 //   translates: {
 //     cn: '幻界霸者'
 //   },
@@ -6427,7 +6427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幻世喜谭: Typings.GameInfo = {
+// export const 幻世喜谭: Typings.GameInformation = {
 //   translates: {
 //     cn: '幻世喜谭'
 //   },
@@ -6437,7 +6437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幻想火焰: Typings.GameInfo = {
+// export const 幻想火焰: Typings.GameInformation = {
 //   translates: {
 //     cn: '幻想火焰'
 //   },
@@ -6447,7 +6447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幻想空间: Typings.GameInfo = {
+// export const 幻想空间: Typings.GameInformation = {
 //   translates: {
 //     cn: '幻想空间'
 //   },
@@ -6457,7 +6457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幻想空间2: Typings.GameInfo = {
+// export const 幻想空间2: Typings.GameInformation = {
 //   translates: {
 //     cn: '幻想空间2'
 //   },
@@ -6467,7 +6467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幻想空间3: Typings.GameInfo = {
+// export const 幻想空间3: Typings.GameInformation = {
 //   translates: {
 //     cn: '幻想空间3'
 //   },
@@ -6477,7 +6477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幻想空间5: Typings.GameInfo = {
+// export const 幻想空间5: Typings.GameInformation = {
 //   translates: {
 //     cn: '幻想空间5'
 //   },
@@ -6487,7 +6487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幻想空间6: Typings.GameInfo = {
+// export const 幻想空间6: Typings.GameInformation = {
 //   translates: {
 //     cn: '幻想空间6'
 //   },
@@ -6497,7 +6497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幻想奇侠传: Typings.GameInfo = {
+// export const 幻想奇侠传: Typings.GameInformation = {
 //   translates: {
 //     cn: '幻想奇侠传'
 //   },
@@ -6507,7 +6507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幻象弹珠台: Typings.GameInfo = {
+// export const 幻象弹珠台: Typings.GameInformation = {
 //   translates: {
 //     cn: '幻象弹珠台'
 //   },
@@ -6517,7 +6517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幻象雷电: Typings.GameInfo = {
+// export const 幻象雷电: Typings.GameInformation = {
 //   translates: {
 //     cn: '幻象雷电'
 //   },
@@ -6527,7 +6527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幻影英雄: Typings.GameInfo = {
+// export const 幻影英雄: Typings.GameInformation = {
 //   translates: {
 //     cn: '幻影英雄'
 //   },
@@ -6537,7 +6537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 荒蛮勇士格斗: Typings.GameInfo = {
+// export const 荒蛮勇士格斗: Typings.GameInformation = {
 //   translates: {
 //     cn: '荒蛮勇士格斗'
 //   },
@@ -6547,7 +6547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 皇冠: Typings.GameInfo = {
+// export const 皇冠: Typings.GameInformation = {
 //   translates: {
 //     cn: '皇冠'
 //   },
@@ -6557,7 +6557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 皇后: Typings.GameInfo = {
+// export const 皇后: Typings.GameInformation = {
 //   translates: {
 //     cn: '皇后'
 //   },
@@ -6567,7 +6567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黄飞鸿铁公鸡斗蜈蚣: Typings.GameInfo = {
+// export const 黄飞鸿铁公鸡斗蜈蚣: Typings.GameInformation = {
 //   translates: {
 //     cn: '黄飞鸿铁公鸡斗蜈蚣'
 //   },
@@ -6577,7 +6577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黄瓜战争三部曲: Typings.GameInfo = {
+// export const 黄瓜战争三部曲: Typings.GameInformation = {
 //   translates: {
 //     cn: '黄瓜战争三部曲'
 //   },
@@ -6587,7 +6587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 灰烬帝国: Typings.GameInfo = {
+// export const 灰烬帝国: Typings.GameInformation = {
 //   translates: {
 //     cn: '灰烬帝国'
 //   },
@@ -6597,7 +6597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 回到大魔域: Typings.GameInfo = {
+// export const 回到大魔域: Typings.GameInformation = {
 //   translates: {
 //     cn: '回到大魔域'
 //   },
@@ -6607,7 +6607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 毁灭公爵1: Typings.GameInfo = {
+// export const 毁灭公爵1: Typings.GameInformation = {
 //   translates: {
 //     cn: '毁灭公爵1'
 //   },
@@ -6617,7 +6617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 毁灭公爵2: Typings.GameInfo = {
+// export const 毁灭公爵2: Typings.GameInformation = {
 //   translates: {
 //     cn: '毁灭公爵2'
 //   },
@@ -6627,7 +6627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 毁灭公爵3D: Typings.GameInfo = {
+// export const 毁灭公爵3D: Typings.GameInformation = {
 //   translates: {
 //     cn: '毁灭公爵3D'
 //   },
@@ -6637,7 +6637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 毁灭竞技场: Typings.GameInfo = {
+// export const 毁灭竞技场: Typings.GameInformation = {
 //   translates: {
 //     cn: '毁灭竞技场'
 //   },
@@ -6647,7 +6647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 毁灭坦克: Typings.GameInfo = {
+// export const 毁灭坦克: Typings.GameInformation = {
 //   translates: {
 //     cn: '毁灭坦克'
 //   },
@@ -6657,7 +6657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 毁灭战机: Typings.GameInfo = {
+// export const 毁灭战机: Typings.GameInformation = {
 //   translates: {
 //     cn: '毁灭战机'
 //   },
@@ -6667,7 +6667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 毁灭战士: Typings.GameInfo = {
+// export const 毁灭战士: Typings.GameInformation = {
 //   translates: {
 //     cn: '毁灭战士'
 //   },
@@ -6677,7 +6677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 毁灭战士2终结版: Typings.GameInfo = {
+// export const 毁灭战士2终结版: Typings.GameInformation = {
 //   translates: {
 //     cn: '毁灭战士2终结版'
 //   },
@@ -6687,7 +6687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 毁灭战士横版: Typings.GameInfo = {
+// export const 毁灭战士横版: Typings.GameInformation = {
 //   translates: {
 //     cn: '毁灭战士横版'
 //   },
@@ -6697,7 +6697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 毁天灭地: Typings.GameInfo = {
+// export const 毁天灭地: Typings.GameInformation = {
 //   translates: {
 //     cn: '毁天灭地'
 //   },
@@ -6707,7 +6707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 混沌机甲1: Typings.GameInfo = {
+// export const 混沌机甲1: Typings.GameInformation = {
 //   translates: {
 //     cn: '混沌机甲1'
 //   },
@@ -6717,7 +6717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 混沌机甲2: Typings.GameInfo = {
+// export const 混沌机甲2: Typings.GameInformation = {
 //   translates: {
 //     cn: '混沌机甲2'
 //   },
@@ -6727,7 +6727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 混沌之地: Typings.GameInfo = {
+// export const 混沌之地: Typings.GameInformation = {
 //   translates: {
 //     cn: '混沌之地'
 //   },
@@ -6737,7 +6737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 混战之翼: Typings.GameInfo = {
+// export const 混战之翼: Typings.GameInformation = {
 //   translates: {
 //     cn: '混战之翼'
 //   },
@@ -6747,7 +6747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 火狐冒险: Typings.GameInfo = {
+// export const 火狐冒险: Typings.GameInformation = {
 //   translates: {
 //     cn: '火狐冒险'
 //   },
@@ -6757,7 +6757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 火箭车: Typings.GameInfo = {
+// export const 火箭车: Typings.GameInformation = {
 //   translates: {
 //     cn: '火箭车'
 //   },
@@ -6767,7 +6767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 火箭手: Typings.GameInfo = {
+// export const 火箭手: Typings.GameInformation = {
 //   translates: {
 //     cn: '火箭手'
 //   },
@@ -6777,7 +6777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 火线交叉: Typings.GameInfo = {
+// export const 火线交叉: Typings.GameInformation = {
 //   translates: {
 //     cn: '火线交叉'
 //   },
@@ -6787,7 +6787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 火星女神: Typings.GameInfo = {
+// export const 火星女神: Typings.GameInformation = {
 //   translates: {
 //     cn: '火星女神'
 //   },
@@ -6797,7 +6797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 火星人备忘录: Typings.GameInfo = {
+// export const 火星人备忘录: Typings.GameInformation = {
 //   translates: {
 //     cn: '火星人备忘录'
 //   },
@@ -6807,7 +6807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 火焰之力: Typings.GameInfo = {
+// export const 火焰之力: Typings.GameInformation = {
 //   translates: {
 //     cn: '火焰之力'
 //   },
@@ -6817,7 +6817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 火焰之王: Typings.GameInfo = {
+// export const 火焰之王: Typings.GameInformation = {
 //   translates: {
 //     cn: '火焰之王'
 //   },
@@ -6827,7 +6827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 机动战士: Typings.GameInfo = {
+// export const 机动战士: Typings.GameInformation = {
 //   translates: {
 //     cn: '机动战士'
 //   },
@@ -6837,7 +6837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 机甲部队: Typings.GameInfo = {
+// export const 机甲部队: Typings.GameInformation = {
 //   translates: {
 //     cn: '机甲部队'
 //   },
@@ -6847,7 +6847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 机甲战神: Typings.GameInfo = {
+// export const 机甲战神: Typings.GameInformation = {
 //   translates: {
 //     cn: '机甲战神'
 //   },
@@ -6857,7 +6857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 机甲战士2第31世纪: Typings.GameInfo = {
+// export const 机甲战士2第31世纪: Typings.GameInformation = {
 //   translates: {
 //     cn: '机甲战士2第31世纪'
 //   },
@@ -6867,7 +6867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 机甲战士2雇佣兵: Typings.GameInfo = {
+// export const 机甲战士2雇佣兵: Typings.GameInformation = {
 //   translates: {
 //     cn: '机甲战士2雇佣兵'
 //   },
@@ -6877,7 +6877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 机甲战士2熊魂遗迹: Typings.GameInfo = {
+// export const 机甲战士2熊魂遗迹: Typings.GameInformation = {
 //   translates: {
 //     cn: '机甲战士2熊魂遗迹'
 //   },
@@ -6887,7 +6887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 机器人崛起: Typings.GameInfo = {
+// export const 机器人崛起: Typings.GameInformation = {
 //   translates: {
 //     cn: '机器人崛起'
 //   },
@@ -6897,7 +6897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 机械帝国: Typings.GameInfo = {
+// export const 机械帝国: Typings.GameInformation = {
 //   translates: {
 //     cn: '机械帝国'
 //   },
@@ -6907,7 +6907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 机械法师: Typings.GameInfo = {
+// export const 机械法师: Typings.GameInformation = {
 //   translates: {
 //     cn: '机械法师'
 //   },
@@ -6917,7 +6917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 机械小蜜蜂: Typings.GameInfo = {
+// export const 机械小蜜蜂: Typings.GameInformation = {
 //   translates: {
 //     cn: '机械小蜜蜂'
 //   },
@@ -6927,7 +6927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 机械战队: Typings.GameInfo = {
+// export const 机械战队: Typings.GameInformation = {
 //   translates: {
 //     cn: '机械战队'
 //   },
@@ -6937,7 +6937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 机战网络: Typings.GameInfo = {
+// export const 机战网络: Typings.GameInformation = {
 //   translates: {
 //     cn: '机战网络'
 //   },
@@ -6947,7 +6947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 基因锻造: Typings.GameInfo = {
+// export const 基因锻造: Typings.GameInformation = {
 //   translates: {
 //     cn: '基因锻造'
 //   },
@@ -6957,7 +6957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 基因分裂: Typings.GameInfo = {
+// export const 基因分裂: Typings.GameInformation = {
 //   translates: {
 //     cn: '基因分裂'
 //   },
@@ -6967,7 +6967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 基因机器: Typings.GameInfo = {
+// export const 基因机器: Typings.GameInformation = {
 //   translates: {
 //     cn: '基因机器'
 //   },
@@ -6977,7 +6977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 缉毒刑警: Typings.GameInfo = {
+// export const 缉毒刑警: Typings.GameInformation = {
 //   translates: {
 //     cn: '缉毒刑警'
 //   },
@@ -6987,7 +6987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 激斗战士: Typings.GameInfo = {
+// export const 激斗战士: Typings.GameInformation = {
 //   translates: {
 //     cn: '激斗战士'
 //   },
@@ -6997,7 +6997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 激光部队: Typings.GameInfo = {
+// export const 激光部队: Typings.GameInformation = {
 //   translates: {
 //     cn: '激光部队'
 //   },
@@ -7007,7 +7007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 激情足球: Typings.GameInfo = {
+// export const 激情足球: Typings.GameInformation = {
 //   translates: {
 //     cn: '激情足球'
 //   },
@@ -7017,7 +7017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 激战M星云: Typings.GameInfo = {
+// export const 激战M星云: Typings.GameInformation = {
 //   translates: {
 //     cn: '激战M星云'
 //   },
@@ -7027,7 +7027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 激战M星云2: Typings.GameInfo = {
+// export const 激战M星云2: Typings.GameInformation = {
 //   translates: {
 //     cn: '激战M星云2'
 //   },
@@ -7037,7 +7037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吉安娜姐妹: Typings.GameInfo = {
+// export const 吉安娜姐妹: Typings.GameInformation = {
 //   translates: {
 //     cn: '吉安娜姐妹'
 //   },
@@ -7047,7 +7047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吉尔在丛林: Typings.GameInfo = {
+// export const 吉尔在丛林: Typings.GameInformation = {
 //   translates: {
 //     cn: '吉尔在丛林'
 //   },
@@ -7057,7 +7057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吉尔在丛林2地下冒险: Typings.GameInfo = {
+// export const 吉尔在丛林2地下冒险: Typings.GameInformation = {
 //   translates: {
 //     cn: '吉尔在丛林2地下冒险'
 //   },
@@ -7067,7 +7067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吉尔在丛林3合1: Typings.GameInfo = {
+// export const 吉尔在丛林3合1: Typings.GameInformation = {
 //   translates: {
 //     cn: '吉尔在丛林3合1'
 //   },
@@ -7077,7 +7077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吉尔在丛林3拯救王子: Typings.GameInfo = {
+// export const 吉尔在丛林3拯救王子: Typings.GameInformation = {
 //   translates: {
 //     cn: '吉尔在丛林3拯救王子'
 //   },
@@ -7087,7 +7087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 极超豪拳: Typings.GameInfo = {
+// export const 极超豪拳: Typings.GameInformation = {
 //   translates: {
 //     cn: '极超豪拳'
 //   },
@@ -7097,7 +7097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 极品飞车: Typings.GameInfo = {
+// export const 极品飞车: Typings.GameInformation = {
 //   translates: {
 //     cn: '极品飞车'
 //   },
@@ -7107,7 +7107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 极限弹珠台: Typings.GameInfo = {
+// export const 极限弹珠台: Typings.GameInformation = {
 //   translates: {
 //     cn: '极限弹珠台'
 //   },
@@ -7117,7 +7117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 极限突袭: Typings.GameInfo = {
+// export const 极限突袭: Typings.GameInformation = {
 //   translates: {
 //     cn: '极限突袭'
 //   },
@@ -7127,7 +7127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 急速狂飙: Typings.GameInfo = {
+// export const 急速狂飙: Typings.GameInformation = {
 //   translates: {
 //     cn: '急速狂飙'
 //   },
@@ -7137,7 +7137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 急速挑战: Typings.GameInfo = {
+// export const 急速挑战: Typings.GameInformation = {
 //   translates: {
 //     cn: '急速挑战'
 //   },
@@ -7147,7 +7147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 记忆测验: Typings.GameInfo = {
+// export const 记忆测验: Typings.GameInformation = {
 //   translates: {
 //     cn: '记忆测验'
 //   },
@@ -7157,7 +7157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 甲A风云: Typings.GameInfo = {
+// export const 甲A风云: Typings.GameInformation = {
 //   translates: {
 //     cn: '甲A风云'
 //   },
@@ -7167,7 +7167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 尖刀部队: Typings.GameInfo = {
+// export const 尖刀部队: Typings.GameInformation = {
 //   translates: {
 //     cn: '尖刀部队'
 //   },
@@ -7177,7 +7177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 歼敌行动: Typings.GameInfo = {
+// export const 歼敌行动: Typings.GameInformation = {
 //   translates: {
 //     cn: '歼敌行动'
 //   },
@@ -7187,7 +7187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 剪秋罗: Typings.GameInfo = {
+// export const 剪秋罗: Typings.GameInformation = {
 //   translates: {
 //     cn: '剪秋罗'
 //   },
@@ -7197,7 +7197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 建筑大师: Typings.GameInfo = {
+// export const 建筑大师: Typings.GameInformation = {
 //   translates: {
 //     cn: '建筑大师'
 //   },
@@ -7207,7 +7207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 剑芒罗曼史: Typings.GameInfo = {
+// export const 剑芒罗曼史: Typings.GameInformation = {
 //   translates: {
 //     cn: '剑芒罗曼史'
 //   },
@@ -7217,7 +7217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 剑侠情缘: Typings.GameInfo = {
+// export const 剑侠情缘: Typings.GameInformation = {
 //   translates: {
 //     cn: '剑侠情缘'
 //   },
@@ -7227,7 +7227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 舰队守护神: Typings.GameInfo = {
+// export const 舰队守护神: Typings.GameInformation = {
 //   translates: {
 //     cn: '舰队守护神'
 //   },
@@ -7237,7 +7237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 鉴赏家: Typings.GameInfo = {
+// export const 鉴赏家: Typings.GameInformation = {
 //   translates: {
 //     cn: '鉴赏家'
 //   },
@@ -7247,7 +7247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 江湖任我行: Typings.GameInfo = {
+// export const 江湖任我行: Typings.GameInformation = {
 //   translates: {
 //     cn: '江湖任我行'
 //   },
@@ -7257,7 +7257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 江湖外传: Typings.GameInfo = {
+// export const 江湖外传: Typings.GameInformation = {
 //   translates: {
 //     cn: '江湖外传'
 //   },
@@ -7267,7 +7267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 降魔勇士: Typings.GameInfo = {
+// export const 降魔勇士: Typings.GameInformation = {
 //   translates: {
 //     cn: '降魔勇士'
 //   },
@@ -7277,7 +7277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 交错的命运: Typings.GameInfo = {
+// export const 交错的命运: Typings.GameInformation = {
 //   translates: {
 //     cn: '交错的命运'
 //   },
@@ -7287,7 +7287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 交通局2192: Typings.GameInfo = {
+// export const 交通局2192: Typings.GameInformation = {
 //   translates: {
 //     cn: '交通局2192'
 //   },
@@ -7297,7 +7297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 娇的客人: Typings.GameInfo = {
+// export const 娇的客人: Typings.GameInformation = {
 //   translates: {
 //     cn: '娇的客人'
 //   },
@@ -7307,7 +7307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 角斗士: Typings.GameInfo = {
+// export const 角斗士: Typings.GameInformation = {
 //   translates: {
 //     cn: '角斗士'
 //   },
@@ -7317,7 +7317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 教父: Typings.GameInfo = {
+// export const 教父: Typings.GameInformation = {
 //   translates: {
 //     cn: '教父'
 //   },
@@ -7327,7 +7327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 接龙777: Typings.GameInfo = {
+// export const 接龙777: Typings.GameInformation = {
 //   translates: {
 //     cn: '接龙777'
 //   },
@@ -7337,7 +7337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 街机保龄: Typings.GameInfo = {
+// export const 街机保龄: Typings.GameInformation = {
 //   translates: {
 //     cn: '街机保龄'
 //   },
@@ -7347,7 +7347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 街机桌球: Typings.GameInfo = {
+// export const 街机桌球: Typings.GameInformation = {
 //   translates: {
 //     cn: '街机桌球'
 //   },
@@ -7357,7 +7357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 街球大灌篮: Typings.GameInfo = {
+// export const 街球大灌篮: Typings.GameInformation = {
 //   translates: {
 //     cn: '街球大灌篮'
 //   },
@@ -7367,7 +7367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 街头霸王1: Typings.GameInfo = {
+// export const 街头霸王1: Typings.GameInformation = {
 //   translates: {
 //     cn: '街头霸王1'
 //   },
@@ -7377,7 +7377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 街头地下格斗: Typings.GameInfo = {
+// export const 街头地下格斗: Typings.GameInformation = {
 //   translates: {
 //     cn: '街头地下格斗'
 //   },
@@ -7387,7 +7387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 解救华盛顿: Typings.GameInfo = {
+// export const 解救华盛顿: Typings.GameInformation = {
 //   translates: {
 //     cn: '解救华盛顿'
 //   },
@@ -7397,7 +7397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 金瓶梅之偷情宝鉴: Typings.GameInfo = {
+// export const 金瓶梅之偷情宝鉴: Typings.GameInformation = {
 //   translates: {
 //     cn: '金瓶梅之偷情宝鉴'
 //   },
@@ -7407,7 +7407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 金属变异人: Typings.GameInfo = {
+// export const 金属变异人: Typings.GameInformation = {
 //   translates: {
 //     cn: '金属变异人'
 //   },
@@ -7417,7 +7417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 金庸快打: Typings.GameInfo = {
+// export const 金庸快打: Typings.GameInformation = {
 //   translates: {
 //     cn: '金庸快打'
 //   },
@@ -7427,7 +7427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 紧急关头: Typings.GameInfo = {
+// export const 紧急关头: Typings.GameInformation = {
 //   translates: {
 //     cn: '紧急关头'
 //   },
@@ -7437,7 +7437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 进化鱼: Typings.GameInfo = {
+// export const 进化鱼: Typings.GameInformation = {
 //   translates: {
 //     cn: '进化鱼'
 //   },
@@ -7447,7 +7447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 劲力赛车: Typings.GameInfo = {
+// export const 劲力赛车: Typings.GameInformation = {
 //   translates: {
 //     cn: '劲力赛车'
 //   },
@@ -7457,7 +7457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 禁断之血族: Typings.GameInfo = {
+// export const 禁断之血族: Typings.GameInformation = {
 //   translates: {
 //     cn: '禁断之血族'
 //   },
@@ -7467,7 +7467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 禁忌: Typings.GameInfo = {
+// export const 禁忌: Typings.GameInformation = {
 //   translates: {
 //     cn: '禁忌'
 //   },
@@ -7477,7 +7477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 禁烟风云录: Typings.GameInfo = {
+// export const 禁烟风云录: Typings.GameInformation = {
 //   translates: {
 //     cn: '禁烟风云录'
 //   },
@@ -7487,7 +7487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 精灵幻界: Typings.GameInfo = {
+// export const 精灵幻界: Typings.GameInformation = {
 //   translates: {
 //     cn: '精灵幻界'
 //   },
@@ -7497,7 +7497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 精灵物语: Typings.GameInfo = {
+// export const 精灵物语: Typings.GameInformation = {
 //   translates: {
 //     cn: '精灵物语'
 //   },
@@ -7507,7 +7507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 警察故事: Typings.GameInfo = {
+// export const 警察故事: Typings.GameInformation = {
 //   translates: {
 //     cn: '警察故事'
 //   },
@@ -7517,7 +7517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 警察故事1重制版: Typings.GameInfo = {
+// export const 警察故事1重制版: Typings.GameInformation = {
 //   translates: {
 //     cn: '警察故事1重制版'
 //   },
@@ -7527,7 +7527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 警察故事2: Typings.GameInfo = {
+// export const 警察故事2: Typings.GameInformation = {
 //   translates: {
 //     cn: '警察故事2'
 //   },
@@ -7537,7 +7537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 警察故事3: Typings.GameInfo = {
+// export const 警察故事3: Typings.GameInformation = {
 //   translates: {
 //     cn: '警察故事3'
 //   },
@@ -7547,7 +7547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 旧金山警车大赛: Typings.GameInfo = {
+// export const 旧金山警车大赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '旧金山警车大赛'
 //   },
@@ -7557,7 +7557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巨鲸宇宙号: Typings.GameInfo = {
+// export const 巨鲸宇宙号: Typings.GameInformation = {
 //   translates: {
 //     cn: '巨鲸宇宙号'
 //   },
@@ -7567,7 +7567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巨窟文字冒险: Typings.GameInfo = {
+// export const 巨窟文字冒险: Typings.GameInformation = {
 //   translates: {
 //     cn: '巨窟文字冒险'
 //   },
@@ -7577,7 +7577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巨兽侵袭: Typings.GameInfo = {
+// export const 巨兽侵袭: Typings.GameInformation = {
 //   translates: {
 //     cn: '巨兽侵袭'
 //   },
@@ -7587,7 +7587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 飓风机甲: Typings.GameInfo = {
+// export const 飓风机甲: Typings.GameInformation = {
 //   translates: {
 //     cn: '飓风机甲'
 //   },
@@ -7597,7 +7597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 决战俄罗斯: Typings.GameInfo = {
+// export const 决战俄罗斯: Typings.GameInformation = {
 //   translates: {
 //     cn: '决战俄罗斯'
 //   },
@@ -7607,7 +7607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 决战富士山: Typings.GameInfo = {
+// export const 决战富士山: Typings.GameInformation = {
 //   translates: {
 //     cn: '决战富士山'
 //   },
@@ -7617,7 +7617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 决战皇陵: Typings.GameInfo = {
+// export const 决战皇陵: Typings.GameInformation = {
 //   translates: {
 //     cn: '决战皇陵'
 //   },
@@ -7627,7 +7627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 绝代双骄: Typings.GameInfo = {
+// export const 绝代双骄: Typings.GameInformation = {
 //   translates: {
 //     cn: '绝代双骄'
 //   },
@@ -7637,7 +7637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 绝地风暴: Typings.GameInfo = {
+// export const 绝地风暴: Typings.GameInformation = {
 //   translates: {
 //     cn: '绝地风暴'
 //   },
@@ -7647,7 +7647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 绝地-众神的诅咒: Typings.GameInfo = {
+// export const 绝地-众神的诅咒: Typings.GameInformation = {
 //   translates: {
 //     cn: '绝地-众神的诅咒'
 //   },
@@ -7657,7 +7657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 绝对零度: Typings.GameInfo = {
+// export const 绝对零度: Typings.GameInformation = {
 //   translates: {
 //     cn: '绝对零度'
 //   },
@@ -7667,7 +7667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 绝音魔琴: Typings.GameInfo = {
+// export const 绝音魔琴: Typings.GameInformation = {
 //   translates: {
 //     cn: '绝音魔琴'
 //   },
@@ -7677,7 +7677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 掘金者: Typings.GameInfo = {
+// export const 掘金者: Typings.GameInformation = {
 //   translates: {
 //     cn: '掘金者'
 //   },
@@ -7687,7 +7687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 掘金者2: Typings.GameInfo = {
+// export const 掘金者2: Typings.GameInformation = {
 //   translates: {
 //     cn: '掘金者2'
 //   },
@@ -7697,7 +7697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 爵士兔: Typings.GameInfo = {
+// export const 爵士兔: Typings.GameInformation = {
 //   translates: {
 //     cn: '爵士兔'
 //   },
@@ -7707,7 +7707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 爵士兔：光碟增强版: Typings.GameInfo = {
+// export const 爵士兔：光碟增强版: Typings.GameInformation = {
 //   translates: {
 //     cn: '爵士兔:光碟增强版'
 //   },
@@ -7717,7 +7717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 爵士兔：假日兔94: Typings.GameInfo = {
+// export const 爵士兔：假日兔94: Typings.GameInformation = {
 //   translates: {
 //     cn: '爵士兔:假日兔94'
 //   },
@@ -7727,7 +7727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 爵士兔：假日兔95: Typings.GameInfo = {
+// export const 爵士兔：假日兔95: Typings.GameInformation = {
 //   translates: {
 //     cn: '爵士兔:假日兔95'
 //   },
@@ -7737,7 +7737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 爵士兔完整版: Typings.GameInfo = {
+// export const 爵士兔完整版: Typings.GameInformation = {
 //   translates: {
 //     cn: '爵士兔完整版'
 //   },
@@ -7747,7 +7747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 军备竞赛: Typings.GameInfo = {
+// export const 军备竞赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '军备竞赛'
 //   },
@@ -7757,7 +7757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 卡拉汉时空沙龙: Typings.GameInfo = {
+// export const 卡拉汉时空沙龙: Typings.GameInformation = {
 //   translates: {
 //     cn: '卡拉汉时空沙龙'
 //   },
@@ -7767,7 +7767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 卡门美国时空之旅: Typings.GameInfo = {
+// export const 卡门美国时空之旅: Typings.GameInformation = {
 //   translates: {
 //     cn: '卡门美国时空之旅'
 //   },
@@ -7777,7 +7777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 卡门美国之旅: Typings.GameInfo = {
+// export const 卡门美国之旅: Typings.GameInformation = {
 //   translates: {
 //     cn: '卡门美国之旅'
 //   },
@@ -7787,7 +7787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 卡门时空之旅: Typings.GameInfo = {
+// export const 卡门时空之旅: Typings.GameInformation = {
 //   translates: {
 //     cn: '卡门时空之旅'
 //   },
@@ -7797,7 +7797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 卡门世界之旅: Typings.GameInfo = {
+// export const 卡门世界之旅: Typings.GameInformation = {
 //   translates: {
 //     cn: '卡门世界之旅'
 //   },
@@ -7807,7 +7807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 卡门太空之旅: Typings.GameInfo = {
+// export const 卡门太空之旅: Typings.GameInformation = {
 //   translates: {
 //     cn: '卡门太空之旅'
 //   },
@@ -7817,7 +7817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 卡耐鸡人生指南: Typings.GameInfo = {
+// export const 卡耐鸡人生指南: Typings.GameInformation = {
 //   translates: {
 //     cn: '卡耐鸡人生指南'
 //   },
@@ -7827,7 +7827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 卡诺夫: Typings.GameInfo = {
+// export const 卡诺夫: Typings.GameInformation = {
 //   translates: {
 //     cn: '卡诺夫'
 //   },
@@ -7837,7 +7837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 卡通快打: Typings.GameInfo = {
+// export const 卡通快打: Typings.GameInformation = {
 //   translates: {
 //     cn: '卡通快打'
 //   },
@@ -7847,7 +7847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 卡通快打SP: Typings.GameInfo = {
+// export const 卡通快打SP: Typings.GameInformation = {
 //   translates: {
 //     cn: '卡通快打SP'
 //   },
@@ -7857,7 +7857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 卡通赛车: Typings.GameInfo = {
+// export const 卡通赛车: Typings.GameInformation = {
 //   translates: {
 //     cn: '卡通赛车'
 //   },
@@ -7867,7 +7867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 开球96: Typings.GameInfo = {
+// export const 开球96: Typings.GameInformation = {
 //   translates: {
 //     cn: '开球96'
 //   },
@@ -7877,7 +7877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 开球97: Typings.GameInfo = {
+// export const 开球97: Typings.GameInformation = {
 //   translates: {
 //     cn: '开球97'
 //   },
@@ -7887,7 +7887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 开膛手杰克: Typings.GameInfo = {
+// export const 开膛手杰克: Typings.GameInformation = {
 //   translates: {
 //     cn: '开膛手杰克'
 //   },
@@ -7897,7 +7897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 凯兰蒂亚传奇3: Typings.GameInfo = {
+// export const 凯兰蒂亚传奇3: Typings.GameInformation = {
 //   translates: {
 //     cn: '凯兰蒂亚传奇3'
 //   },
@@ -7907,7 +7907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 凯兰蒂亚传奇: Typings.GameInfo = {
+// export const 凯兰蒂亚传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '凯兰蒂亚传奇'
 //   },
@@ -7917,7 +7917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 凯兰蒂亚传奇2: Typings.GameInfo = {
+// export const 凯兰蒂亚传奇2: Typings.GameInformation = {
 //   translates: {
 //     cn: '凯兰蒂亚传奇2'
 //   },
@@ -7927,7 +7927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 凯撒大帝: Typings.GameInfo = {
+// export const 凯撒大帝: Typings.GameInformation = {
 //   translates: {
 //     cn: '凯撒大帝'
 //   },
@@ -7937,7 +7937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 凯撒大帝2: Typings.GameInfo = {
+// export const 凯撒大帝2: Typings.GameInformation = {
 //   translates: {
 //     cn: '凯撒大帝2'
 //   },
@@ -7947,7 +7947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 凯撒立志传: Typings.GameInfo = {
+// export const 凯撒立志传: Typings.GameInformation = {
 //   translates: {
 //     cn: '凯撒立志传'
 //   },
@@ -7957,7 +7957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 科罗拉多: Typings.GameInfo = {
+// export const 科罗拉多: Typings.GameInformation = {
 //   translates: {
 //     cn: '科罗拉多'
 //   },
@@ -7967,7 +7967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 科曼奇2: Typings.GameInfo = {
+// export const 科曼奇2: Typings.GameInformation = {
 //   translates: {
 //     cn: '科曼奇2'
 //   },
@@ -7977,7 +7977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 科学怪人: Typings.GameInfo = {
+// export const 科学怪人: Typings.GameInformation = {
 //   translates: {
 //     cn: '科学怪人'
 //   },
@@ -7987,7 +7987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 科学小飞侠: Typings.GameInfo = {
+// export const 科学小飞侠: Typings.GameInformation = {
 //   translates: {
 //     cn: '科学小飞侠'
 //   },
@@ -7997,7 +7997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 克莱德复仇: Typings.GameInfo = {
+// export const 克莱德复仇: Typings.GameInformation = {
 //   translates: {
 //     cn: '克莱德复仇'
 //   },
@@ -8007,7 +8007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 克莱德冒险: Typings.GameInfo = {
+// export const 克莱德冒险: Typings.GameInformation = {
 //   translates: {
 //     cn: '克莱德冒险'
 //   },
@@ -8017,7 +8017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 克莱恩的黑暗女皇: Typings.GameInfo = {
+// export const 克莱恩的黑暗女皇: Typings.GameInformation = {
 //   translates: {
 //     cn: '克莱恩的黑暗女皇'
 //   },
@@ -8027,7 +8027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 克里姆林宫危机: Typings.GameInfo = {
+// export const 克里姆林宫危机: Typings.GameInformation = {
 //   translates: {
 //     cn: '克里姆林宫危机'
 //   },
@@ -8037,7 +8037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 克苏鲁传说魔影哈雷: Typings.GameInfo = {
+// export const 克苏鲁传说魔影哈雷: Typings.GameInformation = {
 //   translates: {
 //     cn: '克苏鲁传说魔影哈雷'
 //   },
@@ -8047,7 +8047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 肯的迷宫: Typings.GameInfo = {
+// export const 肯的迷宫: Typings.GameInformation = {
 //   translates: {
 //     cn: '肯的迷宫'
 //   },
@@ -8057,7 +8057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 空降游骑兵: Typings.GameInfo = {
+// export const 空降游骑兵: Typings.GameInformation = {
 //   translates: {
 //     cn: '空降游骑兵'
 //   },
@@ -8067,7 +8067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 空军指挥官: Typings.GameInfo = {
+// export const 空军指挥官: Typings.GameInformation = {
 //   translates: {
 //     cn: '空军指挥官'
 //   },
@@ -8077,7 +8077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 空战黑骑士: Typings.GameInfo = {
+// export const 空战黑骑士: Typings.GameInformation = {
 //   translates: {
 //     cn: '空战黑骑士'
 //   },
@@ -8087,7 +8087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 空战艺术: Typings.GameInfo = {
+// export const 空战艺术: Typings.GameInformation = {
 //   translates: {
 //     cn: '空战艺术'
 //   },
@@ -8097,7 +8097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 空中决斗: Typings.GameInfo = {
+// export const 空中决斗: Typings.GameInformation = {
 //   translates: {
 //     cn: '空中决斗'
 //   },
@@ -8107,7 +8107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 空中突击18: Typings.GameInfo = {
+// export const 空中突击18: Typings.GameInformation = {
 //   translates: {
 //     cn: '空中突击18'
 //   },
@@ -8117,7 +8117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 空中巡逻: Typings.GameInfo = {
+// export const 空中巡逻: Typings.GameInformation = {
 //   translates: {
 //     cn: '空中巡逻'
 //   },
@@ -8127,7 +8127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 恐龙公园大亨: Typings.GameInfo = {
+// export const 恐龙公园大亨: Typings.GameInformation = {
 //   translates: {
 //     cn: '恐龙公园大亨'
 //   },
@@ -8137,7 +8137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 恐龙归来: Typings.GameInfo = {
+// export const 恐龙归来: Typings.GameInformation = {
 //   translates: {
 //     cn: '恐龙归来'
 //   },
@@ -8147,7 +8147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 恐龙快打: Typings.GameInfo = {
+// export const 恐龙快打: Typings.GameInformation = {
 //   translates: {
 //     cn: '恐龙快打'
 //   },
@@ -8157,7 +8157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 恐龙棋: Typings.GameInfo = {
+// export const 恐龙棋: Typings.GameInformation = {
 //   translates: {
 //     cn: '恐龙棋'
 //   },
@@ -8167,7 +8167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 恐龙世纪: Typings.GameInfo = {
+// export const 恐龙世纪: Typings.GameInformation = {
 //   translates: {
 //     cn: '恐龙世纪'
 //   },
@@ -8177,7 +8177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 恐龙益智问答: Typings.GameInfo = {
+// export const 恐龙益智问答: Typings.GameInformation = {
 //   translates: {
 //     cn: '恐龙益智问答'
 //   },
@@ -8187,7 +8187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 苦难剧场: Typings.GameInfo = {
+// export const 苦难剧场: Typings.GameInformation = {
 //   translates: {
 //     cn: '苦难剧场'
 //   },
@@ -8197,7 +8197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 跨越行星: Typings.GameInfo = {
+// export const 跨越行星: Typings.GameInformation = {
 //   translates: {
 //     cn: '跨越行星'
 //   },
@@ -8207,7 +8207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 快打至尊: Typings.GameInfo = {
+// export const 快打至尊: Typings.GameInformation = {
 //   translates: {
 //     cn: '快打至尊'
 //   },
@@ -8217,7 +8217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 狂暴异形: Typings.GameInfo = {
+// export const 狂暴异形: Typings.GameInformation = {
 //   translates: {
 //     cn: '狂暴异形'
 //   },
@@ -8227,7 +8227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 狂龙传: Typings.GameInfo = {
+// export const 狂龙传: Typings.GameInformation = {
 //   translates: {
 //     cn: '狂龙传'
 //   },
@@ -8237,7 +8237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 狂热车赛: Typings.GameInfo = {
+// export const 狂热车赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '狂热车赛'
 //   },
@@ -8247,7 +8247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 狂热弹珠台: Typings.GameInfo = {
+// export const 狂热弹珠台: Typings.GameInformation = {
 //   translates: {
 //     cn: '狂热弹珠台'
 //   },
@@ -8257,7 +8257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 狂野悖论: Typings.GameInfo = {
+// export const 狂野悖论: Typings.GameInformation = {
 //   translates: {
 //     cn: '狂野悖论'
 //   },
@@ -8267,7 +8267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 狂野西部: Typings.GameInfo = {
+// export const 狂野西部: Typings.GameInformation = {
 //   translates: {
 //     cn: '狂野西部'
 //   },
@@ -8277,7 +8277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蜡像馆之谜: Typings.GameInfo = {
+// export const 蜡像馆之谜: Typings.GameInformation = {
 //   translates: {
 //     cn: '蜡像馆之谜'
 //   },
@@ -8287,7 +8287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蓝冰: Typings.GameInfo = {
+// export const 蓝冰: Typings.GameInformation = {
 //   translates: {
 //     cn: '蓝冰'
 //   },
@@ -8297,7 +8297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蓝精灵: Typings.GameInfo = {
+// export const 蓝精灵: Typings.GameInformation = {
 //   translates: {
 //     cn: '蓝精灵'
 //   },
@@ -8307,7 +8307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蓝莫吉尼巡回赛: Typings.GameInfo = {
+// export const 蓝莫吉尼巡回赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '蓝莫吉尼巡回赛'
 //   },
@@ -8317,7 +8317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蓝色怪魔: Typings.GameInfo = {
+// export const 蓝色怪魔: Typings.GameInformation = {
 //   translates: {
 //     cn: '蓝色怪魔'
 //   },
@@ -8327,7 +8327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蓝色行动: Typings.GameInfo = {
+// export const 蓝色行动: Typings.GameInformation = {
 //   translates: {
 //     cn: '蓝色行动'
 //   },
@@ -8337,7 +8337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蓝色马克思: Typings.GameInfo = {
+// export const 蓝色马克思: Typings.GameInformation = {
 //   translates: {
 //     cn: '蓝色马克思'
 //   },
@@ -8347,7 +8347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蓝色石榴石: Typings.GameInfo = {
+// export const 蓝色石榴石: Typings.GameInformation = {
 //   translates: {
 //     cn: '蓝色石榴石'
 //   },
@@ -8357,7 +8357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蓝色天使: Typings.GameInfo = {
+// export const 蓝色天使: Typings.GameInformation = {
 //   translates: {
 //     cn: '蓝色天使'
 //   },
@@ -8367,7 +8367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 篮球经理: Typings.GameInfo = {
+// export const 篮球经理: Typings.GameInformation = {
 //   translates: {
 //     cn: '篮球经理'
 //   },
@@ -8377,7 +8377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 懒虫大战: Typings.GameInfo = {
+// export const 懒虫大战: Typings.GameInformation = {
 //   translates: {
 //     cn: '懒虫大战'
 //   },
@@ -8387,7 +8387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 狼祸: Typings.GameInfo = {
+// export const 狼祸: Typings.GameInformation = {
 //   translates: {
 //     cn: '狼祸'
 //   },
@@ -8397,7 +8397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雷电: Typings.GameInfo = {
+// export const 雷电: Typings.GameInformation = {
 //   translates: {
 //     cn: '雷电'
 //   },
@@ -8407,7 +8407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雷电兔: Typings.GameInfo = {
+// export const 雷电兔: Typings.GameInformation = {
 //   translates: {
 //     cn: '雷电兔'
 //   },
@@ -8417,7 +8417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雷击战机: Typings.GameInfo = {
+// export const 雷击战机: Typings.GameInformation = {
 //   translates: {
 //     cn: '雷击战机'
 //   },
@@ -8427,7 +8427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雷击战机2: Typings.GameInfo = {
+// export const 雷击战机2: Typings.GameInformation = {
 //   translates: {
 //     cn: '雷击战机2'
 //   },
@@ -8437,7 +8437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雷景：艾登世界: Typings.GameInfo = {
+// export const 雷景：艾登世界: Typings.GameInformation = {
 //   translates: {
 //     cn: '雷景:艾登世界'
 //   },
@@ -8447,7 +8447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雷克斯: Typings.GameInfo = {
+// export const 雷克斯: Typings.GameInformation = {
 //   translates: {
 //     cn: '雷克斯'
 //   },
@@ -8457,7 +8457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雷米兔传奇: Typings.GameInfo = {
+// export const 雷米兔传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '雷米兔传奇'
 //   },
@@ -8467,7 +8467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雷鸟: Typings.GameInfo = {
+// export const 雷鸟: Typings.GameInformation = {
 //   translates: {
 //     cn: '雷鸟'
 //   },
@@ -8477,7 +8477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雷诺尼都纪事(迷城的国度): Typings.GameInfo = {
+// export const 雷诺尼都纪事(迷城的国度): Typings.GameInformation = {
 //   translates: {
 //     cn: '雷诺尼都纪事(迷城的国度)'
 //   },
@@ -8487,7 +8487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雷神: Typings.GameInfo = {
+// export const 雷神: Typings.GameInformation = {
 //   translates: {
 //     cn: '雷神'
 //   },
@@ -8497,7 +8497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雷神之锤: Typings.GameInfo = {
+// export const 雷神之锤: Typings.GameInformation = {
 //   translates: {
 //     cn: '雷神之锤'
 //   },
@@ -8507,7 +8507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 镭射坦克: Typings.GameInfo = {
+// export const 镭射坦克: Typings.GameInformation = {
 //   translates: {
 //     cn: '镭射坦克'
 //   },
@@ -8517,7 +8517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 擂台美少女／天使摔角: Typings.GameInfo = {
+// export const 擂台美少女／天使摔角: Typings.GameInformation = {
 //   translates: {
 //     cn: '擂台美少女/天使摔角'
 //   },
@@ -8527,7 +8527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 擂台美少女3／天使摔角3: Typings.GameInfo = {
+// export const 擂台美少女3／天使摔角3: Typings.GameInformation = {
 //   translates: {
 //     cn: '擂台美少女3/天使摔角3'
 //   },
@@ -8537,7 +8537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黎明特警: Typings.GameInfo = {
+// export const 黎明特警: Typings.GameInformation = {
 //   translates: {
 //     cn: '黎明特警'
 //   },
@@ -8547,7 +8547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 黎明铁砧: Typings.GameInfo = {
+// export const 黎明铁砧: Typings.GameInformation = {
 //   translates: {
 //     cn: '黎明铁砧'
 //   },
@@ -8557,7 +8557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 礼物: Typings.GameInfo = {
+// export const 礼物: Typings.GameInformation = {
 //   translates: {
 //     cn: '礼物'
 //   },
@@ -8567,7 +8567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 里世界／狼女: Typings.GameInfo = {
+// export const 里世界／狼女: Typings.GameInformation = {
 //   translates: {
 //     cn: '里世界/狼女'
 //   },
@@ -8577,7 +8577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 力之奴仆: Typings.GameInfo = {
+// export const 力之奴仆: Typings.GameInformation = {
 //   translates: {
 //     cn: '力之奴仆'
 //   },
@@ -8587,7 +8587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 历史大战役: Typings.GameInfo = {
+// export const 历史大战役: Typings.GameInformation = {
 //   translates: {
 //     cn: '历史大战役'
 //   },
@@ -8597,7 +8597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 立体俄罗斯: Typings.GameInfo = {
+// export const 立体俄罗斯: Typings.GameInformation = {
 //   translates: {
 //     cn: '立体俄罗斯'
 //   },
@@ -8607,7 +8607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 立体狂飚: Typings.GameInfo = {
+// export const 立体狂飚: Typings.GameInformation = {
 //   translates: {
 //     cn: '立体狂飚'
 //   },
@@ -8617,7 +8617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 丽兽: Typings.GameInfo = {
+// export const 丽兽: Typings.GameInformation = {
 //   translates: {
 //     cn: '丽兽'
 //   },
@@ -8627,7 +8627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 莲花赛车无限: Typings.GameInfo = {
+// export const 莲花赛车无限: Typings.GameInformation = {
 //   translates: {
 //     cn: '莲花赛车无限'
 //   },
@@ -8637,7 +8637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 脸谱方块: Typings.GameInfo = {
+// export const 脸谱方块: Typings.GameInformation = {
 //   translates: {
 //     cn: '脸谱方块'
 //   },
@@ -8647,7 +8647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 炼狱飞行: Typings.GameInfo = {
+// export const 炼狱飞行: Typings.GameInformation = {
 //   translates: {
 //     cn: '炼狱飞行'
 //   },
@@ -8657,7 +8657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 恋爱试炼场: Typings.GameInfo = {
+// export const 恋爱试炼场: Typings.GameInformation = {
 //   translates: {
 //     cn: '恋爱试炼场'
 //   },
@@ -8667,7 +8667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 量子博士之岛: Typings.GameInfo = {
+// export const 量子博士之岛: Typings.GameInformation = {
 //   translates: {
 //     cn: '量子博士之岛'
 //   },
@@ -8677,7 +8677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 聊斋志异: Typings.GameInfo = {
+// export const 聊斋志异: Typings.GameInformation = {
 //   translates: {
 //     cn: '聊斋志异'
 //   },
@@ -8687,7 +8687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 聊斋志异幽谷传奇: Typings.GameInfo = {
+// export const 聊斋志异幽谷传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '聊斋志异幽谷传奇'
 //   },
@@ -8697,7 +8697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 烈焰钢狼传: Typings.GameInfo = {
+// export const 烈焰钢狼传: Typings.GameInformation = {
 //   translates: {
 //     cn: '烈焰钢狼传'
 //   },
@@ -8707,7 +8707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 猎户座阴谋: Typings.GameInfo = {
+// export const 猎户座阴谋: Typings.GameInformation = {
 //   translates: {
 //     cn: '猎户座阴谋'
 //   },
@@ -8717,7 +8717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 猎杀红色十月: Typings.GameInfo = {
+// export const 猎杀红色十月: Typings.GameInformation = {
 //   translates: {
 //     cn: '猎杀红色十月'
 //   },
@@ -8727,7 +8727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 猎杀潜航: Typings.GameInfo = {
+// export const 猎杀潜航: Typings.GameInformation = {
 //   translates: {
 //     cn: '猎杀潜航'
 //   },
@@ -8737,7 +8737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 灵剑传奇: Typings.GameInfo = {
+// export const 灵剑传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '灵剑传奇'
 //   },
@@ -8747,7 +8747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 另一个世界: Typings.GameInfo = {
+// export const 另一个世界: Typings.GameInformation = {
 //   translates: {
 //     cn: '另一个世界'
 //   },
@@ -8757,7 +8757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 刘备传: Typings.GameInfo = {
+// export const 刘备传: Typings.GameInformation = {
 //   translates: {
 //     cn: '刘备传'
 //   },
@@ -8767,7 +8767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 刘伯温传奇: Typings.GameInfo = {
+// export const 刘伯温传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '刘伯温传奇'
 //   },
@@ -8777,7 +8777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 龙霸三合会: Typings.GameInfo = {
+// export const 龙霸三合会: Typings.GameInformation = {
 //   translates: {
 //     cn: '龙霸三合会'
 //   },
@@ -8787,7 +8787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 龙霸三合会资料片: Typings.GameInfo = {
+// export const 龙霸三合会资料片: Typings.GameInformation = {
 //   translates: {
 //     cn: '龙霸三合会资料片'
 //   },
@@ -8797,7 +8797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 龙霸天下: Typings.GameInfo = {
+// export const 龙霸天下: Typings.GameInformation = {
 //   translates: {
 //     cn: '龙霸天下'
 //   },
@@ -8807,7 +8807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 龙骑士3: Typings.GameInfo = {
+// export const 龙骑士3: Typings.GameInformation = {
 //   translates: {
 //     cn: '龙骑士3'
 //   },
@@ -8817,7 +8817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 龙骑士4: Typings.GameInfo = {
+// export const 龙骑士4: Typings.GameInformation = {
 //   translates: {
 //     cn: '龙骑士4'
 //   },
@@ -8827,7 +8827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 龙腾三国: Typings.GameInfo = {
+// export const 龙腾三国: Typings.GameInformation = {
 //   translates: {
 //     cn: '龙腾三国'
 //   },
@@ -8837,7 +8837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 龙穴历险记: Typings.GameInfo = {
+// export const 龙穴历险记: Typings.GameInformation = {
 //   translates: {
 //     cn: '龙穴历险记'
 //   },
@@ -8847,7 +8847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 龙穴历险记2: Typings.GameInfo = {
+// export const 龙穴历险记2: Typings.GameInformation = {
 //   translates: {
 //     cn: '龙穴历险记2'
 //   },
@@ -8857,7 +8857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 龙穴历险记3: Typings.GameInfo = {
+// export const 龙穴历险记3: Typings.GameInformation = {
 //   translates: {
 //     cn: '龙穴历险记3'
 //   },
@@ -8867,7 +8867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 龙战记X: Typings.GameInfo = {
+// export const 龙战记X: Typings.GameInformation = {
 //   translates: {
 //     cn: '龙战记X'
 //   },
@@ -8877,7 +8877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 龙之传奇: Typings.GameInfo = {
+// export const 龙之传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '龙之传奇'
 //   },
@@ -8887,7 +8887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 龙之道: Typings.GameInfo = {
+// export const 龙之道: Typings.GameInformation = {
 //   translates: {
 //     cn: '龙之道'
 //   },
@@ -8897,7 +8897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 龙之崛起: Typings.GameInfo = {
+// export const 龙之崛起: Typings.GameInformation = {
 //   translates: {
 //     cn: '龙之崛起'
 //   },
@@ -8907,7 +8907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 龙之王国: Typings.GameInfo = {
+// export const 龙之王国: Typings.GameInformation = {
 //   translates: {
 //     cn: '龙之王国'
 //   },
@@ -8917,7 +8917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 卢夫的秘密武器: Typings.GameInfo = {
+// export const 卢夫的秘密武器: Typings.GameInformation = {
 //   translates: {
 //     cn: '卢夫的秘密武器'
 //   },
@@ -8927,7 +8927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 鹿鼎记: Typings.GameInfo = {
+// export const 鹿鼎记: Typings.GameInformation = {
 //   translates: {
 //     cn: '鹿鼎记'
 //   },
@@ -8937,7 +8937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 乱世伏魔录: Typings.GameInfo = {
+// export const 乱世伏魔录: Typings.GameInformation = {
 //   translates: {
 //     cn: '乱世伏魔录'
 //   },
@@ -8947,7 +8947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 罗宾汉大冒险: Typings.GameInfo = {
+// export const 罗宾汉大冒险: Typings.GameInformation = {
 //   translates: {
 //     cn: '罗宾汉大冒险'
 //   },
@@ -8957,7 +8957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 罗恩骑士: Typings.GameInfo = {
+// export const 罗恩骑士: Typings.GameInformation = {
 //   translates: {
 //     cn: '罗恩骑士'
 //   },
@@ -8967,7 +8967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 罗马权利之路: Typings.GameInfo = {
+// export const 罗马权利之路: Typings.GameInformation = {
 //   translates: {
 //     cn: '罗马权利之路'
 //   },
@@ -8977,7 +8977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 罗马之墙+编辑器: Typings.GameInfo = {
+// export const 罗马之墙+编辑器: Typings.GameInformation = {
 //   translates: {
 //     cn: '罗马之墙+编辑器'
 //   },
@@ -8987,7 +8987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 罗斯玛丽的占卜屋: Typings.GameInfo = {
+// export const 罗斯玛丽的占卜屋: Typings.GameInformation = {
 //   translates: {
 //     cn: '罗斯玛丽的占卜屋'
 //   },
@@ -8997,7 +8997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 罗特斯机械人: Typings.GameInfo = {
+// export const 罗特斯机械人: Typings.GameInformation = {
 //   translates: {
 //     cn: '罗特斯机械人'
 //   },
@@ -9007,7 +9007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 罗特战机: Typings.GameInfo = {
+// export const 罗特战机: Typings.GameInformation = {
 //   translates: {
 //     cn: '罗特战机'
 //   },
@@ -9017,7 +9017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 洛克人3: Typings.GameInfo = {
+// export const 洛克人3: Typings.GameInformation = {
 //   translates: {
 //     cn: '洛克人3'
 //   },
@@ -9027,7 +9027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 洛克人X: Typings.GameInfo = {
+// export const 洛克人X: Typings.GameInformation = {
 //   translates: {
 //     cn: '洛克人X'
 //   },
@@ -9037,7 +9037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 麻将大师: Typings.GameInfo = {
+// export const 麻将大师: Typings.GameInformation = {
 //   translates: {
 //     cn: '麻将大师'
 //   },
@@ -9047,7 +9047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 麻将情趣屋: Typings.GameInfo = {
+// export const 麻将情趣屋: Typings.GameInformation = {
 //   translates: {
 //     cn: '麻将情趣屋'
 //   },
@@ -9057,7 +9057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 麻将情趣屋2: Typings.GameInfo = {
+// export const 麻将情趣屋2: Typings.GameInformation = {
 //   translates: {
 //     cn: '麻将情趣屋2'
 //   },
@@ -9067,7 +9067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 麻将争霸: Typings.GameInfo = {
+// export const 麻将争霸: Typings.GameInformation = {
 //   translates: {
 //     cn: '麻将争霸'
 //   },
@@ -9077,7 +9077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 麻雀幻想曲2: Typings.GameInfo = {
+// export const 麻雀幻想曲2: Typings.GameInformation = {
 //   translates: {
 //     cn: '麻雀幻想曲2'
 //   },
@@ -9087,7 +9087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 麻雀幻想曲3: Typings.GameInfo = {
+// export const 麻雀幻想曲3: Typings.GameInformation = {
 //   translates: {
 //     cn: '麻雀幻想曲3'
 //   },
@@ -9097,7 +9097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 马玻的料理: Typings.GameInfo = {
+// export const 马玻的料理: Typings.GameInformation = {
 //   translates: {
 //     cn: '马玻的料理'
 //   },
@@ -9107,7 +9107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 马场大亨: Typings.GameInfo = {
+// export const 马场大亨: Typings.GameInformation = {
 //   translates: {
 //     cn: '马场大亨'
 //   },
@@ -9117,7 +9117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 马里昂的赛车挑战: Typings.GameInfo = {
+// export const 马里昂的赛车挑战: Typings.GameInformation = {
 //   translates: {
 //     cn: '马里昂的赛车挑战'
 //   },
@@ -9127,7 +9127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 马里奥不见了: Typings.GameInfo = {
+// export const 马里奥不见了: Typings.GameInformation = {
 //   translates: {
 //     cn: '马里奥不见了'
 //   },
@@ -9137,7 +9137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 马里奥教你打字: Typings.GameInfo = {
+// export const 马里奥教你打字: Typings.GameInformation = {
 //   translates: {
 //     cn: '马里奥教你打字'
 //   },
@@ -9147,7 +9147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 马里奥游戏展: Typings.GameInfo = {
+// export const 马里奥游戏展: Typings.GameInformation = {
 //   translates: {
 //     cn: '马里奥游戏展'
 //   },
@@ -9157,7 +9157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 玛吉之环: Typings.GameInfo = {
+// export const 玛吉之环: Typings.GameInformation = {
 //   translates: {
 //     cn: '玛吉之环'
 //   },
@@ -9167,7 +9167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 玛丽姐妹: Typings.GameInfo = {
+// export const 玛丽姐妹: Typings.GameInformation = {
 //   translates: {
 //     cn: '玛丽姐妹'
 //   },
@@ -9177,7 +9177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 玛雅勇士的诅咒: Typings.GameInfo = {
+// export const 玛雅勇士的诅咒: Typings.GameInformation = {
 //   translates: {
 //     cn: '玛雅勇士的诅咒'
 //   },
@@ -9187,7 +9187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 麦当劳世界: Typings.GameInfo = {
+// export const 麦当劳世界: Typings.GameInformation = {
 //   translates: {
 //     cn: '麦当劳世界'
 //   },
@@ -9197,7 +9197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 曼联传奇: Typings.GameInfo = {
+// export const 曼联传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '曼联传奇'
 //   },
@@ -9207,7 +9207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 盲战: Typings.GameInfo = {
+// export const 盲战: Typings.GameInformation = {
 //   translates: {
 //     cn: '盲战'
 //   },
@@ -9217,7 +9217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 猫和老鼠: Typings.GameInfo = {
+// export const 猫和老鼠: Typings.GameInformation = {
 //   translates: {
 //     cn: '猫和老鼠'
 //   },
@@ -9227,7 +9227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 猫和老鼠2: Typings.GameInfo = {
+// export const 猫和老鼠2: Typings.GameInformation = {
 //   translates: {
 //     cn: '猫和老鼠2'
 //   },
@@ -9237,7 +9237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 冒险之魂: Typings.GameInfo = {
+// export const 冒险之魂: Typings.GameInformation = {
 //   translates: {
 //     cn: '冒险之魂'
 //   },
@@ -9247,7 +9247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 玫瑰骑士: Typings.GameInfo = {
+// export const 玫瑰骑士: Typings.GameInformation = {
 //   translates: {
 //     cn: '玫瑰骑士'
 //   },
@@ -9257,7 +9257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 美杜莎归来: Typings.GameInfo = {
+// export const 美杜莎归来: Typings.GameInformation = {
 //   translates: {
 //     cn: '美杜莎归来'
 //   },
@@ -9267,7 +9267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 美国噩梦: Typings.GameInfo = {
+// export const 美国噩梦: Typings.GameInformation = {
 //   translates: {
 //     cn: '美国噩梦'
 //   },
@@ -9277,7 +9277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 美国海军战机: Typings.GameInfo = {
+// export const 美国海军战机: Typings.GameInformation = {
 //   translates: {
 //     cn: '美国海军战机'
 //   },
@@ -9287,7 +9287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 美女拳: Typings.GameInfo = {
+// export const 美女拳: Typings.GameInformation = {
 //   translates: {
 //     cn: '美女拳'
 //   },
@@ -9297,7 +9297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 美女终结者: Typings.GameInfo = {
+// export const 美女终结者: Typings.GameInformation = {
 //   translates: {
 //     cn: '美女终结者'
 //   },
@@ -9307,7 +9307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 美女综艺: Typings.GameInfo = {
+// export const 美女综艺: Typings.GameInformation = {
 //   translates: {
 //     cn: '美女综艺'
 //   },
@@ -9317,7 +9317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 美少女梦工厂: Typings.GameInfo = {
+// export const 美少女梦工厂: Typings.GameInformation = {
 //   translates: {
 //     cn: '美少女梦工厂'
 //   },
@@ -9327,7 +9327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 美少女扑克: Typings.GameInfo = {
+// export const 美少女扑克: Typings.GameInformation = {
 //   translates: {
 //     cn: '美少女扑克'
 //   },
@@ -9337,7 +9337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 美少女特勤组: Typings.GameInfo = {
+// export const 美少女特勤组: Typings.GameInformation = {
 //   translates: {
 //     cn: '美少女特勤组'
 //   },
@@ -9347,7 +9347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 美少女战记: Typings.GameInfo = {
+// export const 美少女战记: Typings.GameInformation = {
 //   translates: {
 //     cn: '美少女战记'
 //   },
@@ -9357,7 +9357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魅力游戏: Typings.GameInfo = {
+// export const 魅力游戏: Typings.GameInformation = {
 //   translates: {
 //     cn: '魅力游戏'
 //   },
@@ -9367,7 +9367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 门外世界三部曲: Typings.GameInfo = {
+// export const 门外世界三部曲: Typings.GameInformation = {
 //   translates: {
 //     cn: '门外世界三部曲'
 //   },
@@ -9377,7 +9377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 闷绝性技王传说: Typings.GameInfo = {
+// export const 闷绝性技王传说: Typings.GameInformation = {
 //   translates: {
 //     cn: '闷绝性技王传说'
 //   },
@@ -9387,7 +9387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 猛鬼街: Typings.GameInfo = {
+// export const 猛鬼街: Typings.GameInformation = {
 //   translates: {
 //     cn: '猛鬼街'
 //   },
@@ -9397,7 +9397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 猛龙战机: Typings.GameInfo = {
+// export const 猛龙战机: Typings.GameInformation = {
 //   translates: {
 //     cn: '猛龙战机'
 //   },
@@ -9407,7 +9407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 梦幻国度: Typings.GameInfo = {
+// export const 梦幻国度: Typings.GameInformation = {
 //   translates: {
 //     cn: '梦幻国度'
 //   },
@@ -9417,7 +9417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 梦幻天使: Typings.GameInfo = {
+// export const 梦幻天使: Typings.GameInformation = {
 //   translates: {
 //     cn: '梦幻天使'
 //   },
@@ -9427,7 +9427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 梦见坡: Typings.GameInfo = {
+// export const 梦见坡: Typings.GameInformation = {
 //   translates: {
 //     cn: '梦见坡'
 //   },
@@ -9437,7 +9437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 梦网: Typings.GameInfo = {
+// export const 梦网: Typings.GameInformation = {
 //   translates: {
 //     cn: '梦网'
 //   },
@@ -9447,7 +9447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 梦魇怪物大作战: Typings.GameInfo = {
+// export const 梦魇怪物大作战: Typings.GameInformation = {
 //   translates: {
 //     cn: '梦魇怪物大作战'
 //   },
@@ -9457,7 +9457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 梦游小子: Typings.GameInfo = {
+// export const 梦游小子: Typings.GameInformation = {
 //   translates: {
 //     cn: '梦游小子'
 //   },
@@ -9467,7 +9467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 迷宫大师: Typings.GameInfo = {
+// export const 迷宫大师: Typings.GameInformation = {
 //   translates: {
 //     cn: '迷宫大师'
 //   },
@@ -9477,7 +9477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 迷宫大师2: Typings.GameInfo = {
+// export const 迷宫大师2: Typings.GameInformation = {
 //   translates: {
 //     cn: '迷宫大师2'
 //   },
@@ -9487,7 +9487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 迷宫罗格: Typings.GameInfo = {
+// export const 迷宫罗格: Typings.GameInformation = {
 //   translates: {
 //     cn: '迷宫罗格'
 //   },
@@ -9497,7 +9497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 迷失洛杉矶: Typings.GameInfo = {
+// export const 迷失洛杉矶: Typings.GameInformation = {
 //   translates: {
 //     cn: '迷失洛杉矶'
 //   },
@@ -9507,7 +9507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 迷走都市: Typings.GameInfo = {
+// export const 迷走都市: Typings.GameInformation = {
 //   translates: {
 //     cn: '迷走都市'
 //   },
@@ -9517,7 +9517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 米兰斯纪事-圣域传奇: Typings.GameInfo = {
+// export const 米兰斯纪事-圣域传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '米兰斯纪事-圣域传奇'
 //   },
@@ -9527,7 +9527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 妙狐神探: Typings.GameInfo = {
+// export const 妙狐神探: Typings.GameInformation = {
 //   translates: {
 //     cn: '妙狐神探'
 //   },
@@ -9537,7 +9537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 明日之星: Typings.GameInfo = {
+// export const 明日之星: Typings.GameInformation = {
 //   translates: {
 //     cn: '明日之星'
 //   },
@@ -9547,7 +9547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 明日之星2: Typings.GameInfo = {
+// export const 明日之星2: Typings.GameInformation = {
 //   translates: {
 //     cn: '明日之星2'
 //   },
@@ -9557,7 +9557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 明星志愿: Typings.GameInfo = {
+// export const 明星志愿: Typings.GameInformation = {
 //   translates: {
 //     cn: '明星志愿'
 //   },
@@ -9567,7 +9567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 冥界幻姬: Typings.GameInfo = {
+// export const 冥界幻姬: Typings.GameInformation = {
 //   translates: {
 //     cn: '冥界幻姬'
 //   },
@@ -9577,7 +9577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 命令与征服: Typings.GameInfo = {
+// export const 命令与征服: Typings.GameInformation = {
 //   translates: {
 //     cn: '命令与征服'
 //   },
@@ -9587,7 +9587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 命令与征服整合版: Typings.GameInfo = {
+// export const 命令与征服整合版: Typings.GameInformation = {
 //   translates: {
 //     cn: '命令与征服整合版'
 //   },
@@ -9597,7 +9597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 命运战士／混沌引擎: Typings.GameInfo = {
+// export const 命运战士／混沌引擎: Typings.GameInformation = {
 //   translates: {
 //     cn: '命运战士/混沌引擎'
 //   },
@@ -9607,7 +9607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 命运之矛重制版: Typings.GameInfo = {
+// export const 命运之矛重制版: Typings.GameInformation = {
 //   translates: {
 //     cn: '命运之矛重制版'
 //   },
@@ -9617,7 +9617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 命运之战: Typings.GameInfo = {
+// export const 命运之战: Typings.GameInformation = {
 //   translates: {
 //     cn: '命运之战'
 //   },
@@ -9627,7 +9627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 模拟城市(1989): Typings.GameInfo = {
+// export const 模拟城市(1989): Typings.GameInformation = {
 //   translates: {
 //     cn: '模拟城市(1989)'
 //   },
@@ -9637,7 +9637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 模拟城市2000增强版: Typings.GameInfo = {
+// export const 模拟城市2000增强版: Typings.GameInformation = {
 //   translates: {
 //     cn: '模拟城市2000增强版'
 //   },
@@ -9647,7 +9647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 模拟垂钓: Typings.GameInfo = {
+// export const 模拟垂钓: Typings.GameInformation = {
 //   translates: {
 //     cn: '模拟垂钓'
 //   },
@@ -9657,7 +9657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 模拟大楼: Typings.GameInfo = {
+// export const 模拟大楼: Typings.GameInformation = {
 //   translates: {
 //     cn: '模拟大楼'
 //   },
@@ -9667,7 +9667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 模拟地球: Typings.GameInfo = {
+// export const 模拟地球: Typings.GameInformation = {
 //   translates: {
 //     cn: '模拟地球'
 //   },
@@ -9677,7 +9677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 模拟动物园: Typings.GameInfo = {
+// export const 模拟动物园: Typings.GameInformation = {
 //   translates: {
 //     cn: '模拟动物园'
 //   },
@@ -9687,7 +9687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 模拟过山车: Typings.GameInfo = {
+// export const 模拟过山车: Typings.GameInformation = {
 //   translates: {
 //     cn: '模拟过山车'
 //   },
@@ -9697,7 +9697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 模拟蚂蚁: Typings.GameInfo = {
+// export const 模拟蚂蚁: Typings.GameInformation = {
 //   translates: {
 //     cn: '模拟蚂蚁'
 //   },
@@ -9707,7 +9707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 模拟农场: Typings.GameInfo = {
+// export const 模拟农场: Typings.GameInformation = {
 //   translates: {
 //     cn: '模拟农场'
 //   },
@@ -9717,7 +9717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 模拟潜艇: Typings.GameInfo = {
+// export const 模拟潜艇: Typings.GameInformation = {
 //   translates: {
 //     cn: '模拟潜艇'
 //   },
@@ -9727,7 +9727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 模拟生命: Typings.GameInfo = {
+// export const 模拟生命: Typings.GameInformation = {
 //   translates: {
 //     cn: '模拟生命'
 //   },
@@ -9737,7 +9737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 模拟卫生: Typings.GameInfo = {
+// export const 模拟卫生: Typings.GameInformation = {
 //   translates: {
 //     cn: '模拟卫生'
 //   },
@@ -9747,7 +9747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 摩登原始人: Typings.GameInfo = {
+// export const 摩登原始人: Typings.GameInformation = {
 //   translates: {
 //     cn: '摩登原始人'
 //   },
@@ -9757,7 +9757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 摩托车越野赛: Typings.GameInfo = {
+// export const 摩托车越野赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '摩托车越野赛'
 //   },
@@ -9767,7 +9767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 摩托城市: Typings.GameInfo = {
+// export const 摩托城市: Typings.GameInformation = {
 //   translates: {
 //     cn: '摩托城市'
 //   },
@@ -9777,7 +9777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔岛大富翁: Typings.GameInfo = {
+// export const 魔岛大富翁: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔岛大富翁'
 //   },
@@ -9787,7 +9787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔道子: Typings.GameInfo = {
+// export const 魔道子: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔道子'
 //   },
@@ -9797,7 +9797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔动王子／黑色荆棘: Typings.GameInfo = {
+// export const 魔动王子／黑色荆棘: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔动王子/黑色荆棘'
 //   },
@@ -9807,7 +9807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法大帝: Typings.GameInfo = {
+// export const 魔法大帝: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法大帝'
 //   },
@@ -9817,7 +9817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法袋: Typings.GameInfo = {
+// export const 魔法袋: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法袋'
 //   },
@@ -9827,7 +9827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法飞毯: Typings.GameInfo = {
+// export const 魔法飞毯: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法飞毯'
 //   },
@@ -9837,7 +9837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法飞毯2: Typings.GameInfo = {
+// export const 魔法飞毯2: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法飞毯2'
 //   },
@@ -9847,7 +9847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法飞毯PLUS: Typings.GameInfo = {
+// export const 魔法飞毯PLUS: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法飞毯PLUS'
 //   },
@@ -9857,7 +9857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法伏击: Typings.GameInfo = {
+// export const 魔法伏击: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法伏击'
 //   },
@@ -9867,7 +9867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法公主大冒险: Typings.GameInfo = {
+// export const 魔法公主大冒险: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法公主大冒险'
 //   },
@@ -9877,7 +9877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法皇冠: Typings.GameInfo = {
+// export const 魔法皇冠: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法皇冠'
 //   },
@@ -9887,7 +9887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法军团: Typings.GameInfo = {
+// export const 魔法军团: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法军团'
 //   },
@@ -9897,7 +9897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法门: Typings.GameInfo = {
+// export const 魔法门: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法门'
 //   },
@@ -9907,7 +9907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法门2: Typings.GameInfo = {
+// export const 魔法门2: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法门2'
 //   },
@@ -9917,7 +9917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法门3幻岛历险记: Typings.GameInfo = {
+// export const 魔法门3幻岛历险记: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法门3幻岛历险记'
 //   },
@@ -9927,7 +9927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法门3英版: Typings.GameInfo = {
+// export const 魔法门3英版: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法门3英版'
 //   },
@@ -9937,7 +9937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法门4+5英版: Typings.GameInfo = {
+// export const 魔法门4+5英版: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法门4+5英版'
 //   },
@@ -9947,7 +9947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法门4星云之谜: Typings.GameInfo = {
+// export const 魔法门4星云之谜: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法门4星云之谜'
 //   },
@@ -9957,7 +9957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法门5黑暗魔君: Typings.GameInfo = {
+// export const 魔法门5黑暗魔君: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法门5黑暗魔君'
 //   },
@@ -9967,7 +9967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法门星云之剑: Typings.GameInfo = {
+// export const 魔法门星云之剑: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法门星云之剑'
 //   },
@@ -9977,7 +9977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法门英雄无敌: Typings.GameInfo = {
+// export const 魔法门英雄无敌: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法门英雄无敌'
 //   },
@@ -9987,7 +9987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法门英雄无敌2: Typings.GameInfo = {
+// export const 魔法门英雄无敌2: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法门英雄无敌2'
 //   },
@@ -9997,7 +9997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法门英雄无敌2中文: Typings.GameInfo = {
+// export const 魔法门英雄无敌2中文: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法门英雄无敌2中文'
 //   },
@@ -10007,7 +10007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法门英雄无敌中文: Typings.GameInfo = {
+// export const 魔法门英雄无敌中文: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法门英雄无敌中文'
 //   },
@@ -10017,7 +10017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法少年: Typings.GameInfo = {
+// export const 魔法少年: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法少年'
 //   },
@@ -10027,7 +10027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法师西蒙: Typings.GameInfo = {
+// export const 魔法师西蒙: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法师西蒙'
 //   },
@@ -10037,7 +10037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法世纪: Typings.GameInfo = {
+// export const 魔法世纪: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法世纪'
 //   },
@@ -10047,7 +10047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法世纪2: Typings.GameInfo = {
+// export const 魔法世纪2: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法世纪2'
 //   },
@@ -10057,7 +10057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法试炼: Typings.GameInfo = {
+// export const 魔法试炼: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法试炼'
 //   },
@@ -10067,7 +10067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法天师: Typings.GameInfo = {
+// export const 魔法天师: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法天师'
 //   },
@@ -10077,7 +10077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔法之镜: Typings.GameInfo = {
+// export const 魔法之镜: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔法之镜'
 //   },
@@ -10087,7 +10087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔宫救美宝石: Typings.GameInfo = {
+// export const 魔宫救美宝石: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔宫救美宝石'
 //   },
@@ -10097,7 +10097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔鬼推销员: Typings.GameInfo = {
+// export const 魔鬼推销员: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔鬼推销员'
 //   },
@@ -10107,7 +10107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔幻霸主: Typings.GameInfo = {
+// export const 魔幻霸主: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔幻霸主'
 //   },
@@ -10117,7 +10117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔幻将军: Typings.GameInfo = {
+// export const 魔幻将军: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔幻将军'
 //   },
@@ -10127,7 +10127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔界圣女传: Typings.GameInfo = {
+// export const 魔界圣女传: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔界圣女传'
 //   },
@@ -10137,7 +10137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔界召唤: Typings.GameInfo = {
+// export const 魔界召唤: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔界召唤'
 //   },
@@ -10147,7 +10147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔界之泉动乱魔都: Typings.GameInfo = {
+// export const 魔界之泉动乱魔都: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔界之泉动乱魔都'
 //   },
@@ -10157,7 +10157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔界之泉灰石传奇: Typings.GameInfo = {
+// export const 魔界之泉灰石传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔界之泉灰石传奇'
 //   },
@@ -10167,7 +10167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔境传说: Typings.GameInfo = {
+// export const 魔境传说: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔境传说'
 //   },
@@ -10177,7 +10177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔空霸传: Typings.GameInfo = {
+// export const 魔空霸传: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔空霸传'
 //   },
@@ -10187,7 +10187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔龙纪事: Typings.GameInfo = {
+// export const 魔龙纪事: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔龙纪事'
 //   },
@@ -10197,7 +10197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔魅大陆的诅咒: Typings.GameInfo = {
+// export const 魔魅大陆的诅咒: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔魅大陆的诅咒'
 //   },
@@ -10207,7 +10207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔日传说: Typings.GameInfo = {
+// export const 魔日传说: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔日传说'
 //   },
@@ -10217,7 +10217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔神战记: Typings.GameInfo = {
+// export const 魔神战记: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔神战记'
 //   },
@@ -10227,7 +10227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔神战记2: Typings.GameInfo = {
+// export const 魔神战记2: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔神战记2'
 //   },
@@ -10237,7 +10237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔石英雄传说2: Typings.GameInfo = {
+// export const 魔石英雄传说2: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔石英雄传说2'
 //   },
@@ -10247,7 +10247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔兽大战略: Typings.GameInfo = {
+// export const 魔兽大战略: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔兽大战略'
 //   },
@@ -10257,7 +10257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔兽争霸1: Typings.GameInfo = {
+// export const 魔兽争霸1: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔兽争霸1'
 //   },
@@ -10267,7 +10267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔兽争霸2: Typings.GameInfo = {
+// export const 魔兽争霸2: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔兽争霸2'
 //   },
@@ -10277,7 +10277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔兽争霸2中文版: Typings.GameInfo = {
+// export const 魔兽争霸2中文版: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔兽争霸2中文版'
 //   },
@@ -10287,7 +10287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔兽争霸2资料篇: Typings.GameInfo = {
+// export const 魔兽争霸2资料篇: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔兽争霸2资料篇'
 //   },
@@ -10297,7 +10297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔术彩球: Typings.GameInfo = {
+// export const 魔术彩球: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔术彩球'
 //   },
@@ -10307,7 +10307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔术方块: Typings.GameInfo = {
+// export const 魔术方块: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔术方块'
 //   },
@@ -10317,7 +10317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔胎: Typings.GameInfo = {
+// export const 魔胎: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔胎'
 //   },
@@ -10327,7 +10327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔武王: Typings.GameInfo = {
+// export const 魔武王: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔武王'
 //   },
@@ -10337,7 +10337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔眼封印: Typings.GameInfo = {
+// export const 魔眼封印: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔眼封印'
 //   },
@@ -10347,7 +10347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔眼杀机: Typings.GameInfo = {
+// export const 魔眼杀机: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔眼杀机'
 //   },
@@ -10357,7 +10357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔眼杀机2隐月传奇: Typings.GameInfo = {
+// export const 魔眼杀机2隐月传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔眼杀机2隐月传奇'
 //   },
@@ -10367,7 +10367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔眼杀机3血战扎诺尔: Typings.GameInfo = {
+// export const 魔眼杀机3血战扎诺尔: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔眼杀机3血战扎诺尔'
 //   },
@@ -10377,7 +10377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔眼水晶: Typings.GameInfo = {
+// export const 魔眼水晶: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔眼水晶'
 //   },
@@ -10387,7 +10387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔眼邪神: Typings.GameInfo = {
+// export const 魔眼邪神: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔眼邪神'
 //   },
@@ -10397,7 +10397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔眼邪神英版: Typings.GameInfo = {
+// export const 魔眼邪神英版: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔眼邪神英版'
 //   },
@@ -10407,7 +10407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔异入侵: Typings.GameInfo = {
+// export const 魔异入侵: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔异入侵'
 //   },
@@ -10417,7 +10417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔域传奇：石之预言者1.1: Typings.GameInfo = {
+// export const 魔域传奇：石之预言者1.1: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔域传奇:石之预言者1.1'
 //   },
@@ -10427,7 +10427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔域传奇：史特卡的财宝1.2: Typings.GameInfo = {
+// export const 魔域传奇：史特卡的财宝1.2: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔域传奇:史特卡的财宝1.2'
 //   },
@@ -10437,7 +10437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔域迷踪: Typings.GameInfo = {
+// export const 魔域迷踪: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔域迷踪'
 //   },
@@ -10447,7 +10447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔域迷踪2: Typings.GameInfo = {
+// export const 魔域迷踪2: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔域迷踪2'
 //   },
@@ -10457,7 +10457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 魔栈: Typings.GameInfo = {
+// export const 魔栈: Typings.GameInformation = {
 //   translates: {
 //     cn: '魔栈'
 //   },
@@ -10467,7 +10467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 末日宝典: Typings.GameInfo = {
+// export const 末日宝典: Typings.GameInformation = {
 //   translates: {
 //     cn: '末日宝典'
 //   },
@@ -10477,7 +10477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 末日战神: Typings.GameInfo = {
+// export const 末日战神: Typings.GameInformation = {
 //   translates: {
 //     cn: '末日战神'
 //   },
@@ -10487,7 +10487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 末日之牛: Typings.GameInfo = {
+// export const 末日之牛: Typings.GameInformation = {
 //   translates: {
 //     cn: '末日之牛'
 //   },
@@ -10497,7 +10497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 莫克塔历险记: Typings.GameInfo = {
+// export const 莫克塔历险记: Typings.GameInformation = {
 //   translates: {
 //     cn: '莫克塔历险记'
 //   },
@@ -10507,7 +10507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 墓地丧尸: Typings.GameInfo = {
+// export const 墓地丧尸: Typings.GameInformation = {
 //   translates: {
 //     cn: '墓地丧尸'
 //   },
@@ -10517,7 +10517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 墓穴诅咒: Typings.GameInfo = {
+// export const 墓穴诅咒: Typings.GameInformation = {
 //   translates: {
 //     cn: '墓穴诅咒'
 //   },
@@ -10527,7 +10527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 那苏冒险: Typings.GameInfo = {
+// export const 那苏冒险: Typings.GameInformation = {
 //   translates: {
 //     cn: '那苏冒险'
 //   },
@@ -10537,7 +10537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 纳粹飞行秘史+资料片: Typings.GameInfo = {
+// export const 纳粹飞行秘史+资料片: Typings.GameInformation = {
 //   translates: {
 //     cn: '纳粹飞行秘史+资料片'
 //   },
@@ -10547,7 +10547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 纳斯卡赛车1: Typings.GameInfo = {
+// export const 纳斯卡赛车1: Typings.GameInformation = {
 //   translates: {
 //     cn: '纳斯卡赛车1'
 //   },
@@ -10557,7 +10557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 纳斯卡赛车2: Typings.GameInfo = {
+// export const 纳斯卡赛车2: Typings.GameInformation = {
 //   translates: {
 //     cn: '纳斯卡赛车2'
 //   },
@@ -10567,7 +10567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 南海霸主: Typings.GameInfo = {
+// export const 南海霸主: Typings.GameInformation = {
 //   translates: {
 //     cn: '南海霸主'
 //   },
@@ -10577,7 +10577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 南极冰怪: Typings.GameInfo = {
+// export const 南极冰怪: Typings.GameInformation = {
 //   translates: {
 //     cn: '南极冰怪'
 //   },
@@ -10587,7 +10587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 南极大冒险: Typings.GameInfo = {
+// export const 南极大冒险: Typings.GameInformation = {
 //   translates: {
 //     cn: '南极大冒险'
 //   },
@@ -10597,7 +10597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 南宋英烈传: Typings.GameInfo = {
+// export const 南宋英烈传: Typings.GameInformation = {
 //   translates: {
 //     cn: '南宋英烈传'
 //   },
@@ -10607,7 +10607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 南与北: Typings.GameInfo = {
+// export const 南与北: Typings.GameInformation = {
 //   translates: {
 //     cn: '南与北'
 //   },
@@ -10617,7 +10617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 脑博士之岛: Typings.GameInfo = {
+// export const 脑博士之岛: Typings.GameInformation = {
 //   translates: {
 //     cn: '脑博士之岛'
 //   },
@@ -10627,7 +10627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 尼旁事务所: Typings.GameInfo = {
+// export const 尼旁事务所: Typings.GameInformation = {
 //   translates: {
 //     cn: '尼旁事务所'
 //   },
@@ -10637,7 +10637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 逆玉王: Typings.GameInfo = {
+// export const 逆玉王: Typings.GameInformation = {
 //   translates: {
 //     cn: '逆玉王'
 //   },
@@ -10647,7 +10647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 农奴城市: Typings.GameInfo = {
+// export const 农奴城市: Typings.GameInformation = {
 //   translates: {
 //     cn: '农奴城市'
 //   },
@@ -10657,7 +10657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 怒之机翼: Typings.GameInfo = {
+// export const 怒之机翼: Typings.GameInformation = {
 //   translates: {
 //     cn: '怒之机翼'
 //   },
@@ -10667,7 +10667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 虐杀异形: Typings.GameInfo = {
+// export const 虐杀异形: Typings.GameInformation = {
 //   translates: {
 //     cn: '虐杀异形'
 //   },
@@ -10677,7 +10677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 诺曼计划93: Typings.GameInfo = {
+// export const 诺曼计划93: Typings.GameInformation = {
 //   translates: {
 //     cn: '诺曼计划93'
 //   },
@@ -10687,7 +10687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 女皇杯(日): Typings.GameInfo = {
+// export const 女皇杯(日): Typings.GameInformation = {
 //   translates: {
 //     cn: '女皇杯(日)'
 //   },
@@ -10697,7 +10697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 女皇赌场: Typings.GameInfo = {
+// export const 女皇赌场: Typings.GameInformation = {
 //   translates: {
 //     cn: '女皇赌场'
 //   },
@@ -10707,7 +10707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 女神学院: Typings.GameInfo = {
+// export const 女神学院: Typings.GameInformation = {
 //   translates: {
 //     cn: '女神学院'
 //   },
@@ -10717,7 +10717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 女神之翼: Typings.GameInfo = {
+// export const 女神之翼: Typings.GameInformation = {
 //   translates: {
 //     cn: '女神之翼'
 //   },
@@ -10727,7 +10727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 欧陆战线: Typings.GameInfo = {
+// export const 欧陆战线: Typings.GameInformation = {
 //   translates: {
 //     cn: '欧陆战线'
 //   },
@@ -10737,7 +10737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 欧洲女皇扑克: Typings.GameInfo = {
+// export const 欧洲女皇扑克: Typings.GameInformation = {
 //   translates: {
 //     cn: '欧洲女皇扑克'
 //   },
@@ -10747,7 +10747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 欧洲巡回摔角: Typings.GameInfo = {
+// export const 欧洲巡回摔角: Typings.GameInformation = {
 //   translates: {
 //     cn: '欧洲巡回摔角'
 //   },
@@ -10757,7 +10757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 欧洲足球96: Typings.GameInfo = {
+// export const 欧洲足球96: Typings.GameInformation = {
 //   translates: {
 //     cn: '欧洲足球96'
 //   },
@@ -10767,7 +10767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 叛变克朗多: Typings.GameInfo = {
+// export const 叛变克朗多: Typings.GameInformation = {
 //   translates: {
 //     cn: '叛变克朗多'
 //   },
@@ -10777,7 +10777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 胖子之怒: Typings.GameInfo = {
+// export const 胖子之怒: Typings.GameInformation = {
 //   translates: {
 //     cn: '胖子之怒'
 //   },
@@ -10787,7 +10787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 炮灰(又名小兵立大功): Typings.GameInfo = {
+// export const 炮灰(又名小兵立大功): Typings.GameInformation = {
 //   translates: {
 //     cn: '炮灰(又名小兵立大功)'
 //   },
@@ -10797,7 +10797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 炮灰2: Typings.GameInfo = {
+// export const 炮灰2: Typings.GameInformation = {
 //   translates: {
 //     cn: '炮灰2'
 //   },
@@ -10807,7 +10807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 喷气背包: Typings.GameInfo = {
+// export const 喷气背包: Typings.GameInformation = {
 //   translates: {
 //     cn: '喷气背包'
 //   },
@@ -10817,7 +10817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 碰美龙战士: Typings.GameInfo = {
+// export const 碰美龙战士: Typings.GameInformation = {
 //   translates: {
 //     cn: '碰美龙战士'
 //   },
@@ -10827,7 +10827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 碰碰球: Typings.GameInfo = {
+// export const 碰碰球: Typings.GameInformation = {
 //   translates: {
 //     cn: '碰碰球'
 //   },
@@ -10837,7 +10837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 披萨大亨: Typings.GameInfo = {
+// export const 披萨大亨: Typings.GameInformation = {
 //   translates: {
 //     cn: '披萨大亨'
 //   },
@@ -10847,7 +10847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 霹雳娇娃: Typings.GameInfo = {
+// export const 霹雳娇娃: Typings.GameInformation = {
 //   translates: {
 //     cn: '霹雳娇娃'
 //   },
@@ -10857,7 +10857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 霹雳幽灵剑: Typings.GameInfo = {
+// export const 霹雳幽灵剑: Typings.GameInformation = {
 //   translates: {
 //     cn: '霹雳幽灵剑'
 //   },
@@ -10867,7 +10867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 拼图大师: Typings.GameInfo = {
+// export const 拼图大师: Typings.GameInformation = {
 //   translates: {
 //     cn: '拼图大师'
 //   },
@@ -10877,7 +10877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 拼图乒乓台: Typings.GameInfo = {
+// export const 拼图乒乓台: Typings.GameInformation = {
 //   translates: {
 //     cn: '拼图乒乓台'
 //   },
@@ -10887,7 +10887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 拼字游戏: Typings.GameInfo = {
+// export const 拼字游戏: Typings.GameInformation = {
 //   translates: {
 //     cn: '拼字游戏'
 //   },
@@ -10897,7 +10897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 破坏神传说: Typings.GameInfo = {
+// export const 破坏神传说: Typings.GameInformation = {
 //   translates: {
 //     cn: '破坏神传说'
 //   },
@@ -10907,7 +10907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 扑克俱乐部: Typings.GameInfo = {
+// export const 扑克俱乐部: Typings.GameInformation = {
 //   translates: {
 //     cn: '扑克俱乐部'
 //   },
@@ -10917,7 +10917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 噗噗闯通关: Typings.GameInfo = {
+// export const 噗噗闯通关: Typings.GameInformation = {
 //   translates: {
 //     cn: '噗噗闯通关'
 //   },
@@ -10927,7 +10927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 七宝奇谋: Typings.GameInfo = {
+// export const 七宝奇谋: Typings.GameInformation = {
 //   translates: {
 //     cn: '七宝奇谋'
 //   },
@@ -10937,7 +10937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 七大黄金之城: Typings.GameInfo = {
+// export const 七大黄金之城: Typings.GameInformation = {
 //   translates: {
 //     cn: '七大黄金之城'
 //   },
@@ -10947,7 +10947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 七喜小子: Typings.GameInfo = {
+// export const 七喜小子: Typings.GameInformation = {
 //   translates: {
 //     cn: '七喜小子'
 //   },
@@ -10957,7 +10957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 七星魔法使: Typings.GameInfo = {
+// export const 七星魔法使: Typings.GameInformation = {
 //   translates: {
 //     cn: '七星魔法使'
 //   },
@@ -10967,7 +10967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 七英雄外传王者之师: Typings.GameInfo = {
+// export const 七英雄外传王者之师: Typings.GameInformation = {
 //   translates: {
 //     cn: '七英雄外传王者之师'
 //   },
@@ -10977,7 +10977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 七英雄物语: Typings.GameInfo = {
+// export const 七英雄物语: Typings.GameInformation = {
 //   translates: {
 //     cn: '七英雄物语'
 //   },
@@ -10987,7 +10987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 七英雄物语2: Typings.GameInfo = {
+// export const 七英雄物语2: Typings.GameInformation = {
 //   translates: {
 //     cn: '七英雄物语2'
 //   },
@@ -10997,7 +10997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 齐天大圣: Typings.GameInfo = {
+// export const 齐天大圣: Typings.GameInformation = {
 //   translates: {
 //     cn: '齐天大圣'
 //   },
@@ -11007,7 +11007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 其普斯的挑战: Typings.GameInfo = {
+// export const 其普斯的挑战: Typings.GameInformation = {
 //   translates: {
 //     cn: '其普斯的挑战'
 //   },
@@ -11017,7 +11017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 奇幻游戏三合一: Typings.GameInfo = {
+// export const 奇幻游戏三合一: Typings.GameInformation = {
 //   translates: {
 //     cn: '奇幻游戏三合一'
 //   },
@@ -11027,7 +11027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 奇门遁甲之九五真龙: Typings.GameInfo = {
+// export const 奇门遁甲之九五真龙: Typings.GameInformation = {
 //   translates: {
 //     cn: '奇门遁甲之九五真龙'
 //   },
@@ -11037,7 +11037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 奇妙的扎克: Typings.GameInfo = {
+// export const 奇妙的扎克: Typings.GameInformation = {
 //   translates: {
 //     cn: '奇妙的扎克'
 //   },
@@ -11047,7 +11047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 奇探加杰特全球恐慌: Typings.GameInfo = {
+// export const 奇探加杰特全球恐慌: Typings.GameInformation = {
 //   translates: {
 //     cn: '奇探加杰特全球恐慌'
 //   },
@@ -11057,7 +11057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 麒麟传说: Typings.GameInfo = {
+// export const 麒麟传说: Typings.GameInformation = {
 //   translates: {
 //     cn: '麒麟传说'
 //   },
@@ -11067,7 +11067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 汽车大亨: Typings.GameInfo = {
+// export const 汽车大亨: Typings.GameInformation = {
 //   translates: {
 //     cn: '汽车大亨'
 //   },
@@ -11077,7 +11077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 千兆轰炸: Typings.GameInfo = {
+// export const 千兆轰炸: Typings.GameInformation = {
 //   translates: {
 //     cn: '千兆轰炸'
 //   },
@@ -11087,7 +11087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 前线药剂师: Typings.GameInfo = {
+// export const 前线药剂师: Typings.GameInformation = {
 //   translates: {
 //     cn: '前线药剂师'
 //   },
@@ -11097,7 +11097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 枪神: Typings.GameInfo = {
+// export const 枪神: Typings.GameInformation = {
 //   translates: {
 //     cn: '枪神'
 //   },
@@ -11107,7 +11107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 强手棋: Typings.GameInfo = {
+// export const 强手棋: Typings.GameInformation = {
 //   translates: {
 //     cn: '强手棋'
 //   },
@@ -11117,7 +11117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 桥牌: Typings.GameInfo = {
+// export const 桥牌: Typings.GameInformation = {
 //   translates: {
 //     cn: '桥牌'
 //   },
@@ -11127,7 +11127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 桥牌MVP: Typings.GameInfo = {
+// export const 桥牌MVP: Typings.GameInformation = {
 //   translates: {
 //     cn: '桥牌MVP'
 //   },
@@ -11137,7 +11137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 切克斯历险记: Typings.GameInfo = {
+// export const 切克斯历险记: Typings.GameInformation = {
 //   translates: {
 //     cn: '切克斯历险记'
 //   },
@@ -11147,7 +11147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 切克斯历险记2: Typings.GameInfo = {
+// export const 切克斯历险记2: Typings.GameInformation = {
 //   translates: {
 //     cn: '切克斯历险记2'
 //   },
@@ -11157,7 +11157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 青涩的果实: Typings.GameInfo = {
+// export const 青涩的果实: Typings.GameInformation = {
 //   translates: {
 //     cn: '青涩的果实'
 //   },
@@ -11167,7 +11167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 青少棒扬威记: Typings.GameInfo = {
+// export const 青少棒扬威记: Typings.GameInformation = {
 //   translates: {
 //     cn: '青少棒扬威记'
 //   },
@@ -11177,7 +11177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 清白无罪: Typings.GameInfo = {
+// export const 清白无罪: Typings.GameInformation = {
 //   translates: {
 //     cn: '清白无罪'
 //   },
@@ -11187,7 +11187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 清白无罪2: Typings.GameInfo = {
+// export const 清白无罪2: Typings.GameInformation = {
 //   translates: {
 //     cn: '清白无罪2'
 //   },
@@ -11197,7 +11197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蚯蚓吉姆: Typings.GameInfo = {
+// export const 蚯蚓吉姆: Typings.GameInformation = {
 //   translates: {
 //     cn: '蚯蚓吉姆'
 //   },
@@ -11207,7 +11207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蚯蚓吉姆2: Typings.GameInfo = {
+// export const 蚯蚓吉姆2: Typings.GameInformation = {
 //   translates: {
 //     cn: '蚯蚓吉姆2'
 //   },
@@ -11217,7 +11217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 求婚365日: Typings.GameInfo = {
+// export const 求婚365日: Typings.GameInformation = {
 //   translates: {
 //     cn: '求婚365日'
 //   },
@@ -11227,7 +11227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 区域掠夺: Typings.GameInfo = {
+// export const 区域掠夺: Typings.GameInformation = {
 //   translates: {
 //     cn: '区域掠夺'
 //   },
@@ -11237,7 +11237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 趣怪小巫师: Typings.GameInfo = {
+// export const 趣怪小巫师: Typings.GameInformation = {
 //   translates: {
 //     cn: '趣怪小巫师'
 //   },
@@ -11247,7 +11247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 权利之战: Typings.GameInfo = {
+// export const 权利之战: Typings.GameInformation = {
 //   translates: {
 //     cn: '权利之战'
 //   },
@@ -11257,7 +11257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 全球效应: Typings.GameInfo = {
+// export const 全球效应: Typings.GameInformation = {
 //   translates: {
 //     cn: '全球效应'
 //   },
@@ -11267,7 +11267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 拳斗士: Typings.GameInfo = {
+// export const 拳斗士: Typings.GameInformation = {
 //   translates: {
 //     cn: '拳斗士'
 //   },
@@ -11277,7 +11277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雀之塔: Typings.GameInfo = {
+// export const 雀之塔: Typings.GameInformation = {
 //   translates: {
 //     cn: '雀之塔'
 //   },
@@ -11287,7 +11287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 燃烧时刻: Typings.GameInfo = {
+// export const 燃烧时刻: Typings.GameInformation = {
 //   translates: {
 //     cn: '燃烧时刻'
 //   },
@@ -11297,7 +11297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 热带雨林的秘密: Typings.GameInfo = {
+// export const 热带雨林的秘密: Typings.GameInformation = {
 //   translates: {
 //     cn: '热带雨林的秘密'
 //   },
@@ -11307,7 +11307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 热力车赛: Typings.GameInfo = {
+// export const 热力车赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '热力车赛'
 //   },
@@ -11317,7 +11317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 热能战机: Typings.GameInfo = {
+// export const 热能战机: Typings.GameInformation = {
 //   translates: {
 //     cn: '热能战机'
 //   },
@@ -11327,7 +11327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 热血硬派: Typings.GameInfo = {
+// export const 热血硬派: Typings.GameInformation = {
 //   translates: {
 //     cn: '热血硬派'
 //   },
@@ -11337,7 +11337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 人间道少年燕赤霞: Typings.GameInfo = {
+// export const 人间道少年燕赤霞: Typings.GameInformation = {
 //   translates: {
 //     cn: '人间道少年燕赤霞'
 //   },
@@ -11347,7 +11347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 人类进化1+2: Typings.GameInfo = {
+// export const 人类进化1+2: Typings.GameInformation = {
 //   translates: {
 //     cn: '人类进化1+2'
 //   },
@@ -11357,7 +11357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 人类进化3: Typings.GameInfo = {
+// export const 人类进化3: Typings.GameInformation = {
 //   translates: {
 //     cn: '人类进化3'
 //   },
@@ -11367,7 +11367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 人面蛾: Typings.GameInfo = {
+// export const 人面蛾: Typings.GameInformation = {
 //   translates: {
 //     cn: '人面蛾'
 //   },
@@ -11377,7 +11377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 人生剧场: Typings.GameInfo = {
+// export const 人生剧场: Typings.GameInformation = {
 //   translates: {
 //     cn: '人生剧场'
 //   },
@@ -11387,7 +11387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 忍: Typings.GameInfo = {
+// export const 忍: Typings.GameInformation = {
 //   translates: {
 //     cn: '忍'
 //   },
@@ -11397,7 +11397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 忍者龙剑传1: Typings.GameInfo = {
+// export const 忍者龙剑传1: Typings.GameInformation = {
 //   translates: {
 //     cn: '忍者龙剑传1'
 //   },
@@ -11407,7 +11407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 忍者龙剑传2: Typings.GameInfo = {
+// export const 忍者龙剑传2: Typings.GameInformation = {
 //   translates: {
 //     cn: '忍者龙剑传2'
 //   },
@@ -11417,7 +11417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 忍者山洞人: Typings.GameInfo = {
+// export const 忍者山洞人: Typings.GameInformation = {
 //   translates: {
 //     cn: '忍者山洞人'
 //   },
@@ -11427,7 +11427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 忍者神龟: Typings.GameInfo = {
+// export const 忍者神龟: Typings.GameInformation = {
 //   translates: {
 //     cn: '忍者神龟'
 //   },
@@ -11437,7 +11437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 忍者神龟2曼哈顿之战: Typings.GameInfo = {
+// export const 忍者神龟2曼哈顿之战: Typings.GameInformation = {
 //   translates: {
 //     cn: '忍者神龟2曼哈顿之战'
 //   },
@@ -11447,7 +11447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 忍者神龟3: Typings.GameInfo = {
+// export const 忍者神龟3: Typings.GameInformation = {
 //   translates: {
 //     cn: '忍者神龟3'
 //   },
@@ -11457,7 +11457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 忍者兔: Typings.GameInfo = {
+// export const 忍者兔: Typings.GameInformation = {
 //   translates: {
 //     cn: '忍者兔'
 //   },
@@ -11467,7 +11467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 日本之战: Typings.GameInfo = {
+// export const 日本之战: Typings.GameInformation = {
 //   translates: {
 //     cn: '日本之战'
 //   },
@@ -11477,7 +11477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 日没: Typings.GameInfo = {
+// export const 日没: Typings.GameInformation = {
 //   translates: {
 //     cn: '日没'
 //   },
@@ -11487,7 +11487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 日蚀: Typings.GameInfo = {
+// export const 日蚀: Typings.GameInformation = {
 //   translates: {
 //     cn: '日蚀'
 //   },
@@ -11497,7 +11497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 荣耀战场: Typings.GameInfo = {
+// export const 荣耀战场: Typings.GameInformation = {
 //   translates: {
 //     cn: '荣耀战场'
 //   },
@@ -11507,7 +11507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 荣耀之剑: Typings.GameInfo = {
+// export const 荣耀之剑: Typings.GameInformation = {
 //   translates: {
 //     cn: '荣耀之剑'
 //   },
@@ -11517,7 +11517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 荣耀之路1: Typings.GameInfo = {
+// export const 荣耀之路1: Typings.GameInformation = {
 //   translates: {
 //     cn: '荣耀之路1'
 //   },
@@ -11527,7 +11527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 荣耀之路2: Typings.GameInfo = {
+// export const 荣耀之路2: Typings.GameInformation = {
 //   translates: {
 //     cn: '荣耀之路2'
 //   },
@@ -11537,7 +11537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 荣耀之路3: Typings.GameInfo = {
+// export const 荣耀之路3: Typings.GameInformation = {
 //   translates: {
 //     cn: '荣耀之路3'
 //   },
@@ -11547,7 +11547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 荣耀之路4: Typings.GameInfo = {
+// export const 荣耀之路4: Typings.GameInformation = {
 //   translates: {
 //     cn: '荣耀之路4'
 //   },
@@ -11557,7 +11557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 如来金刚拳传奇: Typings.GameInfo = {
+// export const 如来金刚拳传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '如来金刚拳传奇'
 //   },
@@ -11567,7 +11567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 萨巴巴指挥官: Typings.GameInfo = {
+// export const 萨巴巴指挥官: Typings.GameInformation = {
 //   translates: {
 //     cn: '萨巴巴指挥官'
 //   },
@@ -11577,7 +11577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 赛博滑板小子: Typings.GameInfo = {
+// export const 赛博滑板小子: Typings.GameInformation = {
 //   translates: {
 //     cn: '赛博滑板小子'
 //   },
@@ -11587,7 +11587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 赛博战警: Typings.GameInfo = {
+// export const 赛博战警: Typings.GameInformation = {
 //   translates: {
 //     cn: '赛博战警'
 //   },
@@ -11597,7 +11597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 赛尔达经典版: Typings.GameInfo = {
+// export const 赛尔达经典版: Typings.GameInformation = {
 //   translates: {
 //     cn: '赛尔达经典版'
 //   },
@@ -11607,7 +11607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 赛马: Typings.GameInfo = {
+// export const 赛马: Typings.GameInformation = {
 //   translates: {
 //     cn: '赛马'
 //   },
@@ -11617,7 +11617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国风云: Typings.GameInfo = {
+// export const 三国风云: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国风云'
 //   },
@@ -11627,7 +11627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国麻将: Typings.GameInfo = {
+// export const 三国麻将: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国麻将'
 //   },
@@ -11637,7 +11637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国演义1加强版: Typings.GameInfo = {
+// export const 三国演义1加强版: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国演义1加强版'
 //   },
@@ -11647,7 +11647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国演义2: Typings.GameInfo = {
+// export const 三国演义2: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国演义2'
 //   },
@@ -11657,7 +11657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国英杰传: Typings.GameInfo = {
+// export const 三国英杰传: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国英杰传'
 //   },
@@ -11667,7 +11667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国英雄传: Typings.GameInfo = {
+// export const 三国英雄传: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国英雄传'
 //   },
@@ -11677,7 +11677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国志1: Typings.GameInfo = {
+// export const 三国志1: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国志1'
 //   },
@@ -11687,7 +11687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国志4加强版: Typings.GameInfo = {
+// export const 三国志4加强版: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国志4加强版'
 //   },
@@ -11697,7 +11697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国志5加强版: Typings.GameInfo = {
+// export const 三国志5加强版: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国志5加强版'
 //   },
@@ -11707,7 +11707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三国志雄霸天下: Typings.GameInfo = {
+// export const 三国志雄霸天下: Typings.GameInformation = {
 //   translates: {
 //     cn: '三国志雄霸天下'
 //   },
@@ -11717,7 +11717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三姐妹: Typings.GameInfo = {
+// export const 三姐妹: Typings.GameInformation = {
 //   translates: {
 //     cn: '三姐妹'
 //   },
@@ -11727,7 +11727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 三界论-邦沛之谜: Typings.GameInfo = {
+// export const 三界论-邦沛之谜: Typings.GameInformation = {
 //   translates: {
 //     cn: '三界论-邦沛之谜'
 //   },
@@ -11737,7 +11737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 伞兵大战: Typings.GameInfo = {
+// export const 伞兵大战: Typings.GameInformation = {
 //   translates: {
 //     cn: '伞兵大战'
 //   },
@@ -11747,7 +11747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 扫雷: Typings.GameInfo = {
+// export const 扫雷: Typings.GameInformation = {
 //   translates: {
 //     cn: '扫雷'
 //   },
@@ -11757,7 +11757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 森林救火员: Typings.GameInfo = {
+// export const 森林救火员: Typings.GameInformation = {
 //   translates: {
 //     cn: '森林救火员'
 //   },
@@ -11767,7 +11767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 森林小精灵: Typings.GameInfo = {
+// export const 森林小精灵: Typings.GameInformation = {
 //   translates: {
 //     cn: '森林小精灵'
 //   },
@@ -11777,7 +11777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 森塔勇士: Typings.GameInfo = {
+// export const 森塔勇士: Typings.GameInformation = {
 //   translates: {
 //     cn: '森塔勇士'
 //   },
@@ -11787,7 +11787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 杀出机械城: Typings.GameInfo = {
+// export const 杀出机械城: Typings.GameInformation = {
 //   translates: {
 //     cn: '杀出机械城'
 //   },
@@ -11797,7 +11797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 杀戮机器: Typings.GameInfo = {
+// export const 杀戮机器: Typings.GameInformation = {
 //   translates: {
 //     cn: '杀戮机器'
 //   },
@@ -11807,7 +11807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 杀生异形: Typings.GameInfo = {
+// export const 杀生异形: Typings.GameInformation = {
 //   translates: {
 //     cn: '杀生异形'
 //   },
@@ -11817,7 +11817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 沙暴: Typings.GameInfo = {
+// export const 沙暴: Typings.GameInformation = {
 //   translates: {
 //     cn: '沙暴'
 //   },
@@ -11827,7 +11827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 沙克狼: Typings.GameInfo = {
+// export const 沙克狼: Typings.GameInformation = {
 //   translates: {
 //     cn: '沙克狼'
 //   },
@@ -11837,7 +11837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 沙拉那之剑: Typings.GameInfo = {
+// export const 沙拉那之剑: Typings.GameInformation = {
 //   translates: {
 //     cn: '沙拉那之剑'
 //   },
@@ -11847,7 +11847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 沙漠勇士: Typings.GameInfo = {
+// export const 沙漠勇士: Typings.GameInformation = {
 //   translates: {
 //     cn: '沙漠勇士'
 //   },
@@ -11857,7 +11857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 沙丘魔堡: Typings.GameInfo = {
+// export const 沙丘魔堡: Typings.GameInformation = {
 //   translates: {
 //     cn: '沙丘魔堡'
 //   },
@@ -11867,7 +11867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 沙丘魔堡2: Typings.GameInfo = {
+// export const 沙丘魔堡2: Typings.GameInformation = {
 //   translates: {
 //     cn: '沙丘魔堡2'
 //   },
@@ -11877,7 +11877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 沙丘魔堡2光碟版1.07: Typings.GameInfo = {
+// export const 沙丘魔堡2光碟版1.07: Typings.GameInformation = {
 //   translates: {
 //     cn: '沙丘魔堡2光碟版1.07'
 //   },
@@ -11887,7 +11887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 沙丘魔堡2加强版: Typings.GameInfo = {
+// export const 沙丘魔堡2加强版: Typings.GameInformation = {
 //   translates: {
 //     cn: '沙丘魔堡2加强版'
 //   },
@@ -11897,7 +11897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 沙丘魔堡光碟版: Typings.GameInfo = {
+// export const 沙丘魔堡光碟版: Typings.GameInformation = {
 //   translates: {
 //     cn: '沙丘魔堡光碟版'
 //   },
@@ -11907,7 +11907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 沙之战线: Typings.GameInfo = {
+// export const 沙之战线: Typings.GameInformation = {
 //   translates: {
 //     cn: '沙之战线'
 //   },
@@ -11917,7 +11917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 纱之器: Typings.GameInfo = {
+// export const 纱之器: Typings.GameInformation = {
 //   translates: {
 //     cn: '纱之器'
 //   },
@@ -11927,7 +11927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 山海经: Typings.GameInfo = {
+// export const 山海经: Typings.GameInformation = {
 //   translates: {
 //     cn: '山海经'
 //   },
@@ -11937,7 +11937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 山姆和马克思: Typings.GameInfo = {
+// export const 山姆和马克思: Typings.GameInformation = {
 //   translates: {
 //     cn: '山姆和马克思'
 //   },
@@ -11947,7 +11947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 闪回-追寻记忆之旅: Typings.GameInfo = {
+// export const 闪回-追寻记忆之旅: Typings.GameInformation = {
 //   translates: {
 //     cn: '闪回-追寻记忆之旅'
 //   },
@@ -11957,7 +11957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 商业王子: Typings.GameInfo = {
+// export const 商业王子: Typings.GameInformation = {
 //   translates: {
 //     cn: '商业王子'
 //   },
@@ -11967,7 +11967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 上帝: Typings.GameInfo = {
+// export const 上帝: Typings.GameInformation = {
 //   translates: {
 //     cn: '上帝'
 //   },
@@ -11977,7 +11977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 上帝也疯狂: Typings.GameInfo = {
+// export const 上帝也疯狂: Typings.GameInformation = {
 //   translates: {
 //     cn: '上帝也疯狂'
 //   },
@@ -11987,7 +11987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 上帝也疯狂2: Typings.GameInfo = {
+// export const 上帝也疯狂2: Typings.GameInformation = {
 //   translates: {
 //     cn: '上帝也疯狂2'
 //   },
@@ -11997,7 +11997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 上帝之锤: Typings.GameInfo = {
+// export const 上帝之锤: Typings.GameInformation = {
 //   translates: {
 //     cn: '上帝之锤'
 //   },
@@ -12007,7 +12007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 上古卷轴1豪华版: Typings.GameInfo = {
+// export const 上古卷轴1豪华版: Typings.GameInformation = {
 //   translates: {
 //     cn: '上古卷轴1豪华版'
 //   },
@@ -12017,7 +12017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 上古卷轴1竞技场: Typings.GameInfo = {
+// export const 上古卷轴1竞技场: Typings.GameInformation = {
 //   translates: {
 //     cn: '上古卷轴1竞技场'
 //   },
@@ -12027,7 +12027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 上古卷轴2匕首雨: Typings.GameInfo = {
+// export const 上古卷轴2匕首雨: Typings.GameInformation = {
 //   translates: {
 //     cn: '上古卷轴2匕首雨'
 //   },
@@ -12037,7 +12037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 上古卷轴传奇: Typings.GameInfo = {
+// export const 上古卷轴传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '上古卷轴传奇'
 //   },
@@ -12047,7 +12047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 上古神兵: Typings.GameInfo = {
+// export const 上古神兵: Typings.GameInformation = {
 //   translates: {
 //     cn: '上古神兵'
 //   },
@@ -12057,7 +12057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 上古英雄传: Typings.GameInfo = {
+// export const 上古英雄传: Typings.GameInformation = {
 //   translates: {
 //     cn: '上古英雄传'
 //   },
@@ -12067,7 +12067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 上海麻将接龙: Typings.GameInfo = {
+// export const 上海麻将接龙: Typings.GameInformation = {
 //   translates: {
 //     cn: '上海麻将接龙'
 //   },
@@ -12077,7 +12077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 少年侦探: Typings.GameInfo = {
+// export const 少年侦探: Typings.GameInformation = {
 //   translates: {
 //     cn: '少年侦探'
 //   },
@@ -12087,7 +12087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蛇女: Typings.GameInfo = {
+// export const 蛇女: Typings.GameInformation = {
 //   translates: {
 //     cn: '蛇女'
 //   },
@@ -12097,7 +12097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 射波: Typings.GameInfo = {
+// export const 射波: Typings.GameInformation = {
 //   translates: {
 //     cn: '射波'
 //   },
@@ -12107,7 +12107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 射雕英雄传: Typings.GameInfo = {
+// export const 射雕英雄传: Typings.GameInformation = {
 //   translates: {
 //     cn: '射雕英雄传'
 //   },
@@ -12117,7 +12117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 射豆: Typings.GameInfo = {
+// export const 射豆: Typings.GameInformation = {
 //   translates: {
 //     cn: '射豆'
 //   },
@@ -12127,7 +12127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 射门95: Typings.GameInfo = {
+// export const 射门95: Typings.GameInformation = {
 //   translates: {
 //     cn: '射门95'
 //   },
@@ -12137,7 +12137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 深海泰坦尼克: Typings.GameInfo = {
+// export const 深海泰坦尼克: Typings.GameInformation = {
 //   translates: {
 //     cn: '深海泰坦尼克'
 //   },
@@ -12147,7 +12147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 深入虎穴: Typings.GameInfo = {
+// export const 深入虎穴: Typings.GameInformation = {
 //   translates: {
 //     cn: '深入虎穴'
 //   },
@@ -12157,7 +12157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 神雕侠侣: Typings.GameInfo = {
+// export const 神雕侠侣: Typings.GameInformation = {
 //   translates: {
 //     cn: '神雕侠侣'
 //   },
@@ -12167,7 +12167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 神剑传说: Typings.GameInfo = {
+// export const 神剑传说: Typings.GameInformation = {
 //   translates: {
 //     cn: '神剑传说'
 //   },
@@ -12177,7 +12177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 神剑封魔: Typings.GameInfo = {
+// export const 神剑封魔: Typings.GameInformation = {
 //   translates: {
 //     cn: '神剑封魔'
 //   },
@@ -12187,7 +12187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 神剑游侠传: Typings.GameInfo = {
+// export const 神剑游侠传: Typings.GameInformation = {
 //   translates: {
 //     cn: '神剑游侠传'
 //   },
@@ -12197,7 +12197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 神经弹珠台: Typings.GameInfo = {
+// export const 神经弹珠台: Typings.GameInformation = {
 //   translates: {
 //     cn: '神经弹珠台'
 //   },
@@ -12207,7 +12207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 神秘博物馆: Typings.GameInfo = {
+// export const 神秘博物馆: Typings.GameInformation = {
 //   translates: {
 //     cn: '神秘博物馆'
 //   },
@@ -12217,7 +12217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 神秘之歌: Typings.GameInfo = {
+// export const 神秘之歌: Typings.GameInformation = {
 //   translates: {
 //     cn: '神秘之歌'
 //   },
@@ -12227,7 +12227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 神秘之塔: Typings.GameInfo = {
+// export const 神秘之塔: Typings.GameInformation = {
 //   translates: {
 //     cn: '神秘之塔'
 //   },
@@ -12237,7 +12237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 神奇王国: Typings.GameInfo = {
+// export const 神奇王国: Typings.GameInformation = {
 //   translates: {
 //     cn: '神奇王国'
 //   },
@@ -12247,7 +12247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 神示录背叛与毁灭: Typings.GameInfo = {
+// export const 神示录背叛与毁灭: Typings.GameInformation = {
 //   translates: {
 //     cn: '神示录背叛与毁灭'
 //   },
@@ -12257,7 +12257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 神谕: Typings.GameInfo = {
+// export const 神谕: Typings.GameInformation = {
 //   translates: {
 //     cn: '神谕'
 //   },
@@ -12267,7 +12267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 神州八剑: Typings.GameInfo = {
+// export const 神州八剑: Typings.GameInformation = {
 //   translates: {
 //     cn: '神州八剑'
 //   },
@@ -12277,7 +12277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 生化悍将: Typings.GameInfo = {
+// export const 生化悍将: Typings.GameInformation = {
 //   translates: {
 //     cn: '生化悍将'
 //   },
@@ -12287,7 +12287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 生化情人: Typings.GameInfo = {
+// export const 生化情人: Typings.GameInformation = {
 //   translates: {
 //     cn: '生化情人'
 //   },
@@ -12297,7 +12297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 生化威胁: Typings.GameInfo = {
+// export const 生化威胁: Typings.GameInformation = {
 //   translates: {
 //     cn: '生化威胁'
 //   },
@@ -12307,7 +12307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 生死决斗2097: Typings.GameInfo = {
+// export const 生死决斗2097: Typings.GameInformation = {
 //   translates: {
 //     cn: '生死决斗2097'
 //   },
@@ -12317,7 +12317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 生物游戏: Typings.GameInfo = {
+// export const 生物游戏: Typings.GameInformation = {
 //   translates: {
 //     cn: '生物游戏'
 //   },
@@ -12327,7 +12327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 圣城劫: Typings.GameInfo = {
+// export const 圣城劫: Typings.GameInformation = {
 //   translates: {
 //     cn: '圣城劫'
 //   },
@@ -12337,7 +12337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 圣诞残杀: Typings.GameInfo = {
+// export const 圣诞残杀: Typings.GameInformation = {
 //   translates: {
 //     cn: '圣诞残杀'
 //   },
@@ -12347,7 +12347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 圣诞小旅鼠: Typings.GameInfo = {
+// export const 圣诞小旅鼠: Typings.GameInformation = {
 //   translates: {
 //     cn: '圣诞小旅鼠'
 //   },
@@ -12357,7 +12357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 圣光岛: Typings.GameInfo = {
+// export const 圣光岛: Typings.GameInformation = {
 //   translates: {
 //     cn: '圣光岛'
 //   },
@@ -12367,7 +12367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 圣经队长: Typings.GameInfo = {
+// export const 圣经队长: Typings.GameInformation = {
 //   translates: {
 //     cn: '圣经队长'
 //   },
@@ -12377,7 +12377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 圣少女战队: Typings.GameInfo = {
+// export const 圣少女战队: Typings.GameInformation = {
 //   translates: {
 //     cn: '圣少女战队'
 //   },
@@ -12387,7 +12387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 圣少女战队2: Typings.GameInfo = {
+// export const 圣少女战队2: Typings.GameInformation = {
 //   translates: {
 //     cn: '圣少女战队2'
 //   },
@@ -12397,7 +12397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 圣少女战队3: Typings.GameInfo = {
+// export const 圣少女战队3: Typings.GameInformation = {
 //   translates: {
 //     cn: '圣少女战队3'
 //   },
@@ -12407,7 +12407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 圣域传说: Typings.GameInfo = {
+// export const 圣域传说: Typings.GameInformation = {
 //   translates: {
 //     cn: '圣域传说'
 //   },
@@ -12417,7 +12417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 圣战风云录: Typings.GameInfo = {
+// export const 圣战风云录: Typings.GameInformation = {
 //   translates: {
 //     cn: '圣战风云录'
 //   },
@@ -12427,7 +12427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 圣战录: Typings.GameInfo = {
+// export const 圣战录: Typings.GameInformation = {
 //   translates: {
 //     cn: '圣战录'
 //   },
@@ -12437,7 +12437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 圣战物语: Typings.GameInfo = {
+// export const 圣战物语: Typings.GameInformation = {
 //   translates: {
 //     cn: '圣战物语'
 //   },
@@ -12447,7 +12447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 失控驾驶2: Typings.GameInfo = {
+// export const 失控驾驶2: Typings.GameInformation = {
 //   translates: {
 //     cn: '失控驾驶2'
 //   },
@@ -12457,7 +12457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 失落的大地: Typings.GameInfo = {
+// export const 失落的大地: Typings.GameInformation = {
 //   translates: {
 //     cn: '失落的大地'
 //   },
@@ -12467,7 +12467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 失落的封印: Typings.GameInfo = {
+// export const 失落的封印: Typings.GameInformation = {
 //   translates: {
 //     cn: '失落的封印'
 //   },
@@ -12477,7 +12477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 失落的氏族: Typings.GameInfo = {
+// export const 失落的氏族: Typings.GameInformation = {
 //   translates: {
 //     cn: '失落的氏族'
 //   },
@@ -12487,7 +12487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 失落的王国: Typings.GameInfo = {
+// export const 失落的王国: Typings.GameInformation = {
 //   translates: {
 //     cn: '失落的王国'
 //   },
@@ -12497,7 +12497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 失落的维京人: Typings.GameInfo = {
+// export const 失落的维京人: Typings.GameInformation = {
 //   translates: {
 //     cn: '失落的维京人'
 //   },
@@ -12507,7 +12507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 失落的维京人2: Typings.GameInfo = {
+// export const 失落的维京人2: Typings.GameInformation = {
 //   translates: {
 //     cn: '失落的维京人2'
 //   },
@@ -12517,7 +12517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 失落之地英雄时代: Typings.GameInfo = {
+// export const 失落之地英雄时代: Typings.GameInformation = {
 //   translates: {
 //     cn: '失落之地英雄时代'
 //   },
@@ -12527,7 +12527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 狮子安必斯: Typings.GameInfo = {
+// export const 狮子安必斯: Typings.GameInformation = {
 //   translates: {
 //     cn: '狮子安必斯'
 //   },
@@ -12537,7 +12537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 狮子王: Typings.GameInfo = {
+// export const 狮子王: Typings.GameInformation = {
 //   translates: {
 //     cn: '狮子王'
 //   },
@@ -12547,7 +12547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 十六张姬麻将: Typings.GameInfo = {
+// export const 十六张姬麻将: Typings.GameInformation = {
 //   translates: {
 //     cn: '十六张姬麻将'
 //   },
@@ -12557,7 +12557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 十面埋伏: Typings.GameInfo = {
+// export const 十面埋伏: Typings.GameInformation = {
 //   translates: {
 //     cn: '十面埋伏'
 //   },
@@ -12567,7 +12567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 十字军权利之战: Typings.GameInfo = {
+// export const 十字军权利之战: Typings.GameInformation = {
 //   translates: {
 //     cn: '十字军权利之战'
 //   },
@@ -12577,7 +12577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 石堡: Typings.GameInfo = {
+// export const 石堡: Typings.GameInformation = {
 //   translates: {
 //     cn: '石堡'
 //   },
@@ -12587,7 +12587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 石器时代: Typings.GameInfo = {
+// export const 石器时代: Typings.GameInformation = {
 //   translates: {
 //     cn: '石器时代'
 //   },
@@ -12597,7 +12597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 石与钻: Typings.GameInfo = {
+// export const 石与钻: Typings.GameInformation = {
 //   translates: {
 //     cn: '石与钻'
 //   },
@@ -12607,7 +12607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 石中剑的复仇: Typings.GameInfo = {
+// export const 石中剑的复仇: Typings.GameInformation = {
 //   translates: {
 //     cn: '石中剑的复仇'
 //   },
@@ -12617,7 +12617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 时空悖论: Typings.GameInfo = {
+// export const 时空悖论: Typings.GameInformation = {
 //   translates: {
 //     cn: '时空悖论'
 //   },
@@ -12627,7 +12627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 时空游侠: Typings.GameInfo = {
+// export const 时空游侠: Typings.GameInformation = {
 //   translates: {
 //     cn: '时空游侠'
 //   },
@@ -12637,7 +12637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 时空迷航: Typings.GameInfo = {
+// export const 时空迷航: Typings.GameInformation = {
 //   translates: {
 //     cn: '时空迷航'
 //   },
@@ -12647,7 +12647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 时空杀戮: Typings.GameInfo = {
+// export const 时空杀戮: Typings.GameInformation = {
 //   translates: {
 //     cn: '时空杀戮'
 //   },
@@ -12657,7 +12657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 时空特勤组: Typings.GameInfo = {
+// export const 时空特勤组: Typings.GameInformation = {
 //   translates: {
 //     cn: '时空特勤组'
 //   },
@@ -12667,7 +12667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 时空异变: Typings.GameInfo = {
+// export const 时空异变: Typings.GameInformation = {
 //   translates: {
 //     cn: '时空异变'
 //   },
@@ -12677,7 +12677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 时空战士: Typings.GameInfo = {
+// export const 时空战士: Typings.GameInformation = {
 //   translates: {
 //     cn: '时空战士'
 //   },
@@ -12687,7 +12687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 实体: Typings.GameInfo = {
+// export const 实体: Typings.GameInformation = {
 //   translates: {
 //     cn: '实体'
 //   },
@@ -12697,7 +12697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 史诗弹珠台: Typings.GameInfo = {
+// export const 史诗弹珠台: Typings.GameInformation = {
 //   translates: {
 //     cn: '史诗弹珠台'
 //   },
@@ -12707,7 +12707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 史诗星战: Typings.GameInfo = {
+// export const 史诗星战: Typings.GameInformation = {
 //   translates: {
 //     cn: '史诗星战'
 //   },
@@ -12717,7 +12717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 世纪末商业革命: Typings.GameInfo = {
+// export const 世纪末商业革命: Typings.GameInformation = {
 //   translates: {
 //     cn: '世纪末商业革命'
 //   },
@@ -12727,7 +12727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 世界大战: Typings.GameInfo = {
+// export const 世界大战: Typings.GameInformation = {
 //   translates: {
 //     cn: '世界大战'
 //   },
@@ -12737,7 +12737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 世界拳击经理: Typings.GameInfo = {
+// export const 世界拳击经理: Typings.GameInformation = {
 //   translates: {
 //     cn: '世界拳击经理'
 //   },
@@ -12747,7 +12747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 世界摔角联盟: Typings.GameInfo = {
+// export const 世界摔角联盟: Typings.GameInformation = {
 //   translates: {
 //     cn: '世界摔角联盟'
 //   },
@@ -12757,7 +12757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 世界巡回车赛2: Typings.GameInfo = {
+// export const 世界巡回车赛2: Typings.GameInformation = {
 //   translates: {
 //     cn: '世界巡回车赛2'
 //   },
@@ -12767,7 +12767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 世界巡回公路赛: Typings.GameInfo = {
+// export const 世界巡回公路赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '世界巡回公路赛'
 //   },
@@ -12777,7 +12777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 世界巡回赛车: Typings.GameInfo = {
+// export const 世界巡回赛车: Typings.GameInformation = {
 //   translates: {
 //     cn: '世界巡回赛车'
 //   },
@@ -12787,7 +12787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 势不两立: Typings.GameInfo = {
+// export const 势不两立: Typings.GameInformation = {
 //   translates: {
 //     cn: '势不两立'
 //   },
@@ -12797,7 +12797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 试验驾驶: Typings.GameInfo = {
+// export const 试验驾驶: Typings.GameInformation = {
 //   translates: {
 //     cn: '试验驾驶'
 //   },
@@ -12807,7 +12807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 试验驾驶2: Typings.GameInfo = {
+// export const 试验驾驶2: Typings.GameInformation = {
 //   translates: {
 //     cn: '试验驾驶2'
 //   },
@@ -12817,7 +12817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 试验驾驶3: Typings.GameInfo = {
+// export const 试验驾驶3: Typings.GameInformation = {
 //   translates: {
 //     cn: '试验驾驶3'
 //   },
@@ -12827,7 +12827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 首饰和盔甲: Typings.GameInfo = {
+// export const 首饰和盔甲: Typings.GameInformation = {
 //   translates: {
 //     cn: '首饰和盔甲'
 //   },
@@ -12837,7 +12837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 首席执行官: Typings.GameInfo = {
+// export const 首席执行官: Typings.GameInformation = {
 //   translates: {
 //     cn: '首席执行官'
 //   },
@@ -12847,7 +12847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 狩魔猎人: Typings.GameInfo = {
+// export const 狩魔猎人: Typings.GameInformation = {
 //   translates: {
 //     cn: '狩魔猎人'
 //   },
@@ -12857,7 +12857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 兽乡守卫者: Typings.GameInfo = {
+// export const 兽乡守卫者: Typings.GameInformation = {
 //   translates: {
 //     cn: '兽乡守卫者'
 //   },
@@ -12867,7 +12867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 兽爪快打: Typings.GameInfo = {
+// export const 兽爪快打: Typings.GameInformation = {
 //   translates: {
 //     cn: '兽爪快打'
 //   },
@@ -12877,7 +12877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 舒克达的魔法城堡: Typings.GameInfo = {
+// export const 舒克达的魔法城堡: Typings.GameInformation = {
 //   translates: {
 //     cn: '舒克达的魔法城堡'
 //   },
@@ -12887,7 +12887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蜀山剑侠传之紫菁双剑录: Typings.GameInfo = {
+// export const 蜀山剑侠传之紫菁双剑录: Typings.GameInformation = {
 //   translates: {
 //     cn: '蜀山剑侠传之紫菁双剑录'
 //   },
@@ -12897,7 +12897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 束缚之馆: Typings.GameInfo = {
+// export const 束缚之馆: Typings.GameInformation = {
 //   translates: {
 //     cn: '束缚之馆'
 //   },
@@ -12907,7 +12907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 数学大冒险: Typings.GameInfo = {
+// export const 数学大冒险: Typings.GameInformation = {
 //   translates: {
 //     cn: '数学大冒险'
 //   },
@@ -12917,7 +12917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 数学大作战: Typings.GameInfo = {
+// export const 数学大作战: Typings.GameInformation = {
 //   translates: {
 //     cn: '数学大作战'
 //   },
@@ -12927,7 +12927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 摔角联盟1995: Typings.GameInfo = {
+// export const 摔角联盟1995: Typings.GameInformation = {
 //   translates: {
 //     cn: '摔角联盟1995'
 //   },
@@ -12937,7 +12937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 双截龙: Typings.GameInfo = {
+// export const 双截龙: Typings.GameInformation = {
 //   translates: {
 //     cn: '双截龙'
 //   },
@@ -12947,7 +12947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 双截龙2: Typings.GameInfo = {
+// export const 双截龙2: Typings.GameInformation = {
 //   translates: {
 //     cn: '双截龙2'
 //   },
@@ -12957,7 +12957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 双截龙3: Typings.GameInfo = {
+// export const 双截龙3: Typings.GameInformation = {
 //   translates: {
 //     cn: '双截龙3'
 //   },
@@ -12967,7 +12967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 双陆棋: Typings.GameInfo = {
+// export const 双陆棋: Typings.GameInformation = {
 //   translates: {
 //     cn: '双陆棋'
 //   },
@@ -12977,7 +12977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 双子城命运: Typings.GameInfo = {
+// export const 双子城命运: Typings.GameInformation = {
 //   translates: {
 //     cn: '双子城命运'
 //   },
@@ -12987,7 +12987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 双子星传奇／大小不良: Typings.GameInfo = {
+// export const 双子星传奇／大小不良: Typings.GameInformation = {
 //   translates: {
 //     cn: '双子星传奇/大小不良'
 //   },
@@ -12997,7 +12997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 双子星传奇2: Typings.GameInfo = {
+// export const 双子星传奇2: Typings.GameInformation = {
 //   translates: {
 //     cn: '双子星传奇2'
 //   },
@@ -13007,7 +13007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 谁陷害了兔子罗杰: Typings.GameInfo = {
+// export const 谁陷害了兔子罗杰: Typings.GameInformation = {
 //   translates: {
 //     cn: '谁陷害了兔子罗杰'
 //   },
@@ -13017,7 +13017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 水管工: Typings.GameInfo = {
+// export const 水管工: Typings.GameInformation = {
 //   translates: {
 //     cn: '水管工'
 //   },
@@ -13027,7 +13027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 水管马里奥: Typings.GameInfo = {
+// export const 水管马里奥: Typings.GameInformation = {
 //   translates: {
 //     cn: '水管马里奥'
 //   },
@@ -13037,7 +13037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 水果大亨: Typings.GameInfo = {
+// export const 水果大亨: Typings.GameInformation = {
 //   translates: {
 //     cn: '水果大亨'
 //   },
@@ -13047,7 +13047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 水浒传: Typings.GameInfo = {
+// export const 水浒传: Typings.GameInformation = {
 //   translates: {
 //     cn: '水浒传'
 //   },
@@ -13057,7 +13057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 水浒传少年英雄: Typings.GameInfo = {
+// export const 水浒传少年英雄: Typings.GameInformation = {
 //   translates: {
 //     cn: '水浒传少年英雄'
 //   },
@@ -13067,7 +13067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 水浒传之梁山英雄: Typings.GameInfo = {
+// export const 水浒传之梁山英雄: Typings.GameInformation = {
 //   translates: {
 //     cn: '水浒传之梁山英雄'
 //   },
@@ -13077,7 +13077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 水浒英雄传之火之魂: Typings.GameInfo = {
+// export const 水浒英雄传之火之魂: Typings.GameInformation = {
 //   translates: {
 //     cn: '水浒英雄传之火之魂'
 //   },
@@ -13087,7 +13087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 水晶迷宫: Typings.GameInfo = {
+// export const 水晶迷宫: Typings.GameInformation = {
 //   translates: {
 //     cn: '水晶迷宫'
 //   },
@@ -13097,7 +13097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 顺时针谜题: Typings.GameInfo = {
+// export const 顺时针谜题: Typings.GameInformation = {
 //   translates: {
 //     cn: '顺时针谜题'
 //   },
@@ -13107,7 +13107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 斯大林格勒: Typings.GameInfo = {
+// export const 斯大林格勒: Typings.GameInformation = {
 //   translates: {
 //     cn: '斯大林格勒'
 //   },
@@ -13117,7 +13117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 斯科奇赛: Typings.GameInfo = {
+// export const 斯科奇赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '斯科奇赛'
 //   },
@@ -13127,7 +13127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 斯特拉七号: Typings.GameInfo = {
+// export const 斯特拉七号: Typings.GameInformation = {
 //   translates: {
 //     cn: '斯特拉七号'
 //   },
@@ -13137,7 +13137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 死亡岛: Typings.GameInfo = {
+// export const 死亡岛: Typings.GameInformation = {
 //   translates: {
 //     cn: '死亡岛'
 //   },
@@ -13147,7 +13147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 死亡祷告: Typings.GameInfo = {
+// export const 死亡祷告: Typings.GameInformation = {
 //   translates: {
 //     cn: '死亡祷告'
 //   },
@@ -13157,7 +13157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 死亡飞车: Typings.GameInfo = {
+// export const 死亡飞车: Typings.GameInformation = {
 //   translates: {
 //     cn: '死亡飞车'
 //   },
@@ -13167,7 +13167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 死亡剧场: Typings.GameInfo = {
+// export const 死亡剧场: Typings.GameInformation = {
 //   translates: {
 //     cn: '死亡剧场'
 //   },
@@ -13177,7 +13177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 死亡拉力赛: Typings.GameInfo = {
+// export const 死亡拉力赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '死亡拉力赛'
 //   },
@@ -13187,7 +13187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 死亡骑士: Typings.GameInfo = {
+// export const 死亡骑士: Typings.GameInformation = {
 //   translates: {
 //     cn: '死亡骑士'
 //   },
@@ -13197,7 +13197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 死亡赛车: Typings.GameInfo = {
+// export const 死亡赛车: Typings.GameInformation = {
 //   translates: {
 //     cn: '死亡赛车'
 //   },
@@ -13207,7 +13207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 死亡之门: Typings.GameInfo = {
+// export const 死亡之门: Typings.GameInformation = {
 //   translates: {
 //     cn: '死亡之门'
 //   },
@@ -13217,7 +13217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 死亡之夜: Typings.GameInfo = {
+// export const 死亡之夜: Typings.GameInformation = {
 //   translates: {
 //     cn: '死亡之夜'
 //   },
@@ -13227,7 +13227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 死星战将: Typings.GameInfo = {
+// export const 死星战将: Typings.GameInformation = {
 //   translates: {
 //     cn: '死星战将'
 //   },
@@ -13237,7 +13237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 死刑之剑: Typings.GameInfo = {
+// export const 死刑之剑: Typings.GameInformation = {
 //   translates: {
 //     cn: '死刑之剑'
 //   },
@@ -13247,7 +13247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 四川省2: Typings.GameInfo = {
+// export const 四川省2: Typings.GameInformation = {
 //   translates: {
 //     cn: '四川省2'
 //   },
@@ -13257,7 +13257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 四川省3: Typings.GameInfo = {
+// export const 四川省3: Typings.GameInformation = {
 //   translates: {
 //     cn: '四川省3'
 //   },
@@ -13267,7 +13267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 四海冒险家: Typings.GameInfo = {
+// export const 四海冒险家: Typings.GameInformation = {
 //   translates: {
 //     cn: '四海冒险家'
 //   },
@@ -13277,7 +13277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 四人车赛: Typings.GameInfo = {
+// export const 四人车赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '四人车赛'
 //   },
@@ -13287,7 +13287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 四人车赛圣诞版: Typings.GameInfo = {
+// export const 四人车赛圣诞版: Typings.GameInformation = {
 //   translates: {
 //     cn: '四人车赛圣诞版'
 //   },
@@ -13297,7 +13297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 松鼠奥斯卡: Typings.GameInfo = {
+// export const 松鼠奥斯卡: Typings.GameInformation = {
 //   translates: {
 //     cn: '松鼠奥斯卡'
 //   },
@@ -13307,7 +13307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 送报童: Typings.GameInfo = {
+// export const 送报童: Typings.GameInformation = {
 //   translates: {
 //     cn: '送报童'
 //   },
@@ -13317,7 +13317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 速度球: Typings.GameInfo = {
+// export const 速度球: Typings.GameInformation = {
 //   translates: {
 //     cn: '速度球'
 //   },
@@ -13327,7 +13327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 速度球2: Typings.GameInfo = {
+// export const 速度球2: Typings.GameInformation = {
 //   translates: {
 //     cn: '速度球2'
 //   },
@@ -13337,7 +13337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 隋唐英雄传: Typings.GameInfo = {
+// export const 隋唐英雄传: Typings.GameInformation = {
 //   translates: {
 //     cn: '隋唐英雄传'
 //   },
@@ -13347,7 +13347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 塔罗斯的警觉: Typings.GameInfo = {
+// export const 塔罗斯的警觉: Typings.GameInformation = {
 //   translates: {
 //     cn: '塔罗斯的警觉'
 //   },
@@ -13357,7 +13357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 台海防卫战: Typings.GameInfo = {
+// export const 台海防卫战: Typings.GameInformation = {
 //   translates: {
 //     cn: '台海防卫战'
 //   },
@@ -13367,7 +13367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 台湾模拟选战: Typings.GameInfo = {
+// export const 台湾模拟选战: Typings.GameInformation = {
 //   translates: {
 //     cn: '台湾模拟选战'
 //   },
@@ -13377,7 +13377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 太空蝙蝠大战: Typings.GameInfo = {
+// export const 太空蝙蝠大战: Typings.GameInformation = {
 //   translates: {
 //     cn: '太空蝙蝠大战'
 //   },
@@ -13387,7 +13387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 太空第9计划: Typings.GameInfo = {
+// export const 太空第9计划: Typings.GameInformation = {
 //   translates: {
 //     cn: '太空第9计划'
 //   },
@@ -13397,7 +13397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 太空计划: Typings.GameInfo = {
+// export const 太空计划: Typings.GameInformation = {
 //   translates: {
 //     cn: '太空计划'
 //   },
@@ -13407,7 +13407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 太空鲁宾逊: Typings.GameInfo = {
+// export const 太空鲁宾逊: Typings.GameInformation = {
 //   translates: {
 //     cn: '太空鲁宾逊'
 //   },
@@ -13417,7 +13417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 太空女妖: Typings.GameInfo = {
+// export const 太空女妖: Typings.GameInformation = {
 //   translates: {
 //     cn: '太空女妖'
 //   },
@@ -13427,7 +13427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 太空勇士鼠: Typings.GameInfo = {
+// export const 太空勇士鼠: Typings.GameInformation = {
 //   translates: {
 //     cn: '太空勇士鼠'
 //   },
@@ -13437,7 +13437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 太平天国: Typings.GameInfo = {
+// export const 太平天国: Typings.GameInformation = {
 //   translates: {
 //     cn: '太平天国'
 //   },
@@ -13447,7 +13447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 太平洋公爵: Typings.GameInfo = {
+// export const 太平洋公爵: Typings.GameInformation = {
 //   translates: {
 //     cn: '太平洋公爵'
 //   },
@@ -13457,7 +13457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 太平洋突击: Typings.GameInfo = {
+// export const 太平洋突击: Typings.GameInformation = {
 //   translates: {
 //     cn: '太平洋突击'
 //   },
@@ -13467,7 +13467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 太平洋王牌飞行员: Typings.GameInfo = {
+// export const 太平洋王牌飞行员: Typings.GameInformation = {
 //   translates: {
 //     cn: '太平洋王牌飞行员'
 //   },
@@ -13477,7 +13477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 太平洋王牌飞行员+资料片: Typings.GameInfo = {
+// export const 太平洋王牌飞行员+资料片: Typings.GameInformation = {
 //   translates: {
 //     cn: '太平洋王牌飞行员+资料片'
 //   },
@@ -13487,7 +13487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 泰克战争: Typings.GameInfo = {
+// export const 泰克战争: Typings.GameInformation = {
 //   translates: {
 //     cn: '泰克战争'
 //   },
@@ -13497,7 +13497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 泰拉之火: Typings.GameInfo = {
+// export const 泰拉之火: Typings.GameInformation = {
 //   translates: {
 //     cn: '泰拉之火'
 //   },
@@ -13507,7 +13507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 贪食蛇: Typings.GameInfo = {
+// export const 贪食蛇: Typings.GameInformation = {
 //   translates: {
 //     cn: '贪食蛇'
 //   },
@@ -13517,7 +13517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 贪欲诉求: Typings.GameInfo = {
+// export const 贪欲诉求: Typings.GameInformation = {
 //   translates: {
 //     cn: '贪欲诉求'
 //   },
@@ -13527,7 +13527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 坦克大决战: Typings.GameInfo = {
+// export const 坦克大决战: Typings.GameInformation = {
 //   translates: {
 //     cn: '坦克大决战'
 //   },
@@ -13537,7 +13537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 螳螂战机: Typings.GameInfo = {
+// export const 螳螂战机: Typings.GameInformation = {
 //   translates: {
 //     cn: '螳螂战机'
 //   },
@@ -13547,7 +13547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 逃离地狱: Typings.GameInfo = {
+// export const 逃离地狱: Typings.GameInformation = {
 //   translates: {
 //     cn: '逃离地狱'
 //   },
@@ -13557,7 +13557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 逃离疯人院: Typings.GameInfo = {
+// export const 逃离疯人院: Typings.GameInformation = {
 //   translates: {
 //     cn: '逃离疯人院'
 //   },
@@ -13567,7 +13567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 逃离脑博士的城堡: Typings.GameInfo = {
+// export const 逃离脑博士的城堡: Typings.GameInformation = {
 //   translates: {
 //     cn: '逃离脑博士的城堡'
 //   },
@@ -13577,7 +13577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 淘金者: Typings.GameInfo = {
+// export const 淘金者: Typings.GameInformation = {
 //   translates: {
 //     cn: '淘金者'
 //   },
@@ -13587,7 +13587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 特工盖之毁灭水晶: Typings.GameInfo = {
+// export const 特工盖之毁灭水晶: Typings.GameInformation = {
 //   translates: {
 //     cn: '特工盖之毁灭水晶'
 //   },
@@ -13597,7 +13597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 特技驾驶员: Typings.GameInfo = {
+// export const 特技驾驶员: Typings.GameInformation = {
 //   translates: {
 //     cn: '特技驾驶员'
 //   },
@@ -13607,7 +13607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 特技赛车: Typings.GameInfo = {
+// export const 特技赛车: Typings.GameInformation = {
 //   translates: {
 //     cn: '特技赛车'
 //   },
@@ -13617,7 +13617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 特技之岛: Typings.GameInfo = {
+// export const 特技之岛: Typings.GameInformation = {
 //   translates: {
 //     cn: '特技之岛'
 //   },
@@ -13627,7 +13627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 特警判官: Typings.GameInfo = {
+// export const 特警判官: Typings.GameInformation = {
 //   translates: {
 //     cn: '特警判官'
 //   },
@@ -13637,7 +13637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 特蕾莎: Typings.GameInfo = {
+// export const 特蕾莎: Typings.GameInformation = {
 //   translates: {
 //     cn: '特蕾莎'
 //   },
@@ -13647,7 +13647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 特勤机甲队: Typings.GameInfo = {
+// export const 特勤机甲队: Typings.GameInformation = {
 //   translates: {
 //     cn: '特勤机甲队'
 //   },
@@ -13657,7 +13657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 特勤机甲队2: Typings.GameInfo = {
+// export const 特勤机甲队2: Typings.GameInformation = {
 //   translates: {
 //     cn: '特勤机甲队2'
 //   },
@@ -13667,7 +13667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 特勤机甲队2增强版: Typings.GameInfo = {
+// export const 特勤机甲队2增强版: Typings.GameInformation = {
 //   translates: {
 //     cn: '特勤机甲队2增强版'
 //   },
@@ -13677,7 +13677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 特种部队: Typings.GameInfo = {
+// export const 特种部队: Typings.GameInformation = {
 //   translates: {
 //     cn: '特种部队'
 //   },
@@ -13687,7 +13687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 提督之决断2: Typings.GameInfo = {
+// export const 提督之决断2: Typings.GameInformation = {
 //   translates: {
 //     cn: '提督之决断2'
 //   },
@@ -13697,7 +13697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 提尔战机: Typings.GameInfo = {
+// export const 提尔战机: Typings.GameInformation = {
 //   translates: {
 //     cn: '提尔战机'
 //   },
@@ -13707,7 +13707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 提尔战机2000: Typings.GameInfo = {
+// export const 提尔战机2000: Typings.GameInformation = {
 //   translates: {
 //     cn: '提尔战机2000'
 //   },
@@ -13717,7 +13717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天才宝宝大进击: Typings.GameInfo = {
+// export const 天才宝宝大进击: Typings.GameInformation = {
 //   translates: {
 //     cn: '天才宝宝大进击'
 //   },
@@ -13727,7 +13727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天蚕变: Typings.GameInfo = {
+// export const 天蚕变: Typings.GameInformation = {
 //   translates: {
 //     cn: '天蚕变'
 //   },
@@ -13737,7 +13737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天地无用: Typings.GameInfo = {
+// export const 天地无用: Typings.GameInformation = {
 //   translates: {
 //     cn: '天地无用'
 //   },
@@ -13747,7 +13747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天帝之子: Typings.GameInfo = {
+// export const 天帝之子: Typings.GameInformation = {
 //   translates: {
 //     cn: '天帝之子'
 //   },
@@ -13757,7 +13757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天龙八部: Typings.GameInfo = {
+// export const 天龙八部: Typings.GameInformation = {
 //   translates: {
 //     cn: '天龙八部'
 //   },
@@ -13767,7 +13767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天路赛车: Typings.GameInfo = {
+// export const 天路赛车: Typings.GameInformation = {
 //   translates: {
 //     cn: '天路赛车'
 //   },
@@ -13777,7 +13777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天路赛车圣诞版: Typings.GameInfo = {
+// export const 天路赛车圣诞版: Typings.GameInformation = {
 //   translates: {
 //     cn: '天路赛车圣诞版'
 //   },
@@ -13787,7 +13787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天晴传: Typings.GameInfo = {
+// export const 天晴传: Typings.GameInformation = {
 //   translates: {
 //     cn: '天晴传'
 //   },
@@ -13797,7 +13797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天师钟馗: Typings.GameInfo = {
+// export const 天师钟馗: Typings.GameInformation = {
 //   translates: {
 //     cn: '天师钟馗'
 //   },
@@ -13807,7 +13807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天使Q女学院: Typings.GameInfo = {
+// export const 天使Q女学院: Typings.GameInformation = {
 //   translates: {
 //     cn: '天使Q女学院'
 //   },
@@ -13817,7 +13817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天使帝国2: Typings.GameInfo = {
+// export const 天使帝国2: Typings.GameInformation = {
 //   translates: {
 //     cn: '天使帝国2'
 //   },
@@ -13827,7 +13827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天使任务: Typings.GameInfo = {
+// export const 天使任务: Typings.GameInformation = {
 //   translates: {
 //     cn: '天使任务'
 //   },
@@ -13837,7 +13837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天堂和人间: Typings.GameInfo = {
+// export const 天堂和人间: Typings.GameInformation = {
 //   translates: {
 //     cn: '天堂和人间'
 //   },
@@ -13847,7 +13847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天外剑圣录: Typings.GameInfo = {
+// export const 天外剑圣录: Typings.GameInformation = {
 //   translates: {
 //     cn: '天外剑圣录'
 //   },
@@ -13857,7 +13857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天下无敌: Typings.GameInfo = {
+// export const 天下无敌: Typings.GameInformation = {
 //   translates: {
 //     cn: '天下无敌'
 //   },
@@ -13867,7 +13867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天下一统: Typings.GameInfo = {
+// export const 天下一统: Typings.GameInformation = {
 //   translates: {
 //     cn: '天下一统'
 //   },
@@ -13877,7 +13877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天旋地转: Typings.GameInfo = {
+// export const 天旋地转: Typings.GameInformation = {
 //   translates: {
 //     cn: '天旋地转'
 //   },
@@ -13887,7 +13887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 天旋地转2: Typings.GameInfo = {
+// export const 天旋地转2: Typings.GameInformation = {
 //   translates: {
 //     cn: '天旋地转2'
 //   },
@@ -13897,7 +13897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 跳跳跳: Typings.GameInfo = {
+// export const 跳跳跳: Typings.GameInformation = {
 //   translates: {
 //     cn: '跳跳跳'
 //   },
@@ -13907,7 +13907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 铁锤男孩: Typings.GameInfo = {
+// export const 铁锤男孩: Typings.GameInformation = {
 //   translates: {
 //     cn: '铁锤男孩'
 //   },
@@ -13917,7 +13917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 铁钩船长: Typings.GameInfo = {
+// export const 铁钩船长: Typings.GameInformation = {
 //   translates: {
 //     cn: '铁钩船长'
 //   },
@@ -13927,7 +13927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 铁甲神兵: Typings.GameInfo = {
+// export const 铁甲神兵: Typings.GameInformation = {
 //   translates: {
 //     cn: '铁甲神兵'
 //   },
@@ -13937,7 +13937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 铁甲战舰: Typings.GameInfo = {
+// export const 铁甲战舰: Typings.GameInformation = {
 //   translates: {
 //     cn: '铁甲战舰'
 //   },
@@ -13947,7 +13947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 铁路A计划+资料篇: Typings.GameInfo = {
+// export const 铁路A计划+资料篇: Typings.GameInformation = {
 //   translates: {
 //     cn: '铁路A计划+资料篇'
 //   },
@@ -13957,7 +13957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 铁路大亨豪华版: Typings.GameInfo = {
+// export const 铁路大亨豪华版: Typings.GameInformation = {
 //   translates: {
 //     cn: '铁路大亨豪华版'
 //   },
@@ -13967,7 +13967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 铁锁的星群: Typings.GameInfo = {
+// export const 铁锁的星群: Typings.GameInformation = {
 //   translates: {
 //     cn: '铁锁的星群'
 //   },
@@ -13977,7 +13977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 铁血橄榄球: Typings.GameInfo = {
+// export const 铁血橄榄球: Typings.GameInformation = {
 //   translates: {
 //     cn: '铁血橄榄球'
 //   },
@@ -13987,7 +13987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 铁血联盟: Typings.GameInfo = {
+// export const 铁血联盟: Typings.GameInformation = {
 //   translates: {
 //     cn: '铁血联盟'
 //   },
@@ -13997,7 +13997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 铁血联盟死亡游戏: Typings.GameInfo = {
+// export const 铁血联盟死亡游戏: Typings.GameInformation = {
 //   translates: {
 //     cn: '铁血联盟死亡游戏'
 //   },
@@ -14007,7 +14007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 铁血农夫1: Typings.GameInfo = {
+// export const 铁血农夫1: Typings.GameInformation = {
 //   translates: {
 //     cn: '铁血农夫1'
 //   },
@@ -14017,7 +14017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 铁血农夫再度出击: Typings.GameInfo = {
+// export const 铁血农夫再度出击: Typings.GameInformation = {
 //   translates: {
 //     cn: '铁血农夫再度出击'
 //   },
@@ -14027,7 +14027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 铁血佣兵: Typings.GameInfo = {
+// export const 铁血佣兵: Typings.GameInformation = {
 //   translates: {
 //     cn: '铁血佣兵'
 //   },
@@ -14037,7 +14037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 铁血战士2: Typings.GameInfo = {
+// export const 铁血战士2: Typings.GameInformation = {
 //   translates: {
 //     cn: '铁血战士2'
 //   },
@@ -14047,7 +14047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 通道: Typings.GameInfo = {
+// export const 通道: Typings.GameInformation = {
 //   translates: {
 //     cn: '通道'
 //   },
@@ -14057,7 +14057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 通路1: Typings.GameInfo = {
+// export const 通路1: Typings.GameInformation = {
 //   translates: {
 //     cn: '通路1'
 //   },
@@ -14067,7 +14067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 通路2: Typings.GameInfo = {
+// export const 通路2: Typings.GameInformation = {
 //   translates: {
 //     cn: '通路2'
 //   },
@@ -14077,7 +14077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 同级生1: Typings.GameInfo = {
+// export const 同级生1: Typings.GameInformation = {
 //   translates: {
 //     cn: '同级生1'
 //   },
@@ -14087,7 +14087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 童话新编: Typings.GameInfo = {
+// export const 童话新编: Typings.GameInformation = {
 //   translates: {
 //     cn: '童话新编'
 //   },
@@ -14097,7 +14097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 童梦失魂夜／迷儿城: Typings.GameInfo = {
+// export const 童梦失魂夜／迷儿城: Typings.GameInformation = {
 //   translates: {
 //     cn: '童梦失魂夜/迷儿城'
 //   },
@@ -14107,7 +14107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 偷金子: Typings.GameInfo = {
+// export const 偷金子: Typings.GameInformation = {
 //   translates: {
 //     cn: '偷金子'
 //   },
@@ -14117,7 +14117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 头骨与骷髅十字: Typings.GameInfo = {
+// export const 头骨与骷髅十字: Typings.GameInformation = {
 //   translates: {
 //     cn: '头骨与骷髅十字'
 //   },
@@ -14127,7 +14127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 头号通缉犯: Typings.GameInfo = {
+// export const 头号通缉犯: Typings.GameInformation = {
 //   translates: {
 //     cn: '头号通缉犯'
 //   },
@@ -14137,7 +14137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 秃鹰疑案: Typings.GameInfo = {
+// export const 秃鹰疑案: Typings.GameInformation = {
 //   translates: {
 //     cn: '秃鹰疑案'
 //   },
@@ -14147,7 +14147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 突击: Typings.GameInfo = {
+// export const 突击: Typings.GameInformation = {
 //   translates: {
 //     cn: '突击'
 //   },
@@ -14157,7 +14157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 突击美少女: Typings.GameInfo = {
+// export const 突击美少女: Typings.GameInformation = {
 //   translates: {
 //     cn: '突击美少女'
 //   },
@@ -14167,7 +14167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 突击士兵: Typings.GameInfo = {
+// export const 突击士兵: Typings.GameInformation = {
 //   translates: {
 //     cn: '突击士兵'
 //   },
@@ -14177,7 +14177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 突破2: Typings.GameInfo = {
+// export const 突破2: Typings.GameInformation = {
 //   translates: {
 //     cn: '突破2'
 //   },
@@ -14187,7 +14187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 突破3: Typings.GameInfo = {
+// export const 突破3: Typings.GameInformation = {
 //   translates: {
 //     cn: '突破3'
 //   },
@@ -14197,7 +14197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 突袭之翼: Typings.GameInfo = {
+// export const 突袭之翼: Typings.GameInformation = {
 //   translates: {
 //     cn: '突袭之翼'
 //   },
@@ -14207,7 +14207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 突袭指挥官: Typings.GameInfo = {
+// export const 突袭指挥官: Typings.GameInformation = {
 //   translates: {
 //     cn: '突袭指挥官'
 //   },
@@ -14217,7 +14217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 团聚: Typings.GameInfo = {
+// export const 团聚: Typings.GameInformation = {
 //   translates: {
 //     cn: '团聚'
 //   },
@@ -14227,7 +14227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吞豆人: Typings.GameInfo = {
+// export const 吞豆人: Typings.GameInformation = {
 //   translates: {
 //     cn: '吞豆人'
 //   },
@@ -14237,7 +14237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吞食天地1: Typings.GameInfo = {
+// export const 吞食天地1: Typings.GameInformation = {
 //   translates: {
 //     cn: '吞食天地1'
 //   },
@@ -14247,7 +14247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吞食天地2: Typings.GameInfo = {
+// export const 吞食天地2: Typings.GameInformation = {
 //   translates: {
 //     cn: '吞食天地2'
 //   },
@@ -14257,7 +14257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吞食天地3: Typings.GameInfo = {
+// export const 吞食天地3: Typings.GameInformation = {
 //   translates: {
 //     cn: '吞食天地3'
 //   },
@@ -14267,7 +14267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吞食天地4: Typings.GameInfo = {
+// export const 吞食天地4: Typings.GameInformation = {
 //   translates: {
 //     cn: '吞食天地4'
 //   },
@@ -14277,7 +14277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吞食天地青衫版: Typings.GameInfo = {
+// export const 吞食天地青衫版: Typings.GameInformation = {
 //   translates: {
 //     cn: '吞食天地青衫版'
 //   },
@@ -14287,7 +14287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 外太空: Typings.GameInfo = {
+// export const 外太空: Typings.GameInformation = {
 //   translates: {
 //     cn: '外太空'
 //   },
@@ -14297,7 +14297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 外星奥林匹克: Typings.GameInfo = {
+// export const 外星奥林匹克: Typings.GameInformation = {
 //   translates: {
 //     cn: '外星奥林匹克'
 //   },
@@ -14307,7 +14307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 外星大富翁: Typings.GameInfo = {
+// export const 外星大富翁: Typings.GameInformation = {
 //   translates: {
 //     cn: '外星大富翁'
 //   },
@@ -14317,7 +14317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 外星悍将2: Typings.GameInfo = {
+// export const 外星悍将2: Typings.GameInformation = {
 //   translates: {
 //     cn: '外星悍将2'
 //   },
@@ -14327,7 +14327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 湾岸作战: Typings.GameInfo = {
+// export const 湾岸作战: Typings.GameInformation = {
 //   translates: {
 //     cn: '湾岸作战'
 //   },
@@ -14337,7 +14337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 完美将军2: Typings.GameInfo = {
+// export const 完美将军2: Typings.GameInformation = {
 //   translates: {
 //     cn: '完美将军2'
 //   },
@@ -14347,7 +14347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 顽皮猫: Typings.GameInfo = {
+// export const 顽皮猫: Typings.GameInformation = {
 //   translates: {
 //     cn: '顽皮猫'
 //   },
@@ -14357,7 +14357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 顽皮小精灵: Typings.GameInfo = {
+// export const 顽皮小精灵: Typings.GameInformation = {
 //   translates: {
 //     cn: '顽皮小精灵'
 //   },
@@ -14367,7 +14367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 顽皮小精灵2: Typings.GameInfo = {
+// export const 顽皮小精灵2: Typings.GameInformation = {
 //   translates: {
 //     cn: '顽皮小精灵2'
 //   },
@@ -14377,7 +14377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 顽皮小精灵3: Typings.GameInfo = {
+// export const 顽皮小精灵3: Typings.GameInformation = {
 //   translates: {
 //     cn: '顽皮小精灵3'
 //   },
@@ -14387,7 +14387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 万里长城边城奇侠: Typings.GameInfo = {
+// export const 万里长城边城奇侠: Typings.GameInformation = {
 //   translates: {
 //     cn: '万里长城边城奇侠'
 //   },
@@ -14397,7 +14397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 亡魂复仇: Typings.GameInfo = {
+// export const 亡魂复仇: Typings.GameInformation = {
 //   translates: {
 //     cn: '亡魂复仇'
 //   },
@@ -14407,7 +14407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 王牌潜艇+资料片: Typings.GameInfo = {
+// export const 王牌潜艇+资料片: Typings.GameInformation = {
 //   translates: {
 //     cn: '王牌潜艇+资料片'
 //   },
@@ -14417,7 +14417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 王位继承者: Typings.GameInfo = {
+// export const 王位继承者: Typings.GameInformation = {
 //   translates: {
 //     cn: '王位继承者'
 //   },
@@ -14427,7 +14427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 王子传奇: Typings.GameInfo = {
+// export const 王子传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '王子传奇'
 //   },
@@ -14437,7 +14437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 网络拉力赛: Typings.GameInfo = {
+// export const 网络拉力赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '网络拉力赛'
 //   },
@@ -14447,7 +14447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 网球训练: Typings.GameInfo = {
+// export const 网球训练: Typings.GameInformation = {
 //   translates: {
 //     cn: '网球训练'
 //   },
@@ -14457,7 +14457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 危机特勤组: Typings.GameInfo = {
+// export const 危机特勤组: Typings.GameInformation = {
 //   translates: {
 //     cn: '危机特勤组'
 //   },
@@ -14467,7 +14467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 危险丛林: Typings.GameInfo = {
+// export const 危险丛林: Typings.GameInformation = {
 //   translates: {
 //     cn: '危险丛林'
 //   },
@@ -14477,7 +14477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 危险的里克1: Typings.GameInfo = {
+// export const 危险的里克1: Typings.GameInformation = {
 //   translates: {
 //     cn: '危险的里克1'
 //   },
@@ -14487,7 +14487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 危险的里克2: Typings.GameInfo = {
+// export const 危险的里克2: Typings.GameInformation = {
 //   translates: {
 //     cn: '危险的里克2'
 //   },
@@ -14497,7 +14497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 危险街道: Typings.GameInfo = {
+// export const 危险街道: Typings.GameInformation = {
 //   translates: {
 //     cn: '危险街道'
 //   },
@@ -14507,7 +14507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 威利的暑假: Typings.GameInfo = {
+// export const 威利的暑假: Typings.GameInformation = {
 //   translates: {
 //     cn: '威利的暑假'
 //   },
@@ -14517,7 +14517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 威兹兔: Typings.GameInfo = {
+// export const 威兹兔: Typings.GameInformation = {
 //   translates: {
 //     cn: '威兹兔'
 //   },
@@ -14527,7 +14527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 微城争霸: Typings.GameInfo = {
+// export const 微城争霸: Typings.GameInformation = {
 //   translates: {
 //     cn: '微城争霸'
 //   },
@@ -14537,7 +14537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 微城争霸英版+资料片: Typings.GameInfo = {
+// export const 微城争霸英版+资料片: Typings.GameInformation = {
 //   translates: {
 //     cn: '微城争霸英版+资料片'
 //   },
@@ -14547,7 +14547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 微城争霸战狗(中文): Typings.GameInfo = {
+// export const 微城争霸战狗(中文): Typings.GameInformation = {
 //   translates: {
 //     cn: '微城争霸战狗(中文)'
 //   },
@@ -14557,7 +14557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 微光2000: Typings.GameInfo = {
+// export const 微光2000: Typings.GameInformation = {
 //   translates: {
 //     cn: '微光2000'
 //   },
@@ -14567,7 +14567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 微软飞行模拟+3个资料片: Typings.GameInfo = {
+// export const 微软飞行模拟+3个资料片: Typings.GameInformation = {
 //   translates: {
 //     cn: '微软飞行模拟+3个资料片'
 //   },
@@ -14577,7 +14577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 微软太空模拟: Typings.GameInfo = {
+// export const 微软太空模拟: Typings.GameInformation = {
 //   translates: {
 //     cn: '微软太空模拟'
 //   },
@@ -14587,7 +14587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 微型机器1: Typings.GameInfo = {
+// export const 微型机器1: Typings.GameInformation = {
 //   translates: {
 //     cn: '微型机器1'
 //   },
@@ -14597,7 +14597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 微型机器2: Typings.GameInfo = {
+// export const 微型机器2: Typings.GameInformation = {
 //   translates: {
 //     cn: '微型机器2'
 //   },
@@ -14607,7 +14607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 韦恩的预言: Typings.GameInfo = {
+// export const 韦恩的预言: Typings.GameInformation = {
 //   translates: {
 //     cn: '韦恩的预言'
 //   },
@@ -14617,7 +14617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 围棋大战: Typings.GameInfo = {
+// export const 围棋大战: Typings.GameInformation = {
 //   translates: {
 //     cn: '围棋大战'
 //   },
@@ -14627,7 +14627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 围棋精华: Typings.GameInfo = {
+// export const 围棋精华: Typings.GameInformation = {
 //   translates: {
 //     cn: '围棋精华'
 //   },
@@ -14637,7 +14637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 维京战争: Typings.GameInfo = {
+// export const 维京战争: Typings.GameInformation = {
 //   translates: {
 //     cn: '维京战争'
 //   },
@@ -14647,7 +14647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 维特自由赛车: Typings.GameInfo = {
+// export const 维特自由赛车: Typings.GameInformation = {
 //   translates: {
 //     cn: '维特自由赛车'
 //   },
@@ -14657,7 +14657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 未来战争时间旅者: Typings.GameInfo = {
+// export const 未来战争时间旅者: Typings.GameInformation = {
 //   translates: {
 //     cn: '未来战争时间旅者'
 //   },
@@ -14667,7 +14667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 文明: Typings.GameInfo = {
+// export const 文明: Typings.GameInformation = {
 //   translates: {
 //     cn: '文明'
 //   },
@@ -14677,7 +14677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 我是米恩: Typings.GameInfo = {
+// export const 我是米恩: Typings.GameInformation = {
 //   translates: {
 //     cn: '我是米恩'
 //   },
@@ -14687,7 +14687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 乌龙院: Typings.GameInfo = {
+// export const 乌龙院: Typings.GameInformation = {
 //   translates: {
 //     cn: '乌龙院'
 //   },
@@ -14697,7 +14697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 乌托邦国家崛起: Typings.GameInfo = {
+// export const 乌托邦国家崛起: Typings.GameInformation = {
 //   translates: {
 //     cn: '乌托邦国家崛起'
 //   },
@@ -14707,7 +14707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巫魔天境: Typings.GameInfo = {
+// export const 巫魔天境: Typings.GameInformation = {
 //   translates: {
 //     cn: '巫魔天境'
 //   },
@@ -14717,7 +14717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巫魔天境2: Typings.GameInfo = {
+// export const 巫魔天境2: Typings.GameInformation = {
 //   translates: {
 //     cn: '巫魔天境2'
 //   },
@@ -14727,7 +14727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巫师大坩埚: Typings.GameInfo = {
+// export const 巫师大坩埚: Typings.GameInformation = {
 //   translates: {
 //     cn: '巫师大坩埚'
 //   },
@@ -14737,7 +14737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巫师学校1追女记: Typings.GameInfo = {
+// export const 巫师学校1追女记: Typings.GameInformation = {
 //   translates: {
 //     cn: '巫师学校1追女记'
 //   },
@@ -14747,7 +14747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巫师学校2入学记: Typings.GameInfo = {
+// export const 巫师学校2入学记: Typings.GameInformation = {
 //   translates: {
 //     cn: '巫师学校2入学记'
 //   },
@@ -14757,7 +14757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巫师学校3春假: Typings.GameInfo = {
+// export const 巫师学校3春假: Typings.GameInformation = {
 //   translates: {
 //     cn: '巫师学校3春假'
 //   },
@@ -14767,7 +14767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巫术1: Typings.GameInfo = {
+// export const 巫术1: Typings.GameInformation = {
 //   translates: {
 //     cn: '巫术1'
 //   },
@@ -14777,7 +14777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巫术2: Typings.GameInfo = {
+// export const 巫术2: Typings.GameInformation = {
 //   translates: {
 //     cn: '巫术2'
 //   },
@@ -14787,7 +14787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巫术3: Typings.GameInfo = {
+// export const 巫术3: Typings.GameInformation = {
 //   translates: {
 //     cn: '巫术3'
 //   },
@@ -14797,7 +14797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巫术4: Typings.GameInfo = {
+// export const 巫术4: Typings.GameInformation = {
 //   translates: {
 //     cn: '巫术4'
 //   },
@@ -14807,7 +14807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巫术5: Typings.GameInfo = {
+// export const 巫术5: Typings.GameInformation = {
 //   translates: {
 //     cn: '巫术5'
 //   },
@@ -14817,7 +14817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巫术6: Typings.GameInfo = {
+// export const 巫术6: Typings.GameInformation = {
 //   translates: {
 //     cn: '巫术6'
 //   },
@@ -14827,7 +14827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 巫术7失落的加帝亚: Typings.GameInfo = {
+// export const 巫术7失落的加帝亚: Typings.GameInformation = {
 //   translates: {
 //     cn: '巫术7失落的加帝亚'
 //   },
@@ -14837,7 +14837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 无敌飞狼: Typings.GameInfo = {
+// export const 无敌飞狼: Typings.GameInformation = {
 //   translates: {
 //     cn: '无敌飞狼'
 //   },
@@ -14847,7 +14847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 无悔的十字军: Typings.GameInfo = {
+// export const 无悔的十字军: Typings.GameInformation = {
 //   translates: {
 //     cn: '无悔的十字军'
 //   },
@@ -14857,7 +14857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 无悔的十字军2: Typings.GameInfo = {
+// export const 无悔的十字军2: Typings.GameInformation = {
 //   translates: {
 //     cn: '无悔的十字军2'
 //   },
@@ -14867,7 +14867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 无尽的黑暗: Typings.GameInfo = {
+// export const 无尽的黑暗: Typings.GameInformation = {
 //   translates: {
 //     cn: '无尽的黑暗'
 //   },
@@ -14877,7 +14877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 无尽的黑暗2: Typings.GameInfo = {
+// export const 无尽的黑暗2: Typings.GameInformation = {
 //   translates: {
 //     cn: '无尽的黑暗2'
 //   },
@@ -14887,7 +14887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 无尽的黑暗3: Typings.GameInfo = {
+// export const 无尽的黑暗3: Typings.GameInformation = {
 //   translates: {
 //     cn: '无尽的黑暗3'
 //   },
@@ -14897,7 +14897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 无尽的野心: Typings.GameInfo = {
+// export const 无尽的野心: Typings.GameInformation = {
 //   translates: {
 //     cn: '无尽的野心'
 //   },
@@ -14907,7 +14907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 无尽空间: Typings.GameInfo = {
+// export const 无尽空间: Typings.GameInformation = {
 //   translates: {
 //     cn: '无尽空间'
 //   },
@@ -14917,7 +14917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 无名指的教科书: Typings.GameInfo = {
+// export const 无名指的教科书: Typings.GameInformation = {
 //   translates: {
 //     cn: '无名指的教科书'
 //   },
@@ -14927,7 +14927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 无声狂啸: Typings.GameInfo = {
+// export const 无声狂啸: Typings.GameInformation = {
 //   translates: {
 //     cn: '无声狂啸'
 //   },
@@ -14937,7 +14937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 无限空间: Typings.GameInfo = {
+// export const 无限空间: Typings.GameInformation = {
 //   translates: {
 //     cn: '无限空间'
 //   },
@@ -14947,7 +14947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 无限制擂台赛: Typings.GameInfo = {
+// export const 无限制擂台赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '无限制擂台赛'
 //   },
@@ -14957,7 +14957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 午夜领主: Typings.GameInfo = {
+// export const 午夜领主: Typings.GameInformation = {
 //   translates: {
 //     cn: '午夜领主'
 //   },
@@ -14967,7 +14967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 伍子胥: Typings.GameInfo = {
+// export const 伍子胥: Typings.GameInformation = {
 //   translates: {
 //     cn: '伍子胥'
 //   },
@@ -14977,7 +14977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 武道馆: Typings.GameInfo = {
+// export const 武道馆: Typings.GameInformation = {
 //   translates: {
 //     cn: '武道馆'
 //   },
@@ -14987,7 +14987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 武姬神传说: Typings.GameInfo = {
+// export const 武姬神传说: Typings.GameInformation = {
 //   translates: {
 //     cn: '武姬神传说'
 //   },
@@ -14997,7 +14997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 武将争霸: Typings.GameInfo = {
+// export const 武将争霸: Typings.GameInformation = {
 //   translates: {
 //     cn: '武将争霸'
 //   },
@@ -15007,7 +15007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 武将争霸2: Typings.GameInfo = {
+// export const 武将争霸2: Typings.GameInformation = {
 //   translates: {
 //     cn: '武将争霸2'
 //   },
@@ -15017,7 +15017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 武林奇侠传: Typings.GameInfo = {
+// export const 武林奇侠传: Typings.GameInformation = {
 //   translates: {
 //     cn: '武林奇侠传'
 //   },
@@ -15027,7 +15027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 武装还击: Typings.GameInfo = {
+// export const 武装还击: Typings.GameInformation = {
 //   translates: {
 //     cn: '武装还击'
 //   },
@@ -15037,7 +15037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 武状元黄飞鸿: Typings.GameInfo = {
+// export const 武状元黄飞鸿: Typings.GameInformation = {
 //   translates: {
 //     cn: '武状元黄飞鸿'
 //   },
@@ -15047,7 +15047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 物竞天不择: Typings.GameInfo = {
+// export const 物竞天不择: Typings.GameInformation = {
 //   translates: {
 //     cn: '物竞天不择'
 //   },
@@ -15057,7 +15057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 西楚霸王: Typings.GameInfo = {
+// export const 西楚霸王: Typings.GameInformation = {
 //   translates: {
 //     cn: '西楚霸王'
 //   },
@@ -15067,7 +15067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 西洋封神榜: Typings.GameInfo = {
+// export const 西洋封神榜: Typings.GameInformation = {
 //   translates: {
 //     cn: '西洋封神榜'
 //   },
@@ -15077,7 +15077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 西洋陆军棋: Typings.GameInfo = {
+// export const 西洋陆军棋: Typings.GameInformation = {
 //   translates: {
 //     cn: '西洋陆军棋'
 //   },
@@ -15087,7 +15087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 西洋跳棋(共享版): Typings.GameInfo = {
+// export const 西洋跳棋(共享版): Typings.GameInformation = {
 //   translates: {
 //     cn: '西洋跳棋(共享版)'
 //   },
@@ -15097,7 +15097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 西游记: Typings.GameInfo = {
+// export const 西游记: Typings.GameInformation = {
 //   translates: {
 //     cn: '西游记'
 //   },
@@ -15107,7 +15107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 西游记外传: Typings.GameInfo = {
+// export const 西游记外传: Typings.GameInformation = {
 //   translates: {
 //     cn: '西游记外传'
 //   },
@@ -15117,7 +15117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 吸血鬼之塔: Typings.GameInfo = {
+// export const 吸血鬼之塔: Typings.GameInformation = {
 //   translates: {
 //     cn: '吸血鬼之塔'
 //   },
@@ -15127,7 +15127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 蜥蜴超人: Typings.GameInfo = {
+// export const 蜥蜴超人: Typings.GameInformation = {
 //   translates: {
 //     cn: '蜥蜴超人'
 //   },
@@ -15137,7 +15137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 嬉笑春秋: Typings.GameInfo = {
+// export const 嬉笑春秋: Typings.GameInformation = {
 //   translates: {
 //     cn: '嬉笑春秋'
 //   },
@@ -15147,7 +15147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 系统震荡: Typings.GameInfo = {
+// export const 系统震荡: Typings.GameInformation = {
 //   translates: {
 //     cn: '系统震荡'
 //   },
@@ -15157,7 +15157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 侠盗猎车手: Typings.GameInfo = {
+// export const 侠盗猎车手: Typings.GameInformation = {
 //   translates: {
 //     cn: '侠盗猎车手'
 //   },
@@ -15167,7 +15167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 侠客英雄传: Typings.GameInfo = {
+// export const 侠客英雄传: Typings.GameInformation = {
 //   translates: {
 //     cn: '侠客英雄传'
 //   },
@@ -15177,7 +15177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 侠客英雄传3: Typings.GameInfo = {
+// export const 侠客英雄传3: Typings.GameInformation = {
 //   translates: {
 //     cn: '侠客英雄传3'
 //   },
@@ -15187,7 +15187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 侠客游2: Typings.GameInfo = {
+// export const 侠客游2: Typings.GameInformation = {
 //   translates: {
 //     cn: '侠客游2'
 //   },
@@ -15197,7 +15197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 侠影记: Typings.GameInfo = {
+// export const 侠影记: Typings.GameInformation = {
 //   translates: {
 //     cn: '侠影记'
 //   },
@@ -15207,7 +15207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 下级生(日): Typings.GameInfo = {
+// export const 下级生(日): Typings.GameInformation = {
 //   translates: {
 //     cn: '下级生(日)'
 //   },
@@ -15217,7 +15217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 夏日物语: Typings.GameInfo = {
+// export const 夏日物语: Typings.GameInformation = {
 //   translates: {
 //     cn: '夏日物语'
 //   },
@@ -15227,7 +15227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 仙剑奇侠传光盘版: Typings.GameInfo = {
+// export const 仙剑奇侠传光盘版: Typings.GameInformation = {
 //   translates: {
 //     cn: '仙剑奇侠传光盘版'
 //   },
@@ -15237,7 +15237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 仙剑奇侠传加强版: Typings.GameInfo = {
+// export const 仙剑奇侠传加强版: Typings.GameInformation = {
 //   translates: {
 //     cn: '仙剑奇侠传加强版'
 //   },
@@ -15247,7 +15247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 仙剑奇侠传梦幻版: Typings.GameInfo = {
+// export const 仙剑奇侠传梦幻版: Typings.GameInformation = {
 //   translates: {
 //     cn: '仙剑奇侠传梦幻版'
 //   },
@@ -15257,7 +15257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 仙境传奇1: Typings.GameInfo = {
+// export const 仙境传奇1: Typings.GameInformation = {
 //   translates: {
 //     cn: '仙境传奇1'
 //   },
@@ -15267,7 +15267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 仙境传奇2亡者之庁: Typings.GameInfo = {
+// export const 仙境传奇2亡者之庁: Typings.GameInformation = {
 //   translates: {
 //     cn: '仙境传奇2亡者之庁'
 //   },
@@ -15277,7 +15277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 氙星异形: Typings.GameInfo = {
+// export const 氙星异形: Typings.GameInformation = {
 //   translates: {
 //     cn: '氙星异形'
 //   },
@@ -15287,7 +15287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 氙星异形2: Typings.GameInfo = {
+// export const 氙星异形2: Typings.GameInformation = {
 //   translates: {
 //     cn: '氙星异形2'
 //   },
@@ -15297,7 +15297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 线索: Typings.GameInfo = {
+// export const 线索: Typings.GameInformation = {
 //   translates: {
 //     cn: '线索'
 //   },
@@ -15307,7 +15307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 陷害之人: Typings.GameInfo = {
+// export const 陷害之人: Typings.GameInformation = {
 //   translates: {
 //     cn: '陷害之人'
 //   },
@@ -15317,7 +15317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 香蕉俱乐部: Typings.GameInfo = {
+// export const 香蕉俱乐部: Typings.GameInformation = {
 //   translates: {
 //     cn: '香蕉俱乐部'
 //   },
@@ -15327,7 +15327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 项刘记: Typings.GameInfo = {
+// export const 项刘记: Typings.GameInformation = {
 //   translates: {
 //     cn: '项刘记'
 //   },
@@ -15337,7 +15337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 象棋大师3将族: Typings.GameInfo = {
+// export const 象棋大师3将族: Typings.GameInformation = {
 //   translates: {
 //     cn: '象棋大师3将族'
 //   },
@@ -15347,7 +15347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 象棋俄罗斯: Typings.GameInfo = {
+// export const 象棋俄罗斯: Typings.GameInformation = {
 //   translates: {
 //     cn: '象棋俄罗斯'
 //   },
@@ -15357,7 +15357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 消防队: Typings.GameInfo = {
+// export const 消防队: Typings.GameInformation = {
 //   translates: {
 //     cn: '消防队'
 //   },
@@ -15367,7 +15367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 嚣张拳王: Typings.GameInfo = {
+// export const 嚣张拳王: Typings.GameInformation = {
 //   translates: {
 //     cn: '嚣张拳王'
 //   },
@@ -15377,7 +15377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小丑荷米: Typings.GameInfo = {
+// export const 小丑荷米: Typings.GameInformation = {
 //   translates: {
 //     cn: '小丑荷米'
 //   },
@@ -15387,7 +15387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小恶魔: Typings.GameInfo = {
+// export const 小恶魔: Typings.GameInformation = {
 //   translates: {
 //     cn: '小恶魔'
 //   },
@@ -15397,7 +15397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小飞侠: Typings.GameInfo = {
+// export const 小飞侠: Typings.GameInformation = {
 //   translates: {
 //     cn: '小飞侠'
 //   },
@@ -15407,7 +15407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小鬼当家: Typings.GameInfo = {
+// export const 小鬼当家: Typings.GameInformation = {
 //   translates: {
 //     cn: '小鬼当家'
 //   },
@@ -15417,7 +15417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小鬼当家2: Typings.GameInfo = {
+// export const 小鬼当家2: Typings.GameInformation = {
 //   translates: {
 //     cn: '小鬼当家2'
 //   },
@@ -15427,7 +15427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小惠的性知识: Typings.GameInfo = {
+// export const 小惠的性知识: Typings.GameInformation = {
 //   translates: {
 //     cn: '小惠的性知识'
 //   },
@@ -15437,7 +15437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小精灵历险: Typings.GameInfo = {
+// export const 小精灵历险: Typings.GameInformation = {
 //   translates: {
 //     cn: '小精灵历险'
 //   },
@@ -15447,7 +15447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小辣椒时空之旅: Typings.GameInfo = {
+// export const 小辣椒时空之旅: Typings.GameInformation = {
 //   translates: {
 //     cn: '小辣椒时空之旅'
 //   },
@@ -15457,7 +15457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小旅鼠俄罗斯: Typings.GameInfo = {
+// export const 小旅鼠俄罗斯: Typings.GameInformation = {
 //   translates: {
 //     cn: '小旅鼠俄罗斯'
 //   },
@@ -15467,7 +15467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小蜜蜂: Typings.GameInfo = {
+// export const 小蜜蜂: Typings.GameInformation = {
 //   translates: {
 //     cn: '小蜜蜂'
 //   },
@@ -15477,7 +15477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小蜜蜂初代: Typings.GameInfo = {
+// export const 小蜜蜂初代: Typings.GameInformation = {
 //   translates: {
 //     cn: '小蜜蜂初代'
 //   },
@@ -15487,7 +15487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小魔怪2: Typings.GameInfo = {
+// export const 小魔怪2: Typings.GameInformation = {
 //   translates: {
 //     cn: '小魔怪2'
 //   },
@@ -15497,7 +15497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小魔星／蜘蛛恐惧症: Typings.GameInfo = {
+// export const 小魔星／蜘蛛恐惧症: Typings.GameInformation = {
 //   translates: {
 //     cn: '小魔星/蜘蛛恐惧症'
 //   },
@@ -15507,7 +15507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小朋友齐打交: Typings.GameInfo = {
+// export const 小朋友齐打交: Typings.GameInformation = {
 //   translates: {
 //     cn: '小朋友齐打交'
 //   },
@@ -15517,7 +15517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小人物狂想曲: Typings.GameInfo = {
+// export const 小人物狂想曲: Typings.GameInformation = {
 //   translates: {
 //     cn: '小人物狂想曲'
 //   },
@@ -15527,7 +15527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小沙弥: Typings.GameInfo = {
+// export const 小沙弥: Typings.GameInformation = {
 //   translates: {
 //     cn: '小沙弥'
 //   },
@@ -15537,7 +15537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 小妖精: Typings.GameInfo = {
+// export const 小妖精: Typings.GameInformation = {
 //   translates: {
 //     cn: '小妖精'
 //   },
@@ -15547,7 +15547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 校园大富翁: Typings.GameInfo = {
+// export const 校园大富翁: Typings.GameInformation = {
 //   translates: {
 //     cn: '校园大富翁'
 //   },
@@ -15557,7 +15557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 笑傲江湖: Typings.GameInfo = {
+// export const 笑傲江湖: Typings.GameInformation = {
 //   translates: {
 //     cn: '笑傲江湖'
 //   },
@@ -15567,7 +15567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 邪灵世纪: Typings.GameInfo = {
+// export const 邪灵世纪: Typings.GameInformation = {
 //   translates: {
 //     cn: '邪灵世纪'
 //   },
@@ -15577,7 +15577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 邪神: Typings.GameInfo = {
+// export const 邪神: Typings.GameInformation = {
 //   translates: {
 //     cn: '邪神'
 //   },
@@ -15587,7 +15587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 邪神传说: Typings.GameInfo = {
+// export const 邪神传说: Typings.GameInformation = {
 //   translates: {
 //     cn: '邪神传说'
 //   },
@@ -15597,7 +15597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 邪神大地: Typings.GameInfo = {
+// export const 邪神大地: Typings.GameInformation = {
 //   translates: {
 //     cn: '邪神大地'
 //   },
@@ -15607,7 +15607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 辛迪加战争: Typings.GameInfo = {
+// export const 辛迪加战争: Typings.GameInformation = {
 //   translates: {
 //     cn: '辛迪加战争'
 //   },
@@ -15617,7 +15617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 辛普森大战外星人: Typings.GameInfo = {
+// export const 辛普森大战外星人: Typings.GameInformation = {
 //   translates: {
 //     cn: '辛普森大战外星人'
 //   },
@@ -15627,7 +15627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 辛普森小丑屋: Typings.GameInfo = {
+// export const 辛普森小丑屋: Typings.GameInformation = {
 //   translates: {
 //     cn: '辛普森小丑屋'
 //   },
@@ -15637,7 +15637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 辛普森一家: Typings.GameInfo = {
+// export const 辛普森一家: Typings.GameInformation = {
 //   translates: {
 //     cn: '辛普森一家'
 //   },
@@ -15647,7 +15647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 辛普森一家2古怪之屋: Typings.GameInfo = {
+// export const 辛普森一家2古怪之屋: Typings.GameInformation = {
 //   translates: {
 //     cn: '辛普森一家2古怪之屋'
 //   },
@@ -15657,7 +15657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 新狼人摩天楼: Typings.GameInfo = {
+// export const 新狼人摩天楼: Typings.GameInformation = {
 //   translates: {
 //     cn: '新狼人摩天楼'
 //   },
@@ -15667,7 +15667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 新美女拳: Typings.GameInfo = {
+// export const 新美女拳: Typings.GameInformation = {
 //   translates: {
 //     cn: '新美女拳'
 //   },
@@ -15677,7 +15677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 新世纪兴亡史: Typings.GameInfo = {
+// export const 新世纪兴亡史: Typings.GameInformation = {
 //   translates: {
 //     cn: '新世纪兴亡史'
 //   },
@@ -15687,7 +15687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 新世界征服者: Typings.GameInfo = {
+// export const 新世界征服者: Typings.GameInformation = {
 //   translates: {
 //     cn: '新世界征服者'
 //   },
@@ -15697,7 +15697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 新星9龙机归来: Typings.GameInfo = {
+// export const 新星9龙机归来: Typings.GameInformation = {
 //   translates: {
 //     cn: '新星9龙机归来'
 //   },
@@ -15707,7 +15707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 信长之野望: Typings.GameInfo = {
+// export const 信长之野望: Typings.GameInformation = {
 //   translates: {
 //     cn: '信长之野望'
 //   },
@@ -15717,7 +15717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 信长之野望2: Typings.GameInfo = {
+// export const 信长之野望2: Typings.GameInformation = {
 //   translates: {
 //     cn: '信长之野望2'
 //   },
@@ -15727,7 +15727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 信长之野望4: Typings.GameInfo = {
+// export const 信长之野望4: Typings.GameInformation = {
 //   translates: {
 //     cn: '信长之野望4'
 //   },
@@ -15737,7 +15737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 信长之野望5: Typings.GameInfo = {
+// export const 信长之野望5: Typings.GameInformation = {
 //   translates: {
 //     cn: '信长之野望5'
 //   },
@@ -15747,7 +15747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 信长之野望6: Typings.GameInfo = {
+// export const 信长之野望6: Typings.GameInformation = {
 //   translates: {
 //     cn: '信长之野望6'
 //   },
@@ -15757,7 +15757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星尘: Typings.GameInfo = {
+// export const 星尘: Typings.GameInformation = {
 //   translates: {
 //     cn: '星尘'
 //   },
@@ -15767,7 +15767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星城绿洲计划: Typings.GameInfo = {
+// export const 星城绿洲计划: Typings.GameInformation = {
 //   translates: {
 //     cn: '星城绿洲计划'
 //   },
@@ -15777,7 +15777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星河舰长历险记: Typings.GameInfo = {
+// export const 星河舰长历险记: Typings.GameInformation = {
 //   translates: {
 //     cn: '星河舰长历险记'
 //   },
@@ -15787,7 +15787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星际霸主: Typings.GameInfo = {
+// export const 星际霸主: Typings.GameInformation = {
 //   translates: {
 //     cn: '星际霸主'
 //   },
@@ -15797,7 +15797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星际航舰: Typings.GameInfo = {
+// export const 星际航舰: Typings.GameInformation = {
 //   translates: {
 //     cn: '星际航舰'
 //   },
@@ -15807,7 +15807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星际联盟: Typings.GameInfo = {
+// export const 星际联盟: Typings.GameInformation = {
 //   translates: {
 //     cn: '星际联盟'
 //   },
@@ -15817,7 +15817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星际迷航裁决仪式: Typings.GameInfo = {
+// export const 星际迷航裁决仪式: Typings.GameInformation = {
 //   translates: {
 //     cn: '星际迷航裁决仪式'
 //   },
@@ -15827,7 +15827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星际炮手: Typings.GameInfo = {
+// export const 星际炮手: Typings.GameInformation = {
 //   translates: {
 //     cn: '星际炮手'
 //   },
@@ -15837,7 +15837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星际调查局: Typings.GameInfo = {
+// export const 星际调查局: Typings.GameInformation = {
 //   translates: {
 //     cn: '星际调查局'
 //   },
@@ -15847,7 +15847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星际调查局2: Typings.GameInfo = {
+// export const 星际调查局2: Typings.GameInformation = {
 //   translates: {
 //     cn: '星际调查局2'
 //   },
@@ -15857,7 +15857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星际统治者: Typings.GameInfo = {
+// export const 星际统治者: Typings.GameInformation = {
 //   translates: {
 //     cn: '星际统治者'
 //   },
@@ -15867,7 +15867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星际游骑兵: Typings.GameInfo = {
+// export const 星际游骑兵: Typings.GameInformation = {
 //   translates: {
 //     cn: '星际游骑兵'
 //   },
@@ -15877,7 +15877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星际之锤: Typings.GameInfo = {
+// export const 星际之锤: Typings.GameInformation = {
 //   translates: {
 //     cn: '星际之锤'
 //   },
@@ -15887,7 +15887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星球大战X战机: Typings.GameInfo = {
+// export const 星球大战X战机: Typings.GameInformation = {
 //   translates: {
 //     cn: '星球大战X战机'
 //   },
@@ -15897,7 +15897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星球大战暗影力量: Typings.GameInfo = {
+// export const 星球大战暗影力量: Typings.GameInformation = {
 //   translates: {
 //     cn: '星球大战暗影力量'
 //   },
@@ -15907,7 +15907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星球大战国际象棋: Typings.GameInfo = {
+// export const 星球大战国际象棋: Typings.GameInformation = {
 //   translates: {
 //     cn: '星球大战国际象棋'
 //   },
@@ -15917,7 +15917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星球大战绝地反击: Typings.GameInfo = {
+// export const 星球大战绝地反击: Typings.GameInformation = {
 //   translates: {
 //     cn: '星球大战绝地反击'
 //   },
@@ -15927,7 +15927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星球大战钛战机: Typings.GameInfo = {
+// export const 星球大战钛战机: Typings.GameInformation = {
 //   translates: {
 //     cn: '星球大战钛战机'
 //   },
@@ -15937,7 +15937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星球裂痕: Typings.GameInfo = {
+// export const 星球裂痕: Typings.GameInformation = {
 //   translates: {
 //     cn: '星球裂痕'
 //   },
@@ -15947,7 +15947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星球突击: Typings.GameInfo = {
+// export const 星球突击: Typings.GameInformation = {
 //   translates: {
 //     cn: '星球突击'
 //   },
@@ -15957,7 +15957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星球之火: Typings.GameInfo = {
+// export const 星球之火: Typings.GameInformation = {
 //   translates: {
 //     cn: '星球之火'
 //   },
@@ -15967,7 +15967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星球指挥革命: Typings.GameInfo = {
+// export const 星球指挥革命: Typings.GameInformation = {
 //   translates: {
 //     cn: '星球指挥革命'
 //   },
@@ -15977,7 +15977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星世纪战将: Typings.GameInfo = {
+// export const 星世纪战将: Typings.GameInformation = {
 //   translates: {
 //     cn: '星世纪战将'
 //   },
@@ -15987,7 +15987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 星月奇缘: Typings.GameInfo = {
+// export const 星月奇缘: Typings.GameInformation = {
 //   translates: {
 //     cn: '星月奇缘'
 //   },
@@ -15997,7 +15997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 杏林也疯狂(主题医院台版): Typings.GameInfo = {
+// export const 杏林也疯狂(主题医院台版): Typings.GameInformation = {
 //   translates: {
 //     cn: '杏林也疯狂(主题医院台版)'
 //   },
@@ -16007,7 +16007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幸福人生: Typings.GameInfo = {
+// export const 幸福人生: Typings.GameInformation = {
 //   translates: {
 //     cn: '幸福人生'
 //   },
@@ -16017,7 +16017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幸运赌场: Typings.GameInfo = {
+// export const 幸运赌场: Typings.GameInformation = {
 //   translates: {
 //     cn: '幸运赌场'
 //   },
@@ -16027,7 +16027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 性别战争: Typings.GameInfo = {
+// export const 性别战争: Typings.GameInformation = {
 //   translates: {
 //     cn: '性别战争'
 //   },
@@ -16037,7 +16037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 性感俄罗斯: Typings.GameInfo = {
+// export const 性感俄罗斯: Typings.GameInformation = {
 //   translates: {
 //     cn: '性感俄罗斯'
 //   },
@@ -16047,7 +16047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 性感机器: Typings.GameInfo = {
+// export const 性感机器: Typings.GameInformation = {
 //   translates: {
 //     cn: '性感机器'
 //   },
@@ -16057,7 +16057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 性感战士: Typings.GameInfo = {
+// export const 性感战士: Typings.GameInformation = {
 //   translates: {
 //     cn: '性感战士'
 //   },
@@ -16067,7 +16067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 熊猫大进击: Typings.GameInfo = {
+// export const 熊猫大进击: Typings.GameInformation = {
 //   translates: {
 //     cn: '熊猫大进击'
 //   },
@@ -16077,7 +16077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 虚幻之地: Typings.GameInfo = {
+// export const 虚幻之地: Typings.GameInformation = {
 //   translates: {
 //     cn: '虚幻之地'
 //   },
@@ -16087,7 +16087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 虚拟高尔夫: Typings.GameInfo = {
+// export const 虚拟高尔夫: Typings.GameInformation = {
 //   translates: {
 //     cn: '虚拟高尔夫'
 //   },
@@ -16097,7 +16097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 虚拟桌球: Typings.GameInfo = {
+// export const 虚拟桌球: Typings.GameInformation = {
 //   translates: {
 //     cn: '虚拟桌球'
 //   },
@@ -16107,7 +16107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 轩辕剑外传枫之舞: Typings.GameInfo = {
+// export const 轩辕剑外传枫之舞: Typings.GameInformation = {
 //   translates: {
 //     cn: '轩辕剑外传枫之舞'
 //   },
@@ -16117,7 +16117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 轩辕圣战录: Typings.GameInfo = {
+// export const 轩辕圣战录: Typings.GameInformation = {
 //   translates: {
 //     cn: '轩辕圣战录'
 //   },
@@ -16127,7 +16127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 选举风云: Typings.GameInfo = {
+// export const 选举风云: Typings.GameInformation = {
 //   translates: {
 //     cn: '选举风云'
 //   },
@@ -16137,7 +16137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 学园退魔传: Typings.GameInfo = {
+// export const 学园退魔传: Typings.GameInformation = {
 //   translates: {
 //     cn: '学园退魔传'
 //   },
@@ -16147,7 +16147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雪猫: Typings.GameInfo = {
+// export const 雪猫: Typings.GameInformation = {
 //   translates: {
 //     cn: '雪猫'
 //   },
@@ -16157,7 +16157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雪中出击: Typings.GameInfo = {
+// export const 雪中出击: Typings.GameInformation = {
 //   translates: {
 //     cn: '雪中出击'
 //   },
@@ -16167,7 +16167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 血巢: Typings.GameInfo = {
+// export const 血巢: Typings.GameInformation = {
 //   translates: {
 //     cn: '血巢'
 //   },
@@ -16177,7 +16177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 血祭: Typings.GameInfo = {
+// export const 血祭: Typings.GameInformation = {
 //   translates: {
 //     cn: '血祭'
 //   },
@@ -16187,7 +16187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 血石矮人传奇: Typings.GameInfo = {
+// export const 血石矮人传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '血石矮人传奇'
 //   },
@@ -16197,7 +16197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 血巫: Typings.GameInfo = {
+// export const 血巫: Typings.GameInformation = {
 //   translates: {
 //     cn: '血巫'
 //   },
@@ -16207,7 +16207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 血与魔法: Typings.GameInfo = {
+// export const 血与魔法: Typings.GameInformation = {
 //   translates: {
 //     cn: '血与魔法'
 //   },
@@ -16217,7 +16217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 寻找激流博士: Typings.GameInfo = {
+// export const 寻找激流博士: Typings.GameInformation = {
 //   translates: {
 //     cn: '寻找激流博士'
 //   },
@@ -16227,7 +16227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 寻找鲸鱼座: Typings.GameInfo = {
+// export const 寻找鲸鱼座: Typings.GameInformation = {
 //   translates: {
 //     cn: '寻找鲸鱼座'
 //   },
@@ -16237,7 +16237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 亚里士王物语: Typings.GameInfo = {
+// export const 亚里士王物语: Typings.GameInformation = {
 //   translates: {
 //     cn: '亚里士王物语'
 //   },
@@ -16247,7 +16247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 亚马逊女皇之旅: Typings.GameInfo = {
+// export const 亚马逊女皇之旅: Typings.GameInformation = {
 //   translates: {
 //     cn: '亚马逊女皇之旅'
 //   },
@@ -16257,7 +16257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 亚马逊小道: Typings.GameInfo = {
+// export const 亚马逊小道: Typings.GameInformation = {
 //   translates: {
 //     cn: '亚马逊小道'
 //   },
@@ -16267,7 +16267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 亚马逊伊甸园守卫者: Typings.GameInfo = {
+// export const 亚马逊伊甸园守卫者: Typings.GameInformation = {
 //   translates: {
 //     cn: '亚马逊伊甸园守卫者'
 //   },
@@ -16277,7 +16277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 亚瑟王豪华版: Typings.GameInfo = {
+// export const 亚瑟王豪华版: Typings.GameInformation = {
 //   translates: {
 //     cn: '亚瑟王豪华版'
 //   },
@@ -16287,7 +16287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 炎龙骑士团: Typings.GameInfo = {
+// export const 炎龙骑士团: Typings.GameInformation = {
 //   translates: {
 //     cn: '炎龙骑士团'
 //   },
@@ -16297,7 +16297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 炎龙骑士团2: Typings.GameInfo = {
+// export const 炎龙骑士团2: Typings.GameInformation = {
 //   translates: {
 //     cn: '炎龙骑士团2'
 //   },
@@ -16307,7 +16307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 炎龙骑士团外传: Typings.GameInfo = {
+// export const 炎龙骑士团外传: Typings.GameInformation = {
 //   translates: {
 //     cn: '炎龙骑士团外传'
 //   },
@@ -16317,7 +16317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 眼镜蛇任务: Typings.GameInfo = {
+// export const 眼镜蛇任务: Typings.GameInformation = {
 //   translates: {
 //     cn: '眼镜蛇任务'
 //   },
@@ -16327,7 +16327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 妖击队: Typings.GameInfo = {
+// export const 妖击队: Typings.GameInformation = {
 //   translates: {
 //     cn: '妖击队'
 //   },
@@ -16337,7 +16337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 妖魔道: Typings.GameInfo = {
+// export const 妖魔道: Typings.GameInformation = {
 //   translates: {
 //     cn: '妖魔道'
 //   },
@@ -16347,7 +16347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 妖塔2189: Typings.GameInfo = {
+// export const 妖塔2189: Typings.GameInformation = {
 //   translates: {
 //     cn: '妖塔2189'
 //   },
@@ -16357,7 +16357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 摇滚少林之七侠五义: Typings.GameInfo = {
+// export const 摇滚少林之七侠五义: Typings.GameInformation = {
 //   translates: {
 //     cn: '摇滚少林之七侠五义'
 //   },
@@ -16367,7 +16367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 要塞: Typings.GameInfo = {
+// export const 要塞: Typings.GameInformation = {
 //   translates: {
 //     cn: '要塞'
 //   },
@@ -16377,7 +16377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 耶基战机: Typings.GameInfo = {
+// export const 耶基战机: Typings.GameInformation = {
 //   translates: {
 //     cn: '耶基战机'
 //   },
@@ -16387,7 +16387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 野狼行动: Typings.GameInfo = {
+// export const 野狼行动: Typings.GameInformation = {
 //   translates: {
 //     cn: '野狼行动'
 //   },
@@ -16397,7 +16397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 野人生存: Typings.GameInfo = {
+// export const 野人生存: Typings.GameInformation = {
 //   translates: {
 //     cn: '野人生存'
 //   },
@@ -16407,7 +16407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 野人生存2: Typings.GameInfo = {
+// export const 野人生存2: Typings.GameInformation = {
 //   translates: {
 //     cn: '野人生存2'
 //   },
@@ -16417,7 +16417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 野人生存3: Typings.GameInfo = {
+// export const 野人生存3: Typings.GameInformation = {
 //   translates: {
 //     cn: '野人生存3'
 //   },
@@ -16427,7 +16427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 夜之亡灵: Typings.GameInfo = {
+// export const 夜之亡灵: Typings.GameInformation = {
 //   translates: {
 //     cn: '夜之亡灵'
 //   },
@@ -16437,7 +16437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 一步之遥: Typings.GameInfo = {
+// export const 一步之遥: Typings.GameInformation = {
 //   translates: {
 //     cn: '一步之遥'
 //   },
@@ -16447,7 +16447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 一级方程式赛车: Typings.GameInfo = {
+// export const 一级方程式赛车: Typings.GameInformation = {
 //   translates: {
 //     cn: '一级方程式赛车'
 //   },
@@ -16457,7 +16457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 一角城市: Typings.GameInfo = {
+// export const 一角城市: Typings.GameInformation = {
 //   translates: {
 //     cn: '一角城市'
 //   },
@@ -16467,7 +16467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 一线生机: Typings.GameInfo = {
+// export const 一线生机: Typings.GameInformation = {
 //   translates: {
 //     cn: '一线生机'
 //   },
@@ -16477,7 +16477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 伊甸风暴: Typings.GameInfo = {
+// export const 伊甸风暴: Typings.GameInformation = {
 //   translates: {
 //     cn: '伊甸风暴'
 //   },
@@ -16487,7 +16487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 伊贡的假期: Typings.GameInfo = {
+// export const 伊贡的假期: Typings.GameInformation = {
 //   translates: {
 //     cn: '伊贡的假期'
 //   },
@@ -16497,7 +16497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 伊雷查历险记: Typings.GameInfo = {
+// export const 伊雷查历险记: Typings.GameInformation = {
 //   translates: {
 //     cn: '伊雷查历险记'
 //   },
@@ -16507,7 +16507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 伊忍道: Typings.GameInfo = {
+// export const 伊忍道: Typings.GameInformation = {
 //   translates: {
 //     cn: '伊忍道'
 //   },
@@ -16517,7 +16517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 伊瑟比斯的阴影: Typings.GameInfo = {
+// export const 伊瑟比斯的阴影: Typings.GameInformation = {
 //   translates: {
 //     cn: '伊瑟比斯的阴影'
 //   },
@@ -16527,7 +16527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 伊苏: Typings.GameInfo = {
+// export const 伊苏: Typings.GameInformation = {
 //   translates: {
 //     cn: '伊苏'
 //   },
@@ -16537,7 +16537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 医生也疯狂: Typings.GameInfo = {
+// export const 医生也疯狂: Typings.GameInformation = {
 //   translates: {
 //     cn: '医生也疯狂'
 //   },
@@ -16547,7 +16547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 医生也疯狂2: Typings.GameInfo = {
+// export const 医生也疯狂2: Typings.GameInformation = {
 //   translates: {
 //     cn: '医生也疯狂2'
 //   },
@@ -16557,7 +16557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 遗迹1死亡守望: Typings.GameInfo = {
+// export const 遗迹1死亡守望: Typings.GameInformation = {
 //   translates: {
 //     cn: '遗迹1死亡守望'
 //   },
@@ -16567,7 +16567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 遗迹2邪恶临近: Typings.GameInfo = {
+// export const 遗迹2邪恶临近: Typings.GameInformation = {
 //   translates: {
 //     cn: '遗迹2邪恶临近'
 //   },
@@ -16577,7 +16577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 遗作(日）: Typings.GameInfo = {
+// export const 遗作(日）: Typings.GameInformation = {
 //   translates: {
 //     cn: '遗作(日）'
 //   },
@@ -16587,7 +16587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 以撒1英雄堡垒: Typings.GameInfo = {
+// export const 以撒1英雄堡垒: Typings.GameInformation = {
 //   translates: {
 //     cn: '以撒1英雄堡垒'
 //   },
@@ -16597,7 +16597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 以撒2末日使者: Typings.GameInfo = {
+// export const 以撒2末日使者: Typings.GameInformation = {
 //   translates: {
 //     cn: '以撒2末日使者'
 //   },
@@ -16607,7 +16607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 以撒3永恒之门: Typings.GameInfo = {
+// export const 以撒3永恒之门: Typings.GameInformation = {
 //   translates: {
 //     cn: '以撒3永恒之门'
 //   },
@@ -16617,7 +16617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 亿兆旅行者1: Typings.GameInfo = {
+// export const 亿兆旅行者1: Typings.GameInformation = {
 //   translates: {
 //     cn: '亿兆旅行者1'
 //   },
@@ -16627,7 +16627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 亿兆旅行者2: Typings.GameInfo = {
+// export const 亿兆旅行者2: Typings.GameInformation = {
 //   translates: {
 //     cn: '亿兆旅行者2'
 //   },
@@ -16637,7 +16637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 艺妓: Typings.GameInfo = {
+// export const 艺妓: Typings.GameInformation = {
 //   translates: {
 //     cn: '艺妓'
 //   },
@@ -16647,7 +16647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异次元之旅: Typings.GameInfo = {
+// export const 异次元之旅: Typings.GameInformation = {
 //   translates: {
 //     cn: '异次元之旅'
 //   },
@@ -16657,7 +16657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异次元之旅武者传说: Typings.GameInfo = {
+// export const 异次元之旅武者传说: Typings.GameInformation = {
 //   translates: {
 //     cn: '异次元之旅武者传说'
 //   },
@@ -16667,7 +16667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异教徒: Typings.GameInfo = {
+// export const 异教徒: Typings.GameInformation = {
 //   translates: {
 //     cn: '异教徒'
 //   },
@@ -16677,7 +16677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异教巫师: Typings.GameInfo = {
+// export const 异教巫师: Typings.GameInformation = {
 //   translates: {
 //     cn: '异教巫师'
 //   },
@@ -16687,7 +16687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异教巫师RPG: Typings.GameInfo = {
+// export const 异教巫师RPG: Typings.GameInformation = {
 //   translates: {
 //     cn: '异教巫师RPG'
 //   },
@@ -16697,7 +16697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异教巫师黑暗教堂的死神: Typings.GameInfo = {
+// export const 异教巫师黑暗教堂的死神: Typings.GameInformation = {
 //   translates: {
 //     cn: '异教巫师黑暗教堂的死神'
 //   },
@@ -16707,7 +16707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异星病毒: Typings.GameInfo = {
+// export const 异星病毒: Typings.GameInformation = {
 //   translates: {
 //     cn: '异星病毒'
 //   },
@@ -16717,7 +16717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异星逻辑: Typings.GameInfo = {
+// export const 异星逻辑: Typings.GameInformation = {
 //   translates: {
 //     cn: '异星逻辑'
 //   },
@@ -16727,7 +16727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异星搜奇: Typings.GameInfo = {
+// export const 异星搜奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '异星搜奇'
 //   },
@@ -16737,7 +16737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异星突击: Typings.GameInfo = {
+// export const 异星突击: Typings.GameInformation = {
 //   translates: {
 //     cn: '异星突击'
 //   },
@@ -16747,7 +16747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异星遗迹: Typings.GameInfo = {
+// export const 异星遗迹: Typings.GameInformation = {
 //   translates: {
 //     cn: '异星遗迹'
 //   },
@@ -16757,7 +16757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异形巴贡: Typings.GameInfo = {
+// export const 异形巴贡: Typings.GameInformation = {
 //   translates: {
 //     cn: '异形巴贡'
 //   },
@@ -16767,7 +16767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异形残杀：万圣节哈利: Typings.GameInfo = {
+// export const 异形残杀：万圣节哈利: Typings.GameInformation = {
 //   translates: {
 //     cn: '异形残杀:万圣节哈利'
 //   },
@@ -16777,7 +16777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异形大进击: Typings.GameInfo = {
+// export const 异形大进击: Typings.GameInformation = {
 //   translates: {
 //     cn: '异形大进击'
 //   },
@@ -16787,7 +16787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异形繁殖: Typings.GameInfo = {
+// export const 异形繁殖: Typings.GameInformation = {
 //   translates: {
 //     cn: '异形繁殖'
 //   },
@@ -16797,7 +16797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异形繁殖2: Typings.GameInfo = {
+// export const 异形繁殖2: Typings.GameInformation = {
 //   translates: {
 //     cn: '异形繁殖2'
 //   },
@@ -16807,7 +16807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异形方块: Typings.GameInfo = {
+// export const 异形方块: Typings.GameInformation = {
 //   translates: {
 //     cn: '异形方块'
 //   },
@@ -16817,7 +16817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异形恐惧症: Typings.GameInfo = {
+// export const 异形恐惧症: Typings.GameInformation = {
 //   translates: {
 //     cn: '异形恐惧症'
 //   },
@@ -16827,7 +16827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异形三部曲: Typings.GameInfo = {
+// export const 异形三部曲: Typings.GameInformation = {
 //   translates: {
 //     cn: '异形三部曲'
 //   },
@@ -16837,7 +16837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异形事件: Typings.GameInfo = {
+// export const 异形事件: Typings.GameInformation = {
 //   translates: {
 //     cn: '异形事件'
 //   },
@@ -16847,7 +16847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异形阴谋: Typings.GameInfo = {
+// export const 异形阴谋: Typings.GameInformation = {
 //   translates: {
 //     cn: '异形阴谋'
 //   },
@@ -16857,7 +16857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 异域神兵诸神诅咒: Typings.GameInfo = {
+// export const 异域神兵诸神诅咒: Typings.GameInformation = {
 //   translates: {
 //     cn: '异域神兵诸神诅咒'
 //   },
@@ -16867,7 +16867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 益智轨道: Typings.GameInfo = {
+// export const 益智轨道: Typings.GameInformation = {
 //   translates: {
 //     cn: '益智轨道'
 //   },
@@ -16877,7 +16877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 益智问题集: Typings.GameInfo = {
+// export const 益智问题集: Typings.GameInformation = {
 //   translates: {
 //     cn: '益智问题集'
 //   },
@@ -16887,7 +16887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 意大利足球经理: Typings.GameInfo = {
+// export const 意大利足球经理: Typings.GameInformation = {
 //   translates: {
 //     cn: '意大利足球经理'
 //   },
@@ -16897,7 +16897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 因卡战机: Typings.GameInfo = {
+// export const 因卡战机: Typings.GameInformation = {
 //   translates: {
 //     cn: '因卡战机'
 //   },
@@ -16907,7 +16907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 因卡战机2: Typings.GameInfo = {
+// export const 因卡战机2: Typings.GameInformation = {
 //   translates: {
 //     cn: '因卡战机2'
 //   },
@@ -16917,7 +16917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 阴谋论: Typings.GameInfo = {
+// export const 阴谋论: Typings.GameInformation = {
 //   translates: {
 //     cn: '阴谋论'
 //   },
@@ -16927,7 +16927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银多瑞传奇1: Typings.GameInfo = {
+// export const 银多瑞传奇1: Typings.GameInformation = {
 //   translates: {
 //     cn: '银多瑞传奇1'
 //   },
@@ -16937,7 +16937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银多瑞传奇2: Typings.GameInfo = {
+// export const 银多瑞传奇2: Typings.GameInformation = {
 //   translates: {
 //     cn: '银多瑞传奇2'
 //   },
@@ -16947,7 +16947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银多瑞传奇3: Typings.GameInfo = {
+// export const 银多瑞传奇3: Typings.GameInformation = {
 //   translates: {
 //     cn: '银多瑞传奇3'
 //   },
@@ -16957,7 +16957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银河霸主(猎户座之王): Typings.GameInfo = {
+// export const 银河霸主(猎户座之王): Typings.GameInformation = {
 //   translates: {
 //     cn: '银河霸主(猎户座之王)'
 //   },
@@ -16967,7 +16967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银河霸主2: Typings.GameInfo = {
+// export const 银河霸主2: Typings.GameInformation = {
 //   translates: {
 //     cn: '银河霸主2'
 //   },
@@ -16977,7 +16977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银河帝国传: Typings.GameInfo = {
+// export const 银河帝国传: Typings.GameInformation = {
 //   translates: {
 //     cn: '银河帝国传'
 //   },
@@ -16987,7 +16987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银河飞将1: Typings.GameInfo = {
+// export const 银河飞将1: Typings.GameInformation = {
 //   translates: {
 //     cn: '银河飞将1'
 //   },
@@ -16997,7 +16997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银河飞将2: Typings.GameInfo = {
+// export const 银河飞将2: Typings.GameInformation = {
 //   translates: {
 //     cn: '银河飞将2'
 //   },
@@ -17007,7 +17007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银河飞将阿曼达: Typings.GameInfo = {
+// export const 银河飞将阿曼达: Typings.GameInformation = {
 //   translates: {
 //     cn: '银河飞将阿曼达'
 //   },
@@ -17017,7 +17017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银河飞将先锋+资料片: Typings.GameInfo = {
+// export const 银河飞将先锋+资料片: Typings.GameInformation = {
 //   translates: {
 //     cn: '银河飞将先锋+资料片'
 //   },
@@ -17027,7 +17027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银河飞将训练营: Typings.GameInfo = {
+// export const 银河飞将训练营: Typings.GameInformation = {
 //   translates: {
 //     cn: '银河飞将训练营'
 //   },
@@ -17037,7 +17037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银河风暴: Typings.GameInfo = {
+// export const 银河风暴: Typings.GameInformation = {
 //   translates: {
 //     cn: '银河风暴'
 //   },
@@ -17047,7 +17047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银河舰队: Typings.GameInfo = {
+// export const 银河舰队: Typings.GameInformation = {
 //   translates: {
 //     cn: '银河舰队'
 //   },
@@ -17057,7 +17057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银河太阳风: Typings.GameInfo = {
+// export const 银河太阳风: Typings.GameInformation = {
 //   translates: {
 //     cn: '银河太阳风'
 //   },
@@ -17067,7 +17067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银河英雄: Typings.GameInfo = {
+// export const 银河英雄: Typings.GameInformation = {
 //   translates: {
 //     cn: '银河英雄'
 //   },
@@ -17077,7 +17077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银河英雄传说3: Typings.GameInfo = {
+// export const 银河英雄传说3: Typings.GameInformation = {
 //   translates: {
 //     cn: '银河英雄传说3'
 //   },
@@ -17087,7 +17087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银河英雄传说4EX: Typings.GameInfo = {
+// export const 银河英雄传说4EX: Typings.GameInformation = {
 //   translates: {
 //     cn: '银河英雄传说4EX'
 //   },
@@ -17097,7 +17097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银河战士: Typings.GameInfo = {
+// export const 银河战士: Typings.GameInformation = {
 //   translates: {
 //     cn: '银河战士'
 //   },
@@ -17107,7 +17107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 银色弹球95: Typings.GameInfo = {
+// export const 银色弹球95: Typings.GameInformation = {
 //   translates: {
 //     cn: '银色弹球95'
 //   },
@@ -17117,7 +17117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 印第安公主: Typings.GameInfo = {
+// export const 印第安公主: Typings.GameInformation = {
 //   translates: {
 //     cn: '印第安公主'
 //   },
@@ -17127,7 +17127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 印第安那琼斯AtlantisAct: Typings.GameInfo = {
+// export const 印第安那琼斯AtlantisAct: Typings.GameInformation = {
 //   translates: {
 //     cn: '印第安那琼斯AtlantisAct'
 //   },
@@ -17137,7 +17137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 印第安那琼斯亚特兰蒂斯: Typings.GameInfo = {
+// export const 印第安那琼斯亚特兰蒂斯: Typings.GameInformation = {
 //   translates: {
 //     cn: '印第安那琼斯亚特兰蒂斯'
 //   },
@@ -17147,7 +17147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 英伦霸主: Typings.GameInfo = {
+// export const 英伦霸主: Typings.GameInformation = {
 //   translates: {
 //     cn: '英伦霸主'
 //   },
@@ -17157,7 +17157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 英伦霸主2+资料片: Typings.GameInfo = {
+// export const 英伦霸主2+资料片: Typings.GameInformation = {
 //   translates: {
 //     cn: '英伦霸主2+资料片'
 //   },
@@ -17167,7 +17167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 英雄传说1: Typings.GameInfo = {
+// export const 英雄传说1: Typings.GameInformation = {
 //   translates: {
 //     cn: '英雄传说1'
 //   },
@@ -17177,7 +17177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 英雄传说2: Typings.GameInfo = {
+// export const 英雄传说2: Typings.GameInformation = {
 //   translates: {
 //     cn: '英雄传说2'
 //   },
@@ -17187,7 +17187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 英雄传说3: Typings.GameInfo = {
+// export const 英雄传说3: Typings.GameInformation = {
 //   translates: {
 //     cn: '英雄传说3'
 //   },
@@ -17197,7 +17197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 英雄传说4: Typings.GameInfo = {
+// export const 英雄传说4: Typings.GameInformation = {
 //   translates: {
 //     cn: '英雄传说4'
 //   },
@@ -17207,7 +17207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 英雄圣战: Typings.GameInfo = {
+// export const 英雄圣战: Typings.GameInformation = {
 //   translates: {
 //     cn: '英雄圣战'
 //   },
@@ -17217,7 +17217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 英雄使命: Typings.GameInfo = {
+// export const 英雄使命: Typings.GameInformation = {
 //   translates: {
 //     cn: '英雄使命'
 //   },
@@ -17227,7 +17227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 英雄战记: Typings.GameInfo = {
+// export const 英雄战记: Typings.GameInformation = {
 //   translates: {
 //     cn: '英雄战记'
 //   },
@@ -17237,7 +17237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 樱花的季节: Typings.GameInfo = {
+// export const 樱花的季节: Typings.GameInformation = {
 //   translates: {
 //     cn: '樱花的季节'
 //   },
@@ -17247,7 +17247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 鹰眼传说：伦敦: Typings.GameInfo = {
+// export const 鹰眼传说：伦敦: Typings.GameInformation = {
 //   translates: {
 //     cn: '鹰眼传说:伦敦'
 //   },
@@ -17257,7 +17257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 佣兵1铁格部队: Typings.GameInfo = {
+// export const 佣兵1铁格部队: Typings.GameInformation = {
 //   translates: {
 //     cn: '佣兵1铁格部队'
 //   },
@@ -17267,7 +17267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 佣兵2突击部队: Typings.GameInfo = {
+// export const 佣兵2突击部队: Typings.GameInformation = {
 //   translates: {
 //     cn: '佣兵2突击部队'
 //   },
@@ -17277,7 +17277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 永恒之烛1: Typings.GameInfo = {
+// export const 永恒之烛1: Typings.GameInformation = {
 //   translates: {
 //     cn: '永恒之烛1'
 //   },
@@ -17287,7 +17287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 永恒之烛2: Typings.GameInfo = {
+// export const 永恒之烛2: Typings.GameInformation = {
 //   translates: {
 //     cn: '永恒之烛2'
 //   },
@@ -17297,7 +17297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 永恒之烛3: Typings.GameInfo = {
+// export const 永恒之烛3: Typings.GameInformation = {
 //   translates: {
 //     cn: '永恒之烛3'
 //   },
@@ -17307,7 +17307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 永远的蝙蝠侠: Typings.GameInfo = {
+// export const 永远的蝙蝠侠: Typings.GameInformation = {
 //   translates: {
 //     cn: '永远的蝙蝠侠'
 //   },
@@ -17317,7 +17317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 永远的雷曼: Typings.GameInfo = {
+// export const 永远的雷曼: Typings.GameInformation = {
 //   translates: {
 //     cn: '永远的雷曼'
 //   },
@@ -17327,7 +17327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 永远的雷曼自制关: Typings.GameInfo = {
+// export const 永远的雷曼自制关: Typings.GameInformation = {
 //   translates: {
 //     cn: '永远的雷曼自制关'
 //   },
@@ -17337,7 +17337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 勇士传奇: Typings.GameInfo = {
+// export const 勇士传奇: Typings.GameInformation = {
 //   translates: {
 //     cn: '勇士传奇'
 //   },
@@ -17347,7 +17347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 勇者传说: Typings.GameInfo = {
+// export const 勇者传说: Typings.GameInformation = {
 //   translates: {
 //     cn: '勇者传说'
 //   },
@@ -17357,7 +17357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 勇者斗恶龙: Typings.GameInfo = {
+// export const 勇者斗恶龙: Typings.GameInformation = {
 //   translates: {
 //     cn: '勇者斗恶龙'
 //   },
@@ -17367,7 +17367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 勇者斗恶龙2: Typings.GameInfo = {
+// export const 勇者斗恶龙2: Typings.GameInformation = {
 //   translates: {
 //     cn: '勇者斗恶龙2'
 //   },
@@ -17377,7 +17377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 勇者斗恶龙3: Typings.GameInfo = {
+// export const 勇者斗恶龙3: Typings.GameInformation = {
 //   translates: {
 //     cn: '勇者斗恶龙3'
 //   },
@@ -17387,7 +17387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幽城宝藏: Typings.GameInfo = {
+// export const 幽城宝藏: Typings.GameInformation = {
 //   translates: {
 //     cn: '幽城宝藏'
 //   },
@@ -17397,7 +17397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幽浮1未知敌人: Typings.GameInfo = {
+// export const 幽浮1未知敌人: Typings.GameInformation = {
 //   translates: {
 //     cn: '幽浮1未知敌人'
 //   },
@@ -17407,7 +17407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幽浮2深海之谜题: Typings.GameInfo = {
+// export const 幽浮2深海之谜题: Typings.GameInformation = {
 //   translates: {
 //     cn: '幽浮2深海之谜题'
 //   },
@@ -17417,7 +17417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幽浮3天启: Typings.GameInfo = {
+// export const 幽浮3天启: Typings.GameInformation = {
 //   translates: {
 //     cn: '幽浮3天启'
 //   },
@@ -17427,7 +17427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幽浮3天启光碟版: Typings.GameInfo = {
+// export const 幽浮3天启光碟版: Typings.GameInformation = {
 //   translates: {
 //     cn: '幽浮3天启光碟版'
 //   },
@@ -17437,7 +17437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 幽灵馆: Typings.GameInfo = {
+// export const 幽灵馆: Typings.GameInformation = {
 //   translates: {
 //     cn: '幽灵馆'
 //   },
@@ -17447,7 +17447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 悠悠大作战: Typings.GameInfo = {
+// export const 悠悠大作战: Typings.GameInformation = {
 //   translates: {
 //     cn: '悠悠大作战'
 //   },
@@ -17457,7 +17457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 游轮凶案: Typings.GameInfo = {
+// export const 游轮凶案: Typings.GameInformation = {
 //   translates: {
 //     cn: '游轮凶案'
 //   },
@@ -17467,7 +17467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 诱惑: Typings.GameInfo = {
+// export const 诱惑: Typings.GameInformation = {
 //   translates: {
 //     cn: '诱惑'
 //   },
@@ -17477,7 +17477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 宇宙传奇7: Typings.GameInfo = {
+// export const 宇宙传奇7: Typings.GameInformation = {
 //   translates: {
 //     cn: '宇宙传奇7'
 //   },
@@ -17487,7 +17487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 宇宙大冒险: Typings.GameInfo = {
+// export const 宇宙大冒险: Typings.GameInformation = {
 //   translates: {
 //     cn: '宇宙大冒险'
 //   },
@@ -17497,7 +17497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 宇宙方舟／太空巨人: Typings.GameInfo = {
+// export const 宇宙方舟／太空巨人: Typings.GameInformation = {
 //   translates: {
 //     cn: '宇宙方舟/太空巨人'
 //   },
@@ -17507,7 +17507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 宇宙神风号: Typings.GameInfo = {
+// export const 宇宙神风号: Typings.GameInformation = {
 //   translates: {
 //     cn: '宇宙神风号'
 //   },
@@ -17517,7 +17517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 宇宙十字军: Typings.GameInfo = {
+// export const 宇宙十字军: Typings.GameInformation = {
 //   translates: {
 //     cn: '宇宙十字军'
 //   },
@@ -17527,7 +17527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 宇宙王牌: Typings.GameInfo = {
+// export const 宇宙王牌: Typings.GameInformation = {
 //   translates: {
 //     cn: '宇宙王牌'
 //   },
@@ -17537,7 +17537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 宇宙王牌2: Typings.GameInfo = {
+// export const 宇宙王牌2: Typings.GameInformation = {
 //   translates: {
 //     cn: '宇宙王牌2'
 //   },
@@ -17547,7 +17547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 宇宙英雄: Typings.GameInfo = {
+// export const 宇宙英雄: Typings.GameInformation = {
 //   translates: {
 //     cn: '宇宙英雄'
 //   },
@@ -17557,7 +17557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雨果: Typings.GameInfo = {
+// export const 雨果: Typings.GameInformation = {
 //   translates: {
 //     cn: '雨果'
 //   },
@@ -17567,7 +17567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雨果的恐怖之屋1: Typings.GameInfo = {
+// export const 雨果的恐怖之屋1: Typings.GameInformation = {
 //   translates: {
 //     cn: '雨果的恐怖之屋1'
 //   },
@@ -17577,7 +17577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雨果的恐怖之屋2: Typings.GameInfo = {
+// export const 雨果的恐怖之屋2: Typings.GameInformation = {
 //   translates: {
 //     cn: '雨果的恐怖之屋2'
 //   },
@@ -17587,7 +17587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 雨果的恐怖之屋3: Typings.GameInfo = {
+// export const 雨果的恐怖之屋3: Typings.GameInformation = {
 //   translates: {
 //     cn: '雨果的恐怖之屋3'
 //   },
@@ -17597,7 +17597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 玉米飞机大战外星人: Typings.GameInfo = {
+// export const 玉米飞机大战外星人: Typings.GameInformation = {
 //   translates: {
 //     cn: '玉米飞机大战外星人'
 //   },
@@ -17607,7 +17607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 玉蒲团: Typings.GameInfo = {
+// export const 玉蒲团: Typings.GameInformation = {
 //   translates: {
 //     cn: '玉蒲团'
 //   },
@@ -17617,7 +17617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 预言: Typings.GameInfo = {
+// export const 预言: Typings.GameInformation = {
 //   translates: {
 //     cn: '预言'
 //   },
@@ -17627,7 +17627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 预言维金之子: Typings.GameInfo = {
+// export const 预言维金之子: Typings.GameInformation = {
 //   translates: {
 //     cn: '预言维金之子'
 //   },
@@ -17637,7 +17637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 寓言: Typings.GameInfo = {
+// export const 寓言: Typings.GameInformation = {
 //   translates: {
 //     cn: '寓言'
 //   },
@@ -17647,7 +17647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 元素球: Typings.GameInfo = {
+// export const 元素球: Typings.GameInformation = {
 //   translates: {
 //     cn: '元素球'
 //   },
@@ -17657,7 +17657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 原恒星战争前线: Typings.GameInfo = {
+// export const 原恒星战争前线: Typings.GameInformation = {
 //   translates: {
 //     cn: '原恒星战争前线'
 //   },
@@ -17667,7 +17667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 原始运输机: Typings.GameInfo = {
+// export const 原始运输机: Typings.GameInformation = {
 //   translates: {
 //     cn: '原始运输机'
 //   },
@@ -17677,7 +17677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 原子推箱子: Typings.GameInfo = {
+// export const 原子推箱子: Typings.GameInformation = {
 //   translates: {
 //     cn: '原子推箱子'
 //   },
@@ -17687,7 +17687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 月亮石骑士: Typings.GameInfo = {
+// export const 月亮石骑士: Typings.GameInformation = {
 //   translates: {
 //     cn: '月亮石骑士'
 //   },
@@ -17697,7 +17697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 月球巡逻: Typings.GameInfo = {
+// export const 月球巡逻: Typings.GameInformation = {
 //   translates: {
 //     cn: '月球巡逻'
 //   },
@@ -17707,7 +17707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 月球指挥官: Typings.GameInfo = {
+// export const 月球指挥官: Typings.GameInformation = {
 //   translates: {
 //     cn: '月球指挥官'
 //   },
@@ -17717,7 +17717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 云国小精灵: Typings.GameInfo = {
+// export const 云国小精灵: Typings.GameInformation = {
 //   translates: {
 //     cn: '云国小精灵'
 //   },
@@ -17727,7 +17727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 陨石射击: Typings.GameInfo = {
+// export const 陨石射击: Typings.GameInformation = {
 //   translates: {
 //     cn: '陨石射击'
 //   },
@@ -17737,7 +17737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 陨星任务: Typings.GameInfo = {
+// export const 陨星任务: Typings.GameInformation = {
 //   translates: {
 //     cn: '陨星任务'
 //   },
@@ -17747,7 +17747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 运镖天下: Typings.GameInfo = {
+// export const 运镖天下: Typings.GameInformation = {
 //   translates: {
 //     cn: '运镖天下'
 //   },
@@ -17757,7 +17757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 运输大亨: Typings.GameInfo = {
+// export const 运输大亨: Typings.GameInformation = {
 //   translates: {
 //     cn: '运输大亨'
 //   },
@@ -17767,7 +17767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 再度出击: Typings.GameInfo = {
+// export const 再度出击: Typings.GameInformation = {
 //   translates: {
 //     cn: '再度出击'
 //   },
@@ -17777,7 +17777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 赞斯的同伴: Typings.GameInfo = {
+// export const 赞斯的同伴: Typings.GameInformation = {
 //   translates: {
 //     cn: '赞斯的同伴'
 //   },
@@ -17787,7 +17787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 扎克宇宙历险记: Typings.GameInfo = {
+// export const 扎克宇宙历险记: Typings.GameInformation = {
 //   translates: {
 //     cn: '扎克宇宙历险记'
 //   },
@@ -17797,7 +17797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 炸弹超人: Typings.GameInfo = {
+// export const 炸弹超人: Typings.GameInformation = {
 //   translates: {
 //     cn: '炸弹超人'
 //   },
@@ -17807,7 +17807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 炸弹队长: Typings.GameInfo = {
+// export const 炸弹队长: Typings.GameInformation = {
 //   translates: {
 //     cn: '炸弹队长'
 //   },
@@ -17817,7 +17817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 炸弹人X: Typings.GameInfo = {
+// export const 炸弹人X: Typings.GameInformation = {
 //   translates: {
 //     cn: '炸弹人X'
 //   },
@@ -17827,7 +17827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 詹姆斯庞德2: Typings.GameInfo = {
+// export const 詹姆斯庞德2: Typings.GameInformation = {
 //   translates: {
 //     cn: '詹姆斯庞德2'
 //   },
@@ -17837,7 +17837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 斩3(日文): Typings.GameInfo = {
+// export const 斩3(日文): Typings.GameInformation = {
 //   translates: {
 //     cn: '斩3(日文)'
 //   },
@@ -17847,7 +17847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 斩草除根: Typings.GameInfo = {
+// export const 斩草除根: Typings.GameInformation = {
 //   translates: {
 //     cn: '斩草除根'
 //   },
@@ -17857,7 +17857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战虫: Typings.GameInfo = {
+// export const 战虫: Typings.GameInformation = {
 //   translates: {
 //     cn: '战虫'
 //   },
@@ -17867,7 +17867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战地大亨: Typings.GameInfo = {
+// export const 战地大亨: Typings.GameInformation = {
 //   translates: {
 //     cn: '战地大亨'
 //   },
@@ -17877,7 +17877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战地日记: Typings.GameInfo = {
+// export const 战地日记: Typings.GameInformation = {
 //   translates: {
 //     cn: '战地日记'
 //   },
@@ -17887,7 +17887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战斗大师: Typings.GameInfo = {
+// export const 战斗大师: Typings.GameInformation = {
 //   translates: {
 //     cn: '战斗大师'
 //   },
@@ -17897,7 +17897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战斗行动: Typings.GameInfo = {
+// export const 战斗行动: Typings.GameInformation = {
 //   translates: {
 //     cn: '战斗行动'
 //   },
@@ -17907,7 +17907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战斗行动2: Typings.GameInfo = {
+// export const 战斗行动2: Typings.GameInformation = {
 //   translates: {
 //     cn: '战斗行动2'
 //   },
@@ -17917,7 +17917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战斗起司: Typings.GameInfo = {
+// export const 战斗起司: Typings.GameInformation = {
 //   translates: {
 //     cn: '战斗起司'
 //   },
@@ -17927,7 +17927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战斗巫师: Typings.GameInfo = {
+// export const 战斗巫师: Typings.GameInformation = {
 //   translates: {
 //     cn: '战斗巫师'
 //   },
@@ -17937,7 +17937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战斗之怒: Typings.GameInfo = {
+// export const 战斗之怒: Typings.GameInformation = {
 //   translates: {
 //     cn: '战斗之怒'
 //   },
@@ -17947,7 +17947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战斧: Typings.GameInfo = {
+// export const 战斧: Typings.GameInformation = {
 //   translates: {
 //     cn: '战斧'
 //   },
@@ -17957,7 +17957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战国时代: Typings.GameInfo = {
+// export const 战国时代: Typings.GameInformation = {
 //   translates: {
 //     cn: '战国时代'
 //   },
@@ -17967,7 +17967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战机少女: Typings.GameInfo = {
+// export const 战机少女: Typings.GameInformation = {
 //   translates: {
 //     cn: '战机少女'
 //   },
@@ -17977,7 +17977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战机突袭: Typings.GameInfo = {
+// export const 战机突袭: Typings.GameInformation = {
 //   translates: {
 //     cn: '战机突袭'
 //   },
@@ -17987,7 +17987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战甲：月鹰复仇: Typings.GameInfo = {
+// export const 战甲：月鹰复仇: Typings.GameInformation = {
 //   translates: {
 //     cn: '战甲:月鹰复仇'
 //   },
@@ -17997,7 +17997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战利品: Typings.GameInfo = {
+// export const 战利品: Typings.GameInformation = {
 //   translates: {
 //     cn: '战利品'
 //   },
@@ -18007,7 +18007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战棋1-国际象棋: Typings.GameInfo = {
+// export const 战棋1-国际象棋: Typings.GameInformation = {
 //   translates: {
 //     cn: '战棋1-国际象棋'
 //   },
@@ -18017,7 +18017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战棋2-中国象棋: Typings.GameInfo = {
+// export const 战棋2-中国象棋: Typings.GameInformation = {
 //   translates: {
 //     cn: '战棋2-中国象棋'
 //   },
@@ -18027,7 +18027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战棋4000: Typings.GameInfo = {
+// export const 战棋4000: Typings.GameInformation = {
 //   translates: {
 //     cn: '战棋4000'
 //   },
@@ -18037,7 +18037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战神: Typings.GameInfo = {
+// export const 战神: Typings.GameInformation = {
 //   translates: {
 //     cn: '战神'
 //   },
@@ -18047,7 +18047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战神2: Typings.GameInfo = {
+// export const 战神2: Typings.GameInformation = {
 //   translates: {
 //     cn: '战神2'
 //   },
@@ -18057,7 +18057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战神2豪华版: Typings.GameInfo = {
+// export const 战神2豪华版: Typings.GameInformation = {
 //   translates: {
 //     cn: '战神2豪华版'
 //   },
@@ -18067,7 +18067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战神2英版+编辑器: Typings.GameInfo = {
+// export const 战神2英版+编辑器: Typings.GameInformation = {
 //   translates: {
 //     cn: '战神2英版+编辑器'
 //   },
@@ -18077,7 +18077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战术飞行试验: Typings.GameInfo = {
+// export const 战术飞行试验: Typings.GameInformation = {
 //   translates: {
 //     cn: '战术飞行试验'
 //   },
@@ -18087,7 +18087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战线: Typings.GameInfo = {
+// export const 战线: Typings.GameInformation = {
 //   translates: {
 //     cn: '战线'
 //   },
@@ -18097,7 +18097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战线1981: Typings.GameInfo = {
+// export const 战线1981: Typings.GameInformation = {
 //   translates: {
 //     cn: '战线1981'
 //   },
@@ -18107,7 +18107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战争王国: Typings.GameInfo = {
+// export const 战争王国: Typings.GameInformation = {
 //   translates: {
 //     cn: '战争王国'
 //   },
@@ -18117,7 +18117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战争游戏: Typings.GameInfo = {
+// export const 战争游戏: Typings.GameInformation = {
 //   translates: {
 //     cn: '战争游戏'
 //   },
@@ -18127,7 +18127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战争游戏合集: Typings.GameInfo = {
+// export const 战争游戏合集: Typings.GameInformation = {
 //   translates: {
 //     cn: '战争游戏合集'
 //   },
@@ -18137,7 +18137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战争之岛: Typings.GameInfo = {
+// export const 战争之岛: Typings.GameInformation = {
 //   translates: {
 //     cn: '战争之岛'
 //   },
@@ -18147,7 +18147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战争之岛1993: Typings.GameInfo = {
+// export const 战争之岛1993: Typings.GameInformation = {
 //   translates: {
 //     cn: '战争之岛1993'
 //   },
@@ -18157,7 +18157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战争之岛2020: Typings.GameInfo = {
+// export const 战争之岛2020: Typings.GameInformation = {
 //   translates: {
 //     cn: '战争之岛2020'
 //   },
@@ -18167,7 +18167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战争之旗: Typings.GameInfo = {
+// export const 战争之旗: Typings.GameInformation = {
 //   translates: {
 //     cn: '战争之旗'
 //   },
@@ -18177,7 +18177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 战争之人: Typings.GameInfo = {
+// export const 战争之人: Typings.GameInformation = {
 //   translates: {
 //     cn: '战争之人'
 //   },
@@ -18187,7 +18187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 长弓传说－罗宾汉: Typings.GameInfo = {
+// export const 长弓传说－罗宾汉: Typings.GameInformation = {
 //   translates: {
 //     cn: '长弓传说－罗宾汉'
 //   },
@@ -18197,7 +18197,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 长枪英雄: Typings.GameInfo = {
+// export const 长枪英雄: Typings.GameInformation = {
 //   translates: {
 //     cn: '长枪英雄'
 //   },
@@ -18207,7 +18207,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 折纸迷宫: Typings.GameInfo = {
+// export const 折纸迷宫: Typings.GameInformation = {
 //   translates: {
 //     cn: '折纸迷宫'
 //   },
@@ -18217,7 +18217,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 侦探劳拉2: Typings.GameInfo = {
+// export const 侦探劳拉2: Typings.GameInformation = {
 //   translates: {
 //     cn: '侦探劳拉2'
 //   },
@@ -18227,7 +18227,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 珍宝珠小子: Typings.GameInfo = {
+// export const 珍宝珠小子: Typings.GameInformation = {
 //   translates: {
 //     cn: '珍宝珠小子'
 //   },
@@ -18237,7 +18237,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 珍宝珠小子2: Typings.GameInfo = {
+// export const 珍宝珠小子2: Typings.GameInformation = {
 //   translates: {
 //     cn: '珍宝珠小子2'
 //   },
@@ -18247,7 +18247,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 真红的杀意: Typings.GameInfo = {
+// export const 真红的杀意: Typings.GameInformation = {
 //   translates: {
 //     cn: '真红的杀意'
 //   },
@@ -18257,7 +18257,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 真人快打: Typings.GameInfo = {
+// export const 真人快打: Typings.GameInformation = {
 //   translates: {
 //     cn: '真人快打'
 //   },
@@ -18267,7 +18267,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 真人快打2: Typings.GameInfo = {
+// export const 真人快打2: Typings.GameInformation = {
 //   translates: {
 //     cn: '真人快打2'
 //   },
@@ -18277,7 +18277,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 真人快打3: Typings.GameInfo = {
+// export const 真人快打3: Typings.GameInformation = {
 //   translates: {
 //     cn: '真人快打3'
 //   },
@@ -18287,7 +18287,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 真实足球: Typings.GameInfo = {
+// export const 真实足球: Typings.GameInformation = {
 //   translates: {
 //     cn: '真实足球'
 //   },
@@ -18297,7 +18297,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 真实足球俱乐部版: Typings.GameInfo = {
+// export const 真实足球俱乐部版: Typings.GameInformation = {
 //   translates: {
 //     cn: '真实足球俱乐部版'
 //   },
@@ -18307,7 +18307,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 镇暴特遣队: Typings.GameInfo = {
+// export const 镇暴特遣队: Typings.GameInformation = {
 //   translates: {
 //     cn: '镇暴特遣队'
 //   },
@@ -18317,7 +18317,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 争分夺秒: Typings.GameInfo = {
+// export const 争分夺秒: Typings.GameInformation = {
 //   translates: {
 //     cn: '争分夺秒'
 //   },
@@ -18327,7 +18327,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 征服：AD1086: Typings.GameInfo = {
+// export const 征服：AD1086: Typings.GameInformation = {
 //   translates: {
 //     cn: '征服：AD1086'
 //   },
@@ -18337,7 +18337,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 正宗台湾16张麻将: Typings.GameInfo = {
+// export const 正宗台湾16张麻将: Typings.GameInformation = {
 //   translates: {
 //     cn: '正宗台湾16张麻将'
 //   },
@@ -18347,7 +18347,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 正宗台湾16张麻将2: Typings.GameInfo = {
+// export const 正宗台湾16张麻将2: Typings.GameInformation = {
 //   translates: {
 //     cn: '正宗台湾16张麻将2'
 //   },
@@ -18357,7 +18357,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 支配力量: Typings.GameInfo = {
+// export const 支配力量: Typings.GameInformation = {
 //   translates: {
 //     cn: '支配力量'
 //   },
@@ -18367,7 +18367,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 直升机救援队: Typings.GameInfo = {
+// export const 直升机救援队: Typings.GameInformation = {
 //   translates: {
 //     cn: '直升机救援队'
 //   },
@@ -18377,7 +18377,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 直升机搜敌记: Typings.GameInfo = {
+// export const 直升机搜敌记: Typings.GameInformation = {
 //   translates: {
 //     cn: '直升机搜敌记'
 //   },
@@ -18387,7 +18387,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 职业棒球联赛: Typings.GameInfo = {
+// export const 职业棒球联赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '职业棒球联赛'
 //   },
@@ -18397,7 +18397,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 殖民帝国: Typings.GameInfo = {
+// export const 殖民帝国: Typings.GameInformation = {
 //   translates: {
 //     cn: '殖民帝国'
 //   },
@@ -18407,7 +18407,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 殖民世纪: Typings.GameInfo = {
+// export const 殖民世纪: Typings.GameInformation = {
 //   translates: {
 //     cn: '殖民世纪'
 //   },
@@ -18417,7 +18417,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 指环王: Typings.GameInfo = {
+// export const 指环王: Typings.GameInformation = {
 //   translates: {
 //     cn: '指环王'
 //   },
@@ -18427,7 +18427,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 指环王2: Typings.GameInfo = {
+// export const 指环王2: Typings.GameInformation = {
 //   translates: {
 //     cn: '指环王2'
 //   },
@@ -18437,7 +18437,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 指挥官基恩1: Typings.GameInfo = {
+// export const 指挥官基恩1: Typings.GameInformation = {
 //   translates: {
 //     cn: '指挥官基恩1'
 //   },
@@ -18447,7 +18447,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 指挥官基恩10民间版: Typings.GameInfo = {
+// export const 指挥官基恩10民间版: Typings.GameInformation = {
 //   translates: {
 //     cn: '指挥官基恩10民间版'
 //   },
@@ -18457,7 +18457,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 指挥官基恩2: Typings.GameInfo = {
+// export const 指挥官基恩2: Typings.GameInformation = {
 //   translates: {
 //     cn: '指挥官基恩2'
 //   },
@@ -18467,7 +18467,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 指挥官基恩3: Typings.GameInfo = {
+// export const 指挥官基恩3: Typings.GameInformation = {
 //   translates: {
 //     cn: '指挥官基恩3'
 //   },
@@ -18477,7 +18477,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 指挥官基恩3.5: Typings.GameInfo = {
+// export const 指挥官基恩3.5: Typings.GameInformation = {
 //   translates: {
 //     cn: '指挥官基恩3.5'
 //   },
@@ -18487,7 +18487,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 指挥官基恩4: Typings.GameInfo = {
+// export const 指挥官基恩4: Typings.GameInformation = {
 //   translates: {
 //     cn: '指挥官基恩4'
 //   },
@@ -18497,7 +18497,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 指挥官基恩5: Typings.GameInfo = {
+// export const 指挥官基恩5: Typings.GameInformation = {
 //   translates: {
 //     cn: '指挥官基恩5'
 //   },
@@ -18507,7 +18507,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 指挥官基恩6: Typings.GameInfo = {
+// export const 指挥官基恩6: Typings.GameInformation = {
 //   translates: {
 //     cn: '指挥官基恩6'
 //   },
@@ -18517,7 +18517,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 指挥官基恩7民间版: Typings.GameInfo = {
+// export const 指挥官基恩7民间版: Typings.GameInformation = {
 //   translates: {
 //     cn: '指挥官基恩7民间版'
 //   },
@@ -18527,7 +18527,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 指挥官基恩8民间版: Typings.GameInfo = {
+// export const 指挥官基恩8民间版: Typings.GameInformation = {
 //   translates: {
 //     cn: '指挥官基恩8民间版'
 //   },
@@ -18537,7 +18537,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 指挥官基恩9民间版: Typings.GameInfo = {
+// export const 指挥官基恩9民间版: Typings.GameInformation = {
 //   translates: {
 //     cn: '指挥官基恩9民间版'
 //   },
@@ -18547,7 +18547,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 至高跆拳道冠军赛: Typings.GameInfo = {
+// export const 至高跆拳道冠军赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '至高跆拳道冠军赛'
 //   },
@@ -18557,7 +18557,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 致命车赛: Typings.GameInfo = {
+// export const 致命车赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '致命车赛'
 //   },
@@ -18567,7 +18567,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 致命毒药: Typings.GameInfo = {
+// export const 致命毒药: Typings.GameInformation = {
 //   translates: {
 //     cn: '致命毒药'
 //   },
@@ -18577,7 +18577,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 致命挑战: Typings.GameInfo = {
+// export const 致命挑战: Typings.GameInformation = {
 //   translates: {
 //     cn: '致命挑战'
 //   },
@@ -18587,7 +18587,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 智冠杯灌篮大赛: Typings.GameInfo = {
+// export const 智冠杯灌篮大赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '智冠杯灌篮大赛'
 //   },
@@ -18597,7 +18597,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 智慧弹珠: Typings.GameInfo = {
+// export const 智慧弹珠: Typings.GameInformation = {
 //   translates: {
 //     cn: '智慧弹珠'
 //   },
@@ -18607,7 +18607,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 智圣鲜师: Typings.GameInfo = {
+// export const 智圣鲜师: Typings.GameInformation = {
 //   translates: {
 //     cn: '智圣鲜师'
 //   },
@@ -18617,7 +18617,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 中关村启示录: Typings.GameInfo = {
+// export const 中关村启示录: Typings.GameInformation = {
 //   translates: {
 //     cn: '中关村启示录'
 //   },
@@ -18627,7 +18627,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 中国: Typings.GameInfo = {
+// export const 中国: Typings.GameInformation = {
 //   translates: {
 //     cn: '中国'
 //   },
@@ -18637,7 +18637,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 中国民航: Typings.GameInfo = {
+// export const 中国民航: Typings.GameInformation = {
 //   translates: {
 //     cn: '中国民航'
 //   },
@@ -18647,7 +18647,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 中国之心: Typings.GameInfo = {
+// export const 中国之心: Typings.GameInformation = {
 //   translates: {
 //     cn: '中国之心'
 //   },
@@ -18657,7 +18657,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 中华职棒: Typings.GameInfo = {
+// export const 中华职棒: Typings.GameInformation = {
 //   translates: {
 //     cn: '中华职棒'
 //   },
@@ -18667,7 +18667,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 中央情报局: Typings.GameInfo = {
+// export const 中央情报局: Typings.GameInformation = {
 //   translates: {
 //     cn: '中央情报局'
 //   },
@@ -18677,7 +18677,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 中原镖局: Typings.GameInfo = {
+// export const 中原镖局: Typings.GameInformation = {
 //   translates: {
 //     cn: '中原镖局'
 //   },
@@ -18687,7 +18687,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 终端恐惧: Typings.GameInfo = {
+// export const 终端恐惧: Typings.GameInformation = {
 //   translates: {
 //     cn: '终端恐惧'
 //   },
@@ -18697,7 +18697,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 终极快打: Typings.GameInfo = {
+// export const 终极快打: Typings.GameInformation = {
 //   translates: {
 //     cn: '终极快打'
 //   },
@@ -18707,7 +18707,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 终极任务: Typings.GameInfo = {
+// export const 终极任务: Typings.GameInformation = {
 //   translates: {
 //     cn: '终极任务'
 //   },
@@ -18717,7 +18717,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 终极速度: Typings.GameInfo = {
+// export const 终极速度: Typings.GameInformation = {
 //   translates: {
 //     cn: '终极速度'
 //   },
@@ -18727,7 +18727,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 终极战士: Typings.GameInfo = {
+// export const 终极战士: Typings.GameInformation = {
 //   translates: {
 //     cn: '终极战士'
 //   },
@@ -18737,7 +18737,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 终结者2029: Typings.GameInfo = {
+// export const 终结者2029: Typings.GameInformation = {
 //   translates: {
 //     cn: '终结者2029'
 //   },
@@ -18747,7 +18747,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 终结者2射击版: Typings.GameInfo = {
+// export const 终结者2射击版: Typings.GameInformation = {
 //   translates: {
 //     cn: '终结者2射击版'
 //   },
@@ -18757,7 +18757,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 种族灭绝: Typings.GameInfo = {
+// export const 种族灭绝: Typings.GameInformation = {
 //   translates: {
 //     cn: '种族灭绝'
 //   },
@@ -18767,7 +18767,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 仲裁者: Typings.GameInfo = {
+// export const 仲裁者: Typings.GameInformation = {
 //   translates: {
 //     cn: '仲裁者'
 //   },
@@ -18777,7 +18777,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 重返德军总部3D: Typings.GameInfo = {
+// export const 重返德军总部3D: Typings.GameInformation = {
 //   translates: {
 //     cn: '重返德军总部3D'
 //   },
@@ -18787,7 +18787,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 重甲机神: Typings.GameInfo = {
+// export const 重甲机神: Typings.GameInformation = {
 //   translates: {
 //     cn: '重甲机神'
 //   },
@@ -18797,7 +18797,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 重力战机: Typings.GameInfo = {
+// export const 重力战机: Typings.GameInformation = {
 //   translates: {
 //     cn: '重力战机'
 //   },
@@ -18807,7 +18807,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 咒语锻造: Typings.GameInfo = {
+// export const 咒语锻造: Typings.GameInformation = {
 //   translates: {
 //     cn: '咒语锻造'
 //   },
@@ -18817,7 +18817,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 咒语交叉: Typings.GameInfo = {
+// export const 咒语交叉: Typings.GameInformation = {
 //   translates: {
 //     cn: '咒语交叉'
 //   },
@@ -18827,7 +18827,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 侏罗纪公园: Typings.GameInfo = {
+// export const 侏罗纪公园: Typings.GameInformation = {
 //   translates: {
 //     cn: '侏罗纪公园'
 //   },
@@ -18837,7 +18837,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 侏罗纪圣战: Typings.GameInfo = {
+// export const 侏罗纪圣战: Typings.GameInformation = {
 //   translates: {
 //     cn: '侏罗纪圣战'
 //   },
@@ -18847,7 +18847,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 诸神的黄昏: Typings.GameInfo = {
+// export const 诸神的黄昏: Typings.GameInformation = {
 //   translates: {
 //     cn: '诸神的黄昏'
 //   },
@@ -18857,7 +18857,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 诸神封印: Typings.GameInfo = {
+// export const 诸神封印: Typings.GameInformation = {
 //   translates: {
 //     cn: '诸神封印'
 //   },
@@ -18867,7 +18867,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 主题公园磁碟版: Typings.GameInfo = {
+// export const 主题公园磁碟版: Typings.GameInformation = {
 //   translates: {
 //     cn: '主题公园磁碟版'
 //   },
@@ -18877,7 +18877,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 主题公园光碟版: Typings.GameInfo = {
+// export const 主题公园光碟版: Typings.GameInformation = {
 //   translates: {
 //     cn: '主题公园光碟版'
 //   },
@@ -18887,7 +18887,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 筑城大师: Typings.GameInfo = {
+// export const 筑城大师: Typings.GameInformation = {
 //   translates: {
 //     cn: '筑城大师'
 //   },
@@ -18897,7 +18897,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 筑城大师2: Typings.GameInfo = {
+// export const 筑城大师2: Typings.GameInformation = {
 //   translates: {
 //     cn: '筑城大师2'
 //   },
@@ -18907,7 +18907,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 抓住他们: Typings.GameInfo = {
+// export const 抓住他们: Typings.GameInformation = {
 //   translates: {
 //     cn: '抓住他们'
 //   },
@@ -18917,7 +18917,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 专业网球巡回赛: Typings.GameInfo = {
+// export const 专业网球巡回赛: Typings.GameInformation = {
 //   translates: {
 //     cn: '专业网球巡回赛'
 //   },
@@ -18927,7 +18927,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 转校生: Typings.GameInfo = {
+// export const 转校生: Typings.GameInformation = {
 //   translates: {
 //     cn: '转校生'
 //   },
@@ -18937,7 +18937,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 转校生-天使们的午后: Typings.GameInfo = {
+// export const 转校生-天使们的午后: Typings.GameInformation = {
 //   translates: {
 //     cn: '转校生-天使们的午后'
 //   },
@@ -18947,7 +18947,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 转校生-天使们的午后2: Typings.GameInfo = {
+// export const 转校生-天使们的午后2: Typings.GameInformation = {
 //   translates: {
 //     cn: '转校生-天使们的午后2'
 //   },
@@ -18957,7 +18957,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 装甲守护: Typings.GameInfo = {
+// export const 装甲守护: Typings.GameInformation = {
 //   translates: {
 //     cn: '装甲守护'
 //   },
@@ -18967,7 +18967,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 装甲雄狮: Typings.GameInfo = {
+// export const 装甲雄狮: Typings.GameInformation = {
 //   translates: {
 //     cn: '装甲雄狮'
 //   },
@@ -18977,7 +18977,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 装甲元帅: Typings.GameInfo = {
+// export const 装甲元帅: Typings.GameInformation = {
 //   translates: {
 //     cn: '装甲元帅'
 //   },
@@ -18987,7 +18987,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 壮志凌云: Typings.GameInfo = {
+// export const 壮志凌云: Typings.GameInformation = {
 //   translates: {
 //     cn: '壮志凌云'
 //   },
@@ -18997,7 +18997,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 撞球补习班: Typings.GameInfo = {
+// export const 撞球补习班: Typings.GameInformation = {
 //   translates: {
 //     cn: '撞球补习班'
 //   },
@@ -19007,7 +19007,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 捉鬼敢死队2: Typings.GameInfo = {
+// export const 捉鬼敢死队2: Typings.GameInformation = {
 //   translates: {
 //     cn: '捉鬼敢死队2'
 //   },
@@ -19017,7 +19017,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 字符世界历险记: Typings.GameInfo = {
+// export const 字符世界历险记: Typings.GameInformation = {
 //   translates: {
 //     cn: '字符世界历险记'
 //   },
@@ -19027,7 +19027,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 纵横七海: Typings.GameInfo = {
+// export const 纵横七海: Typings.GameInformation = {
 //   translates: {
 //     cn: '纵横七海'
 //   },
@@ -19037,7 +19037,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 走廊：异形入侵: Typings.GameInfo = {
+// export const 走廊：异形入侵: Typings.GameInformation = {
 //   translates: {
 //     cn: '走廊:异形入侵'
 //   },
@@ -19047,7 +19047,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 足球超级明星: Typings.GameInfo = {
+// export const 足球超级明星: Typings.GameInformation = {
 //   translates: {
 //     cn: '足球超级明星'
 //   },
@@ -19057,7 +19057,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 足球帝国: Typings.GameInfo = {
+// export const 足球帝国: Typings.GameInformation = {
 //   translates: {
 //     cn: '足球帝国'
 //   },
@@ -19067,7 +19067,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 足球经理人: Typings.GameInfo = {
+// export const 足球经理人: Typings.GameInformation = {
 //   translates: {
 //     cn: '足球经理人'
 //   },
@@ -19077,7 +19077,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 足球小子: Typings.GameInfo = {
+// export const 足球小子: Typings.GameInformation = {
 //   translates: {
 //     cn: '足球小子'
 //   },
@@ -19087,7 +19087,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 卒业: Typings.GameInfo = {
+// export const 卒业: Typings.GameInformation = {
 //   translates: {
 //     cn: '卒业'
 //   },
@@ -19097,7 +19097,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 卒业旅行: Typings.GameInfo = {
+// export const 卒业旅行: Typings.GameInformation = {
 //   translates: {
 //     cn: '卒业旅行'
 //   },
@@ -19107,7 +19107,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 钻地小精灵: Typings.GameInfo = {
+// export const 钻地小精灵: Typings.GameInformation = {
 //   translates: {
 //     cn: '钻地小精灵'
 //   },
@@ -19117,7 +19117,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 最后的忍者: Typings.GameInfo = {
+// export const 最后的忍者: Typings.GameInformation = {
 //   translates: {
 //     cn: '最后的忍者'
 //   },
@@ -19127,7 +19127,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 最后的武士: Typings.GameInfo = {
+// export const 最后的武士: Typings.GameInformation = {
 //   translates: {
 //     cn: '最后的武士'
 //   },
@@ -19137,7 +19137,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 最后期限: Typings.GameInfo = {
+// export const 最后期限: Typings.GameInformation = {
 //   translates: {
 //     cn: '最后期限'
 //   },
@@ -19147,7 +19147,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 最后武力: Typings.GameInfo = {
+// export const 最后武力: Typings.GameInformation = {
 //   translates: {
 //     cn: '最后武力'
 //   },
@@ -19157,7 +19157,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 罪恶都市: Typings.GameInfo = {
+// export const 罪恶都市: Typings.GameInformation = {
 //   translates: {
 //     cn: '罪恶都市'
 //   },
@@ -19167,7 +19167,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 罪恶克星: Typings.GameInfo = {
+// export const 罪恶克星: Typings.GameInformation = {
 //   translates: {
 //     cn: '罪恶克星'
 //   },
@@ -19177,7 +19177,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 佐罗: Typings.GameInfo = {
+// export const 佐罗: Typings.GameInformation = {
 //   translates: {
 //     cn: '佐罗'
 //   },
@@ -19187,7 +19187,7 @@ export const xuanyuanjian: Typings.GameInfo = {
 //   ]
 // }
 
-// export const 作战集团: Typings.GameInfo = {
+// export const 作战集团: Typings.GameInformation = {
 //   translates: {
 //     cn: '作战集团'
 //   },

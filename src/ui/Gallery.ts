@@ -24,7 +24,7 @@ export default class Gallery extends Component {
     return num === -1 ? this.items.length : num
   }
 
-  constructor (games: { [key: string]: Typings.GameInfo }) {
+  constructor (games: { [key: string]: Typings.GameInformation }) {
     super()
 
     this.element = new Element(['gallery'])
@@ -121,7 +121,7 @@ export default class Gallery extends Component {
     this.handleKeySelected = undefined
   }
 
-  public register (game: Typings.GameInfo): Element {
+  public register (game: Typings.GameInformation): Element {
     const element = new Element(['gallery-item'], null, 'a')
     element.setAttr('data-game', game.id)
     element.style.backgroundImage = `url(${game.cover})`

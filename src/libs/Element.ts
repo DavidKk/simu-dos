@@ -1,6 +1,7 @@
 import uniq from 'lodash/uniq'
 import remove from 'lodash/remove'
 import includes from 'lodash/includes'
+import { classnames } from '../share/style'
 import * as Typings from '../typings'
 
 /**
@@ -81,7 +82,7 @@ export default class Element {
   }
 
   constructor (element: HTMLElement)
-  constructor (classes?: string | string[] | { [key: string]: boolean }, children?: Element[] | HTMLElement[] | Text[] | string[], tag?: string)
+  constructor (classes?: Typings.ElementClassNames, children?: Element[] | HTMLElement[] | Text[] | string[], tag?: string)
   constructor () {
     const args = Array.prototype.slice.call(arguments)
     const [element] = args
@@ -97,9 +98,9 @@ export default class Element {
    * @param {string} tag 标签
    * @returns {HTMLElement}
    */
-  private create (classes: string | string[] | { [key: string]: boolean } = '', children: Element[] | HTMLElement[] | Text[] | string[] = [], tag: string = 'div'): HTMLElement {
+  private create (classes: Typings.ElementClassNames = '', children: Element[] | HTMLElement[] | Text[] | string[] = [], tag: string = 'div'): HTMLElement {
     const element = document.createElement(tag)
-    element.classList.add(...this.classes(classes))
+    element.classList.add(...classnames(classes))
 
     if (Array.isArray(children) && children.length > 0) {
       children.forEach((node) => this.append(node, element))
@@ -109,34 +110,11 @@ export default class Element {
   }
 
   /**
-   * 转化成样式类名称
-   * @param {string|string[]|Object}} classes 样式类名称
-   * @returns {string[]} 类名集合
-   */
-  private classes (classes: string | string[] | { [key: string]: boolean }): string[] {
-    if (Array.isArray(classes)) {
-      return uniq(classes)
-    }
-
-    if (typeof classes === 'object') {
-      if (classes === null) {
-        return []
-      }
-
-      classes = Object.keys(classes).filter(name => classes[name] === true)
-      return this.classes(classes)
-    }
-
-    classes = classes.split(' ')
-    return this.classes(classes)
-  }
-
-  /**
    * 添加样式名称
    * @param {string|string[]|Object}} classes 样式类名称
    */
-  public addClass (classes: string | string[] | { [key: string]: boolean }): void {
-    classes = [].concat(Array.from(this.element.classList), this.classes(classes))
+  public addClass (classes: Typings.ElementClassNames): void {
+    classes = [].concat(Array.from(this.element.classList), classnames(classes))
     this.element.className = uniq(classes).join(' ')
   }
 
@@ -144,9 +122,9 @@ export default class Element {
    * 删除样式名称
    * @param {string|string[]|Object}} classes 样式类名称
    */
-  public removeClass (classes: string | string[] | { [key: string]: boolean }): void {
+  public removeClass (classes: Typings.ElementClassNames): void {
     const originClasses = Array.from(this.element.classList)
-    const removeClasses = this.classes(classes)
+    const removeClasses = classnames(classes)
 
     classes = originClasses.filter((item) => !includes(removeClasses, item))
     this.element.className = classes.join(' ')

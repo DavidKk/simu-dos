@@ -28,6 +28,22 @@
   }
 }
 
+.term-line.info {
+  color: #56b9d9;
+}
+
+.term-line.success {
+  color: #89c70a;
+}
+
+.term-line.warn {
+  color: #b3b24a;
+}
+
+.term-line.error {
+  color: #e90b48;
+}
+
 @keyframes cursor {
   0% {
     opacity: 0;

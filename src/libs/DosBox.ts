@@ -134,11 +134,11 @@ export default class DosBox extends EventEmitter {
 
   /**
    * 运行游戏
-   * @param {Typings.GameInfo} game 游戏信息
+   * @param {Typings.GameInformation} game 游戏信息
    * @param {Typings.DosBoxPlayOptions} options 执行配置
    * @returns {Promise}
    */
-  public async play (game: Typings.GameInfo, options?: Typings.DosBoxPlayOptions): Promise<void> {
+  public async play (game: Typings.GameInformation, options?: Typings.DosBoxPlayOptions): Promise<void> {
     const { url, rom, command } = game
     const { wasm, wasmUrl } = defaultsDeep(options, this.options)
 
