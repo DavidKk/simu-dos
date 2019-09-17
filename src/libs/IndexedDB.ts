@@ -98,30 +98,22 @@ export default class IndexedDB {
   }
 
   /**
-   * 获取数据库 ObjectStore 对象
-   * @returns {Promise<IDBObjectStore>}
-   */
-  public openStore (table: string): Promise<IDBObjectStore> {
-    return this.open().then((database: IDBDatabase) => {
-      const transaction = database.transaction(table, 'readwrite')
-      return transaction.objectStore(table)
-    })
-  }
-
-  /**
    * 通过索索引查找所有数据
    * @param {IDBObjectStore} store 存储对象
    * @param {string} index 索引名称
    * @param {string|number|Date|ArrayBufferView|ArrayBuffer|IDBArrayKey|IDBKeyRange} query 搜索条件
    * @returns {Promise<any>}
    */
-  public getAllByIndex (store: IDBObjectStore, index: string, query: string | number | Date | ArrayBufferView | ArrayBuffer | IDBArrayKey | IDBKeyRange): Promise<any> {
-    return new Promise((resolve, reject) => {
+  public getAllByIndex (stroeName: string, index: string, query: string | number | Date | ArrayBufferView | ArrayBuffer | IDBArrayKey | IDBKeyRange): Promise<any> {
+    return this.open().then((database: IDBDatabase) => new Promise((resolve, reject) => {
+      const transaction = database.transaction(stroeName, 'readwrite')
+      const store = transaction.objectStore(stroeName)
+
       const dbIndex = store.index(index)
       const getRequest = dbIndex.getAll(query)
       getRequest.onerror = (error) => reject(error)
       getRequest.onsuccess = (event: any) => resolve(event.target.result)
-    })
+    }))
   }
 
   /**
@@ -130,12 +122,15 @@ export default class IndexedDB {
    * @param {string|number|Date|ArrayBufferView|ArrayBuffer|IDBArrayKey|IDBKeyRange} query 搜索条件
    * @returns {Promise<any>}
    */
-  public get (store: IDBObjectStore, query: string | number | Date | ArrayBufferView | ArrayBuffer | IDBArrayKey | IDBKeyRange): Promise<any> {
-    return new Promise((resolve, reject) => {
+  public get (stroeName: string, query: string | number | Date | ArrayBufferView | ArrayBuffer | IDBArrayKey | IDBKeyRange): Promise<any> {
+    return this.open().then((database: IDBDatabase) => new Promise((resolve, reject) => {
+      const transaction = database.transaction(stroeName, 'readwrite')
+      const store = transaction.objectStore(stroeName)
+
       const getRequest = store.get(query)
       getRequest.onerror = (error) => reject(error)
       getRequest.onsuccess = () => resolve(getRequest.result)
-    })
+    }))
   }
 
   /**
@@ -145,12 +140,15 @@ export default class IndexedDB {
    * @param {IDBValidKey} key 键名
    * @returns {Promise<void>}
    */
-  public put (store: IDBObjectStore, value: any, key?: IDBValidKey): Promise<void> {
-    return new Promise((resolve, reject) => {
+  public put (stroeName: string, value: any, key?: IDBValidKey): Promise<void> {
+    return this.open().then((database: IDBDatabase) => new Promise((resolve, reject) => {
+      const transaction = database.transaction(stroeName, 'readwrite')
+      const store = transaction.objectStore(stroeName)
+
       const putRequest = store.put(value, key)
       putRequest.onerror = (error) => reject(error)
       putRequest.onsuccess = () => resolve()
-    })
+    }))
   }
 
   /**
@@ -162,8 +160,11 @@ export default class IndexedDB {
    * 如果文件已经存在则修改文件
    * 如果文件不存在则压入数据库中
    */
-  public sync <T extends { [key: string]: any }> (store: IDBObjectStore, index: keyof T, data: T, equals: (cursor: IDBCursorWithValue, data: T) => boolean = (cursor, data) => cursor.value[index] === data[index]): Promise<void> {
-    return new Promise((resolve, reject) => {
+  public sync <T extends { [key: string]: any }> (stroeName: string, index: keyof T, data: T, equals: (cursor: IDBCursorWithValue, data: T) => boolean = (cursor, data) => cursor.value[index] === data[index]): Promise<void> {
+    return this.open().then((database: IDBDatabase) => new Promise((resolve, reject) => {
+      const transaction = database.transaction(stroeName, 'readwrite')
+      const store = transaction.objectStore(stroeName)
+
       const openRequest = store.index(index as string).openCursor(data[index])
       openRequest.onerror = (error) => reject(error)
       openRequest.onsuccess = () => {
@@ -184,7 +185,7 @@ export default class IndexedDB {
           pushRequest.onsuccess = () => resolve()
         }
       }
-    })
+    }))
   }
 
   /**
