@@ -4,7 +4,7 @@ import defaultsDeep from 'lodash/defaultsDeep'
 import { AxiosRequestConfig } from 'axios'
 import request, { CancelToken } from '../services/request'
 import dosConf from '../conf/dos'
-import version from '../conf/version'
+import { dosboxVersion } from '../conf/constants'
 import * as Typings from '../typings'
 
 /**
@@ -296,7 +296,7 @@ export default class DosBox extends EventEmitter {
      */
     this.wdosboxModule = {
       canvas: this.canvas,
-      version,
+      version: dosboxVersion,
       instantiateWasm,
       onRuntimeInitialized,
       ping,
