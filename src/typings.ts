@@ -124,8 +124,8 @@ export interface GameInformationPlay {
 export interface GameInformation {
   id: string
   name: string
-  translates?: i18nType<string>
-  cover: string
+  translates?: string | i18nType<string>
+  cover: string | i18nType<string>
   type?: string
   summary?: string | string[] | i18nType<string | string[]>
   developers?: string | string[] | i18nType<string | string[]>
