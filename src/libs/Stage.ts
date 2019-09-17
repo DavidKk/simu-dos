@@ -58,8 +58,26 @@ export default class Stage {
     this.term && this.term.reset()
   }
 
-  public print (context: string): void {
-    this.term.print(context)
+  public print (context: string, type: 'log' | 'info' | 'success' | 'warn' | 'error' = 'log'): void {
+    switch (type) {
+      case 'info':
+        this.term.info(context)
+        break
+      case 'success':
+        this.term.success(context)
+        break
+      case 'warn':
+        this.term.warn(context)
+        break
+      case 'error':
+        this.term.error(context)
+        break
+      case 'log':
+      default:
+        this.term.log(context)
+        break
+    }
+
     this.term.scrollToButtom()
   }
 
@@ -79,6 +97,31 @@ export default class Stage {
         this.term.scrollToButtom()
       }
     }
+  }
+
+  public touchToContinue (): Promise<number> {
+    return new Promise((resolve) => {
+      let handleTouch = () => {
+        document.body.removeEventListener('keyup', handleTouch)
+        handleTouch = undefined
+        resolve()
+      }
+
+      document.body.addEventListener('keyup', handleTouch)
+    })
+  }
+
+  public pressToContinue (): Promise<number> {
+    return new Promise((resolve) => {
+      let handleKeyPress = (event: KeyboardEvent) => {
+        document.body.removeEventListener('keyup', handleKeyPress)
+        handleKeyPress = undefined
+
+        resolve(event.keyCode)
+      }
+
+      document.body.addEventListener('keyup', handleKeyPress)
+    })
   }
 
   public toggleTerm (isOpen: boolean = !this.isOpenTerm): void {

@@ -1,5 +1,5 @@
 import QRCodeServ from 'qrcode'
-import * as Lang from '../share/lang'
+import i18n from '../conf/i18n'
 
 export class QRCode {
   private getBox (width: number, height: number) {
@@ -35,7 +35,7 @@ export class QRCode {
   public print (url: string = document.location.href): void {
     this.convert(url).then((qrcode: string) => {
       return this.printImage(qrcode).then((codes) => {
-        window.console.log(`%c ${Lang.description.qrcode.label}`, 'font-size:14px;font-weight:bold;')
+        window.console.log(`%c ${i18n.qrcode.label}`, 'font-size:14px;font-weight:bold;')
         window.console.log(...codes)
       })
     })

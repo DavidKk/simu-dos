@@ -68,10 +68,10 @@ export default class Controller {
 
   /**
    * 为游戏注册控制器
-   * @param {Typings.GameInfo} game 游戏信息
+   * @param {Typings.GameInformation} game 游戏信息
    */
-  public register (game: Typings.GameInfo): void {
-    const { joystick, dpad, keypad, keyboad } = game.play || {}
+  public register (game: Typings.GameInformation): void {
+    const { joystick, dpad, keypad, keyboad } = game.play || {} as Typings.GameInformationPlay
 
     if (joystick) {
       const handleActions = (data): void => {

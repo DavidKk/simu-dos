@@ -3,14 +3,13 @@ import { indexedDBTables, indexedDBOptions } from '../conf/model'
 import * as Typings from '../typings'
 
 export default class Model {
-  public use: Typings.ModelUseType
+  public used: Typings.ModelUseType
   public database: IndexedDB
 
   constructor (options: Typings.ModelOptions) {
-    this.use = options.use
-
-    if (this.use === 'indexedDB' && IndexedDB.supported) {
+    if (options.use === 'indexedDB' && IndexedDB.supported) {
       this.database = new IndexedDB(indexedDBOptions)
+      this.used = options.use
     }
   }
 
@@ -20,7 +19,7 @@ export default class Model {
    * @returns {Promise<void>}
    */
   public saveWasm (source: ArrayBuffer): Promise<void> {
-    if (this.use === 'indexedDB' && IndexedDB.supported) {
+    if (this.used === 'indexedDB' && IndexedDB.supported) {
       return this.database.openStore(indexedDBTables.system).then((store) => this.database.put(store, source, 'wasm'))
     }
 
@@ -32,7 +31,7 @@ export default class Model {
    * @returns {Promise<ArrayBuffer>}
    */
   public loadWasm (): Promise<ArrayBuffer> {
-    if (this.use === 'indexedDB' && IndexedDB.supported) {
+    if (this.used === 'indexedDB' && IndexedDB.supported) {
       return this.database.openStore(indexedDBTables.system).then((store) => this.database.get(store, 'wasm'))
     }
 
@@ -46,7 +45,7 @@ export default class Model {
    * @returns {Promise<void>}
    */
   public saveRom (name: string, rom: ArrayBuffer): Promise<void> {
-    if (this.use === 'indexedDB' && IndexedDB.supported) {
+    if (this.used === 'indexedDB' && IndexedDB.supported) {
       return this.database.openStore(indexedDBTables.rom).then((store) => this.database.put(store, rom, name))
     }
 
@@ -59,7 +58,7 @@ export default class Model {
    * @returns {Promise<ArrayBuffer>}
    */
   public loadRom (name: string): Promise<ArrayBuffer> {
-    if (this.use === 'indexedDB' && IndexedDB.supported) {
+    if (this.used === 'indexedDB' && IndexedDB.supported) {
       return this.database.openStore(indexedDBTables.rom).then((store) => this.database.get(store, name))
     }
 
@@ -72,7 +71,7 @@ export default class Model {
    * @returns {Promise<void>}
    */
   public saveArchive (archive: Typings.Archive | Array<Typings.Archive>): Promise<void> {
-    if (this.use === 'indexedDB' && IndexedDB.supported) {
+    if (this.used === 'indexedDB' && IndexedDB.supported) {
       if (!Array.isArray(archive)) {
         return this.saveArchive([archive])
       }
@@ -92,7 +91,7 @@ export default class Model {
    * @returns {Promise<Typings.Archive | Array<Typings.Archive>}
    */
   public loadArchive (romId: string): Promise<Typings.Archive[]> {
-    if (this.use === 'indexedDB' && IndexedDB.supported) {
+    if (this.used === 'indexedDB' && IndexedDB.supported) {
       return this.database.openStore(indexedDBTables.archive).then((store) => this.database.getAllByIndex(store, 'romId', romId))
     }
 
@@ -105,7 +104,7 @@ export default class Model {
   public destroy (): void {
     this.database.destroy()
 
-    this.use = undefined
+    this.used = undefined
     this.database = undefined
 
     this.destroy = Function.prototype as any

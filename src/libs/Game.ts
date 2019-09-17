@@ -10,8 +10,8 @@ import * as games from '../conf/games'
 import { Joystick2DConfig, DPadDefaultConfig } from '../conf/controller'
 import { isMobile } from '../share/device'
 import { supported } from '../share/webAssembly'
-import { md5 } from '../share/encryption'
-import * as Lang from '../share/lang'
+import * as lang from '../share/lang'
+import i18n from '../conf/i18n'
 import * as Typings from '../typings'
 
 /**
@@ -71,13 +71,13 @@ export default class Game extends EventEmitter {
    * 主要用于同一款游戏不同ROM的存储
    * 例如不同版本语言的游戏
    */
-  public getGameStoreUniqKey (game: string | Typings.GameInfo): string {
+  public getGameStoreUniqKey (game: string | Typings.GameInformation): string {
     if (typeof game === 'string') {
       return this.getGameStoreUniqKey(games[game])
     }
 
     const id: string = game.id
-    return `${id}@${Lang.language}`
+    return `${id}@${lang.language}`
   }
 
   /**
@@ -93,17 +93,13 @@ export default class Game extends EventEmitter {
       this.stage.simulateClean()
       this.stage.toggleTerm(true)
 
-      Lang.description.supportWebassembly.forEach(this.stage.print.bind(this.stage))
+      i18n.support.webassembly.forEach(this.stage.print.bind(this.stage))
 
-      let exit = () => {
+      isMobile ? this.stage.touchToContinue() : this.stage.pressToContinue().then(() => {
         this.stage.toggleTerm(false)
         this.emit('exit')
+      })
 
-        document.body.removeEventListener('keyup', exit)
-        exit = undefined
-      }
-
-      document.body.addEventListener('keyup', exit)
       return Promise.reject(new Error('WebAssembly is not supported.'))
     }
 
@@ -120,8 +116,8 @@ export default class Game extends EventEmitter {
     /**
      * 尝试读取本地存储的ROM
      */
-    const game: Typings.GameInfo = games[id]
-    const url: string = typeof game.url === 'string' ? game.url : Lang.get(game.url)
+    const game: Typings.GameInformation = games[id]
+    const url: string = typeof game.url === 'string' ? game.url : lang.pick(game.url)
     const key: string = this.getGameStoreUniqKey(game)
     game.rom = await this.model.loadRom(key)
 
@@ -147,18 +143,18 @@ export default class Game extends EventEmitter {
      */
     this.stage.print('=================================')
 
-    const translatedName = Lang.get(game.translates)
-    game.name && this.stage.print(`${Lang.description.game.name}: ${game.name} ${game.name !== translatedName ? `(${translatedName})` : ''}`)
-    game.type && this.stage.print(`${Lang.description.game.type}: ${game.type}`)
-    game.developers && this.stage.print(`${Lang.description.game.developers}: ${game.developers}`)
-    game.publisher && this.stage.print(`${Lang.description.game.publisher}: ${game.publisher}`)
-    game.release && this.stage.print(`${Lang.description.game.release}: ${game.release}`)
+    const translatedName = lang.pick(game.translates)
+    game.name && this.stage.print(`${i18n.game.name}: ${game.name} ${game.name !== translatedName ? `(${translatedName})` : ''}`)
+    game.type && this.stage.print(`${i18n.game.type}: ${game.type}`)
+    game.developers && this.stage.print(`${i18n.game.developers}: ${game.developers}`)
+    game.publisher && this.stage.print(`${i18n.game.publisher}: ${game.publisher}`)
+    game.release && this.stage.print(`${i18n.game.release}: ${game.release}`)
 
-    const summary = !Array.isArray(game.summary) && typeof game.summary === 'object' ? Lang.get(game.summary) : game.summary
+    const summary = !Array.isArray(game.summary) && typeof game.summary === 'object' ? lang.pick(game.summary) : game.summary
     if (typeof summary === 'string') {
-      this.stage.print(`${Lang.description.game.summary}: ${summary}`)
+      this.stage.print(`${i18n.game.summary}: ${summary}`)
     } else if (Array.isArray(summary)) {
-      this.stage.print(`${Lang.description.game.summary}:\n${summary.join('\n')}`)
+      this.stage.print(`${i18n.game.summary}:\n${summary.join('\n')}`)
     }
 
     this.stage.print('=================================')
@@ -211,6 +207,11 @@ export default class Game extends EventEmitter {
       onDownloadRomCompleted,
       onExtractCompleted
     })
+
+    if (typeof this.model.used === 'undefined') {
+      i18n.support.indexedDB.forEach((message) => this.stage.print(message, 'warn'))
+      isMobile ? await this.stage.touchToContinue() : await this.stage.pressToContinue()
+    }
 
     this.stage.toggleTerm(false)
     this.stage.toggleCanvas(true)
@@ -352,10 +353,10 @@ export default class Game extends EventEmitter {
 
   /**
    * 存储存档到本地 IndexedDB
-   * @param {Typings.GameInfo} game 游戏信息
+   * @param {Typings.GameInformation} game 游戏信息
    * @returns {Promise}
    */
-  public async saveArchiveFromDB (game: Typings.GameInfo): Promise<void> {
+  public async saveArchiveFromDB (game: Typings.GameInformation): Promise<void> {
     const { save } = game
     const romId: string = this.getGameStoreUniqKey(game)
     const files = await this.dosbox.searchFiles(save.path, save.regexp || /.*/)
@@ -373,10 +374,10 @@ export default class Game extends EventEmitter {
 
   /**
    * 从本地 IndexedDB 中读取游戏存档
-   * @param {Typings.GameInfo} game 游戏信息
+   * @param {Typings.GameInformation} game 游戏信息
    * @returns {Promise}
    */
-  public loadArchiveFromDB (game: Typings.GameInfo): Promise<void> {
+  public loadArchiveFromDB (game: Typings.GameInformation): Promise<void> {
     const key: string = this.getGameStoreUniqKey(game)
     return this.model.loadArchive(key).then((files) => {
       Array.isArray(files) && files.forEach(({ file, content }) => {

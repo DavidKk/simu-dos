@@ -1,6 +1,8 @@
 import padEnd from 'lodash/padEnd'
 import Element from '../libs/Element'
 import Component from '../libs/Component'
+import { classnames } from '../share/style'
+import * as Typings from '../typings'
 
 export default class Term extends Component {
   private lines: Element[]
@@ -35,8 +37,8 @@ export default class Term extends Component {
     this.newline().setContext('C:> ')
   }
 
-  public newline (): Element {
-    const line = new Element(['term-line'], null, 'pre')
+  public newline (classes?: Typings.ElementClassNames): Element {
+    const line = new Element(['term-line', ...classnames(classes)], null, 'pre')
 
     this.screen.append(line)
     this.lines.push(line)
@@ -44,8 +46,28 @@ export default class Term extends Component {
     return line
   }
 
-  public print (context: string): void {
+  public log (context: string): void {
     let line = this.newline()
+    line.appendContext(context)
+  }
+
+  public info (context: string): void {
+    let line = this.newline('info')
+    line.appendContext(context)
+  }
+
+  public success (context: string): void {
+    let line = this.newline('success')
+    line.appendContext(context)
+  }
+
+  public warn (context: string): void {
+    let line = this.newline('warn')
+    line.appendContext(context)
+  }
+
+  public error (context: string): void {
+    let line = this.newline('error')
     line.appendContext(context)
   }
 
