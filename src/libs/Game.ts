@@ -217,7 +217,7 @@ export default class Game extends EventEmitter {
     this.stage.toggleCanvas(true)
     this.stage.resize()
 
-    document.title = game.name
+    document.title = `${game.name} - SimuDOS`
 
     if (isMobile === true) {
       /**

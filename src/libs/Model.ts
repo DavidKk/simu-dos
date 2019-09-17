@@ -20,7 +20,7 @@ export default class Model {
    */
   public saveWasm (source: ArrayBuffer): Promise<void> {
     if (this.used === 'indexedDB' && IndexedDB.supported) {
-      return this.database.openStore(indexedDBTables.system).then((store) => this.database.put(store, source, 'wasm'))
+      return this.database.put(indexedDBTables.system, source, 'wasm')
     }
 
     return Promise.resolve()
@@ -32,7 +32,7 @@ export default class Model {
    */
   public loadWasm (): Promise<ArrayBuffer> {
     if (this.used === 'indexedDB' && IndexedDB.supported) {
-      return this.database.openStore(indexedDBTables.system).then((store) => this.database.get(store, 'wasm'))
+      return this.database.get(indexedDBTables.system, 'wasm')
     }
 
     return Promise.resolve(undefined)
@@ -46,7 +46,7 @@ export default class Model {
    */
   public saveRom (name: string, rom: ArrayBuffer): Promise<void> {
     if (this.used === 'indexedDB' && IndexedDB.supported) {
-      return this.database.openStore(indexedDBTables.rom).then((store) => this.database.put(store, rom, name))
+      return this.database.put(indexedDBTables.rom, rom, name)
     }
 
     return Promise.resolve()
@@ -59,7 +59,7 @@ export default class Model {
    */
   public loadRom (name: string): Promise<ArrayBuffer> {
     if (this.used === 'indexedDB' && IndexedDB.supported) {
-      return this.database.openStore(indexedDBTables.rom).then((store) => this.database.get(store, name))
+      return this.database.get(indexedDBTables.rom, name)
     }
 
     return Promise.resolve(undefined)
@@ -76,10 +76,8 @@ export default class Model {
         return this.saveArchive([archive])
       }
 
-      return this.database.openStore(indexedDBTables.archive).then((store) => {
-        const promises = archive.map((archive) => this.database.sync(store, 'romId', archive, (cursor, data) => cursor.value.file === data.file))
-        return Promise.all(promises).then(() => void 0)
-      })
+      const promises = archive.map((archive) => this.database.sync(indexedDBTables.archive, 'romId', archive, (cursor, data) => cursor.value.file === data.file))
+      return Promise.all(promises).then(() => void 0)
     }
 
     return Promise.resolve()
@@ -92,7 +90,7 @@ export default class Model {
    */
   public loadArchive (romId: string): Promise<Typings.Archive[]> {
     if (this.used === 'indexedDB' && IndexedDB.supported) {
-      return this.database.openStore(indexedDBTables.archive).then((store) => this.database.getAllByIndex(store, 'romId', romId))
+      return this.database.getAllByIndex(indexedDBTables.archive, 'romId', romId)
     }
 
     return Promise.resolve(undefined)
