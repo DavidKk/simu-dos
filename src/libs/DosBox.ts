@@ -3,8 +3,7 @@ import { EventEmitter } from 'events'
 import defaultsDeep from 'lodash/defaultsDeep'
 import { AxiosRequestConfig } from 'axios'
 import request, { CancelToken } from '../services/request'
-import dosConf from '../conf/dos'
-import { dosboxVersion } from '../conf/constants'
+import { dosboxVersion, dosboxConfig } from '../conf/constants'
 import * as Typings from '../typings'
 
 /**
@@ -212,7 +211,7 @@ export default class DosBox extends EventEmitter {
     const onRuntimeInitialized = () => {
       const mainFn = (args: string[] = []): Promise<void> => {
         return new Promise((resolve) => {
-          this.createFile('/home/web_user/.dosbox/dosbox-jsdos.conf', dosConf)
+          this.createFile('/home/web_user/.dosbox/dosbox-jsdos.conf', dosboxConfig)
 
           args.unshift('-userconf', '-c', 'mount c .', '-c', 'c:')
           args.indexOf('-exit') === -1 && args.push('-exit')
