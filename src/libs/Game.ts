@@ -61,7 +61,6 @@ export default class Game extends EventEmitter {
     this.model = new Model({ use: 'indexedDB' })
     this.stage.appendTo(this.element)
     this.controller.appendTo(this.element)
-    this.element.appendTo(document.body)
 
     document.oncontextmenu = () => !this.disabledContextMenu
   }
