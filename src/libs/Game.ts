@@ -8,8 +8,7 @@ import Element from './Element'
 import { title } from '../conf/constants'
 import * as games from '../conf/games'
 import { Joystick2DConfig, DPadDefaultConfig } from '../conf/controller'
-import { isMobile } from '../share/device'
-import { supported } from '../share/webAssembly'
+import { isMobile, supported } from '../share/device'
 import * as lang from '../share/lang'
 import i18n from '../conf/i18n'
 import * as Typings from '../typings'
@@ -89,7 +88,7 @@ export default class Game extends EventEmitter {
     /**
      * 不支持 Webassembly 的时候提示用户升级
      */
-    if (!supported) {
+    if (!supported.webAssembly) {
       this.stage.simulateClean()
       this.stage.toggleTerm(true)
 
@@ -143,7 +142,7 @@ export default class Game extends EventEmitter {
      */
     this.stage.print('=================================')
 
-    const translatedName = lang.pick(game.translates)
+    const translatedName = typeof game.translates === 'string' ? game.translates : lang.pick(game.translates)
     game.name && this.stage.print(`${i18n.game.name}: ${game.name} ${game.name !== translatedName ? `(${translatedName})` : ''}`)
     game.type && this.stage.print(`${i18n.game.type}: ${game.type}`)
     game.developers && this.stage.print(`${i18n.game.developers}: ${game.developers}`)

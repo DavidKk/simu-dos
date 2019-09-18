@@ -1,10 +1,11 @@
 import clone from 'lodash/clone'
+import { supported } from '../share/device'
 import * as Typings from '../typings'
 
 const indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB
 
 export default class IndexedDB {
-  static supported = !!indexedDB
+  static supported = supported.indexedDB
 
   private settings: Typings.IndexedDBOptions
   private db: IDBDatabase
