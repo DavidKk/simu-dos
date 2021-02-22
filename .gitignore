@@ -46,7 +46,3 @@ nbproject
 *.sublime-project
 *.sublime-workspace
 .idea
-
-# expect
-
-!/rooms/*.zip

@@ -15,7 +15,7 @@ export const xjqxz: Typings.GameInformation = {
   developers: ['大宇资讯股份有限公司'],
   publisher: ['大宇资讯', '双语公司', '晶合时代'],
   release: '1995/7/10',
-  url: 'https://wasabi.zczc.cz/dos-games/bin/仙剑奇侠传.zip',
+  url: require('../assets/rooms/xjqxz.zip'),
   size: 20272189,
   command: ['PAL!.EXE'],
   save: {
@@ -67,7 +67,7 @@ export const jyqxz: Typings.GameInformation = {
   developers: ['河洛工作室'],
   publisher: ['智冠科技'],
   release: '1996',
-  url: 'https://wasabi.zczc.cz/dos-games/bin/金庸群侠传.zip',
+  url: require('../assets/rooms/jyqxz.zip'),
   size: 26130954,
   command: ['PLAY.BAT'],
   save: {
@@ -117,75 +117,6 @@ export const jyqxz: Typings.GameInformation = {
       {
         context: 'N',
         keyCode: 78,
-        options: {
-          type: 'round',
-          size: 50,
-          position: {
-            right: 135,
-            bottom: 120
-          }
-        }
-      }
-    ]
-  }
-}
-
-export const xuanyuanjian: Typings.GameInformation = {
-  id: 'xuanyuanjian',
-  name: '軒轅劍',
-  translates: {
-    cn: '轩辕剑',
-    tc: '軒轅劍',
-    en: 'XuanYuan Sword'
-  },
-  cover: require('../assets/images/xuanyuanjian.jpg'),
-  type: 'RPG',
-  summary: [
-    '盘古开天辟地后，世界原本只有善恶两神所统治的神魔界。女娲造人后才开创了人类与神魔共处的时代，起初人类的活动空间不大，与神魔之间相安无事，但逐渐人类的快速发展和大量开发缩小了神魔的生存空间。这种激进的行为终于触怒了神魔界，掌握邪念的恶神和其麾下的妖魔决心要毁灭人类，但碍于执掌善念的善神的反对，使得恶神一直无法如愿，人类才得以躲过了一场浩劫。',
-    '经过了几千年的和平光阴，有一天妖魔宪然向人类攻击，人类的浩劫还是降临了。妖魔们摧毁村庄和一切人类创造的文明。更令人吃惊的是，从虎口逃生的人的口中得知善神决定与恶神联手毁灭人类的事实。失去了善神庇护的人类，面对凶猛的妖魔毫无抵抗能力，但此时出现了一位手持轩辕剑的侠士，组织众人组成一支抗魔军，发挥人类的凝聚力，压制住妖魔的攻势。',
-    '然而好景不长，在善恶两神亲率妖魔的联手攻击下，抗魔军全部惨遭杀害，从此人们只有生活在妖魔的阴影下，以残余的力量与妖魔抗衡，直到16年后的一天，主角燕赤霞——也就是轩辕剑侠之子，经过一番历练之后，开始调查善恶神夹击人类的原因。'
-  ],
-  developers: ['大宇资讯股份有限公司'],
-  publisher: ['大宇资讯', '畅游'],
-  release: '1990/10/13',
-  url: 'https://wasabi.zczc.cz/dos-games/bin/轩辕剑1.zip',
-  size: 1033798,
-  command: ['Play.bat'],
-  save: {
-    path: './',
-    regexp: /^(CHAIN\.DSK|DATA1\.BVS|DATA2\.BVS)$/
-  },
-  play: {
-    keyboad: true,
-    dpad: true,
-    joystick: true,
-    keypad: [
-      {
-        context: 'Space',
-        keyCode: 32,
-        options: {
-          type: 'round',
-          position: {
-            right: 50,
-            bottom: 50
-          }
-        }
-      },
-      {
-        context: 'Ctrl',
-        keyCode: 17,
-        options: {
-          type: 'round',
-          size: 50,
-          position: {
-            right: 150,
-            bottom: 50
-          }
-        }
-      },
-      {
-        context: 'Esc',
-        keyCode: 27,
         options: {
           type: 'round',
           size: 50,
