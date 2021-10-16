@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@types/lodash": "4.14.122",
-    "axios": "0.21.1",
+    "axios": "0.21.2",
     "js-dos": "6.22.19",
     "qrcode": "^1.4.1",
     "ts-md5": "^1.2.6"
