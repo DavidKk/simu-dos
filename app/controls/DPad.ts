@@ -48,7 +48,7 @@ export default class DPad extends Component {
     this.right.addEventsListener(PointerEvent.End, wrapTouchUp('right', this.right))
     this.down.addEventsListener(PointerEvent.End, wrapTouchUp('down', this.down))
     this.left.addEventsListener(PointerEvent.End, wrapTouchUp('left', this.left))
-    
+
     return () => {
       this.up.removeAllListeners()
       this.right.removeAllListeners()

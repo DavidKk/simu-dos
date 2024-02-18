@@ -1,15 +1,17 @@
 export function xor<T>(array: T[], values: T[]): T[] {
   const seen = new Map<T, boolean>()
-  const result = Array.from(function*() {
-    for (const value of array) {
-      if (seen.has(value)) {
-        continue
-      }
+  const result = Array.from(
+    (function* () {
+      for (const value of array) {
+        if (seen.has(value)) {
+          continue
+        }
 
-      seen.set(value, true)
-      yield value
-    }
-  }())
+        seen.set(value, true)
+        yield value
+      }
+    })()
+  )
 
   for (const value of values) {
     if (seen.has(value)) {

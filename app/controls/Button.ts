@@ -15,14 +15,14 @@ export default class Button extends Component {
     const onKeydown = (event: Event) => {
       event.preventDefault()
       event.stopPropagation()
-  
+
       this.addClass(ACTIVE_CLASSNAME)
     }
 
     const onKeyup = (event: Event) => {
       event.preventDefault()
       event.stopPropagation()
-  
+
       this.removeClass(ACTIVE_CLASSNAME)
     }
 

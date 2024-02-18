@@ -27,9 +27,9 @@ export const UPPERKEYS = [
 /** 按键值 */
 export const KEYMAP = [
   ['Escape'],
-  ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace',],
-  ['Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\',],
-  ['CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'Enter',],
+  ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace'],
+  ['Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\'],
+  ['CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter'],
   ['Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'Shift'],
   ['Space'],
 ] as const
@@ -87,37 +87,37 @@ export default class Keyboard extends Component {
     const onKeyboardActive = (event: Event) => {
       event.preventDefault()
       event.stopPropagation()
-  
+
       const key = this.keyboard.getAttr(ATTRIBUTE_LOWER)
       if (!key?.length) {
         return
       }
-  
+
       switch (key) {
         case 'Shift':
         case 'CapsLock': {
           this.toggleUppercase()
-  
+
           const event = this.isActiveShift ? new Keyboard.Events.TouchDown({ key }) : new Keyboard.Events.TouchUp({ key })
           this.dispatchEvent(event)
           break
         }
-  
+
         default: {
           const event = new Keyboard.Events.TouchPress({ key })
           this.dispatchEvent(event)
         }
       }
     }
-  
+
     const onSwitcherActive = (event: Event) => {
       event.preventDefault()
       event.stopPropagation()
-  
+
       this.keyboard.toggle()
       this.dispatchEvent(new Keyboard.Events.Switch({ visible: this.keyboard.isVisible }))
     }
-  
+
     this.keyboard.addEventsListener(PointerEvent.Start, onKeyboardActive)
     this.switcher.addEventsListener(PointerEvent.Start, onSwitcherActive)
 

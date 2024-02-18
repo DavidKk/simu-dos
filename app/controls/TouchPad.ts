@@ -77,7 +77,7 @@ export default class TouchPad extends Component {
     button.bind(TouchEvents.Start, handleTouchDown)
     button.bind(TouchEvents.End, handleTouchUp)
 
-    return function deprecated () {
+    return function deprecated() {
       button.unbind(TouchEvents.Start, handleTouchDown)
       button.unbind(TouchEvents.End, handleTouchUp)
     }

@@ -72,7 +72,7 @@ export default class Terminal extends Component {
       this.currentLine.append(wrap)
       return
     }
-    
+
     this.currentLine.appendContentText(char)
   }
 

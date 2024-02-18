@@ -50,7 +50,7 @@ export default class Game extends Component {
       if (!isGameName(game)) {
         throw new Error(`Game is not exists.`)
       }
-      
+
       const games = await fetchGames()
       const info = games.get(game)!
       return this.getGameStoreUniqKey(info)
@@ -166,7 +166,7 @@ export default class Game extends Component {
       onDownloadWasmCompleted,
       onDownloadRomProgress,
       onDownloadRomCompleted,
-      onExtractCompleted
+      onExtractCompleted,
     })
 
     // 确认运行
@@ -286,16 +286,19 @@ export default class Game extends Component {
     }
 
     this.touchpad.register(game)
-    this.touchpad.bind([
-      Joystick.Events.TouchUp.EventType,
-      Joystick.Events.TouchMove.EventType,
-      DPad.Events.TouchUp.EventType,
-      DPad.Events.TouchDown.EventType,
-      Keyboard.Events.TouchPress.EventType,
-      Keyboard.Events.TouchDown.EventType,
-      Keyboard.Events.TouchUp.EventType,
-      TouchPad.Events.TouchDown.EventType,
-    ], handleActions)
+    this.touchpad.bind(
+      [
+        Joystick.Events.TouchUp.EventType,
+        Joystick.Events.TouchMove.EventType,
+        DPad.Events.TouchUp.EventType,
+        DPad.Events.TouchDown.EventType,
+        Keyboard.Events.TouchPress.EventType,
+        Keyboard.Events.TouchDown.EventType,
+        Keyboard.Events.TouchUp.EventType,
+        TouchPad.Events.TouchDown.EventType,
+      ],
+      handleActions
+    )
   }
 
   /** 激活自动存档 */
@@ -317,7 +320,7 @@ export default class Game extends Component {
     this.checkSupport()
 
     // 重置
-    this.isPlaying && await this.stop()
+    this.isPlaying && (await this.stop())
     this.isPlaying = true
 
     this.disableContextMenu()
@@ -386,7 +389,7 @@ export default class Game extends Component {
    * 从本地 IndexedDB 中读取游戏存档
    * @param game 游戏信息
    */
-  public async loadArchiveFromDB (game: GameInfo) {
+  public async loadArchiveFromDB(game: GameInfo) {
     const key = await this.getGameStoreUniqKey(game)
     const files = await this.model.loadArchive(key)
 

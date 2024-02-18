@@ -9,7 +9,7 @@ import type { Game, GalleryPlayEventDetail } from '@/types'
 @define('gallery')
 export default class Gallery extends Component {
   static Events = {
-    Play: SimEvent.create<GalleryPlayEventDetail>(GALLERY_PLAY)
+    Play: SimEvent.create<GalleryPlayEventDetail>(GALLERY_PLAY),
   }
 
   protected selected = 0
@@ -29,11 +29,13 @@ export default class Gallery extends Component {
 
   public async connectedCallback() {
     const games = await fetchGames()
-    this.games = Array.from(function*(self) {
-      for (const game of Array.from(games.values())) {
-        yield self.add(game)
-      }
-    }(this))
+    this.games = Array.from(
+      (function* (self) {
+        for (const game of Array.from(games.values())) {
+          yield self.add(game)
+        }
+      })(this)
+    )
 
     super.connectedCallback()
   }
@@ -47,40 +49,40 @@ export default class Gallery extends Component {
           if (num >= 0) {
             this.selected = num
           }
-  
+
           break
         }
-  
+
         case 'ArrowRight': {
           const num = this.selected + 1
           if (num < this.games.length) {
             this.selected = num
           }
-  
+
           break
         }
-  
+
         case 'ArrowDown': {
           const num = this.selected + this.numberInRow
           if (num < this.games.length) {
             this.selected = num
           }
-  
+
           break
         }
-  
+
         case 'ArrowLeft': {
           const num = this.selected - 1
           if (num >= 0) {
             this.selected = num
           }
-  
+
           break
         }
       }
-  
+
       this.games.forEach((game) => game.removeClass('active'))
-  
+
       const node = this.games[this.selected]
       node && node.addClass(ACTIVE_CLASSNAME)
     }
@@ -95,7 +97,7 @@ export default class Gallery extends Component {
 
     document.body.addEventListener('keyup', onKeyChoosed)
     document.body.addEventListener('keypress', onKeySelected)
-    
+
     return () => {
       document.body.removeEventListener('keyup', onKeyChoosed)
       document.body.removeEventListener('keypress', onKeySelected)

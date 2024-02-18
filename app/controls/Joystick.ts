@@ -25,63 +25,63 @@ export default class Joystick extends Component {
       if (!isPointerLikeEvent(event)) {
         return
       }
-      
+
       event.preventDefault()
       event.stopPropagation()
-  
+
       const point = this.getTouchPosition(event)!
       if (point) {
         this.fixedPoint = point
       }
-  
+
       this.addClass(ACTIVE_CLASSNAME)
       this.dispatchEvent(new Joystick.Events.TouchDown({ coord: point }))
-      
+
       Component.prototype.bind.call(document.body, PointerEvent.Move, onTouchMove)
       Component.prototype.bind.call(document.body, PointerEvent.End, onTouchEnd)
     }
-  
+
     const onTouchMove = (event: Event) => {
       if (!isPointerLikeEvent(event)) {
         return
       }
-  
+
       event.preventDefault()
       event.stopPropagation()
-  
+
       const point = this.getTouchPosition(event)
       if (!point) {
         return
       }
-  
+
       const datas = this.computes(this.fixedPoint, point)
-  
+
       const { coord } = datas
-  
+
       let { x, y } = coord
       x -= this.fixedPoint.x
       y -= this.fixedPoint.y
-  
+
       this.setStickCoord({ x, y })
       this.dispatchEvent(new Joystick.Events.TouchMove(datas))
     }
-  
+
     const onTouchEnd = (event: Event) => {
       if (!isPointerLikeEvent(event)) {
         return
       }
-  
+
       event.preventDefault()
       event.stopPropagation()
-  
+
       this.setStickCoord({ x: 0, y: 0 })
       this.removeClass(ACTIVE_CLASSNAME)
       this.dispatchEvent(new Joystick.Events.TouchUp())
-  
+
       Component.prototype.unbind.call(document.body, PointerEvent.Move, onTouchMove)
       Component.prototype.unbind.call(document.body, PointerEvent.End, onTouchEnd)
     }
-  
+
     this.bind(PointerEvent.Start, onTouchStart)
 
     return () => {

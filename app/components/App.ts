@@ -16,7 +16,7 @@ export default class App extends Component {
     this.gallery.onSelected((id) => this.play(id))
 
     document.body.addEventListener(PointerEvent.Move, this.onPreventScroll, { passive: false })
-    
+
     return () => {
       document.body.removeEventListener(PointerEvent.Move, this.onPreventScroll)
     }
@@ -27,7 +27,7 @@ export default class App extends Component {
     event.stopPropagation()
   }
 
-  public play (gameId: string) {
+  public play(gameId: string) {
     this.gallery.toggle(false)
     return this.game.start(gameId)
   }

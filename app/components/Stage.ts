@@ -13,11 +13,11 @@ export default class Stage extends Component {
   protected dosbox: DosBox
   protected resizeStageHandle: () => void
 
-  public get isTerminalActive () {
+  public get isTerminalActive() {
     return this.activeType === 'term'
   }
 
-  public get isCanvasActive () {
+  public get isCanvasActive() {
     return this.activeType === 'canvas'
   }
 

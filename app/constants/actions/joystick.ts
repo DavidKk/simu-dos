@@ -1,4 +1,4 @@
-// joystick events 
+// joystick events
 export const JOYSTICK_TOUCHDOWN = 'JOYSTICK_TOUCHDOWN'
 export const JOYSTICK_TOUCHUP = 'JOYSTICK_TOUCHUP'
 
