@@ -1,0 +1,40 @@
+sim-joystick {
+  --joystick-size: 100px;
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  z-index: 4;
+  display: block;
+  border-radius: 100%;
+  width: var(--joystick-size);
+  font-size: var(--font-size-medium);
+  background-color: var(--color-primary);
+  transition: background-color .16s ease-in;
+  user-select: none;
+  touch-action: none;
+  cursor: pointer;
+}
+
+sim-el[joystick-stick] {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  display: block;
+  border-radius: 100%;
+  width: 50%;
+  background-color: var(--color-primary);
+  transition: background-color .16s ease-in;
+}
+
+sim-joystick::before,
+sim-el[joystick-stick]::before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+sim-joystick.active,
+sim-joystick.active sim-el[joystick-stick] {
+  pointer-events: none;
+  background-color: var(--color-mute);
+}

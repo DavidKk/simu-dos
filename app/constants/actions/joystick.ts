@@ -1,0 +1,5 @@
+// joystick events 
+export const JOYSTICK_TOUCHDOWN = 'JOYSTICK_TOUCHDOWN'
+export const JOYSTICK_TOUCHUP = 'JOYSTICK_TOUCHUP'
+
+export const JOYSTICK_TOUCHMOVE = 'JOYSTICK_MOVE'

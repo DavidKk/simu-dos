@@ -1,0 +1,2 @@
+export const DPAD_TOUCHDOWN = 'DPAD_TOUCHDOWN'
+export const DPAD_TOUCHUP = 'DPAD_TOUCHUP'

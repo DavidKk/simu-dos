@@ -1,0 +1,17 @@
+@import url(./variables.css);
+@import url(./normalize.css);
+@import url(./animation.css);
+
+@import url(./controls/button.css);
+@import url(./controls/joystick.css);
+@import url(./controls/dpad.css);
+@import url(./controls/keypad.css);
+@import url(./controls/keyboard.css);
+@import url(./controls/touchpad.css);
+
+@import url(./components/terminal.css);
+@import url(./components/dosbox-canvas.css);
+@import url(./components/gallery.css);
+@import url(./components/stage.css);
+@import url(./components/game.css);
+@import url(./components/app.css);

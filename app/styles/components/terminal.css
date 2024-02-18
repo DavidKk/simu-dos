@@ -1,0 +1,48 @@
+sim-terminal {
+  position: absolute;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px 20px;
+  width: 100%;
+  height: 100%;
+  background: rgb(var(--black));
+}
+
+sim-el[term-line] {
+  display: block;
+  margin: 0;
+  white-space: pre-line;
+  word-wrap: break-word;
+  word-break: break-all;
+  font-size: var(--font-size-medium);
+  font-family: monospace;
+  font-weight: bold;
+  color: rgba(var(--white), var(--opacity-80));
+}
+
+sim-el[term-line]:last-child::after {
+  content: '_';
+  color: rgb(var(--white));
+  animation: cursor 1s infinite;
+}
+
+sim-el[term-line].info {
+  color: rgb(var(--cyan));
+}
+
+sim-el[term-line].success {
+  color: rgb(var(--green));
+}
+
+sim-el[term-line].warn {
+  color: rgb(var(--yellow));
+}
+
+sim-el[term-line].error {
+  color: rgb(var(--red));
+}
+
+@keyframes cursor {
+  0%, 40%, 100% { opacity: 0; }
+  50%, 90% { opacity: 1; }
+}

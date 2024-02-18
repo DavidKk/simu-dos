@@ -1,0 +1,17 @@
+sim-keypad {
+  --key-button-width: 30px;
+  --key-button-height: 20px;
+  --key-button-round-size: 80px;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;;
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: auto;
+  font-size: var(--font-size-medium);
+  pointer-events: none;
+}
