@@ -43,6 +43,8 @@ sim-el[menu-item].active {
 }
 
 sim-el[menu-item][menu="google"]::before {
+  --menu-google-color: rgba(var(--red), var(--opacity-60));
+
   content: "";
   position: absolute;
   right: 2px;
@@ -51,9 +53,24 @@ sim-el[menu-item][menu="google"]::before {
   width: 6px;
   height: 6px;
   border-radius: 100%;
-  background-color: rgba(var(--green), var(--opacity-60));
+  background-color: var(--menu-google-color);
+  box-shadow: 0 0 4px var(--menu-google-color);
+  transform: scale(0);
+  transition: all .1s ease-in-out;
+  animation: twinkle 1.6s .1s infinite ease;
 }
 
 sim-el[menu-item][menu="google"].authorized::before {
-  display: block;
+  --menu-google-color: rgba(var(--green), var(--opacity-60));
+  transform: scale(0);
+}
+
+@keyframes twinkle {
+  0%,100%{
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(.7);
+  }
 }

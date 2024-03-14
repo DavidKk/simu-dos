@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@dumlj/cloudfs':
-        specifier: 0.0.1-alpha.1710384219.0+e8a46b0
-        version: 0.0.1-alpha.1710384219.0
       '@simulator/app':
         specifier: workspace:*
         version: link:app
@@ -93,19 +90,22 @@ importers:
 
   app:
     dependencies:
+      '@dumlj/cloudfs':
+        specifier: 0.0.1-alpha.1710394977.0+12edd2a
+        version: 0.0.1-alpha.1710394977.0
       js-dos:
         specifier: 6.22.60
         version: 6.22.60
       qrcode:
         specifier: ^1.5.3
         version: 1.5.3
+      utility-types:
+        specifier: ^3.10.0
+        version: 3.11.0
     devDependencies:
       '@types/qrcode':
         specifier: ^1.5.5
         version: 1.5.5
-      utility-types:
-        specifier: ^3.10.0
-        version: 3.11.0
 
 packages:
 
@@ -434,8 +434,8 @@ packages:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
 
-  /@dumlj/cloudfs@0.0.1-alpha.1710384219.0:
-    resolution: {integrity: sha512-4IxuUQtsEq1pIgzGr4dkF7Pjc7mr1AzkfegUqzDjQ5SfPsWp28XLA30vZDRZf5wgjlKdHYXu8ee09Yzk/U0XsA==}
+  /@dumlj/cloudfs@0.0.1-alpha.1710394977.0:
+    resolution: {integrity: sha512-kvYadpKHr7KnS13GLD1fztfPf0HJGaPoRGuc9omFMsvJ0pEFuUVpHjYr3UhSSlx8SBHAKovN1lFWgAW7kRYlzQ==}
     dependencies:
       crypto-js: 4.2.0
       micromatch: 4.0.5
@@ -5131,6 +5131,7 @@ packages:
   /utility-types@3.11.0:
     resolution: {integrity: sha512-6Z7Ma2aVEWisaL6TvBCy7P8rm2LQoPv6dJ7ecIaIixHcwfbJ0x7mWdbcwlIM5IGQxPZSFYeqRCqlOOeKoJYMkw==}
     engines: {node: '>= 4'}
+    dev: false
 
   /v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
