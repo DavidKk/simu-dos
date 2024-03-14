@@ -1,8 +1,25 @@
-name: gh-pages
+name: gh-pages.workflow
 
-on: [workflow_dispatch]
+on:
+  push:
+    branches:
+      - "main"
 
 jobs:
   gh-pages:
-    uses: dumlj/dumlj-workflows/.github/workflows/gh-pages.workflow.yml@main
-    secrets: inherit
+    name: gh-pages
+    runs-on: macOS-latest
+    steps:
+      - name: Initialize projects
+        uses: dumlj/dumlj-workflows/.github/actions/setup.node@main
+        with:
+          node_version: '20'
+          git_access_token: ${{ secrets.CI_GIT_TOKEN }}
+      - name: Build gh-pages
+        shell: bash
+        run: npm run ci:pages
+      - name: Release
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.CI_GIT_TOKEN }}
+          publish_dir: ./gh-pages
