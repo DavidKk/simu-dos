@@ -2,14 +2,13 @@ import { define, Component } from '@/libs/Component'
 import { fetchGames } from '@/store/game'
 import PointerEvent from '@/constants/event'
 import SimEvent from '@/libs/SimEvent'
-import { GALLERY_PLAY } from '@/constants/actions'
 import { ACTIVE_CLASSNAME } from '@/constants/definations'
 import type { Game, GalleryPlayEventDetail } from '@/types'
 
 @define('gallery')
 export default class Gallery extends Component {
   static Events = {
-    Play: SimEvent.create<GalleryPlayEventDetail>(GALLERY_PLAY),
+    Play: SimEvent.create<GalleryPlayEventDetail>('GALLERY_PLAY'),
   }
 
   protected selected = 0

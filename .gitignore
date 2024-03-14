@@ -1,5 +1,6 @@
 # Output files
-/dist
+/build
+/gh-pages
 .env
 
 # Dependency folders

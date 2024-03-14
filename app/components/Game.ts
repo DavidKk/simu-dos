@@ -31,7 +31,7 @@ export default class Game extends Component {
   /** 是否允许右键菜单栏 */
   protected disabledContextMenu = false
   /** 同步函数 ID */
-  protected syncIntervalId: number
+  protected syncIntervalId: NodeJS.Timeout
 
   protected bindings() {
     this.stage = this.appendElement(Stage)
@@ -305,8 +305,7 @@ export default class Game extends Component {
 
   /** 激活自动存档 */
   protected activeAutoSave(game: GameInfo, intervalMillisecond = 3e3) {
-    const sync = () => this.saveArchiveFromDB(game)
-    this.syncIntervalId = setInterval(sync, intervalMillisecond) as unknown as number
+    this.syncIntervalId = setInterval(() => this.saveArchiveFromDB(game), intervalMillisecond)
   }
 
   /**

@@ -5,10 +5,9 @@ import DPad from '@/controls/DPad'
 import Keyboard from '@/controls/Keyboard'
 import TouchEvents from '@/constants/event'
 import type Button from '@/controls/Button'
-import { TOUCHPAD_TOUCHDOWN, TOUCHPAD_TOUCHUP } from '@/constants/actions'
 import type { Game, KeypadTouchEventDetail } from '@/types'
 import SimEvent from '@/libs/SimEvent'
-import { deprecated } from '@/utils/deprecated'
+import { deprecated } from '@/utils'
 
 /**
  * 控制器
@@ -19,8 +18,8 @@ import { deprecated } from '@/utils/deprecated'
 @define('touchpad')
 export default class TouchPad extends Component {
   static Events = {
-    TouchDown: SimEvent.create<KeypadTouchEventDetail>(TOUCHPAD_TOUCHDOWN),
-    TouchUp: SimEvent.create<KeypadTouchEventDetail>(TOUCHPAD_TOUCHUP),
+    TouchDown: SimEvent.create<KeypadTouchEventDetail>('TOUCHPAD_TOUCHDOWN'),
+    TouchUp: SimEvent.create<KeypadTouchEventDetail>('TOUCHPAD_TOUCHUP'),
   }
 
   /** 按键面板 */
@@ -74,7 +73,28 @@ export default class TouchPad extends Component {
   protected mapKeyCodeToButton(key: string, button: Button) {
     return deprecated(
       button.addEventsListener(TouchEvents.Start, () => this.dispatchEvent(new TouchPad.Events.TouchUp({ key }))),
-      button.addEventsListener(TouchEvents.End, () => this.dispatchEvent(new TouchPad.Events.TouchDown({ key })))
+      button.addEventsListener(TouchEvents.End, () => this.dispatchEvent(new TouchPad.Events.TouchDown({ key }))),
+      (() => {
+        const onKeyDown = (event: KeyboardEvent) => {
+          if (key === event.key) {
+            button.addClass('active')
+          }
+        }
+
+        const onKeyUp = (event: KeyboardEvent) => {
+          if (key === event.key) {
+            button.removeClass('active')
+          }
+        }
+
+        document.body.addEventListener('keydown', onKeyDown)
+        document.body.addEventListener('keyup', onKeyUp)
+
+        return () => {
+          document.body.removeEventListener('keydown', onKeyDown)
+          document.body.removeEventListener('keyup', onKeyUp)
+        }
+      })()
     )
   }
 

@@ -1,0 +1,73 @@
+sim-notification {
+  --notification-height: 30px;
+  --notification-background-height: calc(var(--notification-height) * 10);
+
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+sim-el[notification] {
+  box-sizing: border-box;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 auto;
+  border-radius: 15px;
+	padding: 5px 20px;
+	min-width: 180px;
+  min-height: 30px;
+  text-align: center;
+	font-size: 12px;
+  font-weight: bold;
+  color: var(--color-black);
+  background-color: rgba(var(--white), var(--opacity-80));
+  animation: notification-dropdown 4s;
+  animation-fill-mode: forwards;
+}
+
+sim-el[notification] > span {
+  position: relative;
+  z-index: 4;
+  color: rgb(var(--white));
+  text-shadow: 0px 0px 7px rgba(var(--black), var(--opacity-40));
+}
+
+sim-el[notification]::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: var(--notification-background-height);
+  background: -webkit-gradient(
+    linear,
+    0% -15%,
+    100% 100%,
+    color-stop(0, rgb(var(--white))),
+    color-stop(.25, rgb(var(--cyan))),
+    color-stop(.5, rgb(var(--red))),
+    color-stop(.75, rgb(var(--green))),
+    color-stop(1, rgb(var(--yellow)))
+  );
+  animation: notification-rotate 17.5s infinite;
+}
+
+@keyframes notification-dropdown {
+  from { transform: translate(0,-100px); }
+  10% { transform: translate(0,20px); }
+  12% { transform: translate(0,22px); }
+  16% { transform: translate(0,20px); }
+  80% { transform: translate(0,20px); }
+  85% { transform: translate(0,25px); }
+  to { transform: translate(0,-100px); }
+}
+
+@keyframes notification-rotate {
+  0% { top: 0; }
+  50% { top: calc(var(--notification-height) - var(--notification-background-height)); }
+  100% { top: 0; }
+}

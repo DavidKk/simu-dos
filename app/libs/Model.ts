@@ -1,7 +1,7 @@
 import IndexedDB from './IndexedDB'
 import { FileSystem } from '@dumlj/cloudfs'
 import { indexedDBTables, indexedDBOptions } from '@/constants/model'
-import { ARCHIVE_STORE_NAME } from '@/constants/indexedDB'
+import { ARCHIVE_STORE_NAME } from '@/constants/definations'
 import type { Archive, ModelUseType, ModelOptions } from '@/types'
 
 export default class Model {

@@ -1,19 +1,22 @@
 import { define, Component } from '@/libs/Component'
 import Game from '@/components/Game'
 import Gallery from '@/components/Gallery'
-import PointerEvent from '@/constants/event'
+import Notification from '@/components/Notification'
 import Menu from '@/controls/Menu'
+import PointerEvent from '@/constants/event'
 
 @define('app')
 export default class App extends Component {
   protected game: Game
   protected gallery: Gallery
   protected menu: Menu
+  protected notification: Notification
 
   protected bindings() {
     this.game = this.appendElement(Game)
     this.gallery = this.appendElement(Gallery)
     this.menu = this.appendElement(Menu)
+    this.notification = this.appendElement(Notification)
 
     this.gallery.onSelected((id) => this.play(id))
     this.game.onExit(() => {

@@ -1,1 +1,0 @@
-export const GALLERY_PLAY = 'JOYSTICK_MOVE'

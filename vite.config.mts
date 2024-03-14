@@ -3,8 +3,10 @@ import { createRequire } from 'node:module'
 import { defineConfig } from 'vite'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
+  publicDir: '/simu-dos/',
   assetsInclude: [
     '**/*.zip',
   ],
@@ -30,6 +32,7 @@ export default defineConfig({
           yield { src, dest: './' }
         }
       }())
-    })
+    }),
+    VitePWA(),
   ]
 })

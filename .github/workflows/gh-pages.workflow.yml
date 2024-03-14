@@ -1,0 +1,8 @@
+name: gh-pages
+
+on: [workflow_dispatch]
+
+jobs:
+  gh-pages:
+    uses: dumlj/dumlj-workflows/.github/workflows/gh-pages.workflow.yml@main
+    secrets: inherit

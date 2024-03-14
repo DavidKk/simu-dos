@@ -11,6 +11,7 @@
   --opacity-40: .4;
   --opacity-60: .6;
   --opacity-80: .8;
+  --opacity-100: 1;
 
   /* theme */
   --primary: 255, 255, 255;
@@ -20,6 +21,7 @@
   --font-size-medium: var(--font-size-medium);
   --font-size-large: 24px;
 
+  --color-black: rgba(var(--black), var(--opacity-80));
   --color-primary: rgba(var(--primary), var(--opacity-40));
   --color-mute: rgba(var(--primary), var(--opacity-60));
 }

@@ -12,13 +12,18 @@ export async function fetchGames() {
   const games = Object.entries(list)
 
   if (games.length > 0) {
+    const infos: [keyof typeof Games, Game][] = []
     await Promise.allSettled(
       Object.entries(list).map(async ([id, load]) => {
         const name = id as keyof typeof Games
         const game = await load()
-        GameInfos.set(name, game)
+        infos.push([name, game])
       })
     )
+
+    for (const [name, game] of infos.sort((a, b) => a[0].localeCompare(b[0]))) {
+      GameInfos.set(name, game)
+    }
   }
 
   return GameInfos

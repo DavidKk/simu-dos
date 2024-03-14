@@ -1,30 +1,23 @@
-import { SyncService } from '@dumlj/cloudfs'
+import { googleSyncService } from '@/services/googleSyncService'
 import { define, Component } from '@/libs/Component'
 import SimEvent from '@/libs/SimEvent'
-import { deprecated } from '@/utils/deprecated'
+import { deprecated } from '@/utils'
 import { PointerEvent } from '@/constants/event'
-import { MENU_KEYBOARD_SWITCH, MENU_GAME_PLAY } from '@/constants/actions'
-import { ARCHIVE_STORE_NAME } from '@/constants/indexedDB'
 import type { MenuGamePlayEventDetail, MenuSwitchEventDetail } from '@/types'
+import { toast } from '@/components/Notification'
 
 /** 菜单 */
 @define('menu')
 export default class Menu extends Component {
   static Events = {
-    GamePlay: SimEvent.create<MenuGamePlayEventDetail>(MENU_GAME_PLAY),
-    KeyboardSwitch: SimEvent.create<MenuSwitchEventDetail>(MENU_KEYBOARD_SWITCH),
+    GamePlay: SimEvent.create<MenuGamePlayEventDetail>('MENU_GAME_PLAY'),
+    KeyboardSwitch: SimEvent.create<MenuSwitchEventDetail>('MENU_KEYBOARD_SWITCH'),
   }
 
-  protected keyboard: Component
   protected isKeyboardVisible = false
-  protected google: Component
-  protected googleSyncService = new SyncService({
-    database: ARCHIVE_STORE_NAME,
-    googleClientId: import.meta.env.VITE_CLIENT_ID,
-    googleApiKey: import.meta.env.VITE_API_KEY,
-  })
-
   protected isGamePlay = false
+  protected keyboard: Component
+  protected google: Component
 
   protected bindings() {
     this.google = this.appendElement('menu-item')
@@ -38,7 +31,14 @@ export default class Menu extends Component {
 
     return deprecated(
       this.google.addEventsListener(PointerEvent.Start, async () => {
-        this.isGamePlay ? await this.googleSyncService.upload() : await this.googleSyncService.download()
+        if (this.isGamePlay) {
+          await googleSyncService.upload()
+          toast('Upload archive files success.')
+          return
+        }
+
+        await googleSyncService.download()
+        toast('Download archive files success.')
       }),
       this.keyboard.addEventsListener(PointerEvent.Start, (event: Event) => {
         event.preventDefault()
@@ -46,16 +46,25 @@ export default class Menu extends Component {
 
         this.dispatchEvent(new Menu.Events.KeyboardSwitch({ visible: !this.isKeyboardVisible }, { bubbles: true }))
       }),
-      this.googleSyncService.onAuthChanged(({ authorized }) => {
-        authorized ? this.google.addClass('authorized') : this.google.removeClass('authorized')
+
+      googleSyncService.onAuthChanged(({ authorized }) => {
+        if (authorized) {
+          this.google.addClass('authorized')
+          return
+        }
+
+        this.google.removeClass('authorized')
       }),
+
       (() => {
         const onGamePlay = (event: Event) => {
-          if (SimEvent.isSimEvent<MenuGamePlayEventDetail>(event)) {
-            const isGamePlay = !!event.detail?.gameplay
-            this.keyboard.toggle(isGamePlay)
-            this.isGamePlay = isGamePlay
+          if (!SimEvent.isSimEvent<MenuGamePlayEventDetail>(event)) {
+            return
           }
+
+          const isGamePlay = !!event.detail?.gameplay
+          this.keyboard.toggle(isGamePlay)
+          this.isGamePlay = isGamePlay
         }
 
         document.addEventListener(Menu.Events.GamePlay.EventType, onGamePlay)

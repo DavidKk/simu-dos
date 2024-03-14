@@ -4,15 +4,14 @@ import { isPointerLikeEvent } from '@/utils/isPointerLikeEvent'
 import * as MathUtil from '@/utils/math'
 import PointerEvent from '@/constants/event'
 import { ACTIVE_CLASSNAME } from '@/constants/definations'
-import { JOYSTICK_TOUCHMOVE, JOYSTICK_TOUCHDOWN, JOYSTICK_TOUCHUP } from '@/constants/actions'
 import type { Point, JoystickDirectionData, JoystickTouchDownEventDetail, JoystickTouchMoveEventDetail } from '@/types'
 
 @define('joystick')
 export default class Joystick extends Component {
   static Events = {
-    TouchDown: SimEvent.create<JoystickTouchDownEventDetail>(JOYSTICK_TOUCHDOWN),
-    TouchMove: SimEvent.create<JoystickTouchMoveEventDetail>(JOYSTICK_TOUCHMOVE),
-    TouchUp: SimEvent.create<void>(JOYSTICK_TOUCHUP),
+    TouchDown: SimEvent.create<JoystickTouchDownEventDetail>('JOYSTICK_TOUCHDOWN'),
+    TouchMove: SimEvent.create<JoystickTouchMoveEventDetail>('JOYSTICK_TOUCHMOVE'),
+    TouchUp: SimEvent.create<void>('JOYSTICK_TOUCHUP'),
   }
 
   protected fixedPoint: Point

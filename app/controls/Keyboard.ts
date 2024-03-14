@@ -1,10 +1,9 @@
 import { define, Component } from '@/libs/Component'
 import PointerEvent from '@/constants/event'
-import { KEYBOARD_TOUCHDOWN, KEYBOARD_TOUCHUP, KEYBOARD_TOUCHPRESS, KEYBOARD_SWITCH } from '@/constants/actions'
 import type { KeyboardTouchEventDetail, KeyboardSwitchEventDetail } from '@/types'
 import SimEvent from '@/libs/SimEvent'
 import Menu from './Menu'
-import { deprecated } from '@/utils/deprecated'
+import { deprecated } from '@/utils'
 
 /** 按键 */
 export const KEYS = [
@@ -44,10 +43,10 @@ export const ATTRIBUTE_KEY = 'key'
 @define('keyboard')
 export default class Keyboard extends Component {
   static Events = {
-    TouchDown: SimEvent.create<KeyboardTouchEventDetail>(KEYBOARD_TOUCHDOWN),
-    TouchUp: SimEvent.create<KeyboardTouchEventDetail>(KEYBOARD_TOUCHUP),
-    TouchPress: SimEvent.create<KeyboardTouchEventDetail>(KEYBOARD_TOUCHPRESS),
-    Switch: SimEvent.create<KeyboardSwitchEventDetail>(KEYBOARD_SWITCH),
+    TouchDown: SimEvent.create<KeyboardTouchEventDetail>('KEYBOARD_TOUCHDOWN'),
+    TouchUp: SimEvent.create<KeyboardTouchEventDetail>('KEYBOARD_TOUCHUP'),
+    TouchPress: SimEvent.create<KeyboardTouchEventDetail>('KEYBOARD_TOUCHPRESS'),
+    Switch: SimEvent.create<KeyboardSwitchEventDetail>('KEYBOARD_SWITCH'),
   }
 
   /** 按键 */
@@ -117,10 +116,24 @@ export default class Keyboard extends Component {
           this.dispatchEvent(new Keyboard.Events.Switch({ visible: this.isVisible }))
         }
 
+        const onKeyDown = (event: KeyboardEvent) => {
+          const key = this.keys.find((key) => key.getAttr('lowercase') === event.key || key.getAttr('uppercase') === event.key)
+          key?.addClass('active')
+        }
+
+        const onKeyUp = (event: KeyboardEvent) => {
+          const key = this.keys.find((key) => key.getAttr('lowercase') === event.key || key.getAttr('uppercase') === event.key)
+          key?.removeClass('active')
+        }
+
         document.body.addEventListener(Menu.Events.KeyboardSwitch.EventType, onSwitcherActive)
+        document.body.addEventListener('keydown', onKeyDown)
+        document.body.addEventListener('keyup', onKeyUp)
 
         return () => {
           document.body.removeEventListener(Menu.Events.KeyboardSwitch.EventType, onSwitcherActive)
+          document.body.removeEventListener('keydown', onKeyDown)
+          document.body.removeEventListener('keyup', onKeyUp)
         }
       })()
     )

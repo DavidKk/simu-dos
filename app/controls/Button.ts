@@ -1,7 +1,7 @@
 import { define, Component } from '@/libs/Component'
 import PointerEvent from '@/constants/event'
 import { ACTIVE_CLASSNAME } from '@/constants/definations'
-import { px2rem, trimUnit } from '@/utils'
+import { px2rem, trimUnit, deprecated } from '@/utils'
 import { DSOperation } from '@/types'
 import type { StyleValue, StyleSize, Position, ButtonType } from '@/types'
 
@@ -12,27 +12,18 @@ export default class Button extends Component {
   public type: ButtonType
 
   protected bindings() {
-    const onKeydown = (event: Event) => {
-      event.preventDefault()
-      event.stopPropagation()
-
-      this.addClass(ACTIVE_CLASSNAME)
-    }
-
-    const onKeyup = (event: Event) => {
-      event.preventDefault()
-      event.stopPropagation()
-
-      this.removeClass(ACTIVE_CLASSNAME)
-    }
-
-    this.addEventsListener(PointerEvent.Start, onKeydown)
-    this.addEventsListener(PointerEvent.End, onKeyup)
-
-    return () => {
-      this.removeEventsListener(PointerEvent.Start, onKeydown)
-      this.removeEventsListener(PointerEvent.End, onKeyup)
-    }
+    return deprecated(
+      this.addEventsListener(PointerEvent.Start, (event: Event) => {
+        event.preventDefault()
+        event.stopPropagation()
+        this.addClass(ACTIVE_CLASSNAME)
+      }),
+      this.addEventsListener(PointerEvent.End, (event: Event) => {
+        event.preventDefault()
+        event.stopPropagation()
+        this.removeClass(ACTIVE_CLASSNAME)
+      })
+    )
   }
 
   private calcSize(size: StyleValue, operation: DSOperation, value: number): StyleValue {
