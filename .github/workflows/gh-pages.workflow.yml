@@ -14,12 +14,12 @@ jobs:
         uses: dumlj/dumlj-workflows/.github/actions/setup.node@main
         with:
           node_version: '20'
-          git_access_token: ${{ secrets.CI_GIT_TOKEN }}
+          git_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Build gh-pages
         shell: bash
         run: npm run ci:pages
       - name: Release
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.CI_GIT_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./gh-pages
