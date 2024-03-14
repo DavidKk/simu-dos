@@ -10,4 +10,4 @@ DOS游戏模拟器(移动模式)，自带摇杆，十字键，通用按键操作
 
 ## Online
 
-- [Play Now!](https://davidkk.github.io/simu-dos/)
+[Play Now!](https://davidkk.github.io/simu-dos/)
