@@ -3,6 +3,8 @@ import PointerEvent from '@/constants/event'
 import { KEYBOARD_TOUCHDOWN, KEYBOARD_TOUCHUP, KEYBOARD_TOUCHPRESS, KEYBOARD_SWITCH } from '@/constants/actions'
 import type { KeyboardTouchEventDetail, KeyboardSwitchEventDetail } from '@/types'
 import SimEvent from '@/libs/SimEvent'
+import Menu from './Menu'
+import { deprecated } from '@/utils/deprecated'
 
 /** 按键 */
 export const KEYS = [
@@ -48,18 +50,12 @@ export default class Keyboard extends Component {
     Switch: SimEvent.create<KeyboardSwitchEventDetail>(KEYBOARD_SWITCH),
   }
 
-  /** 开关 */
-  protected switcher: Component
-  /** 键盘 */
-  protected keyboard: Component
   /** 按键 */
   protected keys: Component[]
   /** 是否按住 shift */
   protected isActiveShift = false
 
   protected bindings() {
-    this.switcher = this.appendElement('keyboard-switcher')
-    this.keyboard = this.appendElement('keyboard-container')
     this.keys = Array.from(
       (function* (self) {
         for (let i = 0; i < KEYS.length; i++) {
@@ -78,53 +74,56 @@ export default class Keyboard extends Component {
             button.setContent(lowercase)
             yield button
           }
+
+          self.append(row)
         }
       })(this)
     )
 
-    this.keyboard.hide()
+    this.hide()
 
-    const onKeyboardActive = (event: Event) => {
-      event.preventDefault()
-      event.stopPropagation()
+    return deprecated(
+      this.addEventsListener(PointerEvent.Start, (event: Event) => {
+        event.preventDefault()
+        event.stopPropagation()
 
-      const key = this.keyboard.getAttr(ATTRIBUTE_LOWER)
-      if (!key?.length) {
-        return
-      }
-
-      switch (key) {
-        case 'Shift':
-        case 'CapsLock': {
-          this.toggleUppercase()
-
-          const event = this.isActiveShift ? new Keyboard.Events.TouchDown({ key }) : new Keyboard.Events.TouchUp({ key })
-          this.dispatchEvent(event)
-          break
+        const key = this.getAttr(ATTRIBUTE_LOWER)
+        if (!key?.length) {
+          return
         }
 
-        default: {
-          const event = new Keyboard.Events.TouchPress({ key })
-          this.dispatchEvent(event)
+        switch (key) {
+          case 'Shift':
+          case 'CapsLock': {
+            this.toggleUppercase()
+
+            const event = this.isActiveShift ? new Keyboard.Events.TouchDown({ key }) : new Keyboard.Events.TouchUp({ key })
+            this.dispatchEvent(event)
+            break
+          }
+
+          default: {
+            const event = new Keyboard.Events.TouchPress({ key })
+            this.dispatchEvent(event)
+          }
         }
-      }
-    }
+      }),
+      (() => {
+        const onSwitcherActive = (event: Event) => {
+          event.preventDefault()
+          event.stopPropagation()
 
-    const onSwitcherActive = (event: Event) => {
-      event.preventDefault()
-      event.stopPropagation()
+          this.toggle()
+          this.dispatchEvent(new Keyboard.Events.Switch({ visible: this.isVisible }))
+        }
 
-      this.keyboard.toggle()
-      this.dispatchEvent(new Keyboard.Events.Switch({ visible: this.keyboard.isVisible }))
-    }
+        document.body.addEventListener(Menu.Events.KeyboardSwitch.EventType, onSwitcherActive)
 
-    this.keyboard.addEventsListener(PointerEvent.Start, onKeyboardActive)
-    this.switcher.addEventsListener(PointerEvent.Start, onSwitcherActive)
-
-    return () => {
-      this.keyboard.removeEventsListener(PointerEvent.Start, onKeyboardActive)
-      this.switcher.removeEventsListener(PointerEvent.Start, onSwitcherActive)
-    }
+        return () => {
+          document.body.removeEventListener(Menu.Events.KeyboardSwitch.EventType, onSwitcherActive)
+        }
+      })()
+    )
   }
 
   public onSwitch(handle: (event: InstanceType<typeof Keyboard.Events.Switch>) => void) {
@@ -135,7 +134,7 @@ export default class Keyboard extends Component {
     })
   }
 
-  public toggleUppercase(isOpen: boolean = !this.isActiveShift) {
+  public toggleUppercase(isOpen = !this.isActiveShift) {
     this.isActiveShift = isOpen
     this.keys.forEach((key) => {
       const uppercase = this.isActiveShift ? key.getAttr(ATTRIBUTE_UPPER) : key.getAttr(ATTRIBUTE_LOWER)

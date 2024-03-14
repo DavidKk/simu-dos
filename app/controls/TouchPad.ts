@@ -4,10 +4,11 @@ import Joystick from '@/controls/Joystick'
 import DPad from '@/controls/DPad'
 import Keyboard from '@/controls/Keyboard'
 import TouchEvents from '@/constants/event'
-import Button from '@/controls/Button'
+import type Button from '@/controls/Button'
 import { TOUCHPAD_TOUCHDOWN, TOUCHPAD_TOUCHUP } from '@/constants/actions'
 import type { Game, KeypadTouchEventDetail } from '@/types'
 import SimEvent from '@/libs/SimEvent'
+import { deprecated } from '@/utils/deprecated'
 
 /**
  * 控制器
@@ -57,30 +58,24 @@ export default class TouchPad extends Component {
       })
     }
 
-    // // 注册键盘
-    // if (keyboad) {
-    //   this.keyboard = this.appendElement(Keyboard)
-    //   this.keyboard.onSwitch((event) => {
-    //     const { visible } = event.detail
-    //     this.joystick && this.joystick.toggle(visible)
-    //     this.dpad && this.dpad.toggle(visible)
-    //     this.keypad && this.keypad.toggle(visible)
-    //   })
-    // }
+    // 注册键盘
+    if (keyboad) {
+      this.keyboard = this.appendElement(Keyboard)
+      this.keyboard.onSwitch((event) => {
+        const { visible } = event.detail
+        this.joystick && this.joystick.toggle(!visible)
+        this.dpad && this.dpad.toggle(!visible)
+        this.keypad && this.keypad.toggle(!visible)
+      })
+    }
   }
 
   /** 为按钮绑定按键 */
   protected mapKeyCodeToButton(key: string, button: Button) {
-    const handleTouchDown = () => this.dispatchEvent(new TouchPad.Events.TouchUp({ key }))
-    const handleTouchUp = () => this.dispatchEvent(new TouchPad.Events.TouchDown({ key }))
-
-    button.bind(TouchEvents.Start, handleTouchDown)
-    button.bind(TouchEvents.End, handleTouchUp)
-
-    return function deprecated() {
-      button.unbind(TouchEvents.Start, handleTouchDown)
-      button.unbind(TouchEvents.End, handleTouchUp)
-    }
+    return deprecated(
+      button.addEventsListener(TouchEvents.Start, () => this.dispatchEvent(new TouchPad.Events.TouchUp({ key }))),
+      button.addEventsListener(TouchEvents.End, () => this.dispatchEvent(new TouchPad.Events.TouchDown({ key })))
+    )
   }
 
   /** 重置 */

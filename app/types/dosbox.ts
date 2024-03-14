@@ -10,11 +10,11 @@ export interface DosBoxOptions {
 }
 
 export interface DosBoxPlayOptions extends DosBoxOptions {
-  onDownloadWasmProgress?: (event: DosBoxProgressEvent) => void
-  onDownloadWasmCompleted?: (buffer: ArrayBuffer) => void
-  onDownloadRomProgress?: (event: DosBoxProgressEvent) => void
-  onDownloadRomCompleted?: (buffer: ArrayBuffer) => void
-  onExtractCompleted?: (buffer: ArrayBuffer) => void
+  onDownloadWasmProgress?: (event: DosBoxProgressEvent) => Promise<void> | void
+  onDownloadWasmCompleted?: (buffer: ArrayBuffer) => Promise<void> | void
+  onDownloadRomProgress?: (event: DosBoxProgressEvent) => Promise<void> | void
+  onDownloadRomCompleted?: (buffer: ArrayBuffer) => Promise<void> | void
+  onExtractCompleted?: (buffer: ArrayBuffer) => Promise<void> | void
 }
 
 export type DosBoxConvertFileToArrayBufferParams = Array<{

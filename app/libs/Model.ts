@@ -1,10 +1,13 @@
 import IndexedDB from './IndexedDB'
+import { FileSystem } from '@dumlj/cloudfs'
 import { indexedDBTables, indexedDBOptions } from '@/constants/model'
+import { ARCHIVE_STORE_NAME } from '@/constants/indexedDB'
 import type { Archive, ModelUseType, ModelOptions } from '@/types'
 
 export default class Model {
   public used: ModelUseType
   public database: IndexedDB
+  public cloudfs = new FileSystem(ARCHIVE_STORE_NAME)
 
   constructor(options: ModelOptions) {
     if (options.use === 'indexedDB' && IndexedDB.supported) {
@@ -18,7 +21,7 @@ export default class Model {
    * @param source 文件内容
    */
   public saveWasm(source: ArrayBuffer) {
-    // return this.database.put(indexedDBTables.system, source, 'wasm')
+    return this.database.put(indexedDBTables.system, source, 'wasm')
   }
 
   /** 获取 WASM 文件 */
@@ -52,15 +55,23 @@ export default class Model {
       return this.saveArchive([archive])
     }
 
-    const promises = archive.map((archive) => this.database.sync(indexedDBTables.archive, 'romId', archive, (cursor, data) => cursor.value.file === data.file))
-    await Promise.all(promises)
+    await Promise.all(
+      archive.map(async ({ romId, file, content }) => {
+        const filePath = `/${romId}/${file}`
+        await this.cloudfs.writeFile(filePath, content)
+      })
+    )
   }
 
   /**
    * 读取存档文件
    * @param romId ROM ID
    */
-  public loadArchive (romId: string) {
-    return this.database.getAllByIndex(indexedDBTables.archive, 'romId', romId) as Promise<Archive[]>
+  public async loadArchive(romId: string) {
+    const files = await this.cloudfs.glob(`/${romId}/*`)
+    return files.map(({ folder, name, content }) => {
+      const file = `${folder.replace(`/${romId}`, '')}/${name}`
+      return { file, content }
+    })
   }
 }

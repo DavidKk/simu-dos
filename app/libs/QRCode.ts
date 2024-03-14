@@ -9,14 +9,14 @@ export default class QRCode {
     }
   }
 
-  protected printImage(url: string, scale: number = 1) {
+  protected printImage(url: string, scale = 1) {
     return new Promise<string[]>((resolve, reject) => {
-      let image = new Image()
+      const image = new Image()
 
       image.onload = () => {
-        let width = image.width * scale
-        let height = image.height * scale
-        let dim = this.getBox(width, height)
+        const width = image.width * scale
+        const height = image.height * scale
+        const dim = this.getBox(width, height)
         resolve([`%c ${dim.string}`, `${dim.style}background:url(${url}) no-repeat;background-size:cover;color:transparent;`])
       }
 
@@ -35,7 +35,9 @@ export default class QRCode {
   public async print(url = document.location.href) {
     const qrcode = await this.convert(url)
     const codes = await this.printImage(qrcode)
+    /* eslint-disable-next-line no-console */
     console.log(`%c ${i18n.qrcode.label}`, 'font-size:14px;font-weight:bold;')
+    /* eslint-disable-next-line no-console */
     console.log(...codes)
   }
 }

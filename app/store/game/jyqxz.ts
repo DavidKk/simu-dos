@@ -3,7 +3,7 @@ import type { Game } from '@/types'
 
 export default async function jyqxz(): Promise<Game> {
   const { default: cover } = await import('@/assets/images/jyqxz.jpg')
-  const { default: url } = await import('@/assets/roms/xjqxz.zip')
+  const { default: url } = await import('@/assets/roms/jyqxz.zip')
 
   return {
     id: 'jyqxz',

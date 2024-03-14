@@ -1,8 +1,8 @@
-import { Point } from '@/types'
+import type { Point } from '@/types'
 
 export const distance = (pointA: Point, pointB: Point) => {
-  let dx = pointB.x - pointA.x
-  let dy = pointB.y - pointA.y
+  const dx = pointB.x - pointA.x
+  const dy = pointB.y - pointA.y
   return Math.sqrt(dx * dx + dy * dy)
 }
 
@@ -21,8 +21,8 @@ export const radian = (angle: number) => {
 }
 
 export const coord = (position: Point, distance: number, angle: number): Point => {
-  let coord = { x: 0, y: 0 }
-  let _radian = radian(angle)
+  const coord = { x: 0, y: 0 }
+  const _radian = radian(angle)
   coord.x = position.x - distance * Math.cos(_radian)
   coord.y = position.y - distance * Math.sin(_radian)
   return coord

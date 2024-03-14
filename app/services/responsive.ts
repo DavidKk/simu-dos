@@ -8,20 +8,20 @@ export function unusual(): boolean {
   }
 
   // 获取 userAgent
-  let userAgent = navigator.userAgent
+  const userAgent = navigator.userAgent
   // 获取 WebKit 版本号
-  let webKitVersionMatch = userAgent.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i)
+  const webKitVersionMatch = userAgent.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i)
   // 如果 WebKit 版本号大于 534，则返回 false
   if (webKitVersionMatch && parseInt(webKitVersionMatch[1], 10) > 534) {
     return false
   }
 
   // 获取 UC 版本号
-  let UCVersionMatch = navigator.userAgent.match(/U3\/((\d+|\.){5,})/i)
+  const UCVersionMatch = navigator.userAgent.match(/U3\/((\d+|\.){5,})/i)
 
   // 如果 UC 版本号小于 80，则返回 true
   if (UCVersionMatch) {
-    let UCVersion = parseInt(UCVersionMatch[1].split('.').join(''), 10)
+    const UCVersion = parseInt(UCVersionMatch[1].split('.').join(''), 10)
     if (UCVersion < 80) {
       return true
     }
@@ -66,7 +66,7 @@ export function getRootFontSize(rootFontSize = ROOT_FONT_SIZE, designClientWidth
 
 /** 设置 meta 缩放 */
 export function metaFlex(rootFontSize = ROOT_FONT_SIZE, designClientWidth = DESIGN_CLIENT_WITH) {
-  let docElement = document.documentElement
+  const docElement = document.documentElement
   docElement.style.fontSize = `${getRootFontSize(rootFontSize, designClientWidth)}px`
   docElement.style.display = 'none'
 

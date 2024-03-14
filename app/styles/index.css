@@ -8,6 +8,7 @@
 @import url(./controls/keypad.css);
 @import url(./controls/keyboard.css);
 @import url(./controls/touchpad.css);
+@import url(./controls/menu.css);
 
 @import url(./components/terminal.css);
 @import url(./components/dosbox-canvas.css);

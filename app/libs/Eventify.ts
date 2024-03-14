@@ -100,6 +100,7 @@ export function eventify<T extends Class<EventTarget>>(Target: T = EventTarget a
       const deprecatedEvents = narrowType(events)
       const deprecate = () => {
         deprecatedEvents.forEach((event) => this.unbind(event, handle))
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         this.deprecatedListeners = this.deprecatedListeners.filter(([_deprecate, _events, deprecatedHandle]) => {
           return handle === deprecatedHandle
         })
@@ -120,6 +121,7 @@ export function eventify<T extends Class<EventTarget>>(Target: T = EventTarget a
       const isRemoveAll = arguments.length === 1
       const types = narrowType(events)
 
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       this.deprecatedListeners = this.deprecatedListeners.filter(([_, deprecatedEvents, deprecatedHandle]) => {
         if (isRemoveAll === true || handle === deprecatedHandle) {
           deprecatedEvents = deprecatedEvents.filter((event) => types.includes(event))

@@ -1,17 +1,5 @@
 # Dest resouces
-libs
-!**/src/**/libs
-!**/__tests__/**/libs
-!**/__example
-build
-.next
-coverage
-junit.xml
-gh-pages
-!.templaterc.ts
-!.readmerc.ts
-!.dumirc.ts
-!.dumljrc.ts
+/dist
 
 # Husky
 .husky

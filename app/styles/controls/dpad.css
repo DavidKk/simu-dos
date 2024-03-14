@@ -5,9 +5,28 @@ sim-dpad {
   top: 40px;
   left: 40px;
   display: block;
-  width: calc(var(--dpad-button-size) * 3 + var(--dpad-button-size) / 3);
-  height: calc(var(--dpad-button-size) * 3 + var(--dpad-button-size) / 3);
+  width: calc(var(--dpad-button-size) * 2.8 + var(--dpad-button-size) / 3);
+  height: calc(var(--dpad-button-size) * 2.8 + var(--dpad-button-size) / 3);
   font-size: var(--font-size-medium);
+}
+
+sim-dpad::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: auto;
+  border-radius: 10%;
+  width: 60%;
+  height: 60%;
+  box-shadow:
+    0 0 24px rgba(255,255,255,.2) inset,
+    0 0 14px rgba(255,255,255,.05)
+  ;
+  transform: rotate(45deg);
 }
 
 sim-el[dpad-button] {
@@ -16,27 +35,22 @@ sim-el[dpad-button] {
   right: 0;
   bottom: 0;
   left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: auto;
   border-radius: 4px;
   background-color: var(--color-primary);
   cursor: pointer;
 }
 
-sim-el[dpad-button]::before,
-sim-el[dpad-button]::after {
+sim-el[dpad-button]::before {
   content: "";
-  display: block;
-  margin: auto;
+  border-style: solid;
+  border-radius: 5px;
   width: 0;
   height: 0;
-}
-
-sim-el[dpad-button]::before {
-  border: calc(var(--font-size-medium) / 4) solid var(--color-primary);
-}
-
-sim-el[dpad-button]::after {
-  border: calc(var(--font-size-medium) / 2) solid var(--color-primary);
+  transition: transform .16s ease-in-out;
 }
 
 sim-el[dpad-button].active {
@@ -47,110 +61,72 @@ sim-el[dpad-button].dpad-up,
 sim-el[dpad-button].dpad-right,
 sim-el[dpad-button].dpad-down,
 sim-el[dpad-button].dpad-left {
+  box-sizing: content-box;
   width: var(--dpad-button-size);
   height: var(--dpad-button-size);
+  box-shadow: 0 0 12px rgba(0,0,0,.4) inset;
 }
 
 sim-el[dpad-button].dpad-up {
   top: 0;
   bottom: auto;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+  padding-bottom: 10px;
+  border-radius: 17% 17% 50% 50%;
 }
 
 sim-el[dpad-button].dpad-up::before {
-  top: auto;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  border-left-color: transparent;
+  border-width: 0 8px 10px 8px;
+  border-color: transparent transparent var(--color-primary) transparent;
 }
 
-sim-el[dpad-button].dpad-up:after {
-  top: 100%;
-  bottom: auto;
-  border-right-color: transparent;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-}
-
-sim-el[dpad-button].dpad-up.active::after {
-  border-top-color: rgba(var(--white), var(--opacity-60));
+sim-el[dpad-button].dpad-up.active::before {
+  transform: translateY(-3px);
 }
 
 sim-el[dpad-button].dpad-right {
   left: auto;
   right: 0;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  padding-left: 10px;
+  border-radius: 50% 17% 17% 50%;
 }
 
 sim-el[dpad-button].dpad-right::before {
-  right: auto;
-  border-right-color: transparent;
-  border-bottom-color: transparent;
-  border-top-color: transparent;
+  border-width: 8px 0 8px 10px;
+  border-color: transparent transparent transparent var(--color-primary);
 }
 
-sim-el[dpad-button].dpad-right::after {
-  left: auto;
-  right: 100%;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-}
-
-sim-el[dpad-button].dpad-right.active::after {
-  border-right-color: rgba(var(--white), var(--opacity-60));
+sim-el[dpad-button].dpad-right.active::before {
+  transform: translateX(3px);
 }
 
 sim-el[dpad-button].dpad-down {
   top: auto;
   bottom: 0;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  padding-top: 10px;
+  border-radius: 50% 50% 17% 17%;
 }
 
 sim-el[dpad-button].dpad-down::before {
-  bottom: auto;
-  border-right-color: transparent;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
+  border-width: 10px 8px 0 8px;
+  border-color: var(--color-primary) transparent transparent transparent;
 }
 
-sim-el[dpad-button].dpad-down:after {
-  top: auto;
-  bottom: 100%;
-  border-top-color: transparent;
-  border-right-color: transparent;
-  border-left-color: transparent;
-}
-
-sim-el[dpad-button].active:after {
-  border-bottom-color: rgba(var(--white), var(--opacity-60));
+sim-el[dpad-button].active::before {
+  transform: translateY(3px);
 }
 
 sim-el[dpad-button].dpad-left {
   left: 0;
   right: auto;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  padding-right: 10px;
+  border-radius: 17% 50% 50% 17%;
 }
 
 sim-el[dpad-button].dpad-left::before {
-  left: auto;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
+  border-width: 8px 10px 8px 0;
+  border-color: transparent var(--color-primary) transparent transparent;
 }
 
-sim-el[dpad-button].dpad-left::after {
-  right: auto;
-  left: 100%;
-  border-top-color: transparent;
-  border-right-color: transparent;
-  border-bottom-color: transparent;
-}
-
-sim-el[dpad-button].active::after {
-  border-left-color: rgba(var(--white), var(--opacity-60));
+sim-el[dpad-button].dpad-left.active::before {
+  transform: translateX(-3px);
 }

@@ -1,7 +1,6 @@
 # Output files
 /dist
-/libs
-
+.env
 
 # Dependency folders
 node_modules

@@ -37,7 +37,7 @@ export default class Button extends Component {
 
   private calcSize(size: StyleValue, operation: DSOperation, value: number): StyleValue {
     if (typeof size === 'string') {
-      let { num, unit } = trimUnit(size)
+      const { num, unit } = trimUnit(size)
       return this.calcSize(num, operation, value) + unit
     }
 
@@ -88,7 +88,7 @@ export default class Button extends Component {
       this.setWidth(size)
 
       const value = this.type === 'round' ? size : 20
-      let fontSize = this.calcSize(value, DSOperation.Multi, ratio)
+      const fontSize = this.calcSize(value, DSOperation.Multi, ratio)
       this.setFontSize(fontSize)
     }
   }

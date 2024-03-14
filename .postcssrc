@@ -1,6 +1,5 @@
 {
   "plugins": {
-    "autoprefixer": {},
     "postcss-pxtorem": {
       "propList": ["*"],
       "rootValue": 16,

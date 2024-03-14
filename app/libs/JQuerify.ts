@@ -88,16 +88,18 @@ export default function jQuerify<T extends Class<HTMLElement>>(Target: T) {
 
     /** 显示 */
     public show() {
+      this.visible = true
       this.removeClass('hidden')
     }
 
     /** 隐藏 */
     public hide() {
+      this.visible = false
       this.addClass('hidden')
     }
 
     /** 显示/隐藏开关 */
-    public toggle(visible: boolean = !this.visible) {
+    public toggle(visible = !this.visible) {
       return visible ? this.show() : this.hide()
     }
 

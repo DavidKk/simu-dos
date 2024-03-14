@@ -1,4 +1,4 @@
-import { StyleValue, Position } from '../styles'
+import type { StyleValue, Position } from '../styles'
 import type { ButtonType } from './button'
 
 /** 按键初始化配置 */

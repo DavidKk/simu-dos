@@ -1,4 +1,4 @@
-export function padEnd(str: string, targetLength: number, padChar: string = ' ') {
+export function padEnd(str: string, targetLength: number, padChar = ' ') {
   if (str.length >= targetLength) {
     return str
   }

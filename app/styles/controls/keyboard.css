@@ -1,52 +1,37 @@
 sim-keyboard {
   position: absolute;
-  top: 0;
   right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  font-size: var(--font-size-medium);
-  pointer-events: none;
-}
-
-sim-keyboard-container {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  bottom: 10px;
   left: 0;
   display: block;
   margin: 0 auto;
-  width: 680px;
+  width: 90%;
   font-size: 14px;
   font-weight: bold;
   user-select: none;
 }
 
-sim-keyboard-row {
+sim-el[keyboard-row] {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
   width: 100%;
+  gap: 5px;
 }
 
-/* sim-keyboard-switcher {
-  @include fa-icon;
-  @extend .fa;
-} */
-
-sim-keyboard-switcher,
-sim-keyboard-key {
+sim-el[keyboard-key] {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  flex: 1;
   border-radius: 5px;
-  width: 42px;
-  height: 42px;
+  padding: 0 .8em;
+  height: 2.2em;
   word-wrap: normal;
   white-space: nowrap;
+  font-size: 14px;
+  text-transform: capitalize;
   color: var(--color-primary);
   background-color: var(--color-primary);
   transition: background-color .16s ease-in, color background-color .16s ease-in;
@@ -57,56 +42,12 @@ sim-keyboard-key {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-sim-keyboard-switcher:active,
-sim-keyboard-key:active,
-sim-keyboard-switcher.active,
-sim-keyboard-key.active {
+sim-el[keyboard-key]:active,
+sim-el[keyboard-key].active {
   color: var(--color-mute);
   background-color: var(--color-mute);
 }
 
-/* sim-keyboard-key {
-  color: fade-in($uiColor, .3);
-  background-color: fade-out($uiColor, .3);
-} */
-
-/* sim-keyboard-key:active,
-sim-keyboard-key.active {
-  color: fade-in($uiActiveColor, .3);
-  background-color: fade-out($uiActiveColor, .3);
-} */
-
-sim-keyboard-key[key=delete] {
-  width: 72px;
-}
-
-sim-keyboard-key[key=tab] {
-  width: 70px;
-}
-
-sim-keyboard-key[key="caps lock"] {
-  width: 80px;
-}
-
-sim-keyboard-key[key=return] {
-  width: 77px;
-}
-
-sim-keyboard-key[key=shift] {
-  width: 95px;
-}
-
-sim-keyboard-key[key=space] {
-  width: 100%;
-}
-
-sim-keyboard-switcher {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-sim-keyboard-switcher::before {
-  content: "fa-content($fa-var-keyboard)";
-  font-size: 20px;
+sim-el[keyboard-key][key="Escape"] {
+  flex: 0;
 }

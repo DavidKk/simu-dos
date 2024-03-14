@@ -42,7 +42,6 @@ export default class Gallery extends Component {
 
   protected bindings() {
     const onKeyChoosed = (event: KeyboardEvent) => {
-      console.log(event)
       switch (event.key) {
         case 'ArrowUp': {
           const num = this.selected - this.numberInRow

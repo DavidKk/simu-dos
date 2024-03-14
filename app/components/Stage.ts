@@ -127,11 +127,11 @@ export default class Stage extends Component {
     })
   }
 
-  public toggleTerminal(isOpen: boolean = !this.isTerminalActive) {
+  public toggleTerminal(isOpen = !this.isTerminalActive) {
     return this.terminal.toggle(isOpen)
   }
 
-  public toggleCanvas(isOpen: boolean = !this.isCanvasActive) {
+  public toggleCanvas(isOpen = !this.isCanvasActive) {
     return isOpen ? this.canvas.fadeIn() : this.canvas.fadeOut()
   }
 

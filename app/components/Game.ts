@@ -1,5 +1,6 @@
 import { define, Component } from '@/libs/Component'
-import DosBox, { EXIT_EVENT } from '@/libs/DosBox'
+import type DosBox from '@/libs/DosBox'
+import { EXIT_EVENT } from '@/libs/DosBox'
 import Model from '@/libs/Model'
 import Stage from '@/components/Stage'
 import TouchPad from '@/controls/TouchPad'
@@ -136,7 +137,7 @@ export default class Game extends Component {
       wasmProcessFn(WASM_FILE, loaded, total || 2167039)
     }
 
-    const onDownloadWasmCompleted = (content: ArrayBuffer) => {
+    const onDownloadWasmCompleted = async (content: ArrayBuffer) => {
       this.model.saveWasm(content)
     }
 
@@ -155,7 +156,8 @@ export default class Game extends Component {
       this.model.saveRom(key, content)
     }
 
-    const onExtractCompleted = () => {
+    const onExtractCompleted = async () => {
+      game.save && (await this.loadArchiveFromDB(game))
       this.stage.print(`Game ${game.name} has been initialized, start now and wait please...`)
     }
 
@@ -312,6 +314,10 @@ export default class Game extends Component {
    * @param id 游戏ID, 对应游戏列表
    */
   public async start(id: string) {
+    if (this.isPlaying === true) {
+      return
+    }
+
     if (!isGameName(id)) {
       throw new Error(`Game ${id} is not exists.`)
     }
@@ -331,10 +337,11 @@ export default class Game extends Component {
     // 打印游戏信息
     this.printGameInfo(game)
     // 运行游戏
-    this.play(game)
+    await this.play(game)
 
     // 注册控制器
     isMobile && this.registerMobileControls(game)
+
     // 注册存档存储
     game.save && this.activeAutoSave(game)
   }
@@ -357,7 +364,7 @@ export default class Game extends Component {
    * @description
    * 开发环境下不禁止
    */
-  public disableContextMenu(disable: boolean = true) {
+  public disableContextMenu(disable = true) {
     this.disabledContextMenu = disable
   }
 
@@ -390,12 +397,16 @@ export default class Game extends Component {
    * @param game 游戏信息
    */
   public async loadArchiveFromDB(game: GameInfo) {
+    const { save } = game
+    if (!save) {
+      return
+    }
+
     const key = await this.getGameStoreUniqKey(game)
     const files = await this.model.loadArchive(key)
-
     if (Array.isArray(files)) {
       files.forEach(({ file, content }) => {
-        this.dosbox.writeFile(file, content)
+        this.dosbox.writeFile(file, content, save.path)
       })
     }
   }

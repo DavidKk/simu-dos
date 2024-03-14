@@ -30,6 +30,7 @@ export default async function xjqxz(): Promise<Game> {
     play: {
       dpad: true,
       joystick: Joystick3DConfig,
+      keyboad: true,
       keypad: [
         {
           content: 'space',

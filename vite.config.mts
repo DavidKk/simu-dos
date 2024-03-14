@@ -2,6 +2,7 @@ import path from 'path'
 import { createRequire } from 'node:module'
 import { defineConfig } from 'vite'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 export default defineConfig({
   assetsInclude: [
@@ -13,6 +14,11 @@ export default defineConfig({
     }
   },
   plugins: [
+    nodePolyfills({
+      globals: {
+        process: true,
+      }
+    }),
     viteStaticCopy({
       targets: Array.from(function*() {
         const require = createRequire(import.meta.url)

@@ -22,27 +22,27 @@ export default class Terminal extends Component {
   }
 
   public log(content: string) {
-    let line = this.newline()
+    const line = this.newline()
     line.appendContentText(content)
   }
 
   public info(content: string) {
-    let line = this.newline('info')
+    const line = this.newline('info')
     line.appendContentText(content)
   }
 
   public success(content: string) {
-    let line = this.newline('success')
+    const line = this.newline('success')
     line.appendContentText(content)
   }
 
   public warn(content: string) {
-    let line = this.newline('warn')
+    const line = this.newline('warn')
     line.appendContentText(content)
   }
 
   public error(content: string) {
-    let line = this.newline('error')
+    const line = this.newline('error')
     line.appendContentText(content)
   }
 
@@ -50,7 +50,7 @@ export default class Terminal extends Component {
     line.setContent(content)
   }
 
-  public progress(content: string, loaded: number, total: number, size: number = 10, line: Component): void {
+  public progress(content: string, loaded: number, total: number, size = 10, line: Component): void {
     const finalTotal = total === 0 ? loaded : total
 
     const units = ['bytes', 'K', 'M', 'G']
@@ -68,7 +68,7 @@ export default class Terminal extends Component {
     char = char[0]
 
     if (char === '\n') {
-      let wrap = document.createElement('br')
+      const wrap = document.createElement('br')
       this.currentLine.append(wrap)
       return
     }

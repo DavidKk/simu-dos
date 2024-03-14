@@ -18,6 +18,6 @@
       "@/*": ["./app/*"]
     }
   },
-  "include": ["**/*.ts", "app/**/*.ts", "**/*.mts", "postcss.config.js", "typings/**/*.d.ts"],
+  "include": ["**/*.ts", "app/**/*.ts", "**/*.mts", "postcss.config.js", "typings.d/**/*.d.ts"],
   "exclude": ["node_modules"]
 }

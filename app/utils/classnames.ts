@@ -1,4 +1,4 @@
-import { ElementClassNames } from '@/types'
+import type { ElementClassNames } from '@/types'
 
 export function classnames(classes: ElementClassNames): string[] {
   if (Array.isArray(classes)) {

@@ -46,7 +46,7 @@ export default class DosBox extends eventify() {
   /** 是否准备完成 */
   protected isReady: boolean
 
-  constructor (canvas: HTMLCanvasElement, options: DosBoxOptions = {}) {
+  constructor(canvas: HTMLCanvasElement, options: DosBoxOptions = {}) {
     super()
 
     this.wasmUrl = options?.wasmUrl || WASM_FILE
@@ -95,23 +95,35 @@ export default class DosBox extends eventify() {
     const { url, rom, command } = game
     const file = options?.wasm || options?.wasmUrl || this.wasmUrl
 
-    const requestOptions: RequestOptions = {
-      onProgress(event) {
-        const { receivedLength: loaded, contentLength: total } = event.detail
-        options?.onDownloadRomProgress?.({ loaded, total })
-      },
-      onCompleted(content) {
-        options?.onDownloadWasmCompleted?.(content)
-      }
-    }
-
     /**
      * 并行下载文件
      * 若文件已有内容则直接返回该文件
      */
     const [wasmFile, romFile] = await this.convertFileToArrayBuffer([
-      { file, options: requestOptions },
-      { file: rom ? rom : typeof url === 'string' ? url : pickByLanguage(url)!, options: requestOptions },
+      {
+        file,
+        options: {
+          onProgress(event) {
+            const { receivedLength: loaded, contentLength: total } = event.detail
+            options?.onDownloadWasmProgress?.({ loaded, total })
+          },
+          onCompleted(content) {
+            options?.onDownloadWasmCompleted?.(content)
+          }
+        }
+      },
+      {
+        file: rom ? rom : typeof url === 'string' ? url : pickByLanguage(url)!,
+        options: {
+          onProgress(event) {
+            const { receivedLength: loaded, contentLength: total } = event.detail
+            options?.onDownloadRomProgress?.({ loaded, total })
+          },
+          onCompleted(content) {
+            options?.onDownloadRomCompleted?.(content)
+          }
+        }
+      },
     ])
 
     /**
@@ -124,10 +136,9 @@ export default class DosBox extends eventify() {
      * 下载并解压缩 ROM 文件
      * 最后载入到模拟器中
      */
-
     const buffer = await this.extract(romFile, 'zip')
     if (typeof options?.onExtractCompleted === 'function') {
-      options.onExtractCompleted(buffer)
+      await options.onExtractCompleted(buffer)
     }
 
     // 执行命令运行程序
@@ -264,7 +275,6 @@ export default class DosBox extends eventify() {
 
         const { default: WDOSBOX } = await import('js-dos/dist/wdosbox' as any)
         WDOSBOX(this.wdosboxModule)
-
       } catch (error) {
         reject(error)
       }
@@ -279,7 +289,7 @@ export default class DosBox extends eventify() {
    * @description
    * 若文件为远程文件, 则先下载再解压
    */
-  public async extract(rom: ArrayBuffer, type: string = 'zip') {
+  public async extract(rom: ArrayBuffer, type = 'zip') {
     if (type !== 'zip') {
       throw new Error('Only ZIP archive is supported')
     }
@@ -356,6 +366,11 @@ export default class DosBox extends eventify() {
   public searchFiles(dir: string, pattern: RegExp) {
     return new Promise<string[]>((resolve) => {
       const { FS } = this.wdosboxModule
+      if (!FS) {
+        resolve([])
+        return
+      }
+
       const files = FS.readdir(dir)
       const filteredFiles = files.filter((file) => pattern.test(file))
       resolve(filteredFiles)
@@ -382,19 +397,14 @@ export default class DosBox extends eventify() {
    * @param file 文件名称
    * @param content 文件内容
    */
-  public writeFile(file: string, content: ArrayBuffer) {
+  public writeFile(file: string, content: ArrayBuffer, sep = '/') {
     const { FS } = this.wdosboxModule
     const { exists } = FS.analyzePath(file)
 
     exists && FS.unlink(file)
-    const matched = file.match(/(\/|\\)/)
-    if (!matched) {
-      return
-    }
-
-    const [sep] = matched
-    const name = file.split(sep).pop()!
-    const dir = file.replace(`${sep}${name}`, file)
+    const paths = file.split(sep)
+    const name = paths.pop()!
+    const dir = paths.join(sep) || '.'
     FS.createDataFile(dir, name, content, true, true, true)
   }
 
@@ -526,7 +536,7 @@ export default class DosBox extends eventify() {
    * 销毁
    * @param force 强制销毁
    */
-  public destroy (force: boolean = true) {
+  public destroy (force = true) {
     const handleDestroyDosBox = () => {
       this.exit()
 
