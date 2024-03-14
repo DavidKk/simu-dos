@@ -6,7 +6,7 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
-  publicDir: '/simu-dos/',
+  base: '/simu-dos/',
   assetsInclude: [
     '**/*.zip',
   ],
