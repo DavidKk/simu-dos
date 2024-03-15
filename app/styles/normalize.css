@@ -23,4 +23,6 @@ html, body {
 body {
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
+  touch-action: pan-x pan-y;
+  user-scalable: no;
 }
