@@ -57,7 +57,7 @@ export default class Game extends Component {
       return this.getGameStoreUniqKey(info)
     }
 
-    return `${game.id}@${language}`
+    return game.id
   }
 
   protected checkSupport() {
@@ -403,8 +403,10 @@ export default class Game extends Component {
 
     const key = await this.getGameStoreUniqKey(game)
     const files = await this.model.loadArchive(key)
+    console.log('-->', files)
     if (Array.isArray(files)) {
       files.forEach(({ file, content }) => {
+        console.log({ file, content }, save.path)
         this.dosbox.writeFile(file, content, save.path)
       })
     }

@@ -3,8 +3,14 @@ sim-notification {
   --notification-background-height: calc(var(--notification-height) * 10);
 
   position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 sim-el[notification] {
@@ -12,6 +18,7 @@ sim-el[notification] {
 	display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
   overflow: hidden;
   margin: 0 auto;
   border-radius: 15px;
