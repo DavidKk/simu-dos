@@ -1,6 +1,6 @@
 import { define, Component } from '@/libs/Component'
 import SimEvent from '@/libs/SimEvent'
-import { isPointerLikeEvent } from '@/utils/isPointerLikeEvent'
+import { isPointerLikeEvent, isTouchEvent } from '@/utils'
 import * as MathUtil from '@/utils/math'
 import PointerEvent from '@/constants/event'
 import { ACTIVE_CLASSNAME } from '@/constants/definations'
@@ -96,7 +96,7 @@ export default class Joystick extends Component {
       return null
     }
 
-    if (event instanceof TouchEvent) {
+    if (isTouchEvent(event)) {
       const { pageX, pageY } = event.touches[0]
       return { x: pageX, y: pageY }
     }

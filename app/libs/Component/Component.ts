@@ -38,9 +38,10 @@ export class Component extends jQuerify(eventify(HTMLElement)) {
    */
   public connectedCallback() {
     const { classNames } = Object.getPrototypeOf(this).constructor
-    Array.isArray(classNames) && classNames.forEach((classname) => {
-      this.classList.add(classname)
-    })
+    Array.isArray(classNames) &&
+      classNames.forEach((classname) => {
+        this.classList.add(classname)
+      })
 
     this.deprecatedBindings = this.bindings()
   }
@@ -90,7 +91,7 @@ export class Component extends jQuerify(eventify(HTMLElement)) {
     if (typeof Component === 'function') {
       return this.createElementByComponent(Component, classNames, options)
     }
-    
+
     return this.createCommonElement(Component, classNames, options)
   }
 

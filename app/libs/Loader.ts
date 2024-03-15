@@ -29,12 +29,12 @@ export default class Loader {
       let receivedLength = 0
 
       const chunks = []
-      while(true) {
+      while (true) {
         const { done, value } = await reader.read()
         if (done) {
           break
         }
-      
+
         chunks.push(value)
         receivedLength += value.length
 
@@ -52,7 +52,7 @@ export default class Loader {
 
   protected async request(url: string, options?: RequestOptions) {
     const { onProgress, onCompleted, ...restOptions } = options || {}
-  
+
     const ctrl = new AbortController()
     const signal = ctrl.signal
     const cancel = ctrl.abort.bind(ctrl)

@@ -12,7 +12,7 @@ export default class IndexedDB {
   public database: string
   public version: number
 
-  constructor (options: IndexedDBOptions) {
+  constructor(options: IndexedDBOptions) {
     this.settings = { ...options }
 
     const { database, version } = this.settings
@@ -156,7 +156,12 @@ export default class IndexedDB {
    * 如果文件已经存在则修改文件
    * 如果文件不存在则压入数据库中
    */
-  public async sync<T extends { [key: string]: any }> (stroeName: string, index: keyof T, data: T, equals: (cursor: IDBCursorWithValue, data: T) => boolean = (cursor, data) => cursor.value[index] === data[index]) {
+  public async sync<T extends { [key: string]: any }>(
+    stroeName: string,
+    index: keyof T,
+    data: T,
+    equals: (cursor: IDBCursorWithValue, data: T) => boolean = (cursor, data) => cursor.value[index] === data[index]
+  ) {
     const database = await this.open()
     return await new Promise<void>((resolve, reject) => {
       const transaction = database.transaction(stroeName, 'readwrite')

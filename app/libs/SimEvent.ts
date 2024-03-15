@@ -7,10 +7,10 @@ export default class SimEvent<T = Record<string, any>> extends CustomEvent<T> {
         if (typeof input === 'string') {
           return input === type
         }
-    
+
         return input.type === type
       }
-    
+
       constructor(detail: T, options?: Omit<CustomEventInit, 'detail'>) {
         super(type, detail, { bubbles: true, cancelable: true, ...options })
       }

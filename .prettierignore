@@ -1,13 +1,6 @@
 # Dest resouces
-build
-libs
-!**/src/**/libs
-docs-dist
-.next
-coverage
-junit.xml
-gh-pages
-.dumi/tmp*
+/build
+/gh-pages
 
 # Husky
 .husky

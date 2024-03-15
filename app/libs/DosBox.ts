@@ -1,7 +1,7 @@
 import { eventify } from '@/libs/Eventify'
 import Loader, { type RequestOptions } from '@/libs/Loader'
 import { pickByLanguage } from '@/services/lang'
-import { isKey } from '@/utils/isKey'
+import { isKey } from '@/utils'
 import { DOSBOX_VERSION, DOSBOX_CONFIG, WASM_FILE } from '@/constants/definations'
 import KeyCodes from '@/constants/keycode'
 import type { DosBoxOptions, DosBoxPlayOptions, DosBoxWdosboxModule, Game } from '@/types'
@@ -109,8 +109,8 @@ export default class DosBox extends eventify() {
           },
           onCompleted(content) {
             options?.onDownloadWasmCompleted?.(content)
-          }
-        }
+          },
+        },
       },
       {
         file: rom ? rom : typeof url === 'string' ? url : pickByLanguage(url)!,
@@ -121,8 +121,8 @@ export default class DosBox extends eventify() {
           },
           onCompleted(content) {
             options?.onDownloadRomCompleted?.(content)
-          }
-        }
+          },
+        },
       },
     ])
 
@@ -253,7 +253,7 @@ export default class DosBox extends eventify() {
       instantiateWasm,
       onRuntimeInitialized,
       ping,
-      print
+      print,
     } as any
 
     return new Promise<{ mainFn: (command?: string[]) => Promise<void> }>(async (resolve, reject) => {
@@ -332,7 +332,7 @@ export default class DosBox extends eventify() {
       body = new Uint8Array(body)
     }
 
-    file = file.replace(new RegExp('^[a-zA-z]+:'), '') .replace(new RegExp('\\\\', 'g'), '/')
+    file = file.replace(new RegExp('^[a-zA-z]+:'), '').replace(new RegExp('\\\\', 'g'), '/')
 
     const parts = file.split('/')
     if (parts.length === 0) {
@@ -469,7 +469,7 @@ export default class DosBox extends eventify() {
   }
 
   /** 退出 */
-  public exit () {
+  public exit() {
     try {
       this.wdosboxModule.send('exit')
     } catch (error) {
@@ -536,7 +536,7 @@ export default class DosBox extends eventify() {
    * 销毁
    * @param force 强制销毁
    */
-  public destroy (force = true) {
+  public destroy(force = true) {
     const handleDestroyDosBox = () => {
       this.exit()
 

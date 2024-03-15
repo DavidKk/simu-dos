@@ -34,7 +34,7 @@ export default async function xjqxz(): Promise<Game> {
       keypad: [
         {
           content: 'space',
-          key: ' ',
+          key: 'Space',
           options: {
             type: 'round',
             position: {

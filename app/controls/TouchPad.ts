@@ -76,13 +76,13 @@ export default class TouchPad extends Component {
       button.addEventsListener(TouchEvents.End, () => this.dispatchEvent(new TouchPad.Events.TouchDown({ key }))),
       (() => {
         const onKeyDown = (event: KeyboardEvent) => {
-          if (key === event.key) {
+          if (key === event.key || (event.key === ' ' && key === 'Space')) {
             button.addClass('active')
           }
         }
 
         const onKeyUp = (event: KeyboardEvent) => {
-          if (key === event.key) {
+          if (key === event.key || (event.key === ' ' && key === 'Space')) {
             button.removeClass('active')
           }
         }

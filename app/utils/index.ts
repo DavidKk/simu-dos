@@ -1,3 +1,8 @@
+export * from './detectors/isTouchEvent'
+export * from './detectors/isPointerLikeEvent'
+export * from './detectors/isKey'
+export * from './detectors/isDirection'
+
 export * from './uniq'
 export * from './tagify'
 export * from './trimUnit'
@@ -8,7 +13,6 @@ export * from './px2rem'
 
 export * from './uint8ArraysToArrayBuffer'
 
-export * from './isDirection'
 export * from './padEnd'
 export * from './sleep'
 export * from './narrowType'

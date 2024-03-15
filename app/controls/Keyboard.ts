@@ -86,8 +86,13 @@ export default class Keyboard extends Component {
         event.preventDefault()
         event.stopPropagation()
 
-        const key = this.getAttr(ATTRIBUTE_LOWER)
-        if (!key?.length) {
+        const { target } = event
+        if (!(target instanceof Component)) {
+          return
+        }
+
+        const key = target.getAttr(ATTRIBUTE_KEY)
+        if (!key) {
           return
         }
 

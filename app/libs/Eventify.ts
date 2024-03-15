@@ -13,7 +13,7 @@ export function eventify<T extends Class<EventTarget>>(Target: T = EventTarget a
 
     constructor(...args: any[]) {
       super(...args)
-      
+
       if (this.emitter instanceof EventTarget) {
         this.emitter = new EventTarget()
       }

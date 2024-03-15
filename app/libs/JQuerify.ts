@@ -29,7 +29,7 @@ export default function jQuerify<T extends Class<HTMLElement>>(Target: T) {
     public get height() {
       return this.clientHeight
     }
-  
+
     /** 设置属性 */
     public setAttr(key: string, value: string) {
       this.setAttribute(key, value)
@@ -49,11 +49,13 @@ export default function jQuerify<T extends Class<HTMLElement>>(Target: T) {
 
     /** 获取多个属性值 */
     public getAttrs(keys: string[]) {
-      return Object.fromEntries(function*(self) {
-        for (const key of keys) {
-          yield [key, self.getAttr(key)]
-        }
-      }(this))
+      return Object.fromEntries(
+        (function* (self) {
+          for (const key of keys) {
+            yield [key, self.getAttr(key)]
+          }
+        })(this)
+      )
     }
 
     /** 设置内容 */

@@ -1,26 +1,15 @@
 import path from 'path'
 import { createRequire } from 'node:module'
-import { defineConfig, type Plugin } from 'vite'
+import { defineConfig } from 'vite'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import { VitePWA } from 'vite-plugin-pwa'
-import { parse } from 'node-html-parser'
-
-function viteBottomScripts() {
-  return {
-    name: 'vite-bottom-scripts',
-    transformIndexHtml(html: string) {
-      const root = parse(html)
-      const scripts = root.querySelectorAll('head > script')
-      const body = root.querySelector('body')
-      scripts.forEach((node) => body?.appendChild(node))
-      return root.outerHTML
-    }
-  }
-}
 
 export default defineConfig({
-  base: '/simu-dos/',
+  base: process.env.NODE_ENV === 'production' ?  '/simu-dos/' : '/',
+  server: {
+    host: '0.0.0.0',
+  },
   assetsInclude: [
     '**/*.zip',
   ],
@@ -48,6 +37,5 @@ export default defineConfig({
       }())
     }),
     VitePWA(),
-    viteBottomScripts(),
   ]
 })
