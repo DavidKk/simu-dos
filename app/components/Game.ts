@@ -10,7 +10,7 @@ import Keyboard from '@/controls/Keyboard'
 import { fetchGames, isGameName } from '@/store/game'
 import i18n from '@/store/i18n'
 import { Joystick2DConfig, DPadConfig } from '@/store/controls'
-import { language, pickByLanguage } from '@/services/lang'
+import { pickByLanguage } from '@/services/lang'
 import { supported, isMobile } from '@/services/device'
 import { xor } from '@/utils/xor'
 import { TITLE, WASM_FILE } from '@/constants/definations'
@@ -403,10 +403,8 @@ export default class Game extends Component {
 
     const key = await this.getGameStoreUniqKey(game)
     const files = await this.model.loadArchive(key)
-    console.log('-->', files)
     if (Array.isArray(files)) {
       files.forEach(({ file, content }) => {
-        console.log({ file, content }, save.path)
         this.dosbox.writeFile(file, content, save.path)
       })
     }
