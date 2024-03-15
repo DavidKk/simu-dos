@@ -1,5 +1,5 @@
 {
-  "name": "@simulator/app",
+  "name": "@classic/dos",
   "version": "1.0.0",
   "private": true,
   "main": "./index.ts",

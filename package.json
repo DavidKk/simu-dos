@@ -1,9 +1,10 @@
 {
-  "name": "sim",
+  "name": "@classic/play",
   "version": "0.0.1",
   "description": "Simulator of classic games for web.",
   "author": "DavidJones <qowera@gmail.com>",
   "license": "MIT",
+  "private": true,
   "packageManager": "pnpm@8.15.1",
   "workspaces": [
     "app"
