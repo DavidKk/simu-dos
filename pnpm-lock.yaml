@@ -94,8 +94,8 @@ importers:
   app:
     dependencies:
       '@dumlj/cloudfs':
-        specifier: 0.0.1-alpha.1710609487.0+28ca480
-        version: 0.0.1-alpha.1710609487.0
+        specifier: 0.0.1-alpha.1710610225.0+58852a7
+        version: 0.0.1-alpha.1710610225.0
       js-dos:
         specifier: 6.22.60
         version: 6.22.60
@@ -1608,8 +1608,8 @@ packages:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
 
-  /@dumlj/cloudfs@0.0.1-alpha.1710609487.0:
-    resolution: {integrity: sha512-nNzuigipourrkroIevVOD/vDPmrfCf+cJbgKaMd1eRexMwJfoMK9w2hNgve09aOZiC1EotWueFxNDRE5XfHqew==}
+  /@dumlj/cloudfs@0.0.1-alpha.1710610225.0:
+    resolution: {integrity: sha512-a+PgGWtT0mtbIMSZOTEwqzbyW6+K1duiw0c76kEeRnSI13yOrT0eFxbt9V09XiQo4I5K76vvnPjcATVi5h1wZw==}
     dependencies:
       crypto-js: 4.2.0
       micromatch: 4.0.5
