@@ -6,7 +6,7 @@ import { PointerEvent } from '@/constants/event'
 import type { MenuGamePlayEventDetail, MenuSwitchEventDetail } from '@/types'
 import { toast } from '@/components/Notification'
 import { isMobile } from '@/services/device'
-import { GOOGLE_ICON, KEYBOARD_ICON } from '@/constants/icons'
+import { FULLSCREEN_ICON, GOOGLE_ICON, KEYBOARD_ICON } from '@/constants/icons'
 
 /** 菜单 */
 @define('menu')
@@ -32,6 +32,11 @@ export default class Menu extends Component {
     this.keyboard.innerHTML = KEYBOARD_ICON
     this.keyboard.hide()
 
+    this.fullScreen = this.appendElement('menu-item')
+    this.fullScreen.innerHTML = FULLSCREEN_ICON
+    this.fullScreen.setAttr('menu', 'fullScreen')
+    isMobile && this.fullScreen.hide()
+
     return deprecated(
       this.google.addEventsListener(PointerEvent.Start, async () => {
         if (this.isGamePlay) {
@@ -48,6 +53,17 @@ export default class Menu extends Component {
         event.stopPropagation()
 
         this.dispatchEvent(new Menu.Events.KeyboardSwitch({ visible: !this.isKeyboardVisible }, { bubbles: true }))
+      }),
+      this.fullScreen.addEventsListener('click', async () => {
+        document.getElementsByTagName('sim-app')[0].requestFullscreen()
+        if (document.fullscreenElement !== null) {
+          document.exitFullscreen()
+          return
+        }
+
+        if (document.fullscreenEnabled) {
+          document.documentElement.requestFullscreen()
+        }
       }),
       googleSyncService.onAuthChanged(({ authorized }) => {
         if (authorized) {

@@ -26,15 +26,6 @@ export default class App extends Component {
     })
 
     deprecated(
-      this.addEventsListener('click', () => {
-        if (document.fullscreenElement !== null) {
-          return
-        }
-
-        if (document.fullscreenEnabled) {
-          this.requestFullscreen()
-        }
-      }),
       (() => {
         const onPreventScroll = (event: Event) => {
           event.preventDefault()
