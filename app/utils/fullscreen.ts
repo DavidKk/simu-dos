@@ -1,9 +1,11 @@
 export function requestFullscreen() {
-  if (document.fullscreenElement) {
-    return
-  }
-
   if (document.fullscreenEnabled) {
-    document.documentElement.requestFullscreen()
+    if (!document.pointerLockElement) {
+      document.documentElement.requestPointerLock()
+    }
+
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen()
+    }
   }
 }
