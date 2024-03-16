@@ -36,6 +36,10 @@ sim-el[menu-item] > svg {
   fill: var(--color-primary);
 }
 
+sim-el[menu-item] > svg g {
+  fill: var(--color-primary);
+}
+
 sim-el[menu-item]:active,
 sim-el[menu-item].active {
   color: var(--color-mute);

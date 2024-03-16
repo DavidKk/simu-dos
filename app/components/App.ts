@@ -4,6 +4,7 @@ import Gallery from '@/components/Gallery'
 import Notification from '@/components/Notification'
 import Menu from '@/controls/Menu'
 import PointerEvent from '@/constants/event'
+import { deprecated } from '@/utils'
 
 @define('app')
 export default class App extends Component {
@@ -24,16 +25,29 @@ export default class App extends Component {
       this.menu.dispatchEvent(new Menu.Events.GamePlay({ gameplay: false }))
     })
 
-    const onPreventScroll = (event: Event) => {
-      event.preventDefault()
-      event.stopPropagation()
-    }
+    deprecated(
+      this.addEventsListener('click', () => {
+        if (document.fullscreenElement !== null) {
+          return
+        }
 
-    document.body.addEventListener(PointerEvent.Move, onPreventScroll, { passive: false })
+        if (document.fullscreenEnabled) {
+          this.requestFullscreen()
+        }
+      }),
+      (() => {
+        const onPreventScroll = (event: Event) => {
+          event.preventDefault()
+          event.stopPropagation()
+        }
 
-    return () => {
-      document.body.removeEventListener(PointerEvent.Move, onPreventScroll)
-    }
+        document.body.addEventListener(PointerEvent.Move, onPreventScroll, { passive: false })
+
+        return () => {
+          document.body.removeEventListener(PointerEvent.Move, onPreventScroll)
+        }
+      })()
+    )
   }
 
   public async play(gameId: string) {
