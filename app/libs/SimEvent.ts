@@ -11,13 +11,33 @@ export default class SimEvent<T = Record<string, any>> extends CustomEvent<T> {
         return input.type === type
       }
 
+      static listen(handle: (event: SimEvent<T>) => any) {
+        const onHandle = (event: Event) => {
+          if (!SimEvent.isSimEvent<T>(event)) {
+            return
+          }
+
+          handle(event)
+        }
+
+        window.addEventListener(type, onHandle)
+
+        return () => {
+          window.removeEventListener(type, onHandle)
+        }
+      }
+
+      static dispatch(detail: T, options?: Omit<CustomEventInit, 'detail'>) {
+        window.dispatchEvent(new SimEventify(detail, options))
+      }
+
       constructor(detail: T, options?: Omit<CustomEventInit, 'detail'>) {
         super(type, detail, { bubbles: true, cancelable: true, ...options })
       }
     }
   }
 
-  static isSimEvent<T extends Record<string, any>>(input: any): input is InstanceType<typeof SimEvent<T>> {
+  static isSimEvent<T>(input: any): input is InstanceType<typeof SimEvent<T>> {
     return input instanceof SimEvent
   }
 

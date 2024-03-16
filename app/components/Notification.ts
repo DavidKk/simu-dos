@@ -1,6 +1,10 @@
 import { define, Component } from '@/libs/Component'
 import SimEvent from '@/libs/SimEvent'
-import type { NotificationToastEventDetail } from '@/types'
+import { deprecated } from '@/utils'
+
+export interface NotificationToastEventDetail {
+  message: string
+}
 
 @define('notification')
 export default class Notification extends Component {
@@ -9,21 +13,18 @@ export default class Notification extends Component {
   }
 
   protected bindings() {
-    const onToast = (event: Event) => {
-      if (!SimEvent.isSimEvent<NotificationToastEventDetail>(event)) {
-        return
-      }
+    return deprecated(
+      Notification.Events.Toast.listen((event: Event) => {
+        if (!SimEvent.isSimEvent<NotificationToastEventDetail>(event)) {
+          return
+        }
 
-      const { message } = event.detail
-      if (typeof message === 'string' && message.length > 0) {
-        this.toast(message)
-      }
-    }
-
-    document.addEventListener(Notification.Events.Toast.EventType, onToast)
-    return () => {
-      document.removeEventListener(Notification.Events.Toast.EventType, onToast)
-    }
+        const { message } = event.detail
+        if (typeof message === 'string' && message.length > 0) {
+          this.toast(message)
+        }
+      })
+    )
   }
 
   public toast(message: string) {
@@ -34,5 +35,5 @@ export default class Notification extends Component {
 }
 
 export function toast(message: string) {
-  document.dispatchEvent(new Notification.Events.Toast({ message }))
+  Notification.Events.Toast.dispatch({ message })
 }

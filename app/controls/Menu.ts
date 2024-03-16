@@ -1,12 +1,12 @@
+import { toast } from '@/components/Notification'
+import { isMobile } from '@/services/device'
 import { googleSyncService } from '@/services/googleSyncService'
 import { define, Component } from '@/libs/Component'
 import SimEvent from '@/libs/SimEvent'
 import { deprecated } from '@/utils'
+import { FULLSCREEN_ICON, GOOGLE_ICON, KEYBOARD_ICON } from '@/constants/icons'
 import { PointerEvent } from '@/constants/event'
 import type { MenuGamePlayEventDetail, MenuSwitchEventDetail } from '@/types'
-import { toast } from '@/components/Notification'
-import { isMobile } from '@/services/device'
-import { FULLSCREEN_ICON, GOOGLE_ICON, KEYBOARD_ICON } from '@/constants/icons'
 
 /** 菜单 */
 @define('menu')

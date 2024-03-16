@@ -1,11 +1,10 @@
-import { define } from '@/libs/Component'
-import jQuerify from '@/libs/JQuerify'
+import { Component, define } from '@/libs/Component'
 
 @define('dosbox-canvas')
-export default class DOSBoxCanvas extends jQuerify(HTMLElement) {
+export default class DOSBoxCanvas extends Component {
   public canvas: HTMLCanvasElement
 
-  public connectedCallback() {
+  public bindings() {
     this.canvas = document.createElement('canvas')
     this.appendChild(this.canvas)
   }

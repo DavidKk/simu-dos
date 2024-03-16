@@ -14,6 +14,4 @@ export * from './contorls/keyboard'
 export * from './contorls/gallery'
 export * from './contorls/menu'
 
-export * from './components/notification'
-
 export * from './game'
