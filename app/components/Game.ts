@@ -14,21 +14,16 @@ import { Joystick2DConfig, DPadConfig } from '@/store/controls'
 import { define, Component } from '@/libs/Component'
 import DosBox from '@/libs/DosBox'
 import Model from '@/libs/Model'
-import SimEvent from '@/libs/SimEvent'
 import { xor } from '@/utils/xor'
 import { deprecated } from '@/utils'
 import { TITLE, WASM_FILE } from '@/constants/definations'
-import type { DosBoxProgressEvent, Game as GameInfo, GameKeypressEventPayload } from '@/types'
+import type { DosBoxProgressEvent, Game as GameInfo } from '@/types'
 import jQuery from '@/services/jQuery'
 
 const EQ_DIVIDE = ''.padEnd(32, '=')
 
 @define('game')
 export default class Game extends Component {
-  static Events = {
-    Keypress: SimEvent.create<GameKeypressEventPayload>('GAME_KEYPRESS'),
-  }
-
   protected dosbox: DosBox
   protected model = new Model({ use: 'indexedDB' })
 
@@ -49,11 +44,8 @@ export default class Game extends Component {
     this.touchpad = this.appendElement(TouchPad)
     document.oncontextmenu = () => !this.disabledContextMenu
 
-    return deprecated(
-      Game.Events.Keypress.listen((event) => {
-        this.dosbox.simulateKeyPress(event.detail.key)
-      }),
-      jQuery(document.body).addEventsListener('keydown', (event: KeyboardEvent) => {
+    const createListener = (pressed: boolean) => {
+      return (event: KeyboardEvent) => {
         if (!(this.game && this.isPlaying)) {
           return
         }
@@ -68,10 +60,12 @@ export default class Game extends Component {
         if (target) {
           event.preventDefault()
           event.stopPropagation()
-          this.dosbox.simulateKeyPress(target)
+          this.dosbox.simulateKeyEvent(target, pressed)
         }
-      })
-    )
+      }
+    }
+
+    return deprecated(jQuery(document.body).addEventsListener('keydown', createListener(true)), jQuery(document.body).addEventsListener('keyup', createListener(false)))
   }
 
   protected unbindings() {

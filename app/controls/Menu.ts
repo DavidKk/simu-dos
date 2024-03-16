@@ -7,6 +7,7 @@ import { deprecated } from '@/utils'
 import { GOOGLE_ICON, KEYBOARD_ICON } from '@/constants/icons'
 import { PointerEvent } from '@/constants/event'
 import type { EmnuSyncEventPayload, MenuGamePlayEventPayload, MenuSwitchEventPayload } from '@/types'
+import jQuery from '@/services/jQuery'
 
 /** 菜单 */
 @define('menu')
@@ -39,6 +40,14 @@ export default class Menu extends Component {
     this.keyboard.hide()
 
     return deprecated(
+      jQuery(document).addEventsListener('fullscreenchange', () => {
+        if (document.fullscreenElement) {
+          this.google.hide()
+          return
+        }
+
+        this.google.show()
+      }),
       this.google.addEventsListener(PointerEvent.Start, async () => {
         if (this.isGamePlay) {
           if (this.isUploading) {

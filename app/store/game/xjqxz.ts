@@ -32,7 +32,7 @@ export default async function xjqxz(): Promise<Game> {
       d: 'ArrowRight',
       s: 'ArrowDown',
       a: 'ArrowLeft',
-      u: ' ',
+      u: 'Space',
       i: 'Escape',
     },
     play: {
