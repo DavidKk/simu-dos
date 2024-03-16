@@ -4,13 +4,13 @@ import { isPointerLikeEvent, isTouchEvent } from '@/utils'
 import * as MathUtil from '@/utils/math'
 import PointerEvent from '@/constants/event'
 import { ACTIVE_CLASSNAME } from '@/constants/definations'
-import type { Point, JoystickDirectionData, JoystickTouchDownEventDetail, JoystickTouchMoveEventDetail } from '@/types'
+import type { Point, JoystickDirectionData, JoystickTouchDownEventPayload, JoystickTouchMoveEventPayload } from '@/types'
 
 @define('joystick')
 export default class Joystick extends Component {
   static Events = {
-    TouchDown: SimEvent.create<JoystickTouchDownEventDetail>('JOYSTICK_TOUCHDOWN'),
-    TouchMove: SimEvent.create<JoystickTouchMoveEventDetail>('JOYSTICK_TOUCHMOVE'),
+    TouchDown: SimEvent.create<JoystickTouchDownEventPayload>('JOYSTICK_TOUCHDOWN'),
+    TouchMove: SimEvent.create<JoystickTouchMoveEventPayload>('JOYSTICK_TOUCHMOVE'),
     TouchUp: SimEvent.create<void>('JOYSTICK_TOUCHUP'),
   }
 
@@ -111,7 +111,7 @@ export default class Joystick extends Component {
     this.stick.style.marginTop = y + 'px'
   }
 
-  protected computes(pointA: Point, pointB: Point): JoystickTouchMoveEventDetail {
+  protected computes(pointA: Point, pointB: Point): JoystickTouchMoveEventPayload {
     const { x, y } = pointB
     const { width: sizeA } = this
     const { height: sizeB } = this.stick

@@ -101,8 +101,8 @@ sim-el[gallery-item].active::after {
   sim-el[gallery-item] {
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    width: percentage(1/3);
-    height: percentage(1/4);
+    width: calc(100% / 3);
+    height: calc(100% / 4);
   }
 
   sim-el[gallery-item]::before {

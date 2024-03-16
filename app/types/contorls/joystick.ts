@@ -18,12 +18,12 @@ export interface JoystickDirectionData {
   angle: JoystickDirection | null
 }
 
-export interface JoystickTouchDownEventDetail {
+export interface JoystickTouchDownEventPayload {
   coord: Point
 }
 
 /** 摇杆事件详情 */
-export interface JoystickTouchMoveEventDetail {
+export interface JoystickTouchMoveEventPayload {
   coord: Point
   size: number
   distance: number

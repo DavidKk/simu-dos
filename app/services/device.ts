@@ -1,7 +1,7 @@
 export const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(window.navigator.userAgent)
 
 export const supported = {
-  indexedDB: !!(window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB),
+  indexedDB: !!('indexedDB' in window || 'mozIndexedDB' in window || 'webkitIndexedDB' in window || 'msIndexedDB' in window),
   webAssembly: (() => {
     try {
       if (typeof WebAssembly === 'object' && typeof WebAssembly.instantiate === 'function') {

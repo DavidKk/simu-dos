@@ -1,3 +1,3 @@
-export interface GalleryPlayEventDetail {
+export interface GalleryPlayEventPayload {
   gameId: string
 }

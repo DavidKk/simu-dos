@@ -27,6 +27,9 @@ export default async function jyqxz(): Promise<Game> {
       path: './',
       regexp: /R[1-3]\.GRP$/,
     },
+    keymapping: {
+      Tab: 'Escape',
+    },
     play: {
       keyboad: true,
       dpad: true,

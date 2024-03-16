@@ -1,10 +1,12 @@
-import { define, Component } from '@/libs/Component'
 import Game from '@/components/Game'
 import Gallery from '@/components/Gallery'
 import Notification from '@/components/Notification'
 import Menu from '@/controls/Menu'
 import PointerEvent from '@/constants/event'
+import { define, Component } from '@/libs/Component'
+import jQuery from '@/services/jQuery'
 import { deprecated } from '@/utils'
+import DosBox from '@/libs/DosBox'
 
 @define('app')
 export default class App extends Component {
@@ -20,30 +22,45 @@ export default class App extends Component {
     this.notification = this.appendElement(Notification)
 
     this.gallery.onSelected((id) => this.play(id))
-    this.game.onExit(() => {
-      this.gallery.toggle(true)
-      this.menu.dispatchEvent(new Menu.Events.GamePlay({ gameplay: false }))
-    })
+    return deprecated(
+      DosBox.Events.Exit.listen(() => {
+        this.gallery.toggle(true)
+        Menu.Events.GamePlay.dispatch({ gameplay: false })
+      }),
+      jQuery(document.body).addEventsListener('keydown', (event: KeyboardEvent) => {
+        // 全屏
+        if (document.fullscreenEnabled && (event.metaKey || event.ctrlKey) && event.key === 'Enter') {
+          this.requestPointerLock()
+          this.requestFullscreen()
+          return
+        }
 
-    deprecated(
-      (() => {
-        const onPreventScroll = (event: Event) => {
+        // 刷新
+        if (event.metaKey && event.key.toLowerCase() === 'r') {
+          window.location.reload()
+          return
+        }
+
+        // 退出
+        if (event.ctrlKey && event.key.toLowerCase() === 'c') {
+          this.game.stop()
+          return
+        }
+      }),
+      jQuery(document.body).addEventsListener(
+        PointerEvent.Move,
+        (event: Event) => {
           event.preventDefault()
           event.stopPropagation()
-        }
-
-        document.body.addEventListener(PointerEvent.Move, onPreventScroll, { passive: false })
-
-        return () => {
-          document.body.removeEventListener(PointerEvent.Move, onPreventScroll)
-        }
-      })()
+        },
+        { passive: false }
+      )
     )
   }
 
   public async play(gameId: string) {
     this.gallery.toggle(false)
     await this.game.start(gameId)
-    this.menu.dispatchEvent(new Menu.Events.GamePlay({ gameplay: true }))
+    Menu.Events.GamePlay.dispatch({ gameplay: true })
   }
 }

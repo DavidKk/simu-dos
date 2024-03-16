@@ -1,4 +1,6 @@
-import type { JoystickOptions, KeypadOptions, DpadOptions } from './contorls'
+import type { DpadOptions } from './contorls/dpad'
+import type { JoystickOptions } from './contorls/joystick'
+import type { KeypadOptions } from './contorls/keypad'
 import type { I18n } from './i18n'
 
 /** 控制器初始化配置 */
@@ -27,5 +29,6 @@ export interface Game {
     path: string
     regexp: RegExp
   }
+  keymapping?: Record<string, string>
   play?: GameControlCreationOptions
 }

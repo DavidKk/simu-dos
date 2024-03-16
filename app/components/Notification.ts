@@ -1,21 +1,18 @@
 import { define, Component } from '@/libs/Component'
 import SimEvent from '@/libs/SimEvent'
+import type { NotificationToastEventPayload } from '@/types'
 import { deprecated } from '@/utils'
-
-export interface NotificationToastEventDetail {
-  message: string
-}
 
 @define('notification')
 export default class Notification extends Component {
   static Events = {
-    Toast: SimEvent.create<NotificationToastEventDetail>('NOTIFICATION_TOAST'),
+    Toast: SimEvent.create<NotificationToastEventPayload>('NOTIFICATION_TOAST'),
   }
 
   protected bindings() {
     return deprecated(
       Notification.Events.Toast.listen((event: Event) => {
-        if (!SimEvent.isSimEvent<NotificationToastEventDetail>(event)) {
+        if (!SimEvent.isSimEvent<NotificationToastEventPayload>(event)) {
           return
         }
 

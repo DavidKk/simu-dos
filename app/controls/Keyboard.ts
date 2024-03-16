@@ -1,6 +1,6 @@
 import { define, Component } from '@/libs/Component'
 import PointerEvent from '@/constants/event'
-import type { KeyboardTouchEventDetail, KeyboardSwitchEventDetail } from '@/types'
+import type { KeyboardTouchEventPayload, KeyboardSwitchEventPayload } from '@/types'
 import SimEvent from '@/libs/SimEvent'
 import Menu from './Menu'
 import { deprecated } from '@/utils'
@@ -43,10 +43,10 @@ export const ATTRIBUTE_KEY = 'key'
 @define('keyboard')
 export default class Keyboard extends Component {
   static Events = {
-    TouchDown: SimEvent.create<KeyboardTouchEventDetail>('KEYBOARD_TOUCHDOWN'),
-    TouchUp: SimEvent.create<KeyboardTouchEventDetail>('KEYBOARD_TOUCHUP'),
-    TouchPress: SimEvent.create<KeyboardTouchEventDetail>('KEYBOARD_TOUCHPRESS'),
-    Switch: SimEvent.create<KeyboardSwitchEventDetail>('KEYBOARD_SWITCH'),
+    TouchDown: SimEvent.create<KeyboardTouchEventPayload>('KEYBOARD_TOUCHDOWN'),
+    TouchUp: SimEvent.create<KeyboardTouchEventPayload>('KEYBOARD_TOUCHUP'),
+    TouchPress: SimEvent.create<KeyboardTouchEventPayload>('KEYBOARD_TOUCHPRESS'),
+    Switch: SimEvent.create<KeyboardSwitchEventPayload>('KEYBOARD_SWITCH'),
   }
 
   /** 按键 */

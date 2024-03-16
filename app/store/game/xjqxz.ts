@@ -27,6 +27,14 @@ export default async function xjqxz(): Promise<Game> {
       path: './',
       regexp: /[1-5]\.RPG$/,
     },
+    keymapping: {
+      w: 'ArrowUp',
+      d: 'ArrowRight',
+      s: 'ArrowDown',
+      a: 'ArrowLeft',
+      u: ' ',
+      i: 'Escape',
+    },
     play: {
       dpad: true,
       joystick: Joystick3DConfig,

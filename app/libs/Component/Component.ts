@@ -1,10 +1,8 @@
 import type { Class } from 'utility-types'
-
 import { eventify } from '@/libs/Eventify'
 import jQuerify from '@/libs/JQuerify'
 import { classnames } from '@/utils'
 import type { ElementClassNames } from '@/types'
-
 import { COMMON_TAGNAME } from './constants'
 
 export class Component extends jQuerify(eventify(HTMLElement)) {

@@ -4,23 +4,29 @@ import { googleSyncService } from '@/services/googleSyncService'
 import { define, Component } from '@/libs/Component'
 import SimEvent from '@/libs/SimEvent'
 import { deprecated } from '@/utils'
-import { FULLSCREEN_ICON, GOOGLE_ICON, KEYBOARD_ICON } from '@/constants/icons'
+import { GOOGLE_ICON, KEYBOARD_ICON } from '@/constants/icons'
 import { PointerEvent } from '@/constants/event'
-import type { MenuGamePlayEventDetail, MenuSwitchEventDetail } from '@/types'
+import type { EmnuSyncEventPayload, MenuGamePlayEventPayload, MenuSwitchEventPayload } from '@/types'
 
 /** 菜单 */
 @define('menu')
 export default class Menu extends Component {
   static Events = {
-    GamePlay: SimEvent.create<MenuGamePlayEventDetail>('MENU_GAME_PLAY'),
-    KeyboardSwitch: SimEvent.create<MenuSwitchEventDetail>('MENU_KEYBOARD_SWITCH'),
+    GamePlay: SimEvent.create<MenuGamePlayEventPayload>('MENU_GAME_PLAY'),
+    KeyboardSwitch: SimEvent.create<MenuSwitchEventPayload>('MENU_KEYBOARD_SWITCH'),
+    Sync: SimEvent.create<EmnuSyncEventPayload>('MENU_SYNC_EVENT'),
+  }
+
+  static Messages = {
+    Sync: SimEvent.createMessager<void, EmnuSyncEventPayload>('MENU_SYNC_MESSAGE'),
   }
 
   protected isKeyboardVisible = false
   protected isGamePlay = false
+  protected isDownloading = false
+  protected isUploading = false
   protected keyboard: Component
   protected google: Component
-  protected fullScreen: Component
 
   protected bindings() {
     this.google = this.appendElement('menu-item')
@@ -32,38 +38,53 @@ export default class Menu extends Component {
     this.keyboard.innerHTML = KEYBOARD_ICON
     this.keyboard.hide()
 
-    this.fullScreen = this.appendElement('menu-item')
-    this.fullScreen.innerHTML = FULLSCREEN_ICON
-    this.fullScreen.setAttr('menu', 'fullScreen')
-    isMobile && this.fullScreen.hide()
-
     return deprecated(
       this.google.addEventsListener(PointerEvent.Start, async () => {
         if (this.isGamePlay) {
-          await googleSyncService.upload()
-          toast('Upload archive files success.')
+          if (this.isUploading) {
+            return
+          }
+
+          try {
+            this.isUploading = true
+            await googleSyncService.upload()
+            Menu.Events.Sync.dispatch({ status: 'uploading' })
+            toast('Upload archive files success.')
+          } catch (error) {
+            toast('Upload archive files failed.')
+          } finally {
+            Menu.Events.Sync.dispatch({ status: 'idle' })
+            this.isUploading = false
+          }
+
           return
         }
 
-        await googleSyncService.download()
-        toast('Download archive files success.')
+        if (this.isDownloading) {
+          return
+        }
+
+        try {
+          this.isDownloading = true
+          await googleSyncService.download()
+          Menu.Events.Sync.dispatch({ status: 'downloading' })
+          toast('Download archive files success.')
+        } catch (error) {
+          toast('Download archive files failed.')
+        } finally {
+          Menu.Events.Sync.dispatch({ status: 'idle' })
+          this.isDownloading = false
+        }
+      }),
+      Menu.Messages.Sync.onMessage(async () => {
+        const status = this.isDownloading ? 'downloading' : this.isUploading ? 'uploading' : 'idle'
+        return { status }
       }),
       this.keyboard.addEventsListener(PointerEvent.Start, (event: Event) => {
         event.preventDefault()
         event.stopPropagation()
 
         this.dispatchEvent(new Menu.Events.KeyboardSwitch({ visible: !this.isKeyboardVisible }, { bubbles: true }))
-      }),
-      this.fullScreen.addEventsListener('click', async () => {
-        document.getElementsByTagName('sim-app')[0].requestFullscreen()
-        if (document.fullscreenElement !== null) {
-          document.exitFullscreen()
-          return
-        }
-
-        if (document.fullscreenEnabled) {
-          document.documentElement.requestFullscreen()
-        }
       }),
       googleSyncService.onAuthChanged(({ authorized }) => {
         if (authorized) {
@@ -73,22 +94,15 @@ export default class Menu extends Component {
 
         this.google.removeClass('authorized')
       }),
-      (() => {
-        const onGamePlay = (event: Event) => {
-          if (!SimEvent.isSimEvent<MenuGamePlayEventDetail>(event)) {
-            return
-          }
-
-          const isGamePlay = !!event.detail?.gameplay
-          isMobile && this.keyboard.toggle(isGamePlay)
-          this.isGamePlay = isGamePlay
+      Menu.Events.GamePlay.listen((event: Event) => {
+        if (!SimEvent.isSimEvent<MenuGamePlayEventPayload>(event)) {
+          return
         }
 
-        document.addEventListener(Menu.Events.GamePlay.EventType, onGamePlay)
-        return () => {
-          document.removeEventListener(Menu.Events.GamePlay.EventType, onGamePlay)
-        }
-      })()
+        const isGamePlay = !!event.detail?.gameplay
+        isMobile && this.keyboard.toggle(isGamePlay)
+        this.isGamePlay = isGamePlay
+      })
     )
   }
 }

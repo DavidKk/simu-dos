@@ -4,13 +4,8 @@ import { pickByLanguage } from '@/services/lang'
 import { isKey } from '@/utils'
 import { DOSBOX_VERSION, DOSBOX_CONFIG, WASM_FILE } from '@/constants/definations'
 import KeyCodes from '@/constants/keycode'
-import type { DosBoxOptions, DosBoxPlayOptions, DosBoxWdosboxModule, Game } from '@/types'
-
-export const READY_EVENT = 'ready'
-export const RUNTIME_INITIALIZED_EVENT = 'runtimeInitialized'
-export const EXIT_EVENT = 'exit'
-export const MESSAGE_EVENT = 'message'
-export const PROGRESS_EVENT = 'progress'
+import type { DosBoxOptions, DosBoxPlayOptions, DosBoxWdosboxModule, DosboxMainFn, DosboxMessageEventPayload, DosboxRuntimeInitializedEventPayload, Game } from '@/types'
+import SimEvent from './SimEvent'
 
 export interface ConvertFileToArrayBufferParams {
   file: string | ArrayBuffer
@@ -23,6 +18,13 @@ export interface ConvertFileToArrayBufferParams {
  * 主要对 wdosbox 进行二次封装
  */
 export default class DosBox extends eventify() {
+  static Events = {
+    Ready: SimEvent.create<void>('DOSBOX_READY'),
+    RuntimeInitialized: SimEvent.create<DosboxRuntimeInitializedEventPayload>('DOSBOX_RUNTIME_INITIALIZED_EVENT'),
+    Message: SimEvent.create<DosboxMessageEventPayload>('DOSBOX_MESSAGE'),
+    Exit: SimEvent.create<void>('DOSBOX_EXIT'),
+  }
+
   protected loader = new Loader()
 
   /** wasm 位置 */
@@ -172,12 +174,12 @@ export default class DosBox extends eventify() {
           args.indexOf('-exit') === -1 && args.push('-exit')
 
           this.wdosboxModule.callMain(args)
-          this.once(READY_EVENT, () => resolve())
+          DosBox.Events.Ready.once(() => resolve())
         })
       }
 
       this.isInitialized = true
-      this.trigger(RUNTIME_INITIALIZED_EVENT, { mainFn })
+      DosBox.Events.RuntimeInitialized.dispatch({ mainFn })
     }
 
     /**
@@ -194,7 +196,7 @@ export default class DosBox extends eventify() {
       switch (message) {
         case 'ready': {
           this.isReady = true
-          this.trigger(READY_EVENT)
+          DosBox.Events.Ready.dispatch()
           break
         }
 
@@ -235,10 +237,10 @@ export default class DosBox extends eventify() {
      * 因此可在这里监听 message 来实现
      */
     const print = (message: string) => {
-      this.trigger(MESSAGE_EVENT, { message })
+      DosBox.Events.Message.dispatch({ message })
 
       if (message === 'SDL_Quit called (and ignored)') {
-        this.trigger(EXIT_EVENT)
+        DosBox.Events.Exit.dispatch()
       }
     }
 
@@ -256,16 +258,14 @@ export default class DosBox extends eventify() {
       print,
     } as any
 
-    return new Promise<{ mainFn: (command?: string[]) => Promise<void> }>(async (resolve, reject) => {
+    return new Promise<{ mainFn: DosboxMainFn }>(async (resolve, reject) => {
       /**
        * 因为是否完成注册与能够执行主程序并不能
        * 同时进行, 因此这里通过事件来确定注册与
        * 启动正式完成
        */
-      this.once(RUNTIME_INITIALIZED_EVENT, (event) => {
-        if (event instanceof CustomEvent) {
-          resolve(event.detail)
-        }
+      DosBox.Events.RuntimeInitialized.once((event) => {
+        resolve(event.detail)
       })
 
       try {
@@ -506,30 +506,6 @@ export default class DosBox extends eventify() {
 
     this.canvas.style.setProperty('width', `${width}px`)
     this.canvas.style.setProperty('height', `${height}px`)
-  }
-
-  /**
-   * 监听消息
-   * @param handle 回调
-   */
-  public onMessage(handle: (...args: any[]) => void) {
-    this.addEventListener(MESSAGE_EVENT, handle)
-  }
-
-  /**
-   * 监听进度
-   * @param handle 回调
-   */
-  public onProgress(handle: (...args: any[]) => void) {
-    this.addEventListener(PROGRESS_EVENT, handle)
-  }
-
-  /**
-   * 监听退出
-   * @param handle 回调
-   */
-  public onExit(handle: (...args: any[]) => void) {
-    this.addEventListener(EXIT_EVENT, handle)
   }
 
   /**

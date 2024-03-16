@@ -9,6 +9,6 @@ export type DpadOptions =
       direction: DpadDirection
     }[]
 
-export interface DpadTouchEventDetail {
+export interface DpadTouchEventPayload {
   direction: DpadDirection
 }

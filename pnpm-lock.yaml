@@ -8,7 +8,7 @@ importers:
 
   .:
     dependencies:
-      '@simulator/app':
+      '@classic/dos':
         specifier: workspace:*
         version: link:app
     devDependencies:
@@ -94,8 +94,8 @@ importers:
   app:
     dependencies:
       '@dumlj/cloudfs':
-        specifier: 0.0.1-alpha.1710518835.0+5b1cb5a
-        version: 0.0.1-alpha.1710518835.0
+        specifier: 0.0.1-alpha.1710609487.0+28ca480
+        version: 0.0.1-alpha.1710609487.0
       js-dos:
         specifier: 6.22.60
         version: 6.22.60
@@ -1608,12 +1608,12 @@ packages:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
 
-  /@dumlj/cloudfs@0.0.1-alpha.1710518835.0:
-    resolution: {integrity: sha512-JgHdmDcKsyI1QbQ5QPXgwvmwky5zGGagBIedO22mpQp2X+wMZUMudvyKcv1iflatVEND/q5F2anH/aWfyH615A==}
+  /@dumlj/cloudfs@0.0.1-alpha.1710609487.0:
+    resolution: {integrity: sha512-nNzuigipourrkroIevVOD/vDPmrfCf+cJbgKaMd1eRexMwJfoMK9w2hNgve09aOZiC1EotWueFxNDRE5XfHqew==}
     dependencies:
       crypto-js: 4.2.0
       micromatch: 4.0.5
-      mime: 4.0.1
+      mrmime: 2.0.0
       tslib: 2.6.2
       utility-types: 3.11.0
     dev: false
@@ -5172,12 +5172,6 @@ packages:
       brorand: 1.1.0
     dev: true
 
-  /mime@4.0.1:
-    resolution: {integrity: sha512-5lZ5tyrIfliMXzFtkYyekWbtRXObT9OWa8IwQ5uxTBDHucNNwniRqo0yInflj+iYi5CBa6qxadGzGarDfuEOxA==}
-    engines: {node: '>=16'}
-    hasBin: true
-    dev: false
-
   /mimic-fn@1.2.0:
     resolution: {integrity: sha512-jf84uxzwiuiIVKiOLpfYk7N46TSy8ubTonmneY9vrpHNAnp0QBt2BxWV9dO3/j+BoVAb+a5G6YDPW3M5HOdMWQ==}
     engines: {node: '>=4'}
@@ -5254,6 +5248,11 @@ packages:
     dependencies:
       minimist: 1.2.8
     dev: true
+
+  /mrmime@2.0.0:
+    resolution: {integrity: sha512-eu38+hdgojoyq63s+yTpN4XMBdt5l8HhMhc4VKLO9KM5caLIBvUm4thi7fFaxyTmCKeNnXZ5pAlBwCUnhA09uw==}
+    engines: {node: '>=10'}
+    dev: false
 
   /ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}

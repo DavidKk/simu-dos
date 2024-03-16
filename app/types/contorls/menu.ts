@@ -1,7 +1,11 @@
-export interface MenuGamePlayEventDetail {
+export interface MenuGamePlayEventPayload {
   gameplay: boolean
 }
 
-export interface MenuSwitchEventDetail {
+export interface MenuSwitchEventPayload {
   visible: boolean
+}
+
+export interface EmnuSyncEventPayload {
+  status: 'idle' | 'downloading' | 'uploading'
 }

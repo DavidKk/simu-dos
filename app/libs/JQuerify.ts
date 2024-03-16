@@ -6,6 +6,7 @@ export default function jQuerify<T extends Class<HTMLElement>>(Target: T) {
   return class JQuerify extends Target {
     /** 标签名称 */
     static TAG_NAME: string
+
     /** 创建节点 */
     static createElement<T>(this: T & { TAG_NAME: string }, options?: ElementCreationOptions): T extends Class<any> ? InstanceType<T> : null {
       const { TAG_NAME } = this

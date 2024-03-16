@@ -21,20 +21,24 @@ export function eventify<T extends Class<EventTarget>>(Target: T = EventTarget a
 
     /** 绑定事件 */
     public addEventListener(type: string, callback: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions) {
+      if (this.emitter) {
+        return this.emitter!.addEventListener(type, callback, options)
+      }
+
       if (typeof super.addEventListener === 'function') {
         return super.addEventListener(type, callback, options)
       }
-
-      return this.emitter!.addEventListener(type, callback, options)
     }
 
     /** 解除事件绑定 */
-    public removeEventListener(type: string, callback: EventListenerOrEventListenerObject, options?: EventListenerOptions | boolean) {
+    public removeEventListener(type: string, callback: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions) {
+      if (this.emitter) {
+        return this.emitter.removeEventListener(type, callback, options)
+      }
+
       if (typeof super.removeEventListener === 'function') {
         return super.removeEventListener(type, callback, options)
       }
-
-      return this.emitter!.removeEventListener(type, callback, options)
     }
 
     /** 触发事件 */
@@ -51,9 +55,9 @@ export function eventify<T extends Class<EventTarget>>(Target: T = EventTarget a
      * @param events 事件(可为集合)
      * @param handle 回调
      */
-    public bind<T extends Event = Event>(events: EventType, handle: EventHandle<T>) {
+    public bind<T extends Event = Event>(events: EventType, handle: EventHandle<T>, options: boolean | AddEventListenerOptions = false) {
       narrowType(events).forEach((event) => {
-        this.addEventListener(event, handle as EventListenerOrEventListenerObject, false)
+        this.addEventListener(event, handle as EventListenerOrEventListenerObject, options)
       })
     }
 
@@ -62,20 +66,20 @@ export function eventify<T extends Class<EventTarget>>(Target: T = EventTarget a
      * @param events 事件(可为集合)
      * @param handle 回调
      */
-    public unbind<T extends Event = Event>(events: EventType, handle: EventHandle<T>) {
+    public unbind<T extends Event = Event>(events: EventType, handle: EventHandle<T>, options: boolean | EventListenerOptions = false) {
       narrowType(events).forEach((event) => {
-        this.removeEventListener(event, handle as EventListenerOrEventListenerObject, false)
+        this.removeEventListener(event, handle as EventListenerOrEventListenerObject, options)
       })
     }
 
     /** 绑定一次事件 */
-    public once<T extends Event = Event>(events: EventType, handle: EventHandle<T>) {
+    public once<T extends Event = Event>(events: EventType, handle: EventHandle<T>, options: boolean | AddEventListenerOptions = false) {
       const wrapper = (event: T) => {
         this.unbind(events, wrapper)
         handle(event)
       }
 
-      this.bind(events, wrapper)
+      this.bind(events, wrapper, options)
     }
 
     /** 触发事件 */
@@ -94,8 +98,8 @@ export function eventify<T extends Class<EventTarget>>(Target: T = EventTarget a
      * 与 bind 主要区别在于它返回一个销毁函数,
      * 同时保存一份销毁清单, 在元素注销的时候统一销毁
      */
-    public addEventsListener<T extends Event = Event>(events: EventType, handle: EventHandle<T>) {
-      this.bind(events, handle)
+    public addEventsListener<T extends Event = Event>(events: EventType, handle: EventHandle<T>, options: boolean | AddEventListenerOptions = false) {
+      this.bind(events, handle, options)
 
       const deprecatedEvents = narrowType(events)
       const deprecate = () => {
@@ -117,7 +121,7 @@ export function eventify<T extends Class<EventTarget>>(Target: T = EventTarget a
      * @description
      * 与 unbind 主要区别在于它能销毁 addEventsListener 注册的销毁清单上对应的函数
      */
-    public removeEventsListener<T extends Event = Event>(events: EventType, handle?: EventHandle<T>) {
+    public removeEventsListener<T extends Event = Event>(events: EventType, handle?: EventHandle<T>, options: boolean | EventListenerOptions = false) {
       const isRemoveAll = arguments.length === 1
       const types = narrowType(events)
 
@@ -125,7 +129,7 @@ export function eventify<T extends Class<EventTarget>>(Target: T = EventTarget a
       this.deprecatedListeners = this.deprecatedListeners.filter(([_, deprecatedEvents, deprecatedHandle]) => {
         if (isRemoveAll === true || handle === deprecatedHandle) {
           deprecatedEvents = deprecatedEvents.filter((event) => types.includes(event))
-          this.unbind(types, deprecatedHandle)
+          this.unbind(types, deprecatedHandle, options)
         }
 
         return deprecatedEvents.length > 0

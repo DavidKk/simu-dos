@@ -3,12 +3,14 @@ import { fetchGames } from '@/store/game'
 import PointerEvent from '@/constants/event'
 import SimEvent from '@/libs/SimEvent'
 import { ACTIVE_CLASSNAME } from '@/constants/definations'
-import type { Game, GalleryPlayEventDetail } from '@/types'
+import type { Game, GalleryPlayEventPayload } from '@/types'
+import { deprecated, requestFullscreen } from '@/utils'
+import jQuery from '@/services/jQuery'
 
 @define('gallery')
 export default class Gallery extends Component {
   static Events = {
-    Play: SimEvent.create<GalleryPlayEventDetail>('GALLERY_PLAY'),
+    Play: SimEvent.create<GalleryPlayEventPayload>('GALLERY_PLAY'),
   }
 
   protected selected = 0
@@ -40,75 +42,70 @@ export default class Gallery extends Component {
   }
 
   protected bindings() {
-    const onKeyChoosed = (event: KeyboardEvent) => {
-      switch (event.key) {
-        case 'ArrowUp': {
-          const num = this.selected - this.numberInRow
-          if (num >= 0) {
-            this.selected = num
+    return deprecated(
+      jQuery(document.body).addEventsListener('keyup', (event: KeyboardEvent) => {
+        switch (event.key) {
+          case 'ArrowUp': {
+            const num = this.selected - this.numberInRow
+            if (num >= 0) {
+              this.selected = num
+            }
+
+            break
           }
 
-          break
-        }
+          case 'ArrowRight': {
+            const num = this.selected + 1
+            if (num < this.games.length) {
+              this.selected = num
+            }
 
-        case 'ArrowRight': {
-          const num = this.selected + 1
-          if (num < this.games.length) {
-            this.selected = num
+            break
           }
 
-          break
-        }
+          case 'ArrowDown': {
+            const num = this.selected + this.numberInRow
+            if (num < this.games.length) {
+              this.selected = num
+            }
 
-        case 'ArrowDown': {
-          const num = this.selected + this.numberInRow
-          if (num < this.games.length) {
-            this.selected = num
+            break
           }
 
-          break
-        }
+          case 'ArrowLeft': {
+            const num = this.selected - 1
+            if (num >= 0) {
+              this.selected = num
+            }
 
-        case 'ArrowLeft': {
-          const num = this.selected - 1
-          if (num >= 0) {
-            this.selected = num
+            break
           }
-
-          break
         }
-      }
 
-      this.games.forEach((game) => game.removeClass('active'))
+        this.games.forEach((game) => game.removeClass('active'))
 
-      const node = this.games[this.selected]
-      node && node.addClass(ACTIVE_CLASSNAME)
-    }
-
-    const onKeySelected = (event: KeyboardEvent) => {
-      if (event.key === 'Enter') {
         const node = this.games[this.selected]
-        const gameId = node.getAttr('game')
-        gameId && this.dispatchEvent(new Gallery.Events.Play({ gameId }))
-      }
-    }
-
-    document.body.addEventListener('keyup', onKeyChoosed)
-    document.body.addEventListener('keypress', onKeySelected)
-
-    return () => {
-      document.body.removeEventListener('keyup', onKeyChoosed)
-      document.body.removeEventListener('keypress', onKeySelected)
-    }
+        node && node.addClass(ACTIVE_CLASSNAME)
+      }),
+      jQuery(document.body).addEventsListener('keypress', (event: KeyboardEvent) => {
+        if (event.key === 'Enter') {
+          const node = this.games[this.selected]
+          const gameId = node.getAttr('game')
+          gameId && this.dispatchEvent(new Gallery.Events.Play({ gameId }))
+          requestFullscreen()
+        }
+      })
+    )
   }
 
   protected mapTouchSelectToElmement(target: Component) {
-    target.addEventsListener(PointerEvent.Start, (event) => {
+    jQuery(target).addEventsListener(PointerEvent.Start, (event) => {
       event.preventDefault()
       event.stopPropagation()
 
       const gameId = target.getAttribute('game')
       gameId && this.dispatchEvent(new Gallery.Events.Play({ gameId }))
+      requestFullscreen()
     })
   }
 

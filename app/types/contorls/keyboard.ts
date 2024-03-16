@@ -1,7 +1,7 @@
-export interface KeyboardTouchEventDetail {
+export interface KeyboardTouchEventPayload {
   key: string
 }
 
-export interface KeyboardSwitchEventDetail {
+export interface KeyboardSwitchEventPayload {
   visible: boolean
 }

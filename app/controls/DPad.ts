@@ -1,15 +1,16 @@
+import jQuery from '@/services/jQuery'
 import { define, Component } from '@/libs/Component'
 import SimEvent from '@/libs/SimEvent'
 import { deprecated } from '@/utils'
 import { ACTIVE_CLASSNAME } from '@/constants/definations'
 import PointerEvent from '@/constants/event'
-import type { DpadDirection, DpadTouchEventDetail } from '@/types'
+import type { DpadDirection, DpadTouchEventPayload } from '@/types'
 
 @define('dpad')
 export default class DPad extends Component {
   static Events = {
-    TouchDown: SimEvent.create<DpadTouchEventDetail>('DPAD_TOUCHDOWN'),
-    TouchUp: SimEvent.create<DpadTouchEventDetail>('DPAD_TOUCHUP'),
+    TouchDown: SimEvent.create<DpadTouchEventPayload>('DPAD_TOUCHDOWN'),
+    TouchUp: SimEvent.create<DpadTouchEventPayload>('DPAD_TOUCHUP'),
   }
 
   protected up: Component
@@ -39,6 +40,13 @@ export default class DPad extends Component {
       this.dispatchEvent(new DPad.Events.TouchUp({ direction }))
     }
 
+    const keys = new Map([
+      ['ArrowUp', this.up],
+      ['ArrowRight', this.right],
+      ['ArrowDown', this.down],
+      ['ArrowLeft', this.left],
+    ])
+
     return deprecated(
       this.up.addEventsListener(PointerEvent.Start, wrapTouchDown('up', this.up)),
       this.right.addEventsListener(PointerEvent.Start, wrapTouchDown('right', this.right)),
@@ -50,32 +58,14 @@ export default class DPad extends Component {
       this.down.addEventsListener(PointerEvent.End, wrapTouchUp('down', this.down)),
       this.left.addEventsListener(PointerEvent.End, wrapTouchUp('left', this.left)),
 
-      (() => {
-        const keys = new Map([
-          ['ArrowUp', this.up],
-          ['ArrowRight', this.right],
-          ['ArrowDown', this.down],
-          ['ArrowLeft', this.left],
-        ])
-
-        const onKeyDown = (event: KeyboardEvent) => {
-          const key = keys.get(event.key)
-          key?.addClass('active')
-        }
-
-        const onKeyUp = (event: KeyboardEvent) => {
-          const key = keys.get(event.key)
-          key?.removeClass('active')
-        }
-
-        document.body.addEventListener('keydown', onKeyDown)
-        document.body.addEventListener('keyup', onKeyUp)
-
-        return () => {
-          document.body.removeEventListener('keydown', onKeyDown)
-          document.body.removeEventListener('keyup', onKeyUp)
-        }
-      })()
+      jQuery(document.body).addEventsListener('keydown', (event: KeyboardEvent) => {
+        const key = keys.get(event.key)
+        key?.addClass('active')
+      }),
+      jQuery(document.body).addEventsListener('keyup', (event: KeyboardEvent) => {
+        const key = keys.get(event.key)
+        key?.removeClass('active')
+      })
     )
   }
 

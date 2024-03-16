@@ -50,17 +50,19 @@ export default class Model {
    * 存储存档文件
    * @param archive 存档内容
    */
-  public async saveArchive(archive: Archive | Array<Archive>): Promise<void> {
+  public async saveArchive(archive: Archive | Array<Archive>): Promise<boolean> {
     if (!Array.isArray(archive)) {
       return this.saveArchive([archive])
     }
 
-    await Promise.all(
+    const results = await Promise.allSettled(
       archive.map(async ({ romId, file, content }) => {
         const filePath = `/${romId}/${file}`
-        await this.cloudfs.writeFile(filePath, content)
+        return this.cloudfs.writeFile(filePath, content)
       })
     )
+
+    return -1 !== results.findIndex((result) => result.status === 'fulfilled' && result.value === true)
   }
 
   /**

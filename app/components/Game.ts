@@ -1,25 +1,34 @@
-import { define, Component } from '@/libs/Component'
-import type DosBox from '@/libs/DosBox'
-import { EXIT_EVENT } from '@/libs/DosBox'
-import Model from '@/libs/Model'
 import Stage from '@/components/Stage'
+import { toast } from '@/components/Notification'
+import Menu from '@/controls/Menu'
 import TouchPad from '@/controls/TouchPad'
 import Joystick from '@/controls/Joystick'
 import DPad from '@/controls/DPad'
 import Keyboard from '@/controls/Keyboard'
+import { pickByLanguage } from '@/services/lang'
+import { supported, isMobile } from '@/services/device'
+import { googleSyncService } from '@/services/googleSyncService'
 import { fetchGames, isGameName } from '@/store/game'
 import i18n from '@/store/i18n'
 import { Joystick2DConfig, DPadConfig } from '@/store/controls'
-import { pickByLanguage } from '@/services/lang'
-import { supported, isMobile } from '@/services/device'
+import { define, Component } from '@/libs/Component'
+import DosBox from '@/libs/DosBox'
+import Model from '@/libs/Model'
+import SimEvent from '@/libs/SimEvent'
 import { xor } from '@/utils/xor'
+import { deprecated } from '@/utils'
 import { TITLE, WASM_FILE } from '@/constants/definations'
-import type { DosBoxProgressEvent, Game as GameInfo } from '@/types'
+import type { DosBoxProgressEvent, Game as GameInfo, GameKeypressEventPayload } from '@/types'
+import jQuery from '@/services/jQuery'
 
 const EQ_DIVIDE = ''.padEnd(32, '=')
 
 @define('game')
 export default class Game extends Component {
+  static Events = {
+    Keypress: SimEvent.create<GameKeypressEventPayload>('GAME_KEYPRESS'),
+  }
+
   protected dosbox: DosBox
   protected model = new Model({ use: 'indexedDB' })
 
@@ -28,6 +37,8 @@ export default class Game extends Component {
 
   /** 是否正在游戏 */
   protected isPlaying = false
+  /** 当前游戏 */
+  protected game: GameInfo
   /** 是否允许右键菜单栏 */
   protected disabledContextMenu = false
   /** 同步函数 ID */
@@ -36,8 +47,87 @@ export default class Game extends Component {
   protected bindings() {
     this.stage = this.appendElement(Stage)
     this.touchpad = this.appendElement(TouchPad)
-
     document.oncontextmenu = () => !this.disabledContextMenu
+
+    return deprecated(
+      Game.Events.Keypress.listen((event) => {
+        this.dosbox.simulateKeyPress(event.detail.key)
+      }),
+      jQuery(document.body).addEventsListener('keydown', (event: KeyboardEvent) => {
+        if (!(this.game && this.isPlaying)) {
+          return
+        }
+
+        const { keymapping } = this.game
+        if (!keymapping) {
+          return
+        }
+
+        const { key } = event
+        const target = keymapping[key]
+        if (target) {
+          event.preventDefault()
+          event.stopPropagation()
+          this.dosbox.simulateKeyPress(target)
+        }
+      })
+    )
+  }
+
+  protected unbindings() {
+    this.syncIntervalId && clearInterval(this.syncIntervalId)
+  }
+
+  /**
+   * 开始游戏
+   * @param id 游戏ID, 对应游戏列表
+   */
+  public async start(id: string) {
+    if (this.isPlaying === true) {
+      return
+    }
+
+    if (!isGameName(id)) {
+      throw new Error(`Game ${id} is not exists.`)
+    }
+
+    // 检测是否支持
+    this.checkSupport()
+
+    // 重置
+    this.isPlaying && (await this.stop())
+    this.isPlaying = true
+
+    this.disableContextMenu()
+
+    const games = await fetchGames()
+    // 尝试读取本地存储的ROM
+    this.game = games.get(id)!
+    // 运行游戏
+    await this.play(this.game)
+
+    // 注册控制器
+    if (isMobile) {
+      this.registerMobileControls(this.game)
+    }
+
+    // 注册存档存储
+    if (this.game.save) {
+      this.activeAutoSave(this.game)
+    }
+  }
+
+  /** 停止 */
+  public async stop() {
+    this.syncIntervalId && clearInterval(this.syncIntervalId)
+
+    await this.stage.reset()
+    this.touchpad.reset()
+
+    document.title = TITLE
+
+    this.disableContextMenu(false)
+    this.isPlaying = false
   }
 
   /**
@@ -75,7 +165,7 @@ export default class Game extends Component {
       } else {
         this.stage.pressToContinue().then(() => {
           this.stage.toggleTerminal(false)
-          this.trigger(EXIT_EVENT)
+          DosBox.Events.Exit.dispatch()
         })
       }
 
@@ -112,19 +202,17 @@ export default class Game extends Component {
 
     // 开启模拟器
     this.dosbox = this.stage.launch()
-    this.dosbox.onExit(() => {
-      this.stop()
-      this.trigger(EXIT_EVENT)
-    })
+    DosBox.Events.Exit.once(() => this.stop())
 
     // 重置控制台并显示，模拟按键输入字符串
     this.stage.simulateReset()
     this.stage.toggleTerminal(true)
-    await this.stage.simulateInput(`simu-dos play ${url}`)
+    await this.stage.simulateInput(`play ${url}`)
+    // 打印游戏信息
+    this.printGameInfo(game)
 
     // 尝试读取本地存储的WASM
     const wasm = await this.model.loadWasm()
-
     // 注册下载进程进度条
     const wasmProcessFn = this.stage.progress(`Download ${WASM_FILE}, please wait...`)
     const wasmTermLine = this.stage.currentLine
@@ -305,57 +393,9 @@ export default class Game extends Component {
 
   /** 激活自动存档 */
   protected activeAutoSave(game: GameInfo, intervalMillisecond = 3e3) {
-    this.syncIntervalId = setInterval(() => this.saveArchiveFromDB(game), intervalMillisecond)
-  }
-
-  /**
-   * 开始游戏
-   * @param id 游戏ID, 对应游戏列表
-   */
-  public async start(id: string) {
-    if (this.isPlaying === true) {
-      return
-    }
-
-    if (!isGameName(id)) {
-      throw new Error(`Game ${id} is not exists.`)
-    }
-
-    // 检测是否支持
-    this.checkSupport()
-
-    // 重置
-    this.isPlaying && (await this.stop())
-    this.isPlaying = true
-
-    this.disableContextMenu()
-
-    const games = await fetchGames()
-    // 尝试读取本地存储的ROM
-    const game = games.get(id)!
-    // 打印游戏信息
-    this.printGameInfo(game)
-    // 运行游戏
-    await this.play(game)
-
-    // 注册控制器
-    isMobile && this.registerMobileControls(game)
-
-    // 注册存档存储
-    game.save && this.activeAutoSave(game)
-  }
-
-  /** 停止 */
-  public async stop() {
+    const sync = () => this.saveArchiveFromDB(game)
     this.syncIntervalId && clearInterval(this.syncIntervalId)
-
-    await this.stage.reset()
-    this.touchpad.reset()
-
-    document.title = TITLE
-
-    this.disableContextMenu(false)
-    this.isPlaying = false
+    this.syncIntervalId = setInterval(sync, intervalMillisecond)
   }
 
   /**
@@ -388,7 +428,26 @@ export default class Game extends Component {
       return { romId, file, content }
     })
 
-    return this.model.saveArchive(datas)
+    if (!(await this.model.saveArchive(datas))) {
+      return
+    }
+
+    // 上传
+    if (!googleSyncService.isAuthorized) {
+      return
+    }
+
+    const { status } = await Menu.Messages.Sync.request()
+    if (status !== 'idle') {
+      return
+    }
+
+    try {
+      await googleSyncService.upload()
+      toast('Upload archive files success.')
+    } catch (error) {
+      toast('Upload archive files failed.')
+    }
   }
 
   /**
@@ -401,6 +460,21 @@ export default class Game extends Component {
       return
     }
 
+    // 如果正在下载则等待下载完毕再开始游戏
+    const { status } = await Menu.Messages.Sync.request()
+    if (status !== 'idle') {
+      await Menu.Events.Sync.wait()
+    } else {
+      if (googleSyncService.isAuthorized) {
+        try {
+          await googleSyncService.download()
+          toast('Download archive files success.')
+        } catch (error) {
+          toast('Download archive files failed.')
+        }
+      }
+    }
+
     const key = await this.getGameStoreUniqKey(game)
     const files = await this.model.loadArchive(key)
     if (Array.isArray(files)) {
@@ -408,13 +482,5 @@ export default class Game extends Component {
         this.dosbox.writeFile(file, content, save.path)
       })
     }
-  }
-
-  /**
-   * 监听退出游戏事件
-   * @param handle 回调函数
-   */
-  public onExit(handle: (...args: any[]) => void) {
-    this.addEventListener(EXIT_EVENT, handle)
   }
 }

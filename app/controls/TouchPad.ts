@@ -1,12 +1,13 @@
-import { define, Component } from '@/libs/Component'
 import Keypad from '@/controls/Keypad'
 import Joystick from '@/controls/Joystick'
 import DPad from '@/controls/DPad'
 import Keyboard from '@/controls/Keyboard'
 import TouchEvents from '@/constants/event'
 import type Button from '@/controls/Button'
-import type { Game, KeypadTouchEventDetail } from '@/types'
+import jQuery from '@/services/jQuery'
+import { define, Component } from '@/libs/Component'
 import SimEvent from '@/libs/SimEvent'
+import type { Game, KeypadTouchEventPayload } from '@/types'
 import { deprecated } from '@/utils'
 
 /**
@@ -18,8 +19,8 @@ import { deprecated } from '@/utils'
 @define('touchpad')
 export default class TouchPad extends Component {
   static Events = {
-    TouchDown: SimEvent.create<KeypadTouchEventDetail>('TOUCHPAD_TOUCHDOWN'),
-    TouchUp: SimEvent.create<KeypadTouchEventDetail>('TOUCHPAD_TOUCHUP'),
+    TouchDown: SimEvent.create<KeypadTouchEventPayload>('TOUCHPAD_TOUCHDOWN'),
+    TouchUp: SimEvent.create<KeypadTouchEventPayload>('TOUCHPAD_TOUCHUP'),
   }
 
   /** 按键面板 */
@@ -74,27 +75,16 @@ export default class TouchPad extends Component {
     return deprecated(
       button.addEventsListener(TouchEvents.Start, () => this.dispatchEvent(new TouchPad.Events.TouchUp({ key }))),
       button.addEventsListener(TouchEvents.End, () => this.dispatchEvent(new TouchPad.Events.TouchDown({ key }))),
-      (() => {
-        const onKeyDown = (event: KeyboardEvent) => {
-          if (key === event.key || (event.key === ' ' && key === 'Space')) {
-            button.addClass('active')
-          }
+      jQuery(document.body).addEventsListener('keydown', (event: KeyboardEvent) => {
+        if (key === event.key || (event.key === ' ' && key === 'Space')) {
+          button.addClass('active')
         }
-
-        const onKeyUp = (event: KeyboardEvent) => {
-          if (key === event.key || (event.key === ' ' && key === 'Space')) {
-            button.removeClass('active')
-          }
+      }),
+      jQuery(document.body).addEventsListener('keyup', (event: KeyboardEvent) => {
+        if (key === event.key || (event.key === ' ' && key === 'Space')) {
+          button.removeClass('active')
         }
-
-        document.body.addEventListener('keydown', onKeyDown)
-        document.body.addEventListener('keyup', onKeyUp)
-
-        return () => {
-          document.body.removeEventListener('keydown', onKeyDown)
-          document.body.removeEventListener('keyup', onKeyUp)
-        }
-      })()
+      })
     )
   }
 

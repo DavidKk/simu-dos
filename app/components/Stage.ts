@@ -1,7 +1,9 @@
-import { define, Component } from '@/libs/Component'
-import DosBox from '@/libs/DosBox'
 import DOSBoxCanvas from '@/components/DOSBoxCanvas'
 import Terminal from '@/components/Terminal'
+import jQuery from '@/services/jQuery'
+import { define, Component } from '@/libs/Component'
+import DosBox from '@/libs/DosBox'
+import { deprecated } from '@/utils'
 
 export type StageActiveType = 'term' | 'canvas'
 
@@ -31,13 +33,7 @@ export default class Stage extends Component {
 
     this.canvas = DOSBoxCanvas.createElement()
     this.appendChild(this.canvas)
-
-    this.resizeStageHandle = this.resize.bind(this)
-    window.addEventListener('resize', this.resizeStageHandle)
-
-    return () => {
-      window.removeEventListener('resize', this.resizeStageHandle)
-    }
+    return deprecated(jQuery(window).addEventsListener('resize', this.resize.bind(this)))
   }
 
   public launch() {

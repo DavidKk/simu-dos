@@ -16,6 +16,6 @@ export type KeypadOptions = {
   options?: KeypadCreationOptions
 }[]
 
-export interface KeypadTouchEventDetail {
+export interface KeypadTouchEventPayload {
   key: string
 }

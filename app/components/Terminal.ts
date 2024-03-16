@@ -10,8 +10,7 @@ export default class Terminal extends Component {
     return this.lines[this.lines.length - 1]
   }
 
-  public connectedCallback() {
-    super.connectedCallback()
+  public bindings() {
     this.newline().innerText = 'C:> '
   }
 

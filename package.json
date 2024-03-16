@@ -20,7 +20,7 @@
     "ok": "pnpm format && pnpm lint"
   },
   "dependencies": {
-    "@simulator/app": "workspace:*"
+    "@classic/dos": "workspace:*"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.0",
