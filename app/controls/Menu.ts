@@ -62,14 +62,13 @@ export default class Menu extends Component {
             return
           }
 
-          const complete = await Notification.loading('Uploading archive files, please wait.')
           try {
             this.isUploading = true
             await googleSyncService.upload()
             Menu.Events.Sync.dispatch({ status: 'uploading' })
-            complete('Upload archive files success.')
+            Notification.toast('Upload archive files success.')
           } catch (error) {
-            complete('Upload archive files failed.')
+            Notification.toast('Upload archive files failed.')
           } finally {
             Menu.Events.Sync.dispatch({ status: 'idle' })
             this.isUploading = false
@@ -82,14 +81,13 @@ export default class Menu extends Component {
           return
         }
 
-        const complete = await Notification.loading('Downloading archive files, please wait.')
         try {
           this.isDownloading = true
           await googleSyncService.download()
           Menu.Events.Sync.dispatch({ status: 'downloading' })
-          complete('Download archive files success.')
+          Notification.toast('Download archive files success.')
         } catch (error) {
-          complete('Download archive files failed.')
+          Notification.toast('Download archive files failed.')
         } finally {
           Menu.Events.Sync.dispatch({ status: 'idle' })
           this.isDownloading = false
