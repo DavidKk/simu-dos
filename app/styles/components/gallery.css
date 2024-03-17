@@ -96,20 +96,6 @@ sim-el[gallery-item].active::after {
   animation: transition 1.6s ease-in-out infinite;
 }
 
-sim-el[gallery-build] {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: bold;
-  color: rgba(var(--white), var(--opacity-80));
-}
-
 @media screen and (orientation: portrait) {
   sim-el[gallery-item] {
     border-left: 10px solid transparent;

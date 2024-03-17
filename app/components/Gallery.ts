@@ -42,9 +42,6 @@ export default class Gallery extends Component {
   }
 
   protected bindings() {
-    const build = this.appendElement('gallery-build')
-    build.innerText = `Build at ${import.meta.env.BUILD}`
-
     return deprecated(
       jQuery(document.body).addEventsListener('keyup', (event: KeyboardEvent) => {
         switch (event.key) {
