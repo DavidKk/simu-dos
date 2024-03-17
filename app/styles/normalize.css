@@ -22,5 +22,5 @@ html, body {
   width: 100%;
   height: 100%;
   background-color: rgb(var(--black-01));
-  background-image: radial-gradient(circle at top center, #323236, #111111);
+  background-image: radial-gradient(circle at top center, rgb(var(--black-02)), rgb(var(--black-01)));
 }
