@@ -35,6 +35,7 @@ sim-el[notification] {
   font-weight: bold;
   color: var(--color-black);
   background-color: rgba(var(--white), var(--opacity-80));
+  box-shadow: 0 0 4px rgba(var(--black), var(--opacity-60));
   animation: notification-dropdown-enter var(--notification-enter-time);
   animation-fill-mode: forwards;
 }

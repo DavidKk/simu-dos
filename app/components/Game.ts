@@ -441,11 +441,6 @@ export default class Game extends Component {
       return
     }
 
-    const { status } = await Menu.Messages.Sync.request()
-    if (status !== 'idle') {
-      return
-    }
-
     const complete = await Notification.loading('Uploading archive files, please wait.')
     try {
       await googleSyncService.upload()
@@ -465,19 +460,13 @@ export default class Game extends Component {
       return
     }
 
-    // 如果正在下载则等待下载完毕再开始游戏
-    const { status } = await Menu.Messages.Sync.request()
-    if (status !== 'idle') {
-      await Menu.Events.Sync.wait()
-    } else {
-      if (googleSyncService.isAuthorized) {
-        const complete = await Notification.loading('Downloading archive files, please wait.')
-        try {
-          await googleSyncService.download()
-          complete('Download archive files success.')
-        } catch (error) {
-          complete('Download archive files failed.')
-        }
+    if (googleSyncService.isAuthorized) {
+      const complete = await Notification.loading('Downloading archive files, please wait.')
+      try {
+        await googleSyncService.download()
+        complete('Download archive files success.')
+      } catch (error) {
+        complete('Download archive files failed.')
       }
     }
 

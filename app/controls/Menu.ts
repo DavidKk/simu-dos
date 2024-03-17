@@ -57,41 +57,54 @@ export default class Menu extends Component {
         this.toggle(!document.fullscreenElement)
       }),
       this.google.addEventsListener(PointerEvent.Start, async () => {
-        if (this.isGamePlay) {
+        const upload = async () => {
           if (this.isUploading) {
             return
           }
 
+          const complete = await Notification.loading('Uploading archive files, please wait.')
           try {
             this.isUploading = true
+
             await googleSyncService.upload()
             Menu.Events.Sync.dispatch({ status: 'uploading' })
-            Notification.toast('Upload archive files success.')
+            complete('Upload archive files success.')
           } catch (error) {
-            Notification.toast('Upload archive files failed.')
+            complete('Upload archive files failed.')
           } finally {
             Menu.Events.Sync.dispatch({ status: 'idle' })
             this.isUploading = false
           }
-
-          return
         }
 
-        if (this.isDownloading) {
-          return
+        const download = async () => {
+          if (this.isDownloading) {
+            return
+          }
+
+          const complete = await Notification.loading('Downloading archive files, please wait.')
+          try {
+            this.isDownloading = true
+            await googleSyncService.download()
+            Menu.Events.Sync.dispatch({ status: 'downloading' })
+            complete('Download archive files success.')
+          } catch (error) {
+            complete('Download archive files failed.')
+          } finally {
+            Menu.Events.Sync.dispatch({ status: 'idle' })
+            this.isDownloading = false
+          }
         }
 
         try {
-          this.isDownloading = true
-          await googleSyncService.download()
-          Menu.Events.Sync.dispatch({ status: 'downloading' })
-          Notification.toast('Download archive files success.')
+          await googleSyncService.open()
+          Notification.toast('Archive files will be automatically synchronized.')
         } catch (error) {
-          Notification.toast('Download archive files failed.')
-        } finally {
-          Menu.Events.Sync.dispatch({ status: 'idle' })
-          this.isDownloading = false
+          // 登录失败退出
+          return
         }
+
+        this.isGamePlay ? await upload() : await download()
       }),
       Menu.Messages.Sync.onMessage(async () => {
         const status = this.isDownloading ? 'downloading' : this.isUploading ? 'uploading' : 'idle'
