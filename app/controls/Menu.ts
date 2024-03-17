@@ -77,25 +77,6 @@ export default class Menu extends Component {
           }
         }
 
-        const download = async () => {
-          if (this.isDownloading) {
-            return
-          }
-
-          const complete = await Notification.loading('Downloading archive files, please wait.')
-          try {
-            this.isDownloading = true
-            await googleSyncService.download()
-            Menu.Events.Sync.dispatch({ status: 'downloading' })
-            complete('Download archive files success.')
-          } catch (error) {
-            complete('Download archive files failed.')
-          } finally {
-            Menu.Events.Sync.dispatch({ status: 'idle' })
-            this.isDownloading = false
-          }
-        }
-
         try {
           await googleSyncService.open()
           Notification.toast('Archive files will be automatically synchronized.')
@@ -104,7 +85,9 @@ export default class Menu extends Component {
           return
         }
 
-        this.isGamePlay ? await upload() : await download()
+        if (this.isGamePlay) {
+          await upload()
+        }
       }),
       Menu.Messages.Sync.onMessage(async () => {
         const status = this.isDownloading ? 'downloading' : this.isUploading ? 'uploading' : 'idle'
