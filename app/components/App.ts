@@ -20,9 +20,13 @@ export default class App extends Component {
     this.gallery = this.appendElement(Gallery)
     this.menu = this.appendElement(Menu)
     this.notification = this.appendElement(Notification)
+    this.game.hide()
 
-    this.gallery.onSelected((id) => this.play(id))
     return deprecated(
+      this.gallery.onSelected(async (id) => {
+        this.game.show()
+        await this.play(id)
+      }),
       DosBox.Events.Exit.listen(() => {
         this.gallery.toggle(true)
         Menu.Events.GamePlay.dispatch({ gameplay: false })

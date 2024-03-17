@@ -1,6 +1,7 @@
 :root {
   /* colors */
   --black: 0, 0, 0;
+  --black-01: 29, 31, 32;
   --white: 255, 255, 255;
   --cyan: 86, 185, 217;
   --green: 137, 199, 10;
@@ -17,7 +18,7 @@
 
   /* theme */
   --primary: 255, 255, 255;
-  --bg-color-primary: rgb(var(--black));
+  --bg-color-primary: rgb(var(--black-01));
 
   --font-size-small: 12px;
   --font-size-medium: var(--font-size-medium);

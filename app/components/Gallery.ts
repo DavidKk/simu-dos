@@ -42,6 +42,9 @@ export default class Gallery extends Component {
   }
 
   protected bindings() {
+    const build = this.appendElement('gallery-build')
+    build.innerText = `Build at ${import.meta.env.BUILD}`
+
     return deprecated(
       jQuery(document.body).addEventsListener('keyup', (event: KeyboardEvent) => {
         switch (event.key) {
@@ -118,7 +121,7 @@ export default class Gallery extends Component {
   }
 
   public onSelected(handle: (id: string) => void) {
-    this.addEventListener(Gallery.Events.Play.EventType, (event) => {
+    return this.addEventsListener(Gallery.Events.Play.EventType, (event) => {
       if (Gallery.Events.Play.is(event)) {
         const { gameId } = event.detail
         gameId && handle(gameId)
