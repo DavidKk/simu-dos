@@ -1,13 +1,13 @@
 import Notification from '@/components/Notification'
+import jQuery from '@/services/jQuery'
 import { isMobile } from '@/services/device'
 import { googleSyncService } from '@/services/googleSyncService'
 import { define, Component } from '@/libs/Component'
 import SimEvent from '@/libs/SimEvent'
-import { deprecated } from '@/utils'
-import { GOOGLE_ICON, KEYBOARD_ICON } from '@/constants/icons'
+import { deprecated, extract, upload } from '@/utils'
+import { DOWNLOAD_ARCHIVE_ICON, GOOGLE_ICON, KEYBOARD_ICON, UPLOAD_ARCHIVE_ICON } from '@/constants/icons'
 import { PointerEvent } from '@/constants/event'
-import type { EmnuSyncEventPayload, MenuGamePlayEventPayload, MenuSwitchEventPayload } from '@/types'
-import jQuery from '@/services/jQuery'
+import type { EmnuSyncEventPayload, EmunUploadEventPayload, MenuGamePlayEventPayload, MenuSwitchEventPayload } from '@/types'
 
 /** 菜单 */
 @define('menu')
@@ -16,6 +16,8 @@ export default class Menu extends Component {
     GamePlay: SimEvent.create<MenuGamePlayEventPayload>('MENU_GAME_PLAY'),
     KeyboardSwitch: SimEvent.create<MenuSwitchEventPayload>('MENU_KEYBOARD_SWITCH'),
     Sync: SimEvent.create<EmnuSyncEventPayload>('MENU_SYNC_EVENT'),
+    Download: SimEvent.create<void>('MENU_DOWNLOAD_EVENT'),
+    Upload: SimEvent.create<EmunUploadEventPayload>('MENU_UPLOAD_EVENT'),
   }
 
   static Messages = {
@@ -28,8 +30,19 @@ export default class Menu extends Component {
   protected isUploading = false
   protected keyboard: Component
   protected google: Component
+  protected download: Component
+  protected upload: Component
 
   protected bindings() {
+    this.download = this.appendElement('menu-item')
+    this.download.setAttr('menu', 'download')
+    this.download.innerHTML = DOWNLOAD_ARCHIVE_ICON
+    this.download.hide()
+
+    this.upload = this.appendElement('menu-item')
+    this.upload.setAttr('menu', 'upload')
+    this.upload.innerHTML = UPLOAD_ARCHIVE_ICON
+
     this.google = this.appendElement('menu-item')
     this.google.setAttr('menu', 'google')
     this.google.innerHTML = GOOGLE_ICON
@@ -41,12 +54,7 @@ export default class Menu extends Component {
 
     return deprecated(
       jQuery(document).addEventsListener('fullscreenchange', () => {
-        if (document.fullscreenElement) {
-          this.google.hide()
-          return
-        }
-
-        this.google.show()
+        this.toggle(!document.fullscreenElement)
       }),
       this.google.addEventsListener(PointerEvent.Start, async () => {
         if (this.isGamePlay) {
@@ -97,6 +105,16 @@ export default class Menu extends Component {
 
         this.dispatchEvent(new Menu.Events.KeyboardSwitch({ visible: !this.isKeyboardVisible }, { bubbles: true }))
       }),
+      this.download.addEventsListener(PointerEvent.Start, () => {
+        Menu.Events.Download.dispatch()
+      }),
+      this.upload.addEventsListener(PointerEvent.Start, async () => {
+        const [zip] = await upload()
+        const { name, content: source } = zip
+        const files = await extract(source)
+        const romId = name.replace(/\.zip$/, '')
+        Menu.Events.Upload.dispatch({ romId, files })
+      }),
       googleSyncService.onAuthChanged(({ authorized }) => {
         if (authorized) {
           this.google.addClass('authorized')
@@ -112,6 +130,8 @@ export default class Menu extends Component {
 
         const isGamePlay = !!event.detail?.gameplay
         isMobile && this.keyboard.toggle(isGamePlay)
+        !isMobile && this.download.toggle(isGamePlay)
+        !isMobile && this.upload.toggle(!isGamePlay)
         this.isGamePlay = isGamePlay
       })
     )

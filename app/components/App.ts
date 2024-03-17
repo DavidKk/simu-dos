@@ -40,12 +40,6 @@ export default class App extends Component {
           window.location.reload()
           return
         }
-
-        // 退出
-        if (event.ctrlKey && event.key.toLowerCase() === 'c') {
-          this.game.stop()
-          return
-        }
       }),
       jQuery(document.body).addEventsListener(
         PointerEvent.Move,

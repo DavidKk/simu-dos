@@ -1,8 +1,11 @@
-import IndexedDB from './IndexedDB'
+import JSZip from 'jszip'
 import { FileSystem } from '@dumlj/cloudfs'
+import IndexedDB from '@/libs/IndexedDB'
+import { download } from '@/utils'
 import { indexedDBTables, indexedDBOptions } from '@/constants/model'
 import { ARCHIVE_STORE_NAME } from '@/constants/definations'
 import type { Archive, ModelUseType, ModelOptions } from '@/types'
+import { compress } from '@/utils/file/compress'
 
 export default class Model {
   public used: ModelUseType
@@ -75,5 +78,38 @@ export default class Model {
       const file = `${folder.replace(`/${romId}`, '')}/${name}`
       return { file, content }
     })
+  }
+
+  /** 导出存档 */
+  public async exportArchive(romId: string) {
+    const files = await this.cloudfs.glob(`/${romId}/*`)
+    if (!files?.length) {
+      return
+    }
+
+    const zip = new JSZip()
+    files.forEach(({ folder, name, content }) => {
+      const file = `${folder}/${name}`
+      zip.file(file, content)
+    })
+
+    const blob = await compress(
+      files.map(({ folder, name, content }) => {
+        const file = `${folder}/${name}`
+        return { file, content }
+      })
+    )
+
+    download(blob, romId)
+  }
+
+  /** 导入存档 */
+  public async importArchive(romId: string, files: Record<string, Uint8Array>) {
+    return this.saveArchive(
+      Object.entries(files).map(([filePath, content]) => {
+        const file = filePath.replace(`/${romId}/`, '')
+        return { romId, file, content }
+      })
+    )
   }
 }

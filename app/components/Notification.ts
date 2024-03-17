@@ -50,7 +50,7 @@ export default class Notification extends Component {
   }
 
   public async toast(message: string) {
-    const node = this.appendElement('notification')
+    const node = this.create({ loading: false })
     this.writeContentToToast(node, message)
     await this.fadeOutToast(node)
   }

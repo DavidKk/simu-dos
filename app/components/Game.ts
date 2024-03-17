@@ -5,6 +5,7 @@ import TouchPad from '@/controls/TouchPad'
 import Joystick from '@/controls/Joystick'
 import DPad from '@/controls/DPad'
 import Keyboard from '@/controls/Keyboard'
+import jQuery from '@/services/jQuery'
 import { pickByLanguage } from '@/services/lang'
 import { supported, isMobile } from '@/services/device'
 import { googleSyncService } from '@/services/googleSyncService'
@@ -18,7 +19,6 @@ import { xor } from '@/utils/xor'
 import { deprecated } from '@/utils'
 import { TITLE, WASM_FILE } from '@/constants/definations'
 import type { DosBoxProgressEvent, Game as GameInfo } from '@/types'
-import jQuery from '@/services/jQuery'
 
 const EQ_DIVIDE = ''.padEnd(32, '=')
 
@@ -65,7 +65,33 @@ export default class Game extends Component {
       }
     }
 
-    return deprecated(jQuery(document.body).addEventsListener('keydown', createListener(true)), jQuery(document.body).addEventsListener('keyup', createListener(false)))
+    return deprecated(
+      jQuery(document.body).addEventsListener('keydown', createListener(true)),
+      jQuery(document.body).addEventsListener('keyup', createListener(false)),
+      Menu.Events.Download.listen(async () => {
+        if (!(this.isPlaying && this.game)) {
+          return
+        }
+
+        const complete = await Notification.loading('Prepare archive files for you.')
+        await this.exportArchiveFromDB(this.game.id)
+        complete('Archive file export completed.')
+      }),
+      Menu.Events.Upload.listen(async (event) => {
+        if (this.isPlaying) {
+          return
+        }
+
+        const { romId, files } = event.detail
+        if (!(await this.requestGame(romId))) {
+          return
+        }
+
+        const complete = await Notification.loading('Importing archive files for you.')
+        await this.importArchiveFromDB(romId, files)
+        complete('Archive file import completed.')
+      })
+    )
   }
 
   protected unbindings() {
@@ -94,9 +120,8 @@ export default class Game extends Component {
 
     this.disableContextMenu()
 
-    const games = await fetchGames()
     // 尝试读取本地存储的ROM
-    this.game = games.get(id)!
+    this.game = await this.requestGame(id)
     // 运行游戏
     await this.play(this.game)
 
@@ -124,72 +149,8 @@ export default class Game extends Component {
     this.isPlaying = false
   }
 
-  /**
-   * 获取游戏存储的唯一值
-   * @description
-   * 主要用于同一款游戏不同ROM的存储
-   * 例如不同版本语言的游戏
-   */
-  public async getGameStoreUniqKey(game: string | GameInfo): Promise<string> {
-    if (typeof game === 'string') {
-      if (!isGameName(game)) {
-        throw new Error(`Game is not exists.`)
-      }
-
-      const games = await fetchGames()
-      const info = games.get(game)!
-      return this.getGameStoreUniqKey(info)
-    }
-
-    return game.id
-  }
-
-  protected checkSupport() {
-    // 不支持 Webassembly 的时候提示用户升级
-    if (!supported.webAssembly) {
-      this.stage.simulateClean()
-      this.stage.toggleTerminal(true)
-
-      i18n?.support.webassembly.forEach((content) => {
-        this.stage.print(content)
-      })
-
-      if (isMobile) {
-        this.stage.touchToContinue()
-      } else {
-        this.stage.pressToContinue().then(() => {
-          this.stage.toggleTerminal(false)
-          DosBox.Events.Exit.dispatch()
-        })
-      }
-
-      throw new Error('WebAssembly is not supported.')
-    }
-  }
-
-  /** 打印游戏信息 */
-  protected printGameInfo(game: GameInfo) {
-    this.stage.print(EQ_DIVIDE)
-
-    const translatedName = typeof game.translates === 'string' ? game.translates : pickByLanguage(game.translates!)
-    game.name && this.stage.print(`${i18n.game.name}: ${game.name} ${game.name !== translatedName ? `(${translatedName})` : ''}`)
-    game.type && this.stage.print(`${i18n.game.type}: ${game.type}`)
-    game.developers && this.stage.print(`${i18n.game.developers}: ${game.developers}`)
-    game.publisher && this.stage.print(`${i18n.game.publisher}: ${game.publisher}`)
-    game.release && this.stage.print(`${i18n.game.release}: ${game.release}`)
-
-    const summary = !Array.isArray(game.summary) && typeof game.summary === 'object' ? pickByLanguage(game.summary) : game.summary
-    if (typeof summary === 'string') {
-      this.stage.print(`${i18n.game.summary}: ${summary}`)
-    } else if (Array.isArray(summary)) {
-      this.stage.print(`${i18n.game.summary}:\n${summary.join('\n')}`)
-    }
-
-    this.stage.print(EQ_DIVIDE)
-  }
-
   /** 执行游戏 */
-  protected async play(game: GameInfo) {
+  protected async play(game = this.game) {
     const url = typeof game.url === 'string' ? game.url : pickByLanguage(game.url)!
     const key = await this.getGameStoreUniqKey(game)
     game.rom = await this.model.loadRom(key)
@@ -267,8 +228,57 @@ export default class Game extends Component {
     document.title = `${game.name} - SimDOS`
   }
 
+  /** 打印游戏信息 */
+  protected printGameInfo(game = this.game) {
+    this.stage.print(EQ_DIVIDE)
+
+    const translatedName = typeof game.translates === 'string' ? game.translates : pickByLanguage(game.translates!)
+    game.name && this.stage.print(`${i18n.game.name}: ${game.name} ${game.name !== translatedName ? `(${translatedName})` : ''}`)
+    game.type && this.stage.print(`${i18n.game.type}: ${game.type}`)
+    game.developers && this.stage.print(`${i18n.game.developers}: ${game.developers}`)
+    game.publisher && this.stage.print(`${i18n.game.publisher}: ${game.publisher}`)
+    game.release && this.stage.print(`${i18n.game.release}: ${game.release}`)
+
+    const summary = !Array.isArray(game.summary) && typeof game.summary === 'object' ? pickByLanguage(game.summary) : game.summary
+    if (typeof summary === 'string') {
+      this.stage.print(`${i18n.game.summary}: ${summary}`)
+    } else if (Array.isArray(summary)) {
+      this.stage.print(`${i18n.game.summary}:\n${summary.join('\n')}`)
+    }
+
+    this.stage.print(EQ_DIVIDE)
+  }
+
+  /**
+   * 获取游戏存储的唯一值
+   * @description
+   * 主要用于同一款游戏不同ROM的存储
+   * 例如不同版本语言的游戏
+   */
+  protected async getGameStoreUniqKey(game: string | GameInfo): Promise<string> {
+    if (typeof game === 'string') {
+      const info = await this.requestGame(game)
+      return this.getGameStoreUniqKey(info)
+    }
+
+    return game.id
+  }
+
+  protected async requestGame(id: string) {
+    if (!isGameName(id)) {
+      throw new Error(`Game ${id} is not exists.`)
+    }
+
+    const games = await fetchGames()
+    if (!games.has(id)) {
+      throw new Error(`Game ${id} is not exists.`)
+    }
+
+    return games.get(id)!
+  }
+
   /** 注册控制器 */
-  protected registerMobileControls(game: GameInfo) {
+  protected registerMobileControls(game = this.game) {
     /**
      * 根据游戏需求注册不同的虚拟按键
      * sendKeydown, sendKeyup 分别记住
@@ -386,7 +396,7 @@ export default class Game extends Component {
   }
 
   /** 激活自动存档 */
-  protected activeAutoSave(game: GameInfo, intervalMillisecond = 3e3) {
+  protected activeAutoSave(game = this.game, intervalMillisecond = 3e3) {
     const sync = () => this.saveArchiveFromDB(game)
     this.syncIntervalId && clearInterval(this.syncIntervalId)
     this.syncIntervalId = setInterval(sync, intervalMillisecond)
@@ -405,7 +415,7 @@ export default class Game extends Component {
    * 存储存档到本地 IndexedDB
    * @param game 游戏信息
    */
-  public async saveArchiveFromDB(game: GameInfo) {
+  public async saveArchiveFromDB(game = this.game) {
     const { save } = game
     if (!save) {
       return
@@ -449,7 +459,7 @@ export default class Game extends Component {
    * 从本地 IndexedDB 中读取游戏存档
    * @param game 游戏信息
    */
-  public async loadArchiveFromDB(game: GameInfo) {
+  public async loadArchiveFromDB(game = this.game) {
     const { save } = game
     if (!save) {
       return
@@ -477,6 +487,47 @@ export default class Game extends Component {
       files.forEach(({ file, content }) => {
         this.dosbox.writeFile(file, content, save.path)
       })
+    }
+  }
+
+  /** 导出存档文件 */
+  public async exportArchiveFromDB(id: string) {
+    if (!isGameName(id)) {
+      throw new Error(`Game ${id} is not exists.`)
+    }
+
+    await this.model.exportArchive(id)
+  }
+
+  /** 导入存档文件 */
+  public async importArchiveFromDB(id: string, files: Record<string, Uint8Array>) {
+    if (!isGameName(id)) {
+      throw new Error(`Game ${id} is not exists.`)
+    }
+
+    await this.model.importArchive(id, files)
+  }
+
+  protected checkSupport() {
+    // 不支持 Webassembly 的时候提示用户升级
+    if (!supported.webAssembly) {
+      this.stage.simulateClean()
+      this.stage.toggleTerminal(true)
+
+      i18n?.support.webassembly.forEach((content) => {
+        this.stage.print(content)
+      })
+
+      if (isMobile) {
+        this.stage.touchToContinue()
+      } else {
+        this.stage.pressToContinue().then(() => {
+          this.stage.toggleTerminal(false)
+          DosBox.Events.Exit.dispatch()
+        })
+      }
+
+      throw new Error('WebAssembly is not supported.')
     }
   }
 }
