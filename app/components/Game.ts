@@ -117,6 +117,7 @@ export default class Game extends Component {
     // 重置
     this.isPlaying && (await this.stop())
     this.isPlaying = true
+    document.body.classList.add('playing')
 
     this.disableContextMenu()
 
@@ -147,6 +148,7 @@ export default class Game extends Component {
 
     this.disableContextMenu(false)
     this.isPlaying = false
+    document.body.classList.remove('playing')
   }
 
   /** 执行游戏 */

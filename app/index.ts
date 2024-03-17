@@ -8,10 +8,10 @@ disableZoom()
 window.addEventListener('resize', () => responsive())
 responsive()
 
-const firefly = Firefly.createElement()
-document.body.appendChild(firefly)
-
 const app = App.createElement()
 document.body.appendChild(app)
+
+const firefly = Firefly.createElement()
+document.body.appendChild(firefly)
 
 qrcode()
