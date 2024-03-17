@@ -2,6 +2,7 @@ import Game from '@/components/Game'
 import Gallery from '@/components/Gallery'
 import Notification from '@/components/Notification'
 import Menu from '@/controls/Menu'
+import Firefly from '@/components/Firefly'
 import PointerEvent from '@/constants/event'
 import { define, Component } from '@/libs/Component'
 import jQuery from '@/services/jQuery'
@@ -13,14 +14,17 @@ export default class App extends Component {
   protected game: Game
   protected gallery: Gallery
   protected menu: Menu
+  protected firefly: Firefly
   protected notification: Notification
 
   protected bindings() {
     this.game = this.appendElement(Game)
+    this.game.hide()
+
     this.gallery = this.appendElement(Gallery)
     this.menu = this.appendElement(Menu)
     this.notification = this.appendElement(Notification)
-    this.game.hide()
+    this.firefly = this.appendElement(Firefly)
 
     return deprecated(
       this.gallery.onSelected(async (id) => {
