@@ -1,4 +1,3 @@
-import JSZip from 'jszip'
 import { FileSystem } from '@dumlj/cloudfs'
 import IndexedDB from '@/libs/IndexedDB'
 import { download } from '@/utils'
@@ -87,12 +86,6 @@ export default class Model {
       return
     }
 
-    const zip = new JSZip()
-    files.forEach(({ folder, name, content }) => {
-      const file = `${folder}/${name}`
-      zip.file(file, content)
-    })
-
     const blob = await compress(
       files.map(({ folder, name, content }) => {
         const file = `${folder}/${name}`
@@ -107,7 +100,7 @@ export default class Model {
   public async importArchive(romId: string, files: Record<string, Uint8Array>) {
     return this.saveArchive(
       Object.entries(files).map(([filePath, content]) => {
-        const file = filePath.replace(`/${romId}/`, '')
+        const file = filePath.split('/').slice(1).join('/')
         return { romId, file, content }
       })
     )
