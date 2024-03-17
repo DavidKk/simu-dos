@@ -1,11 +1,15 @@
 export function requestFullscreen() {
-  if (document.fullscreenEnabled) {
-    if (!document.pointerLockElement) {
-      document.documentElement.requestPointerLock()
+  try {
+    if (document.fullscreenEnabled) {
+      if (!document.pointerLockElement) {
+        document.documentElement.requestPointerLock()
+      }
+  
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen()
+      }
     }
-
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen()
-    }
+  } catch(error) {
+    console.error(error)
   }
 }

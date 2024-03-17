@@ -42,6 +42,7 @@ export default class Menu extends Component {
     this.upload = this.appendElement('menu-item')
     this.upload.setAttr('menu', 'upload')
     this.upload.innerHTML = UPLOAD_ARCHIVE_ICON
+    isMobile && this.upload.hide()
 
     this.google = this.appendElement('menu-item')
     this.google.setAttr('menu', 'google')
@@ -124,8 +125,8 @@ export default class Menu extends Component {
 
         const isGamePlay = !!event.detail?.gameplay
         isMobile && this.keyboard.toggle(isGamePlay)
-        !isMobile && this.download.toggle(isGamePlay)
-        !isMobile && this.upload.toggle(!isGamePlay)
+        this.download.toggle(!isMobile && isGamePlay)
+        this.upload.toggle(!isMobile && !isGamePlay)
         this.isGamePlay = isGamePlay
       })
     )
