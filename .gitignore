@@ -1,5 +1,6 @@
 # Output files
 /build
+/dev-dist
 /gh-pages
 .env
 

@@ -1,5 +1,5 @@
 import Stage from '@/components/Stage'
-import { toast } from '@/components/Notification'
+import Notification from '@/components/Notification'
 import Menu from '@/controls/Menu'
 import TouchPad from '@/controls/TouchPad'
 import Joystick from '@/controls/Joystick'
@@ -436,11 +436,12 @@ export default class Game extends Component {
       return
     }
 
+    const complete = await Notification.loading('Uploading archive files, please wait.')
     try {
       await googleSyncService.upload()
-      toast('Upload archive files success.')
+      complete('Upload archive files success.')
     } catch (error) {
-      toast('Upload archive files failed.')
+      complete('Upload archive files failed.')
     }
   }
 
@@ -460,11 +461,12 @@ export default class Game extends Component {
       await Menu.Events.Sync.wait()
     } else {
       if (googleSyncService.isAuthorized) {
+        const complete = await Notification.loading('Downloading archive files, please wait.')
         try {
           await googleSyncService.download()
-          toast('Download archive files success.')
+          complete('Download archive files success.')
         } catch (error) {
-          toast('Download archive files failed.')
+          complete('Download archive files failed.')
         }
       }
     }

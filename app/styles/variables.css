@@ -8,6 +8,8 @@
   --red: 233, 11, 72;
 
   /* opacity */
+  --opacity-0: 0;
+  --opacity-20: .1;
   --opacity-40: .4;
   --opacity-60: .6;
   --opacity-80: .8;

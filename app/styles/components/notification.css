@@ -1,6 +1,12 @@
 sim-notification {
   --notification-height: 30px;
+  --notification-min-width: 30px;
   --notification-background-height: calc(var(--notification-height) * 10);
+  --notification-enter-time: .64s;
+  --notification-leave-time: .8s;
+  --notification-content-enter-time: .8s;
+  --notification-content-enter-delay-time: var(--notification-enter-time);
+  --notification-content-length: 0;
 
   position: fixed;
   top: 0;
@@ -16,29 +22,21 @@ sim-notification {
 sim-el[notification] {
   box-sizing: border-box;
 	display: flex;
-  justify-content: center;
   align-items: center;
   position: absolute;
   overflow: hidden;
   margin: 0 auto;
   border-radius: 15px;
-	padding: 5px 20px;
-	min-width: 180px;
-  min-height: 30px;
+	padding: 5px;
+	min-width: var(--notification-min-width);
+  height: var(--notification-height);
   text-align: center;
 	font-size: 12px;
   font-weight: bold;
   color: var(--color-black);
   background-color: rgba(var(--white), var(--opacity-80));
-  animation: notification-dropdown 4s;
+  animation: notification-dropdown-enter var(--notification-enter-time);
   animation-fill-mode: forwards;
-}
-
-sim-el[notification] > span {
-  position: relative;
-  z-index: 4;
-  color: rgb(var(--white));
-  text-shadow: 0px 0px 7px rgba(var(--black), var(--opacity-40));
 }
 
 sim-el[notification]::after {
@@ -63,14 +61,69 @@ sim-el[notification]::after {
   animation: notification-rotate 17.5s infinite;
 }
 
-@keyframes notification-dropdown {
-  from { transform: translate(0,-100px); }
-  10% { transform: translate(0,20px); }
-  12% { transform: translate(0,22px); }
-  16% { transform: translate(0,20px); }
-  80% { transform: translate(0,20px); }
-  85% { transform: translate(0,25px); }
-  to { transform: translate(0,-100px); }
+sim-el[notification] > sim-spinner,
+sim-el[notification] > sim-spinner sim-el[circle] {
+  opacity: var(--opacity-0);
+  transform: scale(0);
+  width: 0;
+  transition: all .16s ease-in-out;
+}
+
+sim-el[notification].loading > sim-spinner,
+sim-el[notification].loading > sim-spinner sim-el[circle] {
+  opacity: var(--opacity-100);
+  width: 20px;
+  transform: scale(.8);
+}
+
+sim-el[notification].complete {
+  animation: notification-dropdown-leave var(--notification-leave-time);
+  animation-fill-mode: forwards;
+}
+
+sim-el[notification-content] {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: calc(var(--notification-content-length) * 8.3px);
+  height: var(--notification-height);
+  white-space: inherit;
+  word-break: keep-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: rgb(var(--white));
+  text-shadow: 0px 0px 7px rgba(var(--black), var(--opacity-40));
+  transition: width var(--notification-content-enter-time) ease-in-out;
+}
+
+sim-el[notification].loading sim-el[notification-content] {
+  width: 0;
+  animation-name: notification-content-enter;
+  animation-duration: var(--notification-content-enter-time);
+  animation-delay: var(--notification-content-enter-delay-time);
+  animation-fill-mode: forwards;
+}
+
+@keyframes notification-content-enter {
+  from { width: 0; }
+  to { width: calc(var(--notification-content-length) * 8.3px); }
+}
+
+@keyframes notification-dropdown-enter {
+  from { transform: translate(0, -100px); }
+  25% { transform: translate(0, 20px); }
+  30% { transform: translate(0, 22px); }
+  100% { transform: translate(0, 20px); }
+}
+
+@keyframes notification-dropdown-leave {
+  from { transform: translate(0, 20px); }
+  25% { transform: translate(0, 25px); }
+  100% { transform: translate(0, -100px); }
 }
 
 @keyframes notification-rotate {

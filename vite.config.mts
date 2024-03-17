@@ -36,6 +36,8 @@ export default defineConfig({
         }
       }())
     }),
-    VitePWA(),
+    VitePWA({
+      registerType: 'autoUpdate',
+    }),
   ]
 })

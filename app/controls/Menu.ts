@@ -1,4 +1,4 @@
-import { toast } from '@/components/Notification'
+import Notification from '@/components/Notification'
 import { isMobile } from '@/services/device'
 import { googleSyncService } from '@/services/googleSyncService'
 import { define, Component } from '@/libs/Component'
@@ -54,13 +54,14 @@ export default class Menu extends Component {
             return
           }
 
+          const complete = await Notification.loading('Uploading archive files, please wait.')
           try {
             this.isUploading = true
             await googleSyncService.upload()
             Menu.Events.Sync.dispatch({ status: 'uploading' })
-            toast('Upload archive files success.')
+            complete('Upload archive files success.')
           } catch (error) {
-            toast('Upload archive files failed.')
+            complete('Upload archive files failed.')
           } finally {
             Menu.Events.Sync.dispatch({ status: 'idle' })
             this.isUploading = false
@@ -73,13 +74,14 @@ export default class Menu extends Component {
           return
         }
 
+        const complete = await Notification.loading('Downloading archive files, please wait.')
         try {
           this.isDownloading = true
           await googleSyncService.download()
           Menu.Events.Sync.dispatch({ status: 'downloading' })
-          toast('Download archive files success.')
+          complete('Download archive files success.')
         } catch (error) {
-          toast('Download archive files failed.')
+          complete('Download archive files failed.')
         } finally {
           Menu.Events.Sync.dispatch({ status: 'idle' })
           this.isDownloading = false

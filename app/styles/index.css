@@ -10,6 +10,7 @@
 @import url(./controls/touchpad.css);
 @import url(./controls/menu.css);
 
+@import url(./components/spinner.css);
 @import url(./components/notification.css);
 @import url(./components/terminal.css);
 @import url(./components/dosbox-canvas.css);
