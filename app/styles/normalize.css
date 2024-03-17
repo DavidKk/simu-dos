@@ -10,6 +10,10 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: pan-x pan-y;
+  user-scalable: no;
 }
 
 html, body {
@@ -18,11 +22,4 @@ html, body {
   width: 100%;
   height: 100%;
   background-color: var(--bg-color-primary);
-}
-
-body {
-  -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: pan-x pan-y;
-  user-scalable: no;
 }
