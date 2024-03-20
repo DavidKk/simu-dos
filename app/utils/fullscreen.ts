@@ -4,12 +4,13 @@ export function requestFullscreen() {
       if (!document.pointerLockElement) {
         document.documentElement.requestPointerLock()
       }
-  
+
       if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen()
       }
     }
-  } catch(error) {
+  } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error)
   }
 }

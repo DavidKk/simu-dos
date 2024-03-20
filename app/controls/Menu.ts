@@ -113,6 +113,13 @@ export default class Menu extends Component {
       googleSyncService.onAuthChanged(({ authorized }) => {
         if (authorized) {
           this.google.addClass('authorized')
+
+          if (this.isGamePlay) {
+            if (confirm('If you have a cloud file, please click OK to reset the game.')) {
+              window.location.reload()
+            }
+          }
+
           return
         }
 
