@@ -18,9 +18,11 @@ import { deprecated } from '@/utils'
  */
 @define('touchpad')
 export default class TouchPad extends Component {
-  static Events = {
-    TouchDown: SimEvent.create<KeypadTouchEventPayload>('TOUCHPAD_TOUCHDOWN'),
-    TouchUp: SimEvent.create<KeypadTouchEventPayload>('TOUCHPAD_TOUCHUP'),
+  static get Events() {
+    return {
+      TouchDown: SimEvent.create<KeypadTouchEventPayload>('TOUCHPAD_TOUCHDOWN'),
+      TouchUp: SimEvent.create<KeypadTouchEventPayload>('TOUCHPAD_TOUCHUP'),
+    }
   }
 
   /** 按键面板 */

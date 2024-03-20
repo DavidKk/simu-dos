@@ -12,16 +12,20 @@ import type { EmnuSyncEventPayload, EmunUploadEventPayload, MenuGamePlayEventPay
 /** 菜单 */
 @define('menu')
 export default class Menu extends Component {
-  static Events = {
-    GamePlay: SimEvent.create<MenuGamePlayEventPayload>('MENU_GAME_PLAY'),
-    KeyboardSwitch: SimEvent.create<MenuSwitchEventPayload>('MENU_KEYBOARD_SWITCH'),
-    Sync: SimEvent.create<EmnuSyncEventPayload>('MENU_SYNC_EVENT'),
-    Download: SimEvent.create<void>('MENU_DOWNLOAD_EVENT'),
-    Upload: SimEvent.create<EmunUploadEventPayload>('MENU_UPLOAD_EVENT'),
+  static get Events() {
+    return {
+      GamePlay: SimEvent.create<MenuGamePlayEventPayload>('MENU_GAME_PLAY'),
+      KeyboardSwitch: SimEvent.create<MenuSwitchEventPayload>('MENU_KEYBOARD_SWITCH'),
+      Sync: SimEvent.create<EmnuSyncEventPayload>('MENU_SYNC_EVENT'),
+      Download: SimEvent.create<void>('MENU_DOWNLOAD_EVENT'),
+      Upload: SimEvent.create<EmunUploadEventPayload>('MENU_UPLOAD_EVENT'),
+    }
   }
 
-  static Messages = {
-    Sync: SimEvent.createMessager<void, EmnuSyncEventPayload>('MENU_SYNC_MESSAGE'),
+  static get Messages() {
+    return {
+      Sync: SimEvent.createMessager<void, EmnuSyncEventPayload>('MENU_SYNC_MESSAGE'),
+    }
   }
 
   protected isKeyboardVisible = false
@@ -57,7 +61,8 @@ export default class Menu extends Component {
       jQuery(document).addEventsListener('fullscreenchange', () => {
         this.toggle(!document.fullscreenElement)
       }),
-      this.google.addEventsListener(PointerEvent.Start, async () => {
+      // must be a click event
+      this.google.addEventsListener('click', async () => {
         const upload = async () => {
           if (this.isUploading) {
             return

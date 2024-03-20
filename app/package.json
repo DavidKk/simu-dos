@@ -6,11 +6,7 @@
   "dependencies": {
     "@dumlj/cloudfs": "0.0.1-alpha.1710610225.0+58852a7",
     "js-dos": "6.22.60",
-    "qrcode": "^1.5.3",
     "utility-types": "^3.10.0",
     "jszip": "^3.10.1"
-  },
-  "devDependencies": {
-    "@types/qrcode": "^1.5.5"
   }
 }

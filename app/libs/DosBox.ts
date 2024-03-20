@@ -18,11 +18,13 @@ export interface ConvertFileToArrayBufferParams {
  * 主要对 wdosbox 进行二次封装
  */
 export default class DosBox extends eventify() {
-  static Events = {
-    Ready: SimEvent.create<void>('DOSBOX_READY'),
-    RuntimeInitialized: SimEvent.create<DosboxRuntimeInitializedEventPayload>('DOSBOX_RUNTIME_INITIALIZED_EVENT'),
-    Message: SimEvent.create<DosboxMessageEventPayload>('DOSBOX_MESSAGE'),
-    Exit: SimEvent.create<void>('DOSBOX_EXIT'),
+  static get Events() {
+    return {
+      Ready: SimEvent.create<void>('DOSBOX_READY'),
+      RuntimeInitialized: SimEvent.create<DosboxRuntimeInitializedEventPayload>('DOSBOX_RUNTIME_INITIALIZED_EVENT'),
+      Message: SimEvent.create<DosboxMessageEventPayload>('DOSBOX_MESSAGE'),
+      Exit: SimEvent.create<void>('DOSBOX_EXIT'),
+    }
   }
 
   protected loader = new Loader()

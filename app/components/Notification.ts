@@ -6,12 +6,16 @@ import { deprecated, sleep } from '@/utils'
 
 @define('notification')
 export default class Notification extends Component {
-  static Events = {
-    Toast: SimEvent.create<NotificationToastEventPayload>('NOTIFICATION_TOAST'),
+  static get Events() {
+    return {
+      Toast: SimEvent.create<NotificationToastEventPayload>('NOTIFICATION_TOAST'),
+    }
   }
 
-  static Messages = {
-    Toast: SimEvent.createMessager<NotificationToastEventPayload, (message: string) => void>('NOTIFICATION_TOAST'),
+  static get Messages() {
+    return {
+      Toast: SimEvent.createMessager<NotificationToastEventPayload, (message: string) => void>('NOTIFICATION_TOAST'),
+    }
   }
 
   static toast(message: string) {

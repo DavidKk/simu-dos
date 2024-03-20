@@ -10,7 +10,9 @@ export function define(customTagName: string) {
 
   return <T extends Class<HTMLElement>>(Component: T) => {
     class Element extends Component {
-      static TAG_NAME = tagName
+      static get TAG_NAME() {
+        return tagName
+      }
     }
 
     customElements.define(tagName, Element)

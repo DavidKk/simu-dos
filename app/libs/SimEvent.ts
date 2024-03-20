@@ -7,7 +7,9 @@ export interface Message<T> {
 export default class SimEvent<T = Record<string, any>> extends CustomEvent<T> {
   static create<T>(type: string) {
     return class SimEventify extends SimEvent<T> {
-      static EventType = type
+      static get EventType() {
+        return type
+      }
 
       static is(input: Event | CustomEvent | SimEvent<unknown>): input is SimEventify {
         if (typeof input === 'string') {

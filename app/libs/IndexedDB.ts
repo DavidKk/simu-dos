@@ -4,7 +4,9 @@ import type { IndexedDBStoreOptions, IndexedDBOptions } from '@/types'
 const indexedDB = window.indexedDB
 
 export default class IndexedDB {
-  static supported = supported.indexedDB
+  static get supported() {
+    return supported.indexedDB
+  }
 
   private settings: IndexedDBOptions
   private db: IDBDatabase

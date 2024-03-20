@@ -9,8 +9,10 @@ import jQuery from '@/services/jQuery'
 
 @define('gallery')
 export default class Gallery extends Component {
-  static Events = {
-    Play: SimEvent.create<GalleryPlayEventPayload>('GALLERY_PLAY'),
+  static get Events() {
+    return {
+      Play: SimEvent.create<GalleryPlayEventPayload>('GALLERY_PLAY'),
+    }
   }
 
   protected selected = 0

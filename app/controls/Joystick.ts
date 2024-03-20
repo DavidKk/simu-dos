@@ -8,10 +8,12 @@ import type { Point, JoystickDirectionData, JoystickTouchDownEventPayload, Joyst
 
 @define('joystick')
 export default class Joystick extends Component {
-  static Events = {
-    TouchDown: SimEvent.create<JoystickTouchDownEventPayload>('JOYSTICK_TOUCHDOWN'),
-    TouchMove: SimEvent.create<JoystickTouchMoveEventPayload>('JOYSTICK_TOUCHMOVE'),
-    TouchUp: SimEvent.create<void>('JOYSTICK_TOUCHUP'),
+  static get Events() {
+    return {
+      TouchDown: SimEvent.create<JoystickTouchDownEventPayload>('JOYSTICK_TOUCHDOWN'),
+      TouchMove: SimEvent.create<JoystickTouchMoveEventPayload>('JOYSTICK_TOUCHMOVE'),
+      TouchUp: SimEvent.create<void>('JOYSTICK_TOUCHUP'),
+    }
   }
 
   protected fixedPoint: Point

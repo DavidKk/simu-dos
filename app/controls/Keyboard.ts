@@ -42,11 +42,13 @@ export const ATTRIBUTE_KEY = 'key'
 /** 键盘UI */
 @define('keyboard')
 export default class Keyboard extends Component {
-  static Events = {
-    TouchDown: SimEvent.create<KeyboardTouchEventPayload>('KEYBOARD_TOUCHDOWN'),
-    TouchUp: SimEvent.create<KeyboardTouchEventPayload>('KEYBOARD_TOUCHUP'),
-    TouchPress: SimEvent.create<KeyboardTouchEventPayload>('KEYBOARD_TOUCHPRESS'),
-    Switch: SimEvent.create<KeyboardSwitchEventPayload>('KEYBOARD_SWITCH'),
+  static get Events() {
+    return {
+      TouchDown: SimEvent.create<KeyboardTouchEventPayload>('KEYBOARD_TOUCHDOWN'),
+      TouchUp: SimEvent.create<KeyboardTouchEventPayload>('KEYBOARD_TOUCHUP'),
+      TouchPress: SimEvent.create<KeyboardTouchEventPayload>('KEYBOARD_TOUCHPRESS'),
+      Switch: SimEvent.create<KeyboardSwitchEventPayload>('KEYBOARD_SWITCH'),
+    }
   }
 
   /** 按键 */

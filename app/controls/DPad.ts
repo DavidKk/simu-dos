@@ -8,9 +8,11 @@ import type { DpadDirection, DpadTouchEventPayload } from '@/types'
 
 @define('dpad')
 export default class DPad extends Component {
-  static Events = {
-    TouchDown: SimEvent.create<DpadTouchEventPayload>('DPAD_TOUCHDOWN'),
-    TouchUp: SimEvent.create<DpadTouchEventPayload>('DPAD_TOUCHUP'),
+  static get Events() {
+    return {
+      TouchDown: SimEvent.create<DpadTouchEventPayload>('DPAD_TOUCHDOWN'),
+      TouchUp: SimEvent.create<DpadTouchEventPayload>('DPAD_TOUCHUP'),
+    }
   }
 
   protected up: Component
