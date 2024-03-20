@@ -97,8 +97,8 @@ importers:
         specifier: 0.0.1-alpha.1710610225.0+58852a7
         version: 0.0.1-alpha.1710610225.0
       js-dos:
-        specifier: 6.22.60
-        version: 6.22.60
+        specifier: 7.5.0
+        version: 7.5.0
       jszip:
         specifier: ^3.10.1
         version: 3.10.1
@@ -4792,8 +4792,10 @@ packages:
     dev: true
     optional: true
 
-  /js-dos@6.22.60:
-    resolution: {integrity: sha512-1EhfMftOhBZ34Gvz/RCLsAoEcgWcZ1pmumpG28Z+9oQ9oQVP90jckQpvS9NW7vvfwYJWmCj+PX+j3UO44iO6LA==}
+  /js-dos@7.5.0:
+    resolution: {integrity: sha512-7vI5HqE9MNkytyTwFVjqU+HyIPCWhwc4SmCp/eba7UC7ZhtcG043TFcfB62qdVPwGmzLCV01nm/NJceEOTeFdA==}
+    dependencies:
+      nanoid: 3.3.7
     dev: false
 
   /js-tokens@4.0.0:
@@ -5275,7 +5277,6 @@ packages:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
-    dev: true
 
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
