@@ -32,7 +32,7 @@
     "concurrently": "^8.2.2",
     "cz-customizable": "^7.0.0",
     "cz-customizable-i18n-config": "^0.0.1-alpha.2",
-    "eslint": "^8.52.0",
+    "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-prettier": "^5.0.1",
