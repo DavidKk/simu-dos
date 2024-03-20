@@ -6,7 +6,7 @@ import { define, Component } from '@/libs/Component'
 import SimEvent from '@/libs/SimEvent'
 import { deprecated, extract, upload } from '@/utils'
 import { DOWNLOAD_ARCHIVE_ICON, GOOGLE_ICON, KEYBOARD_ICON, UPLOAD_ARCHIVE_ICON } from '@/constants/icons'
-import { PointerEvent } from '@/constants/event'
+import PointerEvent from '@/constants/event'
 import type { EmnuSyncEventPayload, EmunUploadEventPayload, MenuGamePlayEventPayload, MenuSwitchEventPayload } from '@/types'
 
 /** 菜单 */
@@ -61,8 +61,7 @@ export default class Menu extends Component {
       jQuery(document).addEventsListener('fullscreenchange', () => {
         this.toggle(!document.fullscreenElement)
       }),
-      // must be a click event
-      this.google.addEventsListener('click', async () => {
+      this.google.addEventsListener(PointerEvent.Start, async () => {
         const upload = async () => {
           if (this.isUploading) {
             return

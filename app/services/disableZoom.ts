@@ -1,6 +1,6 @@
 import jQuery from './jQuery'
 import { deprecated } from '@/utils'
-import { PointerEvent } from '@/constants/event'
+import PointerEvent from '@/constants/event'
 
 export default function disableZoom() {
   let lastTouchEnd = 0

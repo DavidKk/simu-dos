@@ -1,6 +1,6 @@
 import { Component, define } from '@/libs/Component'
 import { deprecated, requestFullscreen } from '@/utils'
-import { PointerEvent } from '@/constants/event'
+import PointerEvent from '@/constants/event'
 
 @define('dosbox-canvas')
 export default class DOSBoxCanvas extends Component {
