@@ -1,7 +1,8 @@
 sim-keypad {
-  --key-button-width: 30px;
-  --key-button-height: 20px;
-  --key-button-round-size: 80px;
+  --sim-button-width: 30px;
+  --sim-button-height: 20px;
+  --sim-button-round-size: 80px;
+  --sim-button-round-font-size: 20px;
 
   position: absolute;
   top: 0;

@@ -1,11 +1,21 @@
 sim-menu {
+  --sim-menu-size: 36px;
+  --sim-menu-gutter: 4px;
+
   position: absolute;
   top: 20px;
   right: 20px;
   z-index: 555;
   display: flex;
   justify-content: flex-end;
-  gap: 4px;
+  gap: var(--sim-menu-gutter);
+}
+
+@media screen and (orientation: portrait) {
+  sim-menu {
+    --sim-menu-size: 64px;
+    --sim-menu-gutter: 16px;
+  }
 }
 
 sim-el[menu-item] {
@@ -15,8 +25,8 @@ sim-el[menu-item] {
   align-items: center;
   overflow: hidden;
   border-radius: 5px;
-  width: 36px;
-  height: 36px;
+  width: var(--sim-menu-size);
+  height: var(--sim-menu-size);
   word-wrap: normal;
   white-space: nowrap;
   font-size: 14px;

@@ -14,9 +14,9 @@ export default class Keypad extends Component {
     button.setContent(content)
 
     if (options) {
+      options?.type && button.setType(options.type)
       options?.size && button.setSize(options.size)
       options?.position && button.setPosition(options.position)
-      options?.type && button.setType(options.type)
     }
 
     this.keys.push(button)

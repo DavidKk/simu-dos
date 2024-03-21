@@ -1,4 +1,6 @@
 sim-terminal {
+  --sim-terminal-font-size: var(--font-size-medium);
+
   position: absolute;
   overflow-y: auto;
   overflow-x: hidden;
@@ -13,7 +15,7 @@ sim-el[term-line] {
   white-space: pre-line;
   word-wrap: break-word;
   word-break: break-all;
-  font-size: var(--font-size-medium);
+  font-size: var(--sim-terminal-font-size);
   font-family: monospace;
   font-weight: bold;
   color: rgba(var(--white), var(--opacity-80));
@@ -44,4 +46,10 @@ sim-el[term-line].error {
 @keyframes cursor {
   0%, 40%, 100% { opacity: 0; }
   50%, 90% { opacity: 1; }
+}
+
+@media screen and (orientation: portrait) {
+  sim-terminal {
+    --sim-terminal-font-size: var(--font-size-large);
+  }
 }

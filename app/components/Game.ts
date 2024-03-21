@@ -118,7 +118,6 @@ export default class Game extends Component {
     this.isPlaying && (await this.stop())
     this.isPlaying = true
     document.body.classList.add('playing')
-
     this.disableContextMenu()
 
     // 尝试读取本地存储的ROM
@@ -230,24 +229,40 @@ export default class Game extends Component {
     document.title = `${game.name} - SimDOS`
   }
 
+  /** 获取游戏信息 */
+  protected getGameInfo(game = this.game) {
+    const translatedName = typeof game.translates === 'string' ? game.translates : pickByLanguage(game.translates!)
+    const name = `${i18n.game.name}: ${game.name} ${game.name !== translatedName ? `(${translatedName})` : ''}`
+    const type = `${i18n.game.type}: ${game.type}`
+    const developers = `${i18n.game.developers}: ${game.developers}`
+    const publisher = `${i18n.game.publisher}: ${game.publisher}`
+    const release = `${i18n.game.release}: ${game.release}`
+    const cover = typeof game.cover === 'string' ? game.cover : pickByLanguage(game.cover)
+    const summary = (() => {
+      const summary = !Array.isArray(game.summary) && typeof game.summary === 'object' ? pickByLanguage(game.summary) : game.summary
+      if (typeof summary === 'string') {
+        return `${i18n.game.summary}: ${summary}`
+      }
+
+      if (Array.isArray(summary)) {
+        return `${i18n.game.summary}:\n${summary.join('\n')}`
+      }
+    })()
+
+    return { name, type, developers, publisher, release, cover, summary }
+  }
+
   /** 打印游戏信息 */
   protected printGameInfo(game = this.game) {
+    const info = this.getGameInfo(game)
+
     this.stage.print(EQ_DIVIDE)
-
-    const translatedName = typeof game.translates === 'string' ? game.translates : pickByLanguage(game.translates!)
-    game.name && this.stage.print(`${i18n.game.name}: ${game.name} ${game.name !== translatedName ? `(${translatedName})` : ''}`)
-    game.type && this.stage.print(`${i18n.game.type}: ${game.type}`)
-    game.developers && this.stage.print(`${i18n.game.developers}: ${game.developers}`)
-    game.publisher && this.stage.print(`${i18n.game.publisher}: ${game.publisher}`)
-    game.release && this.stage.print(`${i18n.game.release}: ${game.release}`)
-
-    const summary = !Array.isArray(game.summary) && typeof game.summary === 'object' ? pickByLanguage(game.summary) : game.summary
-    if (typeof summary === 'string') {
-      this.stage.print(`${i18n.game.summary}: ${summary}`)
-    } else if (Array.isArray(summary)) {
-      this.stage.print(`${i18n.game.summary}:\n${summary.join('\n')}`)
-    }
-
+    info.name && this.stage.print(info.name)
+    info.type && this.stage.print(info.type)
+    info.developers && this.stage.print(info.developers)
+    info.publisher && this.stage.print(info.publisher)
+    info.release && this.stage.print(info.release)
+    info.summary && this.stage.print(info.summary)
     this.stage.print(EQ_DIVIDE)
   }
 

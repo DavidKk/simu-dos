@@ -1,5 +1,17 @@
 sim-button {
+  --sim-button-width: 30px;
+  --sim-button-height: 60px;
+  --sim-button-font-size: 12px;
+  --sim-button-top: auto;
+  --sim-button-right: auto;
+  --sim-button-bottom: auto;
+  --sim-button-left: auto;
+
   position: absolute;
+  top: var(--sim-button-top);
+  right: var(--sim-button-right);
+  bottom: var(--sim-button-bottom);
+  left: var(--sim-button-left);
   z-index: 4;
   display: flex;
   justify-content: center;
@@ -7,9 +19,9 @@ sim-button {
   margin: auto;
   border-radius: 20px;
   padding: 4px 10px;
-  width: var(--key-button-width);
-  height: var(--key-button-height);
-  font-size: 12px;
+  width: var(--sim-button-width);
+  height: var(--sim-button-height);
+  font-size: var(--sim-button-font-size);
   color: var(--color-primary);
   background-color: var(--color-primary);
   transition: background-color .16s ease-in, color background-color .16s ease-in;
@@ -20,11 +32,14 @@ sim-button {
 }
 
 sim-button.round {
+  --sim-button-width: var(--sim-button-round-size);
+  --sim-button-font-size: var(--sim-button-round-font-size);
+
   border-radius: 100%;
   padding: 0;
-  width: var(--key-button-round-size);
+  width: var(--sim-button-width);
   height: auto;
-  font-size: 20px;
+  font-size: var(--sim-button-font-size);
 }
 
 sim-button.round::before {
@@ -37,4 +52,14 @@ sim-button:active,
 sim-button.active {
   color: var(--color-mute);
   background-color: var(--color-mute);
+}
+
+@media screen and (orientation: portrait) {
+  sim-button,
+  sim-button.round {
+    right: calc(var(--sim-button-right) * 1.6);
+    bottom: calc(var(--sim-button-bottom) * 1.8);
+    width: calc(var(--sim-button-width) * 1.8);
+    font-size: calc(var(--sim-button-font-size) * 1.8);
+  }
 }

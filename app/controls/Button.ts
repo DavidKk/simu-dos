@@ -46,26 +46,30 @@ export default class Button extends Component {
     }
   }
 
-  public setType(type: ButtonType): void {
+  public setType(type: ButtonType) {
     this.type = type
 
     KEYPAD_TYPES.forEach((style) => this.removeClass(style))
     type !== 'normal' && this.addClass(type)
   }
 
-  public setWidth(width: StyleValue): void {
-    this.style.width = typeof width === 'string' ? width : px2rem(width)
+  public setWidth(width: StyleValue) {
+    const name = this.type === 'round' ? '--sim-button-round-size' : '--sim-button-width'
+    const value = typeof width === 'string' ? width : px2rem(width)
+    this.style.setProperty(name, value)
   }
 
-  public setHeight(height: StyleValue): void {
-    this.style.height = typeof height === 'string' ? height : px2rem(height)
+  public setHeight(height: StyleValue) {
+    const value = typeof height === 'string' ? height : px2rem(height)
+    this.style.setProperty('--sim-button-height', value)
   }
 
-  public setFontSize(size: StyleValue): void {
-    this.style.fontSize = typeof size === 'string' ? size : px2rem(size)
+  public setFontSize(size: StyleValue) {
+    const value = typeof size === 'string' ? size : px2rem(size)
+    this.style.setProperty('--sim-button-font-size', value)
   }
 
-  public setSize(size: StyleSize): void {
+  public setSize(size: StyleSize) {
     const ratio = this.type === 'round' ? 1 / 3 : 3 / 4
     if (typeof size === 'object') {
       const { width, height } = size
@@ -92,11 +96,11 @@ export default class Button extends Component {
       }
 
       if (typeof value === 'string') {
-        this.style.top = value
+        this.style.setProperty('--sim-button-top', value)
         return
       }
 
-      this.style.top = px2rem(value)
+      this.style.setProperty('--sim-button-top', px2rem(value))
     }
 
     if (position.hasOwnProperty('right')) {
@@ -106,11 +110,11 @@ export default class Button extends Component {
       }
 
       if (typeof value === 'string') {
-        this.style.right = value
+        this.style.setProperty('--sim-button-right', value)
         return
       }
 
-      this.style.right = px2rem(value)
+      this.style.setProperty('--sim-button-right', px2rem(value))
     }
 
     if (position.hasOwnProperty('bottom')) {
@@ -120,11 +124,11 @@ export default class Button extends Component {
       }
 
       if (typeof value === 'string') {
-        this.style.bottom = value
+        this.style.setProperty('--sim-button-bottom', value)
         return
       }
 
-      this.style.bottom = px2rem(value)
+      this.style.setProperty('--sim-button-bottom', px2rem(value))
     }
 
     if (position.hasOwnProperty('left')) {
@@ -134,11 +138,11 @@ export default class Button extends Component {
       }
 
       if (typeof value === 'string') {
-        this.style.left = value
+        this.style.setProperty('--sim-button-left', value)
         return
       }
 
-      this.style.left = px2rem(value)
+      this.style.setProperty('--sim-button-left', px2rem(value))
     }
   }
 }

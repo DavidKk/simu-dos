@@ -1,9 +1,11 @@
 sim-joystick {
   --joystick-size: 100px;
+  --joystick-left: 50px;
+  --joystick-bottom: 50px;
 
   position: absolute;
-  bottom: 50px;
-  left: 50px;
+  bottom: var(--joystick-bottom);
+  left: var(--joystick-left);
   z-index: 4;
   display: block;
   border: 8px solid var(--color-primary);
@@ -19,6 +21,14 @@ sim-joystick {
   user-select: none;
   touch-action: none;
   cursor: pointer;
+}
+
+@media screen and (orientation: portrait) {
+  sim-joystick {
+    --joystick-size: 150px;
+    --joystick-left: 100px;
+    --joystick-bottom: 100px;
+  }
 }
 
 sim-el[joystick-stick] {

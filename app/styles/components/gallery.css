@@ -1,39 +1,53 @@
 sim-gallery {
+  --sim-gallery-gutter: 20px;
+  --sim-gallery-columns: 4;
+  --sim-gallery-rows: 2;
+
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   display: flex;
-  padding: 10px;
-  width: 100%;
+  flex-wrap: wrap;
   overflow-y: auto;
+  gap: var(--sim-gallery-gutter);
+  margin-top: 60px;
+  padding: var(--sim-gallery-gutter);
+  width: 100%;
+}
+
+html.mobile sim-gallery {
+  --sim-gallery-columns: 3;
+  --sim-gallery-rows: 1;
 }
 
 sim-el[gallery-item] {
+  --sim-gallery-item-background-image: none;
+  --sim-gallery-item-columns: var(--sim-gallery-columns);
+  --sim-gallery-item-rows: var(--sim-gallery-rows);
+
   position: relative;
   z-index: 2;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  width: 120px;
-  height: 150px;
+  width: calc(100% / var(--sim-gallery-item-columns) - var(--sim-gallery-gutter) / (var(--sim-gallery-item-columns) / (var(--sim-gallery-item-columns) - 1)));
+  height: calc(100% / var(--sim-gallery-item-rows));
   background-color: transparent;
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
+  background-image: var(--sim-gallery-item-background-image);
   transition: transform .16s ease-in-out;
 }
 
-sim-el[gallery-item]:first-child {
-  margin-left: 0;
-}
+@media (max-height: 50vw) {
+  html:not(.mobile) sim-el[gallery-item] {
+    --sim-gallery-item-rows: calc(var(--sim-gallery-rows) / 2);
 
-sim-el[gallery-item]:last-child {
-  margin-right: 0;
+    min-height: 160px;
+  }
 }
 
 sim-el[gallery-item]::before {
@@ -96,19 +110,6 @@ sim-el[gallery-item].active::after {
   animation: transition 1.6s ease-in-out infinite;
 }
 
-@media screen and (orientation: portrait) {
-  sim-el[gallery-item] {
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    width: calc(100% / 3);
-    height: calc(100% / 4);
-  }
-
-  sim-el[gallery-item]::before {
-    box-shadow: inset 0 0 0 8px rgba(255,255,255,.05);
-  }
-}
-
 @keyframes transition {
   0% {
     background-color: rgba(255,255,255,.1);
@@ -123,5 +124,20 @@ sim-el[gallery-item].active::after {
   100% {
     background-color: rgba(255,255,255,.1);
     box-shadow: 0 0 0 3px rgba(255,255,255,.2);
+  }
+}
+
+@media screen and (orientation: portrait) {
+  sim-gallery {
+    margin-top: 80px;
+  }
+
+  html.mobile sim-gallery {
+    --sim-gallery-columns: 2;
+    --sim-gallery-rows: 3;
+  }
+
+  sim-el[gallery-item]::before {
+    box-shadow: inset 0 0 0 8px rgba(255,255,255,.05);
   }
 }

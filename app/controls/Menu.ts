@@ -7,7 +7,7 @@ import SimEvent from '@/libs/SimEvent'
 import { deprecated, extract, upload } from '@/utils'
 import { DOWNLOAD_ARCHIVE_ICON, GOOGLE_ICON, KEYBOARD_ICON, UPLOAD_ARCHIVE_ICON } from '@/constants/icons'
 import PointerEvent from '@/constants/event'
-import type { EmnuSyncEventPayload, EmunUploadEventPayload, MenuGamePlayEventPayload, MenuSwitchEventPayload } from '@/types'
+import type { EmunUploadEventPayload, MenuGamePlayEventPayload, MenuSwitchEventPayload } from '@/types'
 
 /** 菜单 */
 @define('menu')
@@ -16,22 +16,13 @@ export default class Menu extends Component {
     return {
       GamePlay: SimEvent.create<MenuGamePlayEventPayload>('MENU_GAME_PLAY'),
       KeyboardSwitch: SimEvent.create<MenuSwitchEventPayload>('MENU_KEYBOARD_SWITCH'),
-      Sync: SimEvent.create<EmnuSyncEventPayload>('MENU_SYNC_EVENT'),
       Download: SimEvent.create<void>('MENU_DOWNLOAD_EVENT'),
       Upload: SimEvent.create<EmunUploadEventPayload>('MENU_UPLOAD_EVENT'),
     }
   }
 
-  static get Messages() {
-    return {
-      Sync: SimEvent.createMessager<void, EmnuSyncEventPayload>('MENU_SYNC_MESSAGE'),
-    }
-  }
-
   protected isKeyboardVisible = false
   protected isGamePlay = false
-  protected isDownloading = false
-  protected isUploading = false
   protected keyboard: Component
   protected google: Component
   protected download: Component
@@ -63,26 +54,6 @@ export default class Menu extends Component {
       }),
       // must be a click event
       this.google.addEventsListener('click', async () => {
-        const upload = async () => {
-          if (this.isUploading) {
-            return
-          }
-
-          const complete = await Notification.loading('Uploading archive files, please wait.')
-          try {
-            this.isUploading = true
-
-            await googleSyncService.upload()
-            Menu.Events.Sync.dispatch({ status: 'uploading' })
-            complete('Upload archive files success.')
-          } catch (error) {
-            complete('Upload archive files failed.')
-          } finally {
-            Menu.Events.Sync.dispatch({ status: 'idle' })
-            this.isUploading = false
-          }
-        }
-
         try {
           await googleSyncService.open()
           Notification.toast('Archive files will be automatically synchronized.')
@@ -90,14 +61,6 @@ export default class Menu extends Component {
           // 登录失败退出
           return
         }
-
-        if (this.isGamePlay) {
-          await upload()
-        }
-      }),
-      Menu.Messages.Sync.onMessage(async () => {
-        const status = this.isDownloading ? 'downloading' : this.isUploading ? 'uploading' : 'idle'
-        return { status }
       }),
       this.keyboard.addEventsListener(PointerEvent.Start, (event: Event) => {
         event.preventDefault()
@@ -118,13 +81,6 @@ export default class Menu extends Component {
       googleSyncService.onAuthChanged(({ authorized }) => {
         if (authorized) {
           this.google.addClass('authorized')
-
-          if (this.isGamePlay) {
-            if (confirm('If you have a cloud file, please click OK to reset the game.')) {
-              window.location.reload()
-            }
-          }
-
           return
         }
 

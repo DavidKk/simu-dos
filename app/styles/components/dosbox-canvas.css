@@ -1,6 +1,6 @@
 sim-dosbox-canvas {
-  --stage-width: 640px;
-  --stage-height: 400px;
+  --sim-dosbox-canvas-width: 640px;
+  --sim-dosbox-canvas-height: 400px;
 
   position: absolute;
   top: 0;
@@ -12,8 +12,8 @@ sim-dosbox-canvas {
   justify-content: center;
   align-items: center;
   margin: auto;
-  width: var(--stage-width);
-  height: var(--stage-height);
+  width: var(--sim-dosbox-canvas-width);
+  height: var(--sim-dosbox-canvas-height);
   opacity: 0;
   transition: opacity .26s ease-in;
 }
@@ -21,4 +21,11 @@ sim-dosbox-canvas {
 sim-dosbox-canvas canvas {
   width: 100%;
   height: 100%;
+}
+
+@media screen and (orientation: portrait) {
+  sim-dosbox-canvas {
+    top: 20%;
+    bottom: auto;
+  }
 }

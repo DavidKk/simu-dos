@@ -1,9 +1,15 @@
 sim-dpad {
   --dpad-button-size: 36px;
+  --dpad-button-top: 40px;
+  --dpad-button-left: 40px;
+  --dpad-button-bottom: auto;
+  --dpad-button-right: auto;
 
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: var(--dpad-button-top);
+  right: var(--dpad-button-right);
+  bottom: var(--dpad-button-bottom);
+  left: var(--dpad-button-left);
   display: block;
   width: calc(var(--dpad-button-size) * 2.8 + var(--dpad-button-size) / 3);
   height: calc(var(--dpad-button-size) * 2.8 + var(--dpad-button-size) / 3);
@@ -129,4 +135,13 @@ sim-el[dpad-button].dpad-left::before {
 
 sim-el[dpad-button].dpad-left.active::before {
   transform: translateX(-3px);
+}
+
+@media screen and (orientation: portrait) {
+  sim-dpad {
+    --dpad-button-size: 62px;
+    --dpad-button-top: auto;
+    --dpad-button-left: 80px;
+    --dpad-button-bottom: 400px;
+  }
 }

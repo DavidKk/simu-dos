@@ -7,6 +7,10 @@ import type { Game, GalleryPlayEventPayload } from '@/types'
 import { deprecated, requestFullscreen } from '@/utils'
 import jQuery from '@/services/jQuery'
 
+const GALLERY_ITEM_SELECTER = 'gallery-item'
+const GAME_ATTR = 'game'
+const GAME_STYLE_VAR = '--sim-gallery-item-background-image'
+
 @define('gallery')
 export default class Gallery extends Component {
   static get Events() {
@@ -92,8 +96,13 @@ export default class Gallery extends Component {
       jQuery(document.body).addEventsListener('keypress', (event: KeyboardEvent) => {
         if (event.key === 'Enter') {
           const node = this.games[this.selected]
-          const gameId = node.getAttr('game')
-          gameId && this.dispatchEvent(new Gallery.Events.Play({ gameId }))
+          const gameId = node.getAttr(GAME_ATTR)
+
+          if (gameId) {
+            const gameCover = node.style.getPropertyValue(GAME_STYLE_VAR)
+            this.dispatchEvent(new Gallery.Events.Play({ gameId, gameCover }))
+          }
+
           requestFullscreen()
         }
       })
@@ -101,30 +110,27 @@ export default class Gallery extends Component {
   }
 
   protected mapTouchSelectToElmement(target: Component) {
-    jQuery(target).addEventsListener(PointerEvent.Start, (event) => {
-      event.preventDefault()
-      event.stopPropagation()
+    return deprecated(
+      jQuery(target).addEventsListener(PointerEvent.Start, (event) => {
+        event.preventDefault()
+        event.stopPropagation()
 
-      const gameId = target.getAttribute('game')
-      gameId && this.dispatchEvent(new Gallery.Events.Play({ gameId }))
-      requestFullscreen()
-    })
+        const gameId = target.getAttribute(GAME_ATTR)
+        const gameCover = target.style.getPropertyValue(GAME_STYLE_VAR)
+        gameId && this.dispatchEvent(new Gallery.Events.Play({ gameId, gameCover }))
+        requestFullscreen()
+      })
+    )
   }
 
   protected add(game: Game) {
-    const element = this.appendElement('gallery-item')
-    element.setAttr('game', game.id)
-    element.style.backgroundImage = `url(${game.cover})`
+    const element = this.appendElement(GALLERY_ITEM_SELECTER)
+    element.setAttr(GAME_ATTR, game.id)
+
+    const coverStyle = `url(${game.cover})`
+    element.style.setProperty(GAME_STYLE_VAR, coverStyle)
+
     this.mapTouchSelectToElmement(element)
     return element
-  }
-
-  public onSelected(handle: (id: string) => void) {
-    return this.addEventsListener(Gallery.Events.Play.EventType, (event) => {
-      if (Gallery.Events.Play.is(event)) {
-        const { gameId } = event.detail
-        gameId && handle(gameId)
-      }
-    })
   }
 }

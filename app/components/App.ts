@@ -31,8 +31,9 @@ export default class App extends Component {
     id && this.play(id)
 
     return deprecated(
-      this.gallery.onSelected(async (id) => {
-        await this.play(id)
+      Gallery.Events.Play.listen(async (event) => {
+        const { gameId } = event.detail
+        await this.play(gameId)
       }),
       DosBox.Events.Exit.listen(() => {
         this.gallery.show()
