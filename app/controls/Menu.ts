@@ -61,7 +61,8 @@ export default class Menu extends Component {
       jQuery(document).addEventsListener('fullscreenchange', () => {
         this.toggle(!document.fullscreenElement)
       }),
-      this.google.addEventsListener(PointerEvent.Start, async () => {
+      // must be a click event
+      this.google.addEventsListener('click', async () => {
         const upload = async () => {
           if (this.isUploading) {
             return
