@@ -4,6 +4,8 @@ import SimEvent from '@/libs/SimEvent'
 import type { NotificationToastEventPayload } from '@/types'
 import { deprecated, sleep } from '@/utils'
 
+const STYLE_CONTENT_LENGTH_NAME = '--sim-notification-content-length'
+
 @define('notification')
 export default class Notification extends Component {
   static get Events() {
@@ -72,7 +74,7 @@ export default class Notification extends Component {
   }
 
   protected writeContentToToast(node: Component, message: string) {
-    node.style.setProperty('--notification-content-length', message.length.toString())
+    node.style.setProperty(STYLE_CONTENT_LENGTH_NAME, message.length.toString())
     const content = node.querySelector('[notification-content]')
     content && (content.innerHTML = message)
   }

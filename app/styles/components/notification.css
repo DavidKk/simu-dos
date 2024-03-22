@@ -1,12 +1,15 @@
 sim-notification {
-  --notification-height: 30px;
-  --notification-min-width: 30px;
-  --notification-background-height: calc(var(--notification-height) * 10);
-  --notification-enter-time: .64s;
-  --notification-leave-time: .8s;
-  --notification-content-enter-time: .8s;
-  --notification-content-enter-delay-time: var(--notification-enter-time);
-  --notification-content-length: 0;
+  --sim-notification-height: 30px;
+  --sim-notification-min-width: var(--sim-notification-height);
+  --sim-notification-background-height: calc(var(--sim-notification-height) * 10);
+  --sim-notification-enter-time: .64s;
+  --sim-notification-leave-time: .8s;
+  --sim-notification-content-enter-time: .8s;
+  --sim-notification-content-enter-delay-time: var(--sim-notification-enter-time);
+  --sim-notification-font-size: 12px;
+  --sim-notification-content-length: 0;
+  --sim-notification-char-width: 8.3px;
+  --sim-notification-y: 20px;
 
   position: fixed;
   top: 0;
@@ -26,17 +29,17 @@ sim-el[notification] {
   position: absolute;
   overflow: hidden;
   margin: 0 auto;
-  border-radius: 15px;
+  border-radius: var(--sim-notification-height);
 	padding: 5px;
-	min-width: var(--notification-min-width);
-  height: var(--notification-height);
+	min-width: var(--sim-notification-min-width);
+  height: var(--sim-notification-height);
   text-align: center;
-	font-size: 12px;
+	font-size: var(--sim-notification-font-size);
   font-weight: bold;
   color: var(--color-black);
   background-color: rgba(var(--white), var(--opacity-80));
   box-shadow: 0 0 4px rgba(var(--black), var(--opacity-60));
-  animation: notification-dropdown-enter var(--notification-enter-time);
+  animation: notification-dropdown-enter var(--sim-notification-enter-time);
   animation-fill-mode: forwards;
 }
 
@@ -48,7 +51,7 @@ sim-el[notification]::after {
   z-index: 0;
   display: block;
   width: 100%;
-  height: var(--notification-background-height);
+  height: var(--sim-notification-background-height);
   background: -webkit-gradient(
     linear,
     0% -15%,
@@ -64,21 +67,25 @@ sim-el[notification]::after {
 
 sim-el[notification] > sim-spinner,
 sim-el[notification] > sim-spinner sim-el[circle] {
+  --sim-spinner-width: 0;
+  --sim-spinner-height: 0;
+
   opacity: var(--opacity-0);
   transform: scale(0);
-  width: 0;
   transition: all .16s ease-in-out;
 }
 
 sim-el[notification].loading > sim-spinner,
 sim-el[notification].loading > sim-spinner sim-el[circle] {
+  --sim-spinner-width: 20px;
+  --sim-spinner-height: 22px;
+
   opacity: var(--opacity-100);
-  width: 20px;
   transform: scale(.8);
 }
 
 sim-el[notification].complete {
-  animation: notification-dropdown-leave var(--notification-leave-time);
+  animation: notification-dropdown-leave var(--sim-notification-leave-time);
   animation-fill-mode: forwards;
 }
 
@@ -90,45 +97,61 @@ sim-el[notification-content] {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  width: calc(var(--notification-content-length) * 8.3px);
-  height: var(--notification-height);
+  width: calc(var(--sim-notification-content-length) * var(--sim-notification-char-width));
+  height: var(--sim-notification-height);
   white-space: inherit;
   word-break: keep-all;
   white-space: nowrap;
   text-overflow: ellipsis;
   color: rgb(var(--white));
   text-shadow: 0px 0px 7px rgba(var(--black), var(--opacity-40));
-  transition: width var(--notification-content-enter-time) ease-in-out;
+  transition: width var(--sim-notification-content-enter-time) ease-in-out;
 }
 
 sim-el[notification].loading sim-el[notification-content] {
   width: 0;
   animation-name: notification-content-enter;
-  animation-duration: var(--notification-content-enter-time);
-  animation-delay: var(--notification-content-enter-delay-time);
+  animation-duration: var(--sim-notification-content-enter-time);
+  animation-delay: var(--sim-notification-content-enter-delay-time);
   animation-fill-mode: forwards;
 }
 
 @keyframes notification-content-enter {
   from { width: 0; }
-  to { width: calc(var(--notification-content-length) * 8.3px); }
+  to { width: calc(var(--sim-notification-content-length) * var(--sim-notification-char-width)); }
 }
 
 @keyframes notification-dropdown-enter {
   from { transform: translate(0, -100px); }
-  25% { transform: translate(0, 20px); }
-  30% { transform: translate(0, 22px); }
-  100% { transform: translate(0, 20px); }
+  25% { transform: translate(0, var(--sim-notification-y)); }
+  30% { transform: translate(0, calc(var(--sim-notification-y) + calc(var(--sim-notification-y) / 10))); }
+  100% { transform: translate(0, var(--sim-notification-y)); }
 }
 
 @keyframes notification-dropdown-leave {
-  from { transform: translate(0, 20px); }
-  25% { transform: translate(0, 25px); }
+  from { transform: translate(0, var(--sim-notification-y)); }
+  25% { transform: translate(0, calc(var(--sim-notification-y) + calc(var(--sim-notification-y) / 4))); }
   100% { transform: translate(0, -100px); }
 }
 
 @keyframes notification-rotate {
   0% { top: 0; }
-  50% { top: calc(var(--notification-height) - var(--notification-background-height)); }
+  50% { top: calc(var(--sim-notification-height) - var(--sim-notification-background-height)); }
   100% { top: 0; }
+}
+
+@media screen and (orientation: portrait) {
+  sim-notification {
+    --sim-notification-y: 40px;
+    --sim-notification-height: 60px;
+    --sim-notification-font-size: 24px;
+    --sim-notification-char-width: 13px;
+  }
+
+
+  sim-el[notification].loading > sim-spinner,
+  sim-el[notification].loading > sim-spinner sim-el[circle] {
+    --sim-spinner-width: 40px;
+    --sim-spinner-height: 44px;
+  }
 }

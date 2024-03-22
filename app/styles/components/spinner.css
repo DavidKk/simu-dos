@@ -1,8 +1,11 @@
 sim-spinner {
+  --sim-spinner-width: 20px;
+  --sim-spinner-height: 22px;
+
   display: block;
   z-index: 999;
-  width: 20px;
-  height: 22px;
+  width: var(--sim-spinner-width);
+  height: var(--sim-spinner-height);
   border-radius: 100%;
   animation: spin 3s infinite linear;
 }
