@@ -142,6 +142,6 @@ sim-el[dpad-button].dpad-left.active::before {
     --dpad-button-size: 62px;
     --dpad-button-top: auto;
     --dpad-button-left: 80px;
-    --dpad-button-bottom: 400px;
+    --dpad-button-bottom: 100px;
   }
 }

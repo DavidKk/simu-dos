@@ -1,16 +1,22 @@
 sim-joystick {
-  --joystick-size: 100px;
-  --joystick-left: 50px;
-  --joystick-bottom: 50px;
+  --sim-joystick-size: 100px;
+  --sim-joystick-top: auto;
+  --sim-joystick-right: auto;
+  --sim-joystick-bottom: 50px;
+  --sim-joystick-left: 50px;
 
   position: absolute;
-  bottom: var(--joystick-bottom);
-  left: var(--joystick-left);
+  top: var(--sim-joystick-top);
+  right: var(--sim-joystick-right);
+  bottom: var(--sim-joystick-bottom);
+  left: var(--sim-joystick-left);
   z-index: 4;
   display: block;
+  margin: auto;
   border: 8px solid var(--color-primary);
   border-radius: 100%;
-  width: var(--joystick-size);
+  width: var(--sim-joystick-size);
+  height: var(--sim-joystick-size);
   font-size: var(--font-size-medium);
   background-color: var(--color-primary);
   box-shadow:
@@ -23,23 +29,16 @@ sim-joystick {
   cursor: pointer;
 }
 
-@media screen and (orientation: portrait) {
-  sim-joystick {
-    --joystick-size: 150px;
-    --joystick-left: 100px;
-    --joystick-bottom: 100px;
-  }
-}
-
 sim-el[joystick-stick] {
-  --joystick-stick-size: 50%;
+  --sim-joystick-stick-size: 50%;
 
   position: absolute;
-  top: calc((100% - var(--joystick-stick-size)) / 2);
-  left: calc((100% - var(--joystick-stick-size)) / 2);
+  top: calc((100% - var(--sim-joystick-stick-size)) / 2);
+  left: calc((100% - var(--sim-joystick-stick-size)) / 2);
   display: block;
   border-radius: 100%;
-  width: var(--joystick-stick-size);
+  width: var(--sim-joystick-stick-size);
+  height: var(--sim-joystick-stick-size);
   background-color: var(--color-primary);
   transition: background-color .16s ease-in-out;
 }
@@ -56,4 +55,13 @@ sim-joystick.active,
 sim-joystick.active sim-el[joystick-stick] {
   pointer-events: none;
   background-color: var(--color-mute);
+}
+
+@media screen and (orientation: portrait) {
+  sim-joystick {
+    --sim-joystick-size: 150px;
+    --sim-joystick-left: 0;
+    --sim-joystick-right: 0;
+    --sim-joystick-bottom: 25%;
+  }
 }
