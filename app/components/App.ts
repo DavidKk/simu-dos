@@ -5,6 +5,7 @@ import Menu from '@/controls/Menu'
 import Firefly from '@/components/Firefly'
 import PointerEvent from '@/constants/event'
 import { define, Component } from '@/libs/Component'
+import { isMobile } from '@/services/device'
 import jQuery from '@/services/jQuery'
 import { deprecated } from '@/utils'
 import DosBox from '@/libs/DosBox'
@@ -25,7 +26,7 @@ export default class App extends Component {
     this.gallery = this.appendElement(Gallery)
     this.menu = this.appendElement(Menu)
     this.notification = this.appendElement(Notification)
-    this.firefly = this.appendElement(Firefly)
+    !isMobile && (this.firefly = this.appendElement(Firefly))
 
     const id = this.getGameIdByUrl()
     id && this.play(id)

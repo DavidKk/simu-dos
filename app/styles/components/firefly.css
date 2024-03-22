@@ -12,7 +12,6 @@ sim-firefly {
   width: 100vw;
   height: 100vh;
   animation: breathe 270s infinite ease-in-out;
-  pointer-events: none;
   user-select: none;
 }
 
