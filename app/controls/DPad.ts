@@ -50,6 +50,11 @@ export default class DPad extends Component {
     ])
 
     return deprecated(
+      this.addEventsListener(PointerEvent.End, (event) => {
+        event.preventDefault()
+        event.stopPropagation()
+      }),
+
       this.up.addEventsListener(PointerEvent.Start, wrapTouchDown('up', this.up)),
       this.right.addEventsListener(PointerEvent.Start, wrapTouchDown('right', this.right)),
       this.down.addEventsListener(PointerEvent.Start, wrapTouchDown('down', this.down)),

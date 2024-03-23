@@ -15,6 +15,7 @@ sim-dpad {
   height: calc(var(--dpad-button-size) * 2.8 + var(--dpad-button-size) / 3);
   font-size: var(--font-size-medium);
   pointer-events: none;
+  touch-action: none;
 }
 
 sim-dpad::before {
@@ -34,6 +35,8 @@ sim-dpad::before {
     0 0 14px rgba(255,255,255,.05)
   ;
   transform: rotate(45deg);
+  pointer-events: none;
+  touch-action: none;
 }
 
 sim-el[dpad-button] {
@@ -50,6 +53,12 @@ sim-el[dpad-button] {
   background-color: var(--color-primary);
   cursor: pointer;
   pointer-events: auto;
+  touch-action: auto;
+}
+
+sim-el[dpad-button] > * {
+  pointer-events: none;
+  touch-action: none;
 }
 
 sim-el[dpad-button]::before {
