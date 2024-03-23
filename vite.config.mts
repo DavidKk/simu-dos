@@ -7,6 +7,9 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ?  '/simu-dos/' : '/',
+  define: {
+    'import.meta.env.BUILD': Date.now(),
+  },
   server: {
     host: '0.0.0.0',
   },

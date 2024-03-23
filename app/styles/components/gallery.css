@@ -12,8 +12,8 @@ sim-gallery {
   flex-wrap: wrap;
   overflow-y: auto;
   gap: var(--sim-gallery-gutter);
-  margin-top: 60px;
-  padding: var(--sim-gallery-gutter);
+  margin-top: 80px;
+  padding: 0 var(--sim-gallery-gutter) var(--sim-gallery-gutter);
   width: 100%;
 }
 
@@ -129,7 +129,7 @@ sim-el[gallery-item].active::after {
 
 @media screen and (orientation: portrait) {
   sim-gallery {
-    margin-top: 80px;
+    margin-top: 100px;
   }
 
   html.mobile sim-gallery {
