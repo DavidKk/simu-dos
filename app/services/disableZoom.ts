@@ -3,17 +3,13 @@ import { deprecated } from '@/utils'
 import PointerEvent from '@/constants/event'
 
 export default function disableZoom() {
-  let lastTouchEnd = 0
   return deprecated(
+    // make sure there are no other document touchend events
     jQuery(document).addEventsListener(
       PointerEvent.End,
       (event) => {
-        const now = Date.now()
-        if (now - lastTouchEnd <= 300) {
-          event.preventDefault()
-        }
-
-        lastTouchEnd = now
+        event.preventDefault()
+        event.stopPropagation()
       },
       false
     )

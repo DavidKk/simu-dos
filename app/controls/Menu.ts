@@ -5,7 +5,7 @@ import { googleSyncService } from '@/services/googleSyncService'
 import { define, Component } from '@/libs/Component'
 import SimEvent from '@/libs/SimEvent'
 import { deprecated, extract, upload } from '@/utils'
-import { DOWNLOAD_ARCHIVE_ICON, GOOGLE_ICON, KEYBOARD_ICON, UPLOAD_ARCHIVE_ICON } from '@/constants/icons'
+import { DOWNLOAD_ARCHIVE_ICON, GOOGLE_ICON, KEYBOARD_ICON, RESET_ICON, UPLOAD_ARCHIVE_ICON } from '@/constants/icons'
 import PointerEvent from '@/constants/event'
 import type { EmunUploadEventPayload, MenuGamePlayEventPayload, MenuSwitchEventPayload } from '@/types'
 
@@ -27,8 +27,13 @@ export default class Menu extends Component {
   protected google: Component
   protected download: Component
   protected upload: Component
+  protected reset: Component
 
   protected bindings() {
+    this.reset = this.appendElement('menu-item')
+    this.reset.setAttr('menu', 'download')
+    this.reset.innerHTML = RESET_ICON
+
     this.download = this.appendElement('menu-item')
     this.download.setAttr('menu', 'download')
     this.download.innerHTML = DOWNLOAD_ARCHIVE_ICON
@@ -51,6 +56,19 @@ export default class Menu extends Component {
     return deprecated(
       jQuery(document).addEventsListener('fullscreenchange', () => {
         this.toggle(!document.fullscreenElement)
+      }),
+      this.reset.addEventsListener(PointerEvent.Start, async () => {
+        if (!confirm('Are you sure you want to delete all offline data completely?')) {
+          return
+        }
+
+        const registrations = await navigator.serviceWorker.getRegistrations()
+        await Promise.allSettled(registrations.map((registration) => registration.unregister()))
+
+        const keys = await window.caches.keys()
+        await Promise.allSettled(keys.flatMap((key) => window.caches.delete(key)))
+
+        Notification.toast('Offline and cached data have been cleared successfully.')
       }),
       // must be a click event
       this.google.addEventsListener('click', async () => {

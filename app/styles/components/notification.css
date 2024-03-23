@@ -65,6 +65,10 @@ sim-el[notification]::after {
   animation: notification-rotate 17.5s infinite;
 }
 
+.mobile sim-el[notification]::after {
+  animation: none;
+}
+
 sim-el[notification] > sim-spinner,
 sim-el[notification] > sim-spinner sim-el[circle] {
   --sim-spinner-width: 0;
@@ -147,7 +151,6 @@ sim-el[notification].loading sim-el[notification-content] {
     --sim-notification-font-size: 24px;
     --sim-notification-char-width: 13px;
   }
-
 
   sim-el[notification].loading > sim-spinner,
   sim-el[notification].loading > sim-spinner sim-el[circle] {

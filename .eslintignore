@@ -1,6 +1,7 @@
 # Dest resouces
 /build
 /gh-pages
+/dev-dist
 
 # Husky
 .husky

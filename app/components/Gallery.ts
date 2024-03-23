@@ -1,11 +1,12 @@
 import { define, Component } from '@/libs/Component'
+import SimEvent from '@/libs/SimEvent'
+import jQuery from '@/services/jQuery'
+import { requestFullscreen } from '@/services/fullscreen'
+import { deprecated } from '@/utils'
 import { fetchGames } from '@/store/game'
 import PointerEvent from '@/constants/event'
-import SimEvent from '@/libs/SimEvent'
 import { ACTIVE_CLASSNAME } from '@/constants/definations'
 import type { Game, GalleryPlayEventPayload } from '@/types'
-import { deprecated, requestFullscreen } from '@/utils'
-import jQuery from '@/services/jQuery'
 
 const GALLERY_ITEM_SELECTER = 'gallery-item'
 const GAME_ATTR = 'game'
@@ -93,7 +94,7 @@ export default class Gallery extends Component {
         const node = this.games[this.selected]
         node && node.addClass(ACTIVE_CLASSNAME)
       }),
-      jQuery(document.body).addEventsListener('keypress', (event: KeyboardEvent) => {
+      jQuery(document.body).addEventsListener('keypress', async (event: KeyboardEvent) => {
         if (event.key === 'Enter') {
           const node = this.games[this.selected]
           const gameId = node.getAttr(GAME_ATTR)
@@ -103,7 +104,7 @@ export default class Gallery extends Component {
             this.dispatchEvent(new Gallery.Events.Play({ gameId, gameCover }))
           }
 
-          requestFullscreen()
+          await requestFullscreen()
         }
       })
     )
@@ -111,14 +112,15 @@ export default class Gallery extends Component {
 
   protected mapTouchSelectToElmement(target: Component) {
     return deprecated(
-      jQuery(target).addEventsListener(PointerEvent.Start, (event) => {
+      jQuery(target).addEventsListener(PointerEvent.Start, async (event) => {
         event.preventDefault()
         event.stopPropagation()
 
         const gameId = target.getAttribute(GAME_ATTR)
         const gameCover = target.style.getPropertyValue(GAME_STYLE_VAR)
         gameId && this.dispatchEvent(new Gallery.Events.Play({ gameId, gameCover }))
-        requestFullscreen()
+
+        await requestFullscreen()
       })
     )
   }

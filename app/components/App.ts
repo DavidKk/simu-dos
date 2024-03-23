@@ -1,15 +1,15 @@
+import { define, Component } from '@/libs/Component'
+import DosBox from '@/libs/DosBox'
 import Game from '@/components/Game'
 import Gallery from '@/components/Gallery'
 import Notification from '@/components/Notification'
-import Menu from '@/controls/Menu'
 import Firefly from '@/components/Firefly'
-import PointerEvent from '@/constants/event'
-import { define, Component } from '@/libs/Component'
-import { isMobile } from '@/services/device'
+import Menu from '@/controls/Menu'
 import jQuery from '@/services/jQuery'
+import { requestFullscreen } from '@/services/fullscreen'
 import { deprecated } from '@/utils'
-import DosBox from '@/libs/DosBox'
 import { isGameName } from '@/store/game'
+import PointerEvent from '@/constants/event'
 
 @define('app')
 export default class App extends Component {
@@ -26,7 +26,7 @@ export default class App extends Component {
     this.gallery = this.appendElement(Gallery)
     this.menu = this.appendElement(Menu)
     this.notification = this.appendElement(Notification)
-    !isMobile && (this.firefly = this.appendElement(Firefly))
+    this.firefly = this.appendElement(Firefly)
 
     const id = this.getGameIdByUrl()
     id && this.play(id)
@@ -40,11 +40,10 @@ export default class App extends Component {
         this.gallery.show()
         Menu.Events.GamePlay.dispatch({ gameplay: false })
       }),
-      jQuery(document.body).addEventsListener('keydown', (event: KeyboardEvent) => {
+      jQuery(document.body).addEventsListener('keydown', async (event: KeyboardEvent) => {
         // 全屏
         if (document.fullscreenEnabled && (event.metaKey || event.ctrlKey) && event.key === 'Enter') {
-          this.requestPointerLock()
-          this.requestFullscreen()
+          await requestFullscreen(this)
           return
         }
 

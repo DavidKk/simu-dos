@@ -24,5 +24,3 @@ export * from './sleep'
 export * from './narrowType'
 export * from './omit'
 export * from './deprecated'
-
-export * from './fullscreen'
