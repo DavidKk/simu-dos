@@ -59,7 +59,7 @@ importers:
         version: 14.0.1
       postcss-pxtorem:
         specifier: ^6.1.0
-        version: 6.1.0(postcss@8.4.35)
+        version: 6.1.0(postcss@8.4.38)
       prettier:
         specifier: ^3.0.3
         version: 3.2.5
@@ -85,8 +85,8 @@ importers:
         specifier: ^0.21.0
         version: 0.21.0(rollup@2.79.1)(vite@5.2.6)
       vite-plugin-pwa:
-        specifier: ^0.19.5
-        version: 0.19.5(vite@5.2.6)(workbox-build@7.0.0)(workbox-window@7.0.0)
+        specifier: ^0.19.7
+        version: 0.19.7(vite@5.2.6)(workbox-build@7.0.0)(workbox-window@7.0.0)
       vite-plugin-static-copy:
         specifier: ^1.0.1
         version: 1.0.1(vite@5.2.6)
@@ -5641,21 +5641,12 @@ packages:
       find-up: 5.0.0
     dev: true
 
-  /postcss-pxtorem@6.1.0(postcss@8.4.35):
+  /postcss-pxtorem@6.1.0(postcss@8.4.38):
     resolution: {integrity: sha512-ROODSNci9ADal3zUcPHOF/K83TiCgNSPXQFSbwyPHNV8ioHIE4SaC+FPOufd8jsr5jV2uIz29v1Uqy1c4ov42g==}
     peerDependencies:
       postcss: ^8.0.0
     dependencies:
-      postcss: 8.4.35
-    dev: true
-
-  /postcss@8.4.35:
-    resolution: {integrity: sha512-u5U8qYpBCpN13BsiEB0CbR1Hhh4Gc0zLFuedrHJKMctHCHAGrMdG0PRM/KErzAL3CU6/eckEtmHNB3x6e3c0vA==}
-    engines: {node: ^10 || ^12 || >=14}
-    dependencies:
-      nanoid: 3.3.7
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
+      postcss: 8.4.38
     dev: true
 
   /postcss@8.4.38:
@@ -6205,11 +6196,6 @@ packages:
     dependencies:
       ansi-styles: 6.2.1
       is-fullwidth-code-point: 4.0.0
-    dev: true
-
-  /source-map-js@1.0.2:
-    resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
-    engines: {node: '>=0.10.0'}
     dev: true
 
   /source-map-js@1.2.0:
@@ -6864,8 +6850,8 @@ packages:
       - rollup
     dev: true
 
-  /vite-plugin-pwa@0.19.5(vite@5.2.6)(workbox-build@7.0.0)(workbox-window@7.0.0):
-    resolution: {integrity: sha512-3xJEc2Gmq6SBf730UAV1N2/MqOm+MiyvaLToSTglg+pH9b9qm666yPVxrBBlcOhGoJJWjJpu+Z9tROKek2CODg==}
+  /vite-plugin-pwa@0.19.7(vite@5.2.6)(workbox-build@7.0.0)(workbox-window@7.0.0):
+    resolution: {integrity: sha512-18TECxoGPQE7tVZzKxbf5Icrl5688n1JGMPSgGotTsh89vLDxevY7ICfD3CFVfonZXh8ckuyJXg0NXE5+FAl2A==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       '@vite-pwa/assets-generator': ^0.2.4
