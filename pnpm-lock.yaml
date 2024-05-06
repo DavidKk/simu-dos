@@ -88,8 +88,8 @@ importers:
         specifier: ^0.19.5
         version: 0.19.5(vite@5.2.8)(workbox-build@7.0.0)(workbox-window@7.0.0)
       vite-plugin-static-copy:
-        specifier: ^1.0.1
-        version: 1.0.1(vite@5.2.8)
+        specifier: ^1.0.3
+        version: 1.0.3(vite@5.2.8)
 
   app:
     dependencies:
@@ -6872,8 +6872,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-static-copy@1.0.1(vite@5.2.8):
-    resolution: {integrity: sha512-3eGL4mdZoPJMDBT68pv/XKIHR4MgVolStIxxv1gIBP4R8TpHn9C9EnaU0hesqlseJ4ycLGUxckFTu/jpuJXQlA==}
+  /vite-plugin-static-copy@1.0.3(vite@5.2.8):
+    resolution: {integrity: sha512-hBCCz6T0uNI3oF5oJ/Ju73rhoR+ADrJ2iLAea5+wA7kpQ8clYgY8BD+GL0w0BrqsYCbgBITOByBP/3y9Y+h93A==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       vite: ^5.0.0
