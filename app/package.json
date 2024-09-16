@@ -5,7 +5,7 @@
   "main": "./index.ts",
   "dependencies": {
     "@dumlj/cloudfs": "0.0.1-alpha.1710958967.0+1d9d97c",
-    "js-dos": "6.22.60",
+    "js-dos": "8.2.3",
     "utility-types": "^3.10.0",
     "jszip": "^3.10.1"
   }
