@@ -39,7 +39,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "postcss-pxtorem": "^6.1.0",
-    "prettier": "^3.0.3",
+    "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
     "ts-patch": "^3.0.2",
     "tslib": "^2.6.2",
